@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.h,v 1.4 2002/11/07 14:36:54 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.h,v 1.5 2002/11/07 16:58:21 ama Exp $
  */
 
 #ifndef __THREAD_H__
@@ -183,7 +183,7 @@ namespace zefiro_system {
 			std::vector<Thread *> threads_;
 		public:
 			/**
-			 * __threadsに登録してあるスレッドを削除する。
+			 * 登録してあるスレッドを削除する。
 			 * \param thread 削除するスレッド
 			 */
 			void removeThread( Thread *thread ){
@@ -197,7 +197,7 @@ namespace zefiro_system {
 				}
 			}
 			/**
-			 * __threadsに登録してある現在のスレッドのイテレータを返す。
+			 * 登録してある現在のスレッドのイテレータを返す。
 			 */
 			std::vector<Thread*>::iterator getCurrentThreadIterator(){
 				int currentID = getCurrentThreadID();
