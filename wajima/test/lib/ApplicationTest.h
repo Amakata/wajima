@@ -13,8 +13,6 @@ public:
 	ApplicationTest( HWND hWnd );
 	virtual ~ApplicationTest();
 	void testUnit();
-	void testGetAdapterDeviceInfo();
-	void demoDirectX();
 	void testThread();
 	void testThreadNotify();
 protected:

@@ -2,16 +2,16 @@
 
 #include "ApplicationTest.h"
 
-#include "graphics/sys/D3D8.h"
-#include "graphics/sys/D3DDevice.h"
-#include "graphics/sys/D3DTexture.h"
 #include "system/Process.h"
 #include "std/Logger.h"
 #include "Config.h"
 #include "ThreadTest.h"
-#include <cppunit/TextTestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
-#include <cppunit/TextOutputter.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/TestResult.h>
+#include <cppunit/TestResultCollector.h>
+#include <cppunit/TestRunner.h>
+#include <cppunit/TextTestProgressListener.h>
 #include <stdlib.h>
 #include <mmsystem.h>
 HWND hWnd__ = 0;
@@ -30,57 +30,35 @@ ApplicationTest::~ApplicationTest(){
 void ApplicationTest::testUnit(){
 	std::ofstream ofs;
 	ofs.open( Config::config__->getCStr("unittestfile") );
-    CppUnit::TextUi::TestRunner runner;        
-    runner.addTest( CppUnit::TestFactoryRegistry::getRegistry().makeTest() );
-    runner.setOutputter( new CppUnit::TextOutputter(&runner.result(),ofs ) );
-    runner.run( "" , true );
+	// Create the event manager and test controller
+	CppUnit::TestResult controller;
+	// Add a listener that colllects test result
+	CppUnit::TestResultCollector result;
+	controller.addListener( &result );        
+	// Add a listener that print dots as test run.
+	CppUnit::TextTestProgressListener progress;
+	controller.addListener( &progress );      
+	// Add the top suite to the test runner
+	CppUnit::TestRunner runner;
+	runner.addTest( CppUnit::TestFactoryRegistry::getRegistry().makeTest() );   
+	try
+	{
+		std::cout << "Running ";
+		runner.run( controller, "" );
+		std::cerr << std::endl;
+		// Print test in a compiler compatible format.
+		CppUnit::CompilerOutputter outputter( &result, ofs );
+		outputter.write();                      
+	}
+	catch ( std::invalid_argument &e )  // Test path not resolved
+	{
+		std::cerr	<<  std::endl  
+					<<  "ERROR: "  <<  e.what()
+					<< std::endl;
+		return;
+	}
     ofs.close();
 	exec( Config::config__->getString("editor") + " " + Config::config__->getString("unittestfile") );
-}
-void ApplicationTest::testGetAdapterDeviceInfo(){
-    std::ofstream        ofs;
-    ofs.open( Config::config__->getCStr("devicefile") );
-    zefiro_graphics::D3D8 *d3d8 = new zefiro_graphics::D3D8();
-    std::vector<zefiro_graphics::Adapter> adapters = d3d8->getAdapterVector();
-    for( std::vector<zefiro_graphics::Adapter>::iterator adapter = adapters.begin() ; adapter < adapters.end(); ++adapter ){
-		ofs << adapter->toString() << std::endl;
-    }
-    delete d3d8;
-    ofs.close();
-	exec( Config::config__->getString("editor") + " " + Config::config__->getString("devicefile") );
-}
-void ApplicationTest::demoDirectX(){
-	zefiro_graphics::D3DTexture *tex[4];
-	zefiro_graphics::D3D8 *d3d8 = new zefiro_graphics::D3D8();
-	zefiro_graphics::D3DDevice *device = d3d8->createDevice(
-													0 ,
-													zefiro_graphics::Mode(
-														Config::config__->getInteger("graphics_device_width") ,
-														Config::config__->getInteger("graphics_device_height") ,
-														0 ,
-														D3DFMT_X8R8G8B8
-													) , 
-													Config::config__->getBool("graphics_device_windowmode") ,
-													Config::config__->getBool("graphics_device_threaded"),
-													hWnd_ 
-												);
-	zefiro_graphics::D3DFont *font = device->createFont( 16 , 32 , "‚l‚r ‚oƒSƒVƒbƒN" );
-	
-	tex[0] = device->loadTexture( Config::config__->getString("graphics_texture_filename_red") );
-	tex[1] = device->loadTexture( Config::config__->getString("graphics_texture_filename_green") );
-	tex[2]= device->loadTexture( Config::config__->getString("graphics_texture_filename_blue") );
-	tex[3] = device->loadTexture( Config::config__->getString("graphics_texture_filename_box") );
-
-	int width = Config::config__->getInteger("graphics_device_width");
-	int height = Config::config__->getInteger("graphics_device_height");
-	int maxI = Config::config__->getInteger("graphics_texture_render_number_i");
-	int maxJ = Config::config__->getInteger("graphics_texture_render_number_j");
-	for( int k=0 ; k<4 ; ++k ){
-		delete tex[k];
-	}
-	delete font;
-	delete device;
-	delete d3d8;
 }
 void ApplicationTest::testThread(){
 	ThreadTest::create( hWnd_ );

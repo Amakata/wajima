@@ -170,22 +170,10 @@
 					Name="sys"
 					Filter="">
 					<File
-						RelativePath="test\lib\graphics\sys\AdapterTest.cpp">
-					</File>
-					<File
-						RelativePath="test\lib\graphics\sys\D3D8Test.cpp">
-					</File>
-					<File
-						RelativePath="test\lib\graphics\sys\D3DDeviceTest.cpp">
-					</File>
-					<File
 						RelativePath="test\lib\graphics\sys\DXAssertTest.cpp">
 					</File>
 					<File
 						RelativePath="test\lib\graphics\sys\DXExceptionTest.cpp">
-					</File>
-					<File
-						RelativePath="test\lib\graphics\sys\ModeTest.cpp">
 					</File>
 				</Filter>
 			</Filter>

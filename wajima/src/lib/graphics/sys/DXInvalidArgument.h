@@ -1,5 +1,5 @@
 /**
- * $Header : $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXInvalidArgument.h,v 1.3 2002/11/12 15:47:44 ama Exp $
  */
 #ifndef __DXINVALIDARGUMENT_H__
 #define __DXINVALIDARGUMENT_H__

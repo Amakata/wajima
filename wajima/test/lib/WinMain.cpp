@@ -168,10 +168,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			app->testThreadNotify();
 			break;
 		case IDM_DIRECTX_TEST:
-			app->demoDirectX();
 			break;
 		case IDM_DIRECTX_ADAPTER:
-			app->testGetAdapterDeviceInfo();
 			break;
 		case IDM_ABOUT:
 			DialogBox(hInst, (LPCTSTR)IDD_ABOUTBOX, hWnd, (DLGPROC)About);
