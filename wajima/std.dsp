@@ -97,6 +97,10 @@ SOURCE=.\src\lib\std\Exception.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\std\InvalidArgument.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\std\NotEqualException.cpp
 # End Source File
 # Begin Source File
@@ -130,6 +134,10 @@ SOURCE=.\src\lib\include\std\countptr.h
 # Begin Source File
 
 SOURCE=.\src\lib\include\std\Exception.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\std\InvalidArgument.h
 # End Source File
 # Begin Source File
 
