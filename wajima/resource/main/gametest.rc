@@ -1,0 +1,17 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/resource/main/gametest.rc,v 1.1 2002/05/10 19:41:41 ama Exp $
+ */
+
+#include <windows.h>
+#include "test/resource.h"
+#include <winver.h>
+
+TESTAPP MENU DISCARDABLE
+BEGIN
+	POPUP "&File"
+	BEGIN
+		MENUITEM "E&xit",			IDM_EXIT
+	END
+	MENUITEM "&Test!",				IDM_TEST
+	MENUITEM "&GameStart!",			IDM_GAME_START
+END
