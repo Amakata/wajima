@@ -41,4 +41,16 @@ namespace zefiro_stdtest {
 		}
 		zefiro_std::Assert::assertEquals( 100 , 100 , __LINE__ , __FILE__ );
 	}
+	void AssertTest::testAssertDoubleEqualsTemplate(){
+		try{
+			zefiro_std::Assert::assertEquals( 100.0 , -100.0 , 0.1 , 10L , __FILE__ );
+			failure("");
+		}catch( zefiro_std::NotEqualException &e ){
+			CPPUNIT_ASSERT_EQUAL( std::string(__FILE__) , e.getFileName() );
+			CPPUNIT_ASSERT_EQUAL( 10L , e.getLineNumber() );
+			CPPUNIT_ASSERT_EQUAL( std::string("100") , e.getExpectedValue() );
+			CPPUNIT_ASSERT_EQUAL( std::string("-100") , e.getActualValue() );
+		}
+		zefiro_std::Assert::assertEquals( 100.0 , 100.01 , 0.1 ,__LINE__ , __FILE__ );
+	}
 };
