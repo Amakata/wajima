@@ -1,38 +1,72 @@
-/**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/ModeTest.cpp,v 1.3 2002/04/29 16:25:57 ama Exp $
- */
+//CUPPA:include=+
+#include "graphics/sys/Mode.h"
+//CUPPA:include=-
+#include <cppunit/extensions/HelperMacros.h>
+#include <cppunit/TestAssert.h>
 
-#include <sstream>
 
-#include "graphics/sys/test/ModeTest.h"
+#define MODENUMBER	1
+#define WIDTH		800
+#define HEIGHT		600
+#define REFRESHRATE	0
+#define FORMAT	D3DFMT_R8G8B8
 
-CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_graphicstest::ModeTest );
 
-namespace zefiro_graphicstest{
-	void ModeTest::setUp(){
-		_mode = new zefiro_graphics::Mode( MODENUMBER , WIDTH , HEIGHT , REFRESHRATE , FORMAT );
-	}
-	void ModeTest::tearDown(){
-		delete _mode;
-	}
-	void ModeTest::testGetModeNumber(){
-		CPPUNIT_ASSERT_EQUAL( MODENUMBER , _mode->getModeNumber() );
-	}
-	void ModeTest::testGetWidth(){
-		CPPUNIT_ASSERT_EQUAL( WIDTH , _mode->getWidth() );
-	}
-	void ModeTest::testGetHeight(){
-		CPPUNIT_ASSERT_EQUAL( HEIGHT , _mode->getHeight() );
-	}
-	void ModeTest::testGetRefreshRate(){
-		CPPUNIT_ASSERT_EQUAL( REFRESHRATE , _mode->getRefreshRate() );
-	}
-	void ModeTest::testGetFormat(){
-		CPPUNIT_ASSERT_EQUAL( FORMAT , _mode->getFormat() );
-	}
-	void ModeTest::testToString(){
+//CUPPA:namespace=+
+namespace zefiro_graphics {
+//CUPPA:namespace=-
+
+class ModeTest : public CppUnit::TestFixture {
+  CPPUNIT_TEST_SUITE(ModeTest);
+//CUPPA:suite=+
+  CPPUNIT_TEST(testGetModeNumber);
+  CPPUNIT_TEST(testGetWidth);
+  CPPUNIT_TEST(testGetHeight);
+  CPPUNIT_TEST(testGetRefreshRate);
+  CPPUNIT_TEST(testGetFormat);
+  CPPUNIT_TEST(testToString);
+//CUPPA:suite=-
+  CPPUNIT_TEST_SUITE_END();
+private:
+	Mode*	mode_;
+  // your stuff...
+
+public:
+
+  virtual void setUp() { mode_ = new Mode( MODENUMBER , WIDTH , HEIGHT , REFRESHRATE , FORMAT ); }
+  virtual void tearDown() { delete mode_; }
+
+//CUPPA:decl=+
+  void testGetModeNumber() {
+	CPPUNIT_ASSERT_EQUAL( MODENUMBER , mode_->getModeNumber() );
+  }
+  void testGetWidth() {
+		CPPUNIT_ASSERT_EQUAL( WIDTH , mode_->getWidth() );
+  }
+  void testGetHeight() {
+		CPPUNIT_ASSERT_EQUAL( HEIGHT , mode_->getHeight() );
+  }
+  void testGetRefreshRate() {
+		CPPUNIT_ASSERT_EQUAL( REFRESHRATE , mode_->getRefreshRate() );
+  }
+  void testGetFormat() {
+		CPPUNIT_ASSERT_EQUAL( FORMAT , mode_->getFormat() );
+  }
+  void testToString() {
 		std::ostringstream oss;
 		oss << WIDTH << " " << HEIGHT << " " << REFRESHRATE << " " << FORMAT;
-		CPPUNIT_ASSERT_EQUAL( oss.str() , _mode->toString() );
-	}
+		CPPUNIT_ASSERT_EQUAL( oss.str() , mode_->toString() );
+  }
+//CUPPA:decl=-
+};
+
+}
+
+namespace zefiro_graphics {
+//CUPPA:impl=+
+//CUPPA:impl=-
+
+CPPUNIT_TEST_SUITE_REGISTRATION(ModeTest);
+CPPUNIT_TEST_SUITE_NAMED_REGISTRATION(ModeTest,"zefiro_graphics");
+
 }
