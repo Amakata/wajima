@@ -52,7 +52,10 @@ WARN_LOGFILE           =
 # configuration options related to the input files
 #---------------------------------------------------------------------------
 INPUT                  = ../src/lib/graphics/ \
-                         ../src/lib/include/
+                         ../src/lib/include/ \
+						 ../src/lib/std/ \
+						 ../src/main/game/ \
+						 ../src/main/include/
 FILE_PATTERNS          = *.cpp \
                          *.h
 RECURSIVE              = YES
