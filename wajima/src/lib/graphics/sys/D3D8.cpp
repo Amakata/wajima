@@ -3,14 +3,17 @@
 namespace zefiro_graphics {
 	D3D8::D3D8(){
 		_pD3D = Direct3DCreate8( D3D_SDK_VERSION );
-		if( NULL == _pD3D ){
-			
-		}
 	}
 	D3D8::~D3D8(){
-		_pD3D->Release();
+		if( isAvailable() ){
+			_pD3D->Release();
+		}
 	}
 	int D3D8::getModeSize() const{
+		ZEFIRO_STD_ASSERT( isAvailable() );
 		return _pD3D->GetAdapterCount();
+	}
+	bool D3D8::isAvailable() const{
+		return _pD3D != NULL;
 	}
 };
