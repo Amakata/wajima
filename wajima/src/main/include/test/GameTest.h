@@ -11,12 +11,12 @@
 namespace zefiro_gametest{
 	class GameTest : public CppUnit::TestCase {
 		CPPUNIT_TEST_SUITE( GameTest );
-//		CPPUNIT_TEST( test );
+		CPPUNIT_TEST( testGetPlayerSize );
 		CPPUNIT_TEST_SUITE_END();
 	public:
 		void setUp();
 		void tearDown();
-//		void test();
+		void testGetPlayerSize();
 	protected:
 		zefiro_game::Game *_game;
 	};
