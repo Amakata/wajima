@@ -1,8 +1,5 @@
 /**
- * $Log: GameTest.cpp,v $
- * Revision 1.3  2002/04/28 13:20:23  ama
- * キーワードを追加した。
- *
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/GameTest.cpp,v 1.4 2002/04/28 13:24:31 ama Exp $
  */
 
 #include "test/GameTest.h"

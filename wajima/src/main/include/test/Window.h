@@ -1,8 +1,5 @@
 /**
- * $Log: Window.h,v $
- * Revision 1.2  2002/04/28 13:20:16  ama
- * キーワードを追加した。
- *
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/include/test/Attic/Window.h,v 1.3 2002/04/28 13:24:24 ama Exp $
  */
 
 #ifndef __WINDOW_H__

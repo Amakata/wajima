@@ -1,8 +1,5 @@
 /**
- * $Log: Game.cpp,v $
- * Revision 1.2  2002/04/28 13:20:28  ama
- * キーワードを追加した。
- *
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/Game.cpp,v 1.3 2002/04/28 13:24:35 ama Exp $
  */
 
 #include "Game.h"

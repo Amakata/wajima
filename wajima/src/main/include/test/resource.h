@@ -1,8 +1,5 @@
 /**
- * $Log: resource.h,v $
- * Revision 1.2  2002/04/28 13:20:16  ama
- * キーワードを追加した。
- *
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/include/test/Attic/resource.h,v 1.3 2002/04/28 13:24:24 ama Exp $
  */
 
 #define IDM_EXIT	100

@@ -1,8 +1,5 @@
 /**
- * $Log: graphicstest.rc,v $
- * Revision 1.3  2002/04/28 13:20:23  ama
- * キーワードを追加した。
- *
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/graphicstest.rc,v 1.4 2002/04/28 13:24:31 ama Exp $
  */
 
 #include <windows.h>
