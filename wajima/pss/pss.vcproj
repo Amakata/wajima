@@ -22,6 +22,7 @@
 				Optimization="0"
 				OptimizeForWindowsApplication="FALSE"
 				AdditionalIncludeDirectories="&quot;$(ProjectDir)src&quot;;&quot;$(SolutionDir)include&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;LOG4CXX;LOG4CXX_STATIC"
 				RuntimeLibrary="1"
 				ForceConformanceInForLoopScope="TRUE"
 				RuntimeTypeInfo="TRUE"
@@ -61,7 +62,8 @@
 			ConfigurationType="4"
 			CharacterSet="2">
 			<Tool
-				Name="VCCLCompilerTool"/>
+				Name="VCCLCompilerTool"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;LOG4CXX;LOG4CXX_STATIC"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
