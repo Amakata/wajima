@@ -1,9 +1,11 @@
 #include <fstream>
 #include <windows.h>
 
-#include <std/test/WindowClass.h>
-#include <std/test/Window.h>
-#include <std/test/resource.h>
+#include <graphics/sys/D3D8.h>
+
+#include <graphics/test/WindowClass.h>
+#include <graphics/test/Window.h>
+#include <graphics/test/resource.h>
 
 #include <cppunit/TextTestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
@@ -50,6 +52,18 @@ void UnitTest(){
 	ofs.close();
 }
 
+void AdapterDeviceOutput(){
+	std::ofstream	ofs;
+	ofs.open("AdapterDevice.txt");
+	zefiro_graphics::D3D8 *d3d8 = new zefiro_graphics::D3D8();
+	std::vector<zefiro_graphics::Adapter> adapters = d3d8->getAdapterVector();
+	for( std::vector<zefiro_graphics::Adapter>::iterator adapter = adapters.begin() ; adapter < adapters.end(); ++adapter ){
+		 ofs << adapter->toString() << std::endl;
+	}
+	delete d3d8;
+	ofs.close();
+}
+
 LRESULT CALLBACK WndProc( HWND hWnd ,
 						  UINT message ,
 						  WPARAM wParam ,
@@ -62,6 +76,10 @@ LRESULT CALLBACK WndProc( HWND hWnd ,
 		{
 		case IDM_TEST:
 			UnitTest();
+			PostQuitMessage(0);
+			break;
+		case IDM_ADAPTER_DEVICE_OUTPUT:
+			AdapterDeviceOutput();
 			PostQuitMessage(0);
 			break;
 		case IDM_EXIT:

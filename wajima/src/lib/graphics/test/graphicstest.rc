@@ -9,4 +9,5 @@ BEGIN
 		MENUITEM "E&xit",			IDM_EXIT
 	END
 	MENUITEM "&Test!",				IDM_TEST
+	MENUITEM "&AdapterDeviceOutput!",	IDM_ADAPTER_DEVICE_OUTPUT
 END
