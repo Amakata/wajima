@@ -139,6 +139,9 @@
 				RelativePath="KeyboardDevice.h">
 			</File>
 			<File
+				RelativePath="Logger.h">
+			</File>
+			<File
 				RelativePath="Resource.h">
 			</File>
 			<File
