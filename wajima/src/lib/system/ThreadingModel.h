@@ -1,3 +1,6 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/ThreadingModel.h,v 1.3 2002/11/14 16:53:14 ama Exp $
+ */
 #ifndef __THREADINGMODEL_H__
 #define __THREADINGMODEL_H__
 
