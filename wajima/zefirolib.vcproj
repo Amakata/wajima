@@ -271,6 +271,12 @@
 			<File
 				RelativePath="include\lib\std\countptr.h">
 			</File>
+			<File
+				RelativePath="include\lib\std\smartptr.h">
+			</File>
+			<File
+				RelativePath="include\lib\std\typemanip.h">
+			</File>
 		</Filter>
 	</Files>
 	<Globals>
