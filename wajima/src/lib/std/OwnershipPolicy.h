@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/OwnershipPolicy.h,v 1.1 2002/11/17 15:45:26 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/OwnershipPolicy.h,v 1.2 2002/11/20 23:11:41 ama Exp $
  */
 #ifndef __OWNERSHIPPOLICY_H__
 #define __OWNERSHIPPOLICY_H__
@@ -69,6 +69,8 @@ namespace zefiro_std {
     public:        
         NoOwnerRefCounted() 
         {
+            pCount_ = static_cast<unsigned int*>(Loki::SmallObject<>::operator new(sizeof(unsigned int)));
+            assert(pCount_);
         }       
 		NoOwnerRefCounted(const NoOwnerRefCounted& rhs) 
         : pCount_(rhs.pCount_)
@@ -90,6 +92,11 @@ namespace zefiro_std {
         
         bool Release(const P&, bool = false)
         {
+            if (!*pCount_)
+            {
+				Loki::SmallObject<>::operator delete(pCount_, sizeof(unsigned int));
+                return true;
+            }
             return false;
         }
         
