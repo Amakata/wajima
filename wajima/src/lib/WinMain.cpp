@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.9 2002/05/26 17:11:17 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.10 2002/05/31 19:12:44 ama Exp $
  */
 
 #include <fstream>
@@ -90,7 +90,7 @@ public:
 		std::ostringstream ostrstr;
 		ostrstr << thread << " " << thread->getThreadID();
 		HDC hdc = GetDC( g_hwnd );
-		for( int y=0 ; y<80 ; y+=16 ){
+		for( int y=0 ; y<16 ; y+=16 ){
 			TextOut(hdc,10,y,ostrstr.str().c_str(),ostrstr.str().size());
 			syncObject_->wait();
 		}
@@ -119,7 +119,7 @@ public:
 		if( !active__ ){
 			return;
 		}
-		if( count__ < 5 ){
+		if( count__ < 1 ){
 			r__->notify();
 			++count__;
 		}else{
@@ -173,6 +173,7 @@ LRESULT CALLBACK WndProc( HWND hWnd ,
 			ThreadTest::create();
 			ThreadTest::start();
 			Sleep(1000);
+			ThreadTest::notify();
 			process = new zefiro_system::Process("c:\\windows\\notepad.exe logger.txt");
 			process->start();
 			delete process;
