@@ -6,7 +6,9 @@
 #include <sstream>
 
 namespace zefiro_std{
-
+	/** 表明の特性クラス
+	 *	表明で比較をするオブジェクトの変換を行う。
+	 */
 	template <class T>
 	struct assertion_traits
 	{
@@ -14,6 +16,9 @@ namespace zefiro_std{
 		{
 			return x == y;
 		}
+		/**
+		 * x 文字列に変換するオブジェクト
+		 */
 		static std::string toString( const T& x ){
 			std::ostringstream oss;
 			oss << x;
@@ -21,19 +26,46 @@ namespace zefiro_std{
 		}
 	};
 
-
+	/**
+	 *	表明。
+	 *	プログラム内での条件チェックなどに用いる。
+	 */
 	namespace Assert {
-
-
-
+		/**
+		 * 表明の実装
+		 * 呼び出されて、conditionがもしもfalseならzefiro_std::Exceptionがthrowされる。
+		 * \param condition 状態
+		 * \param conditionExpression 状態の式
+		 * \param lineNumber	状態の行数
+		 * \param fileName		状態のファイル名
+		 * \throw zefiro_std::Exception 状態がfalseだった。
+		 */
 		void assertImplementation( bool         condition, 
 			                       std::string  conditionExpression = "",
 				                   long lineNumber = Exception::UNKNOWNLINENUMBER,
 					               std::string  fileName = Exception::UNKNOWNFILENAME );
+		/**
+		 * 非等価式の表明の実装。
+		 * 呼び出されると必ずzefiro_std::NotEqualExceptionがthrowされる。
+		 * \param expected 予想値
+		 * \param actual 現在値
+		 * \param lineNumber	状態の行数
+		 * \param fileName		状態のファイル名
+		 * \throw zefiro_std::NotEqualException 必ず発生する。
+		*/
 		void assertNotEqualImplementation( std::string expected,
 			                               std::string actual,
 						                   long lineNumber = Exception::UNKNOWNLINENUMBER,
 								           std::string  fileName = Exception::UNKNOWNFILENAME );
+		/**
+		 * 等価の表明
+		 * expectedとactualの値を比較し、等価でなければ、zefiro_std::NotEqualExceptionを発生させる。
+		 * \param expected 予想値
+		 * \param actual 現在値
+		 * \param lineNumber	評価したの行数
+		 * \param fileName		評価したソースファイル名		 
+		 * \throw zefiro_std::NotEqualException 予想値と現在値が異なった。
+		 */
 		template <class T>
 		void assertEquals(	const T& expected ,
 							const T& actual ,
@@ -43,6 +75,17 @@ namespace zefiro_std{
 				assertNotEqualImplementation( assertion_traits<T>::toString(expected) , assertion_traits<T>::toString(actual) , lineNumber , fileName );
 			}
 		}
+		/**
+		 * 等価の表明
+		 * expectedとactualの値を比較し、差の絶対値がdelta以下でなければ、
+		 * zefiro_std::NotEqualExceptionを発生させる。
+		 * \param expected 予想値
+		 * \param actual 現在値
+		 * \param delta 許容誤差
+		 * \param lineNumber	評価したの行数
+		 * \param fileName		評価したソースファイル名		 
+		 * \throw zefiro_std::NotEqualException 予想値と現在値の差の絶対値がdeltaより多きかった。
+		 */
 		void assertEquals(	double expected ,
 							double actual ,
 							double delta ,
