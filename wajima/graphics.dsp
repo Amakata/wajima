@@ -85,6 +85,10 @@ LIB32=link.exe -lib
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
+SOURCE=.\src\lib\graphics\sys\Adapter.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\graphics\BaseSprite.cpp
 # End Source File
 # Begin Source File
@@ -98,6 +102,10 @@ SOURCE=.\src\lib\graphics\sys\D3D8.cpp
 # Begin Source File
 
 SOURCE=.\src\lib\graphics\ImageSpriteImp.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\Mode.cpp
 # End Source File
 # Begin Source File
 
@@ -125,6 +133,10 @@ SOURCE=.\src\lib\graphics\sys\Win32SpriteFactory.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
+SOURCE=.\src\lib\include\graphics\sys\Adapter.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\include\graphics\BaseSprite.h
 # End Source File
 # Begin Source File
@@ -138,6 +150,10 @@ SOURCE=.\src\lib\include\graphics\sys\D3D8.h
 # Begin Source File
 
 SOURCE=.\src\lib\include\graphics\ImageSpriteImp.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\graphics\sys\Mode.h
 # End Source File
 # Begin Source File
 

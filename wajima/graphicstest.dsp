@@ -92,7 +92,15 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
+SOURCE=.\src\lib\graphics\sys\test\AdapterTest.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\graphics\sys\test\D3D8Test.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\test\ModeTest.cpp
 # End Source File
 # Begin Source File
 
@@ -108,7 +116,15 @@ SOURCE=.\src\lib\graphics\test\WinMain.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
+SOURCE=.\src\lib\include\graphics\sys\test\AdapterTest.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\include\graphics\sys\test\D3D8Test.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\graphics\sys\test\ModeTest.h
 # End Source File
 # Begin Source File
 
@@ -136,7 +152,7 @@ SOURCE=.\src\lib\graphics\test\graphicstest.rc
 # End Source File
 # Begin Source File
 
-SOURCE=.\build\lib\graphics\debug\test\ostream.txt
+SOURCE=.\output.txt
 # End Source File
 # End Group
 # End Target
