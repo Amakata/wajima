@@ -161,7 +161,7 @@
 		</copy>
 	</target>
 	<target name="boost">
-		<unzip zipfile="${archive.dir}\boost_1_31_0.zip" todir="${build.dir}"/>
+	<unzip zipfile="${archive.dir}\boost_1_31_0.zip" todir="${build.dir}"/>
 		<unzip zipfile="${archive.dir}\boost-1.31.0-regex-patch-20040503.zip" todir="${build.dir}\boost_1_31_0\boost\regex\v4"/>
 		<unzip zipfile="${archive.dir}\boost-jam-3.1.10-1-ntx86.zip" todir="${build.dir}"/>
 		<copy todir="${build.dir}\boost_1_31_0">
@@ -174,13 +174,17 @@
 				<includes name="boost.bat"/>
 			</fileset>
 		</copy>
-		<exec basedir="${build.dir}\boost_1_31_0" program="boost.bat" />
-		<move todir="${include.dir}">
-			<fileset basedir="${include.dir}\boost-1_31">
+		<exec basedir="${build.dir}\boost_1_31_0" program="boost.bat"/>
+		<copy todir="${include.dir}">
+			<fileset basedir="include\boost-1_31">
 				<includes name="boost\**\*.*"/>
 			</fileset>
-		</move>
-		<delete dir="${include.dir}\boost-1_31"/>
+		</copy>
+		<copy todir="${lib.dir}">
+			<fileset basedir="lib">
+				<includes name="**\*.*"/>
+			</fileset>
+		</copy>
 	</target>
 	<target name="ogg">
 		<unzip zipfile="${archive.dir}\OggVorbis-win32sdk-1.0.1.zip" todir="${build.dir}"/>

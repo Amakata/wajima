@@ -38,7 +38,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="ソリューション直下にincludeとlibをコピーします。"
-				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:build.xml pss"/>
+				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:build.xml"/>
 			<Tool
 				Name="VCPreBuildEventTool"
 				ExcludedFromBuild="FALSE"/>
@@ -73,7 +73,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="ソリューション直下にincludeとlibをコピーします。"
-				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:..\build.xml pss"/>
+				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:..\build.xml"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
 			<Tool

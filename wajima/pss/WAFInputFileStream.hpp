@@ -32,23 +32,31 @@ namespace pss {
 			 * ファイルオープン
 			 */
 			basic_waf_filebuf *open(const char *_Filename, ::std::ios_base::openmode _Mode);
-			/**
-			 * 
-			 */
 		protected:
 			/**
-			 * フルバッファーへの挿入処理
-			 * \retval traits_type::eof このbufは読み込み専用のためかならず失敗する。
+			 * 文字を１文字読み戻す。uflow()のキャンセル操作
 			 */
-			virtual int_type overflow(int_type _Meta = traits_type::eof) {
-				return traits_type::eof;
-			}
 			virtual int_type pbackfail(int_type _Meta = traits_type::eof);
+			/**
+			 * 読み込み位置を移動する。
+			 */
 			virtual pos_type seekoff(off_type _Off, ::std::ios_base::seekdir _Way, ::std::ios_base::openmode _Which = ::std::ios_base::in);
+			/**
+			 * 読み込み位置を移動する
+			 */
 			virtual pos_type seekpos( pos_type _Sp, ::std::ios_base::openmode _Which = ::std::ios_base::in);
+			/**
+			 * 読み込み位置を移動する
+			 */
 			virtual basic_streambuf *setbuf(char_type *_Buffer, ::std::streamsize _Count);
-			int sync();
+			/**
+			 * 文字を１文字読み取る。
+			 */
 			virtual int_type underflow();
+			/**
+			 * 文字を１文字読み取り、ポインタを一つ進める。
+			 */
+			virtual int_type uflow();
 		}
 
 		template <class Elem, class Tr = ::std::char_traits<Elem> >

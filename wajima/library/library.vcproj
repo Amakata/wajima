@@ -42,7 +42,7 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:build.xml"
-				ExcludedFromBuild="TRUE"/>
+				ExcludedFromBuild="FALSE"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:build.xml"
-				ExcludedFromBuild="TRUE"/>
+				ExcludedFromBuild="FALSE"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -138,6 +138,9 @@
 		</File>
 		<File
 			RelativePath=".\OggVorbis-win32sdk-1.0.1.zip">
+		</File>
+		<File
+			RelativePath=".\test.cpp">
 		</File>
 		<File
 			RelativePath=".\zlib122.zip">
