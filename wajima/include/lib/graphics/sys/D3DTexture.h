@@ -14,10 +14,14 @@ namespace zefiro_graphics {
 		virtual ~D3DTexture();
 		int getWidth()const;
 		int getHeight()const;
+		float getWidthRatio()const;
+		float getHeightRatio()const;
 	protected:
 		LPDIRECT3DTEXTURE8 texture_;
 		int width_;
 		int height_;
+		float maxWidthRatio_;
+		float maxHeightRatio_;
 	};
 };
 

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.3 2002/09/18 14:45:22 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.4 2002/09/18 17:06:13 ama Exp $
  */
 
 #include "graphics/sys/D3DDevice.h"
@@ -25,11 +25,12 @@ namespace zefiro_graphics {
 	D3DTexture *D3DDevice::loadTexture( const std::string filename )const{
 		LPDIRECT3DTEXTURE8 texture;
 		D3DXIMAGE_INFO info;
+
 		HRESULT hr = D3DXCreateTextureFromFileExA( d3dDevice8_ , // テクスチャーを作成するデバイス
 													filename.c_str() , // 読み込むファイル名
 													D3DX_DEFAULT , // 幅
 													D3DX_DEFAULT  , // 高さ
-													0 , // 身にマップレベル
+													1 , // ミニマップレベル
 													0 , // レンダリングターゲットOFF
 													D3DFMT_UNKNOWN , // ファイルからカラーフォーマットを決定
 													D3DPOOL_DEFAULT , // プールの方式
@@ -40,10 +41,6 @@ namespace zefiro_graphics {
 													NULL , // パレット情報
 													&texture // テクスチャ
 													);
-		std::ostringstream oss;
-		
-		oss << info.Width << " " << info.Height << " "  << info.Depth <<  " " << info.ImageFileFormat << " " << info.Format << std::endl;
-		ZEFIRO_LOG( "NORMAL" , oss.str() );
 		DXASSERT( hr );
 		return new D3DTexture( texture , info );
 	}
@@ -60,9 +57,9 @@ namespace zefiro_graphics {
 	void D3DDevice::render( const D3DTexture *texture , float x , float y , float z ){
 		CUSTOMVERTEX cv[4] = {
 			x						+0.5f, y -0.5f							, z , 1.0f , 0xFFFFFFFF , 0.0f , 0.0f ,
-			x + texture->getWidth() +0.5f, y -0.5f							, z , 1.0f , 0xFFFFFFFF , 1.0f , 0.0f ,
-			x + texture->getWidth() +0.5f, y + texture->getHeight()	-0.5f, z , 1.0f , 0xFFFFFFFF , 1.0f , 1.0f ,
-			x						+0.5f, y + texture->getHeight()	-0.5f, z , 1.0f , 0xFFFFFFFF , 0.0f , 1.0f 
+			x + texture->getWidth() +0.5f, y -0.5f							, z , 1.0f , 0xFFFFFFFF , texture->getWidthRatio() , 0.0f ,
+			x + texture->getWidth() +0.5f, y + texture->getHeight()	-0.5f, z , 1.0f , 0xFFFFFFFF , texture->getWidthRatio()  , texture->getHeightRatio() ,
+			x						+0.5f, y + texture->getHeight()	-0.5f, z , 1.0f , 0xFFFFFFFF , 0.0f , texture->getWidthRatio() 
 		};
 		d3dDevice8_->SetTexture( 0 , texture->texture_ );
 		d3dDevice8_->DrawPrimitiveUP( D3DPT_TRIANGLEFAN , 2 , cv  , sizeof CUSTOMVERTEX );
