@@ -1,5 +1,5 @@
 /**
- * $ Header: $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/InvalidArgument.cpp,v 1.4 2002/05/25 16:00:47 ama Exp $
  */
 
 #include "std/InvalidArgument.h"

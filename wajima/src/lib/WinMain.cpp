@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.7 2002/05/25 15:11:56 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.8 2002/05/25 15:59:05 ama Exp $
  */
 
 #include <fstream>
@@ -91,6 +91,12 @@ public:
 
 
 void ThreadTest(){
+	std::ostringstream ostrstr;
+
+	ostrstr << zefiro_system::Thread::getCurrentThread() << " " << zefiro_system::Thread::getCurrentThread()->getThreadID();
+	HDC hdc = GetDC( g_hwnd );
+	TextOut( hdc , 10, 400 , ostrstr.str().c_str(),ostrstr.str().size());
+	ReleaseDC( g_hwnd , hdc );
 	zefiro_system::Runnable *r = new TestRunnable();
 	zefiro_system::Thread *thread = new zefiro_system::Thread(r,"TestThread");
 	thread->setJoinable( true );
