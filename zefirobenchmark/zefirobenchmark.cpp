@@ -130,6 +130,7 @@ public:
 			return;
 		}
 		device_->setRenderState( transparent );
+		device_->printRenderState();
 		input_ = new Input( hInst );
 		keyboard_ = input_->createKeyboardDevice();
 	}
