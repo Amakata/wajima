@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/DepthFormat.h,v 1.5 2002/12/13 20:37:37 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/DepthFormat.h,v 1.6 2002/12/13 21:16:25 ama Exp $
  */
 #ifndef __DEPTHFORMAT_H__
 #define __DEPTHFORMAT_H__
@@ -61,7 +61,7 @@ namespace zefiro_graphics {
 		FORMAT format_;
 	};
 
-	D3DFORMAT convertDepthFormatToD3DFORMAT( DepthFormat df ){
+	inline D3DFORMAT convertDepthFormatToD3DFORMAT( DepthFormat df ){
 		switch( df.getFormat() ){
 			case DepthFormat::D32:
 				return D3DFMT_D32;
