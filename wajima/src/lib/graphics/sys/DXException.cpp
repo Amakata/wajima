@@ -5,7 +5,7 @@
 #include "graphics/sys/DXException.h"
 
 namespace zefiro_graphics {
-	DXException::DXException( HRESULT hr , zefiro_std::SourceLine sourceLine , std::string additionalMessage)
+	DXException::DXException( HRESULT hr , zefiro_std::SourceLine sourceLine , std::string additionalMessage )
 		: Exception(additionalMessage , sourceLine),_hr(hr){
 	}
 	DXException::DXException( HRESULT hr , long lineNumber , std::string fileName ,std::string additionalMessage )
