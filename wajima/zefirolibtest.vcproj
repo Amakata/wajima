@@ -182,12 +182,6 @@
 			<File
 				RelativePath=".\include\lib\graphics\sys\test\ModeTest.h">
 			</File>
-			<File
-				RelativePath=".\src\lib\graphics\test\SpriteFactoryTest.cpp">
-			</File>
-			<File
-				RelativePath=".\include\lib\graphics\test\SpriteFactoryTest.h">
-			</File>
 		</Filter>
 		<Filter
 			Name="std"

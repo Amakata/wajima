@@ -150,12 +150,6 @@
 				RelativePath=".\src\lib\graphics\sys\Adapter.cpp">
 			</File>
 			<File
-				RelativePath=".\src\lib\graphics\BaseSprite.cpp">
-			</File>
-			<File
-				RelativePath=".\src\lib\graphics\BaseSpriteImp.cpp">
-			</File>
-			<File
 				RelativePath=".\src\lib\graphics\sys\D3D8.cpp">
 			</File>
 			<File
@@ -168,25 +162,7 @@
 				RelativePath=".\src\lib\graphics\sys\DXInvalidArgument.cpp">
 			</File>
 			<File
-				RelativePath=".\src\lib\graphics\ImageSpriteImp.cpp">
-			</File>
-			<File
 				RelativePath=".\src\lib\graphics\sys\Mode.cpp">
-			</File>
-			<File
-				RelativePath=".\src\lib\graphics\Sprite.cpp">
-			</File>
-			<File
-				RelativePath=".\src\lib\graphics\SpriteFactory.cpp">
-			</File>
-			<File
-				RelativePath=".\src\lib\graphics\Sprites.cpp">
-			</File>
-			<File
-				RelativePath=".\src\lib\graphics\sys\Win32ImageSpriteImp.cpp">
-			</File>
-			<File
-				RelativePath=".\src\lib\graphics\sys\Win32SpriteFactory.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -221,12 +197,6 @@
 				RelativePath=".\include\lib\graphics\sys\Adapter.h">
 			</File>
 			<File
-				RelativePath=".\include\lib\graphics\BaseSprite.h">
-			</File>
-			<File
-				RelativePath=".\include\lib\graphics\BaseSpriteImp.h">
-			</File>
-			<File
 				RelativePath=".\include\lib\graphics\sys\D3D8.h">
 			</File>
 			<File
@@ -242,28 +212,7 @@
 				RelativePath=".\include\lib\graphics\sys\DXInvalidArgument.h">
 			</File>
 			<File
-				RelativePath=".\include\lib\graphics\ImageSpriteImp.h">
-			</File>
-			<File
 				RelativePath=".\include\lib\graphics\sys\Mode.h">
-			</File>
-			<File
-				RelativePath=".\include\lib\graphics\Sprite.h">
-			</File>
-			<File
-				RelativePath=".\include\lib\graphics\SpriteFactory.h">
-			</File>
-			<File
-				RelativePath=".\include\lib\graphics\Sprites.h">
-			</File>
-			<File
-				RelativePath=".\include\lib\graphics\TextSpriteImp.h">
-			</File>
-			<File
-				RelativePath=".\include\lib\graphics\sys\Win32ImageSpriteImp.h">
-			</File>
-			<File
-				RelativePath=".\include\lib\graphics\sys\Win32SpriteFactory.h">
 			</File>
 		</Filter>
 		<Filter
