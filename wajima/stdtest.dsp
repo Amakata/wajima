@@ -160,7 +160,7 @@ SOURCE=.\src\lib\include\std\test\WindowClass.h
 # PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
 # Begin Source File
 
-SOURCE=.\build\lib\std\debug\test\ostream.txt
+SOURCE=.\ostream.txt
 # End Source File
 # End Group
 # End Target
