@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDevice.h,v 1.4 2002/12/13 19:53:33 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDevice.h,v 1.5 2002/12/13 21:17:28 ama Exp $
  */
 
 #ifndef __GRAPHICSDEVICE_H__
@@ -15,17 +15,13 @@ namespace zefiro_graphics {
 	class GraphicsDevice {
 	public:
 		typedef Loki::SmartPtr<GraphicsDevice> GD;
+		virtual ~GraphicsDevice();
 	protected:
-		GraphicsDevice( LPDIRECT3DDEVICE8 device , int width , int height , ColorFormat front , ColorFormat back , DepthFormat depth , int refreshRate , bool windowed );
+		friend class GraphicsManager;
+		GraphicsDevice( LPDIRECT3DDEVICE8 device );
 	private:
-		int width_;
-		int height_;
-		int refreshRate_;
-		bool windowed_;
-		ColorFormat front_;
-		ColorFormat back_;
-		DepthFormat depth_;
 		LPDIRECT3DDEVICE8 device_;
+
 		GraphicsDevice();
 		GraphicsDevice( const GraphicsDevice & );
 		GraphicsDevice& operator=( const GraphicsDevice & );
