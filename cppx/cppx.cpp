@@ -188,6 +188,8 @@ int main(int argc, char* argv[]) try {
 		::std::cout << "cppx [source_path] [dest_path]" << ::std::endl;
 		return 0;
 	}
+	::std::cout << "source = [" << argv[1] << "]" << ::std::endl;
+	::std::cout << "dest   = [" << argv[2] << "]" << ::std::endl;
 	::fs::path::default_name_check(zefiro_name);
 	::fs::path source_path(argv[1], ::fs::native);
 	::fs::path dest_path(argv[2], ::fs::native);
