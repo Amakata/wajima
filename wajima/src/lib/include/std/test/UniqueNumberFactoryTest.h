@@ -14,7 +14,7 @@ namespace zefiro_stdtest{
 		CPPUNIT_TEST_SUITE( UniqueNumberFactoryTest );
 		CPPUNIT_TEST( testRepeat );
 		CPPUNIT_TEST( testDelete );
-		CPPUNIT_TEST( testUpperBound );
+		CPPUNIT_TEST_EXCEPTION( testUpperBound , zefiro_std::UniqueNumberBadAlloc );
 		CPPUNIT_TEST_SUITE_END();
 	protected:
 		zefiro_std::UniqueNumberFactory	*_uniqueNumberFactory;

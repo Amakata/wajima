@@ -6,8 +6,8 @@
 #include <std/test/resource.h>
 
 #include <cppunit/TextTestRunner.h>
-#include <cppunit/StreamFactory.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/TextOutputter.h>
 
 using namespace zefiro_stdtest;
 
@@ -41,13 +41,12 @@ int APIENTRY WinMain( HINSTANCE hInstance ,
 }
 
 void UnitTest(){
-	std::ofstream ofs;
-	ofs.open("ostream.txt");
-	CppUnit::StreamFactory::setOStream(&ofs);
-	CppUnit::StreamFactory::setErrStream(&ofs);
-	CppUnit::TextTestRunner runner;
+	std::ofstream	ofs;
+	ofs.open("output.txt");
+	CppUnit::TextUi::TestRunner runner;	
 	runner.addTest( CppUnit::TestFactoryRegistry::getRegistry().makeTest() );
-	runner.run();
+	runner.setOutputter( new CppUnit::TextOutputter(&runner.result(),ofs ) );
+	runner.run( "" , true );
 	ofs.close();
 }
 

@@ -5,7 +5,6 @@
 #include <cppunit/TestCase.h>
 #include <cppunit/TestSuite.h>
 #include <cppunit/extensions/HelperMacros.h>
-#include <cppunit/extensions/Failure.h>
 
 namespace zefiro_stdtest {
 	class AssertTest : public CppUnit::TestCase

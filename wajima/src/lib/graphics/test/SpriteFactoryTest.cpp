@@ -1,5 +1,3 @@
-#include <cppunit/extensions/Failure.h>
-#include <cppunit/StreamFactory.h>
 #include <typeinfo.h>
 
 #include <graphics/test/SpriteFactoryTest.h>

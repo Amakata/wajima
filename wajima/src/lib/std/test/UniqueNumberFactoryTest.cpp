@@ -1,8 +1,6 @@
 #include <limits>
 #include <std/test/UniqueNumberFactoryTest.h>
 #include <std/UniqueNumberBadAlloc.h>
-#include <cppunit/extensions/Failure.h>
-#include <cppunit/StreamFactory.h>
 
 CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_stdtest::UniqueNumberFactoryTest );
 
@@ -27,10 +25,6 @@ namespace zefiro_stdtest{
 	}
 	void UniqueNumberFactoryTest::testUpperBound(){
 		CPPUNIT_ASSERT( _uniqueNumberFactoryUpperBound->createNumber() == std::numeric_limits<int>::max() );
-		try{
-			_uniqueNumberFactoryUpperBound->createNumber();
-			failure("");
-		}catch( zefiro_std::UniqueNumberBadAlloc &unba ){
-		}
+		_uniqueNumberFactoryUpperBound->createNumber();
 	}
 };
