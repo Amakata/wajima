@@ -92,7 +92,7 @@ void generate_cppx(::fs::path source_path, ::fs::path dest_path, bool modify) {
 	::boost::regex cppx_func_end_re("^_FUNC_END");
 	::boost::regex cppx_end_re("^_END");
 	::boost::regex cppx_static_re("^_STATIC[\\s]*");
-	::boost::regex replace_name_re("\\$0\\$");
+	::boost::regex cppx_func_tail("\\{[\\s]*$");
 	::boost::smatch smresult;
 	while (!source_fs.eof()) {
 		::std::string line;
@@ -104,25 +104,30 @@ void generate_cppx(::fs::path source_path, ::fs::path dest_path, bool modify) {
 			if (::boost::regex_search(suffix, smresult, cppx_begin_re)) {
 				// スタックを積むだけ
 				op_stack.push_back(cppx_operation(cppx_operation::prefix, smresult.str(1)));
-				::std::cout << "push() [" << op_stack.back().str() << "]" << ::std::endl;
+//				::std::cout << "push() [" << op_stack.back().str() << "]" << ::std::endl;
 			} else if(::boost::regex_search(suffix, smresult, cppx_func_begin_re)) {
 				op_stack.push_back(cppx_operation(cppx_operation::function, smresult.suffix()));
-				::std::cout << "push() [" << op_stack.back().str() << "]" << ::std::endl;
+//				::std::cout << "push() [" << op_stack.back().str() << "]" << ::std::endl;
 				// 解析してcpp側に出力
 				dest_fs_cpp << smresult.suffix().str().replace(smresult.suffix().str().find("$0$"), 3, get_func_prefix(op_stack)) + " {"<< ::std::endl;
+				::std::getline(source_fs, line);
+				if (::boost::regex_search(line, smresult, cppx_func_tail)) {
+					dest_fs << smresult.prefix() << ";" << ::std::endl;
+				} else {
+					dest_fs << line << ";" << ::std::endl;
+				}
 			} else if(::boost::regex_search(suffix, smresult, cppx_func_end_re)) {
 				// スタックを戻すだけ。
-				::std::cout << "pop()  [" << op_stack.back().str() << "]" << ::std::endl;
+//				::std::cout << "pop()  [" << op_stack.back().str() << "]" << ::std::endl;
 				op_stack.pop_back();
-				dest_fs_cpp << "}" << ::std::endl;
 			} else if(::boost::regex_search(suffix, smresult, cppx_end_re)) {
 				// スタックを戻すだけ。
-				::std::cout << "pop()  [" << op_stack.back().str() << "]" << ::std::endl;
+//				::std::cout << "pop()  [" << op_stack.back().str() << "]" << ::std::endl;
 				op_stack.pop_back();
 			} else if(::boost::regex_search(suffix, smresult, cppx_static_re)) {
 				// CPPX_STATICはcpp側に出力
-				::std::cout << "       [STATIC   :" << smresult.suffix() << "]" << ::std::endl;
-				::std::cout << smresult.suffix().str().find("$0$") << ::std::endl;
+//				::std::cout << "       [STATIC   :" << smresult.suffix() << "]" << ::std::endl;
+//				::std::cout << smresult.suffix().str().find("$0$") << ::std::endl;
 				dest_fs_cpp << smresult.suffix().str().replace(smresult.suffix().str().find("$0$"), 3, get_static_prefix(op_stack)) << ::std::endl;
 			}
 		} else {
@@ -162,13 +167,13 @@ void generate_cppx_tree(::fs::path source_path, ::fs::path dest_path) {
 			if (::fs::exists(dest_path)) {
 				::boost::posix_time::ptime source_ptime = ::boost::posix_time::from_time_t(::fs::last_write_time(source_path));
 				::boost::posix_time::ptime dest_ptime = ::boost::posix_time::from_time_t(::fs::last_write_time(dest_path));
-//				if (source_ptime > dest_ptime) {
+				if (source_ptime > dest_ptime) {
 					// ソースの方が新しければ処理
 					generate_cppx(source_path, dest_path , true);
 					::std::cout << "M " << source_path.native_file_string() << ::std::endl;
-//				} else {
-//					::std::cout << "  " << source_path.native_file_string() << ::std::endl;
-//				}
+				} else {
+					::std::cout << "  " << source_path.native_file_string() << ::std::endl;
+				}
 			} else {
 				// 目的側にソースが存在しなければ処理
 				generate_cppx(source_path, dest_path , false);
