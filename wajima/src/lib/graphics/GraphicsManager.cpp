@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.cpp,v 1.6 2002/11/29 18:21:51 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.cpp,v 1.7 2002/12/13 21:16:49 ama Exp $
  */
 
 #include "GraphicsManager.h"
@@ -24,5 +24,33 @@ namespace zefiro_graphics {
 		if( d3d_ != NULL ){
 			d3d_->Release();
 		}
+	}
+	GraphicsDevice::GD GraphicsManager::createGD(
+		int width , int height , 
+		ColorFormat back , DepthFormat depth , 
+		bool windowed , bool hal , int adapterNumber , int refreshRate ){
+			LPDIRECT3DDEVICE8 result;
+			D3DPRESENT_PARAMETERS param;
+			if( d3d_ == NULL ){
+				throw zefiro_std::Exception();
+			}
+			param.AutoDepthStencilFormat = convertDepthFormatToD3DFORMAT( depth );
+			param.BackBufferCount = 1;
+			param.BackBufferFormat = convertColorFormatToD3DFORMAT( back );
+			param.BackBufferHeight = height;
+			param.BackBufferWidth = width;
+			param.EnableAutoDepthStencil = ( depth.getBitLength() != 0 );
+			param.Flags = D3DPRESENTFLAG_LOCKABLE_BACKBUFFER;
+			param.MultiSampleType = D3DMULTISAMPLE_NONE;
+			param.Windowed = windowed;
+			param.FullScreen_RefreshRateInHz = windowed ? 0 : refreshRate;
+			param.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT;
+			param.hDeviceWindow = hwnd_;
+			param.SwapEffect = D3DSWAPEFFECT_DISCARD;
+			D3DDEVTYPE type = hal ? D3DDEVTYPE_HAL : D3DDEVTYPE_REF;
+			if( HRESULT hr = d3d_->CreateDevice( adapterNumber , type , hwnd_ , D3DCREATE_HARDWARE_VERTEXPROCESSING , &param , &result ) ){
+				DXASSERT(hr);
+			}
+			return GraphicsDevice::GD( new GraphicsDevice( result ) );
 	}
 };
