@@ -12,8 +12,8 @@ namespace zefiro_graphics {
 	protected:
 		LPDIRECT3D8 _pD3D;
 	private:
-		D3D8( D3D8 const & d3d8 );
-		D3D8 operator = ( D3D8 const & d3d8 );
+		D3D8( const D3D8  & d3d8 );
+		D3D8 operator = ( const D3D8  & d3d8 );
 	};
 };
 

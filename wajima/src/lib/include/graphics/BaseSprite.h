@@ -22,7 +22,7 @@ namespace zefiro_graphics{
 		 *	\param baseSpriteはコピー元のBaseSpriteクラス
 		 *	BaseSpriteの深いコピーを行う。
 		 */
-		BaseSprite( BaseSprite const &baseSprite );
+		BaseSprite( const BaseSprite &baseSprite );
 		/// デストラクタ
 		virtual ~BaseSprite();
 		/// 描画
@@ -31,7 +31,7 @@ namespace zefiro_graphics{
 		 *	\param yは縦軸の描画位置である。
 		 *	\param srcBaseSpriteは描画元BaseSpriteである。
 		 */
-		virtual void render( int const x , int const y , BaseSprite const &srcBaseSprite ); 
+		virtual void render( const int x , const int y , const BaseSprite &srcBaseSprite ); 
 		virtual int getWidth() const;
 		virtual int getHeight() const;
 		/// 色数のビット深度
@@ -54,7 +54,7 @@ namespace zefiro_graphics{
 		 *	<li>false 透明・半透明処理を行わない。</li>
 		 *	</ul>
 		 */
-		virtual void setTransparent( bool const transparent );
+		virtual void setTransparent( const bool transparent );
 		///	透明・半透明処理の有無の取得
 		/**
 		 *	\retval true 透明・半透明処理を行う。
@@ -65,7 +65,7 @@ namespace zefiro_graphics{
 		/**
 		 *	\param renderは描画処理を行うか。
 		 */
-		virtual void setRender( bool const render );
+		virtual void setRender( const bool render );
 		/// 描画処理の有無の取得
 		/**
 		 *	\retval true 描画処理を行う。
@@ -76,7 +76,7 @@ namespace zefiro_graphics{
 		/**
 		 *	\param numberは描画するフレームの番号である。
 		 */
-		virtual void setFrameNumber( int const number );
+		virtual void setFrameNumber( const int number );
 		///	描画フレームの取得
 		/**
 		 *	\return 描画するフレームの番号である。

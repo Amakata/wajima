@@ -3,11 +3,11 @@
 namespace zefiro_graphics {
 	Win32ImageSpriteImp::Win32ImageSpriteImp(){
 	}
-	Win32ImageSpriteImp::Win32ImageSpriteImp( Win32ImageSpriteImp const &win32ImageSpriteImp ){
+	Win32ImageSpriteImp::Win32ImageSpriteImp( const Win32ImageSpriteImp &win32ImageSpriteImp ){
 	}
 	Win32ImageSpriteImp::~Win32ImageSpriteImp(){
 	}
-	void Win32ImageSpriteImp::render( int const x , int const y , BaseSpriteImp const *srcBaseSpriteImp ){
+	void Win32ImageSpriteImp::render( const int x , const int y , const BaseSpriteImp *srcBaseSpriteImp ){
 	}
 	int Win32ImageSpriteImp::getWidth() const{
 		return 0;
@@ -21,12 +21,12 @@ namespace zefiro_graphics {
 	bool Win32ImageSpriteImp::isTransparentable() const{
 		return false;
 	}
-	void Win32ImageSpriteImp::setTransparent( bool const transparent ){
+	void Win32ImageSpriteImp::setTransparent( const bool transparent ){
 	}
 	bool Win32ImageSpriteImp::isTransparent() const{
 		return false;
 	}
-	void Win32ImageSpriteImp::setFrameNumber( int const number ){
+	void Win32ImageSpriteImp::setFrameNumber( const int number ){
 	}
 	int Win32ImageSpriteImp::getFrameNumber() const{
 		return 0;

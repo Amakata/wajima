@@ -6,22 +6,22 @@ namespace zefiro_graphics {
 	};
 	Sprite::~Sprite(){
 	}
-	void Sprite::render( Sprite const &srcSprite ){
+	void Sprite::render( const Sprite &srcSprite ){
 		BaseSprite::render( srcSprite._pointX , srcSprite._pointY , srcSprite );
 	}
-	void Sprite::setPointX( int const x ){
+	void Sprite::setPointX( const int x ){
 			_pointX = x;
 	}
 	int Sprite::getPointX() const{
 			return _pointX;
 	}
-	void Sprite::setPointY( int const y ){
+	void Sprite::setPointY( const int y ){
 			_pointY = y;
 	}
 	int Sprite::getPointY() const{
 			return _pointY;
 	}
-	void Sprite::setPointZ( int const z ){
+	void Sprite::setPointZ( const int z ){
 			_pointZ = z;
 	}
 	int Sprite::getPointZ() const{

@@ -8,7 +8,7 @@ namespace zefiro_graphics
 	{
 	public:
 		ImageSpriteImp();
-		ImageSpriteImp( ImageSpriteImp const &imageSpriteImp );
+		ImageSpriteImp( const ImageSpriteImp &imageSpriteImp );
 		virtual ~ImageSpriteImp();
 	};
 };

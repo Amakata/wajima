@@ -12,12 +12,12 @@ namespace zefiro_graphics {
 	public:
 		Sprite( BaseSpriteImp *baseSpriteImp );
 		virtual ~Sprite();
-		virtual void render( Sprite const &srcSprite );
-		virtual void setPointX( int const x );
+		virtual void render( const Sprite &srcSprite );
+		virtual void setPointX( const int x );
 		virtual int getPointX() const;
-		virtual void setPointY( int const y );
+		virtual void setPointY( const int y );
 		virtual int getPointY() const;
-		virtual void setPointZ( int const z );
+		virtual void setPointZ( const int z );
 		virtual int getPointZ() const;
 	protected:
 		int _pointX;	///< スプライトの位置

@@ -17,7 +17,7 @@ namespace zefiro_graphics{
 		/**
 		 *	仮想基底クラスであり、なにもしない。
 		 */
-		BaseSpriteImp( BaseSpriteImp const &baseSpriteImp );
+		BaseSpriteImp( const BaseSpriteImp &baseSpriteImp );
 		/// デストラクタ
 		/**
 		 *	仮想基底クラスであり、なにもしない。
@@ -30,7 +30,7 @@ namespace zefiro_graphics{
 		 *	\param yは縦軸の描画位置である。
 		 *	\param srcBaseSpriteImpは描画元BaseSpriteImpである。
 		 */
-		virtual void render( int const x , int const y , BaseSpriteImp const *srcBaseSpriteImp )=0;
+		virtual void render( const int x , const int y , const BaseSpriteImp *srcBaseSpriteImp )=0;
 		/// スプライトの幅の取得
 		/**
 		 * \return  スプライトの幅
@@ -63,14 +63,14 @@ namespace zefiro_graphics{
 		 *	isTransparentableが透明か、半透明のどちらをサポートするかは
 		 *	派生クラスの実装によって定まる。
 		 */
-		virtual void setTransparent( bool const transparent ) =0;
+		virtual void setTransparent( const bool transparent ) =0;
 		///	透明・半透明処理の有無の取得
 		/**
 		 *	\retval true 透明・半透明処理を行う。
 		 *	\retval false 透明・半透明処理を行わない。
 		 */
 		virtual bool isTransparent() const =0;
-		virtual void setFrameNumber( int const number ) =0;
+		virtual void setFrameNumber( const int number ) =0;
 		virtual int getFrameNumber() const =0;
 		virtual int getMaxFrameSize() const =0;
 	};

@@ -7,10 +7,10 @@ namespace zefiro_graphics {
 	class TextSpriteImp : public BaseSpriteImp
 	{
 	public:
-		TextSpriteImp( string const &text );
-		TextSpriteImp( TextSpriteImp const &textSpriteImp );
+		TextSpriteImp( const string &text );
+		TextSpriteImp( const TextSpriteImp &textSpriteImp );
 		virtual ~TextSpriteImp();
-		virtual void setText( string const &text );
+		virtual void setText( const string &text );
 		virtual string getText() const;
 	protected:
 		string	_text;

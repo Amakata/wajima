@@ -16,7 +16,7 @@ namespace zefiro_graphics {
 		/**
 		 * \param win32ImageSpriteImp コピー元スプライトの実装クラス
 		 */
-		Win32ImageSpriteImp( Win32ImageSpriteImp const &win32ImageSpriteImp );
+		Win32ImageSpriteImp( const Win32ImageSpriteImp &win32ImageSpriteImp );
 		/// デストラクタ
 		virtual ~Win32ImageSpriteImp();
 		/// 描画
@@ -25,7 +25,7 @@ namespace zefiro_graphics {
 		 *	\param yは縦軸の描画位置である。
 		 *	\param srcBaseSpriteImpは描画元BaseSpriteImpである。
 		 */
-		virtual void render( int const x , int const y , BaseSpriteImp const *srcBaseSpriteImp );
+		virtual void render( const int x , const int y , const BaseSpriteImp *srcBaseSpriteImp );
 		/// スプライトの幅の取得
 		/**
 		 * \return  スプライトの幅
@@ -58,14 +58,14 @@ namespace zefiro_graphics {
 		 *	isTransparentableが透明か、半透明のどちらをサポートするかは
 		 *	派生クラスの実装によって定まる。
 		 */
-		virtual void setTransparent( bool const transparent );
+		virtual void setTransparent( const bool transparent );
 		///	透明・半透明処理の有無の取得
 		/**
 		 *	\retval true 透明・半透明処理を行う。
 		 *	\retval false 透明・半透明処理を行わない。
 		 */
 		virtual bool isTransparent() const;
-		virtual void setFrameNumber( int const number );
+		virtual void setFrameNumber( const int number );
 		virtual int getFrameNumber() const;
 		virtual int getMaxFrameSize() const;
 	};

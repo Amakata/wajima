@@ -3,7 +3,7 @@
 namespace zefiro_graphics {
 	BaseSpriteImp::BaseSpriteImp(){
 	}
-	BaseSpriteImp::BaseSpriteImp( BaseSpriteImp const &baseSpriteImp ){
+	BaseSpriteImp::BaseSpriteImp( const BaseSpriteImp &baseSpriteImp ){
 	}
 	BaseSpriteImp::~BaseSpriteImp(){
 	}

@@ -3,11 +3,11 @@
 namespace zefiro_graphics {
 	BaseSprite::BaseSprite( BaseSpriteImp *baseSpriteImp ):_baseSpriteImp(baseSpriteImp),_render(true){
 	}
-	BaseSprite::BaseSprite( BaseSprite const &baseSprite ){
+	BaseSprite::BaseSprite( const BaseSprite &baseSprite ){
 	}
 	BaseSprite::~BaseSprite(){
 	}
-	void BaseSprite::render( int const x , int const y , BaseSprite const &srcBaseSprite ){
+	void BaseSprite::render(  const int x , const int y , const BaseSprite &srcBaseSprite ){
 		if( _render ){
 			_baseSpriteImp->render( x , y , srcBaseSprite._baseSpriteImp );
 		}
@@ -24,19 +24,19 @@ namespace zefiro_graphics {
 	bool BaseSprite::isTransparentable() const{
 		return _baseSpriteImp->isTransparentable();
 	}
-	void BaseSprite::setTransparent( bool const transparent ){
+	void BaseSprite::setTransparent( const bool transparent ){
 		_baseSpriteImp->setTransparent( transparent );
 	}
 	bool BaseSprite::isTransparent() const{
 		return _baseSpriteImp->isTransparent();
 	}
-	void BaseSprite::setRender( bool const render ){
+	void BaseSprite::setRender( const bool render ){
 		_render = render;
 	}
 	bool BaseSprite::isRender() const{
 		return _render;
 	}
-	void BaseSprite::setFrameNumber( int const number ){
+	void BaseSprite::setFrameNumber( const int number ){
 		_baseSpriteImp->setFrameNumber( number );
 	}
 	int BaseSprite::getFrameNumber() const{
