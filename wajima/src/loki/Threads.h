@@ -130,7 +130,7 @@ namespace Loki
     
     template <class Host>
     class ClassLevelLockable
-    {
+	{
         struct Initializer
         {   
             CRITICAL_SECTION mtx_;
