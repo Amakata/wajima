@@ -181,6 +181,9 @@
 					<File
 						RelativePath="test\lib\graphics\sys\DXExceptionTest.cpp">
 					</File>
+					<File
+						RelativePath="src\lib\std\sys\basic_win32console_ostream.h">
+					</File>
 				</Filter>
 			</Filter>
 			<Filter
