@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDeviceMode.h,v 1.2 2002/11/24 17:42:20 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDeviceMode.h,v 1.3 2002/11/25 13:07:26 ama Exp $
  */
 #ifndef __GRAPHICSDEVICEMODE_H__
 #define __GRAPHICSDEVICEMODE_H__
@@ -24,7 +24,7 @@ namespace zefiro_graphics {
 		int getRefreshRate() const{
 			return refreshRate_;
 		}
-		bool getWindowed() const{
+		bool isWindowed() const{
 			return windowed_;
 		}
 		int getAdapterNumber() const{
