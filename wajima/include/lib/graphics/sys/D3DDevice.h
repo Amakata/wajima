@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/Attic/D3DDevice.h,v 1.2 2002/09/13 05:34:44 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/Attic/D3DDevice.h,v 1.3 2002/09/18 14:39:48 ama Exp $
  */
 #ifndef __D3DDEVICE8_H__
 #define __D3DDEVICE8_H__
@@ -13,16 +13,15 @@
 namespace zefiro_graphics {
 	class D3DDevice{
 	public:
-		D3DDevice( LPDIRECT3DDEVICE8 d3ddevice8 , LPD3DXSPRITE d3dsprite );
+		D3DDevice( LPDIRECT3DDEVICE8 d3ddevice8 );
 		virtual ~D3DDevice();
 		D3DTexture *loadTexture( const std::string filename ) const;
 		void renderBegin();
 		void renderEnd();
-		void render( const D3DTexture *texture , float x ,float , float z );
+		void render( const D3DTexture *texture , float x ,float y , float z );
 		void clear();
 	protected:
-		LPDIRECT3DDEVICE8	D3DDevice8_;
-		LPD3DXSPRITE	D3DSprite_;
+		LPDIRECT3DDEVICE8	d3dDevice8_;
 	};
 };
 
