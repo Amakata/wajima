@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.3 2002/05/20 18:35:06 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.4 2002/05/22 23:00:46 ama Exp $
  */
 
 #include <fstream>
@@ -91,9 +91,17 @@ public:
 
 void ThreadTest(){
 	zefiro_thread::Runnable *r = new TestRunnable();
-	zefiro_thread::Thread *thread = new zefiro_thread::Thread(r);
-	thread->setJoinable( false );
+	zefiro_thread::Thread *thread = new zefiro_thread::Thread(r,"TestThread");
+	thread->setJoinable( true );
 	thread->start();
+	bool loop = true;
+	while(loop){
+		try{
+			thread->join(1);	//	0Ç…Ç∑ÇÈÇ∆ÅAÇ∆Ç‹ÇÁÇ»Ç≠Ç»ÇÈÅB
+			loop = false;
+		}catch( zefiro_thread::TimeOutException &toe ){
+		}
+	}
 }
 
 class Process
