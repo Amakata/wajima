@@ -12,22 +12,33 @@ namespace zefiro_stdtest {
 	}
 	void AssertTest::testAssertImplementation(){
 		try{
-			zefiro_std::assertImplementation( false , "false" , 1 , __FILE__ );
+			zefiro_std::Assert::assertImplementation( false , "false" , 1 , __FILE__ );
 			failure("");
 		}catch( zefiro_std::Exception &e ){
 			CPPUNIT_ASSERT_EQUAL(  std::string(__FILE__) , e.getFileName() );
 			CPPUNIT_ASSERT_EQUAL( 1L  ,e.getLineNumber() );
 		}
-		zefiro_std::assertImplementation( true , "true" , __LINE__ , __FILE__ );
+		zefiro_std::Assert::assertImplementation( true , "true" , __LINE__ , __FILE__ );
 	}
 	void AssertTest::testAssertNotEqualImplementation(){
 		try{
-			zefiro_std::assertNotEqualImplementation( "false" , "false" , 1 , __FILE__ );
+			zefiro_std::Assert::assertNotEqualImplementation( "false" , "false" , 1 , __FILE__ );
 			failure("");
 		}catch( zefiro_std::NotEqualException &e ){
 			CPPUNIT_ASSERT_EQUAL( std::string(__FILE__) , e.getFileName()  );
 			CPPUNIT_ASSERT_EQUAL( 1L , e.getLineNumber());
 		}
-		zefiro_std::assertNotEqualImplementation( "false" , "true" , 1 , __FILE__ );
+	}
+	void AssertTest::testAssertEqualsTemplate(){
+		try{
+			zefiro_std::Assert::assertEquals( 100 , -100 , 10L , __FILE__ );
+			failure("");
+		}catch( zefiro_std::NotEqualException &e ){
+			CPPUNIT_ASSERT_EQUAL( std::string(__FILE__) , e.getFileName() );
+			CPPUNIT_ASSERT_EQUAL( 10L , e.getLineNumber() );
+			CPPUNIT_ASSERT_EQUAL( std::string("100") , e.getExpectedValue() );
+			CPPUNIT_ASSERT_EQUAL( std::string("-100") , e.getActualValue() );
+		}
+		zefiro_std::Assert::assertEquals( 100 , 100 , __LINE__ , __FILE__ );
 	}
 };
