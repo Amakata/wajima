@@ -1,40 +1,68 @@
-/**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/AdapterTest.cpp,v 1.3 2002/04/29 16:25:57 ama Exp $
- */
+//CUPPA:include=+
+#include "graphics/sys/Adapter.h"
+//CUPPA:include=-
+#include <cppunit/extensions/HelperMacros.h>
+#include <cppunit/TestAssert.h>
 
-#include <sstream>
+#define ADAPTERNAME		"adaptername"
+#define ADAPTERNUMBER	1
 
-#include "graphics/sys/test/AdapterTest.h"
 
-CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_graphicstest::AdapterTest );
+//CUPPA:namespace=+
+namespace zefiro_graphics {
+//CUPPA:namespace=-
 
-namespace zefiro_graphicstest{
-	void AdapterTest::setUp(){
-		_adapter = new zefiro_graphics::Adapter( ADAPTERNUMBER , ADAPTERNAME);
-	}
-	void AdapterTest::tearDown(){
-		delete _adapter;
-	}
-	void AdapterTest::testGetName(){
-		CPPUNIT_ASSERT_EQUAL( _adapter->getName() , std::string(ADAPTERNAME) );
-	}
-	void AdapterTest::testGetAdapterNumber(){
-		CPPUNIT_ASSERT_EQUAL( _adapter->getAdapterNumber() , ADAPTERNUMBER );
-	}
-	void AdapterTest::testGetModeVector(){
-		_adapter->addMode( zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ) );
-		std::vector<zefiro_graphics::Mode> modes = _adapter->getModeVector();
+class AdapterTest : public CppUnit::TestFixture {
+  CPPUNIT_TEST_SUITE(AdapterTest);
+//CUPPA:suite=+
+  CPPUNIT_TEST(testGetName);
+  CPPUNIT_TEST(testGetAdapterNumber);
+  CPPUNIT_TEST(testGetModeVector);
+  CPPUNIT_TEST(testToString);
+//CUPPA:suite=-
+  CPPUNIT_TEST_SUITE_END();
+private:
+
+  Adapter	*adapter_;
+
+public:
+
+  virtual void setUp() { adapter_ = new Adapter(ADAPTERNUMBER , ADAPTERNAME );}
+  virtual void tearDown() { delete adapter_; }
+
+//CUPPA:decl=+
+  void testGetName() {
+		CPPUNIT_ASSERT_EQUAL( adapter_->getName() , std::string(ADAPTERNAME) );
+  }
+  void testGetAdapterNumber() {
+		CPPUNIT_ASSERT_EQUAL( adapter_->getAdapterNumber() , ADAPTERNUMBER );
+  }
+  void AdapterTest::testGetModeVector(){
+		adapter_->addMode( zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ) );
+		std::vector<zefiro_graphics::Mode> modes = adapter_->getModeVector();
 		CPPUNIT_ASSERT_EQUAL( (UINT)1 , modes.size() );
 		CPPUNIT_ASSERT_EQUAL( zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ).toString() , modes[0].toString() );
-	}
-	void AdapterTest::testToString(){
-		_adapter->addMode( zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ) );
+  }
+  void testToString() {
+		adapter_->addMode( zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ) );
 		std::ostringstream oss;
 		oss << std::string(ADAPTERNAME) 
 			<< std::endl 
 			<< zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ).toString()
 			<< std::endl;
 
-		CPPUNIT_ASSERT_EQUAL( oss.str() , _adapter->toString() );
-	}
+		CPPUNIT_ASSERT_EQUAL( oss.str() , adapter_->toString() );
+  }
+//CUPPA:decl=-
 };
+
+}
+
+namespace zefiro_graphics {
+//CUPPA:impl=+
+//CUPPA:impl=-
+
+CPPUNIT_TEST_SUITE_REGISTRATION(AdapterTest);
+CPPUNIT_TEST_SUITE_NAMED_REGISTRATION(AdapterTest,"zefiro_graphics");
+
+}

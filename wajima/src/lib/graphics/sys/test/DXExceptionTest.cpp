@@ -1,40 +1,67 @@
-/**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/DXExceptionTest.cpp,v 1.2 2002/05/23 15:59:52 ama Exp $
- */
+//CUPPA:include=+
+#include "graphics/sys/DXException.h"
 
 #include "std/InvalidArgument.h"
 
-#include "graphics/sys/test/DXExceptionTest.h"
-
-CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_graphicstest::DXExceptionTest );
-
+//CUPPA:include=-
+#include <cppunit/extensions/HelperMacros.h>
+#include <cppunit/TestAssert.h>
 #define HRESULT 1L
 #define LINENUMBER 2L
 #define FILENAME "test"
 
-namespace zefiro_graphicstest{
-	void DXExceptionTest::setUp(){
-		_dxexception = new zefiro_graphics::DXException( HRESULT , LINENUMBER , FILENAME );
-	}
-	void DXExceptionTest::tearDown(){
-		delete _dxexception;
-	}
-	void DXExceptionTest::testGetHResult(){
-		CPPUNIT_ASSERT_EQUAL( HRESULT , _dxexception->getHResult() );
-	}
-	void DXExceptionTest::testLineNumber(){
-		CPPUNIT_ASSERT_EQUAL( LINENUMBER , _dxexception->lineNumber() );
-	}
-	void DXExceptionTest::testFileName(){
-		CPPUNIT_ASSERT_EQUAL( std::string(FILENAME), _dxexception->fileName() );
-	}
-	void DXExceptionTest::testIsInstanceOf(){
-		CPPUNIT_ASSERT( _dxexception->isInstanceOf( zefiro_graphics::DXException::type() ) ); 
-		CPPUNIT_ASSERT( _dxexception->isInstanceOf( zefiro_std::Exception::type() ) );
-		CPPUNIT_ASSERT( !_dxexception->isInstanceOf( zefiro_std::InvalidArgument::type() ) );
 
-	}
-	void DXExceptionTest::testType(){
+//CUPPA:namespace=+
+namespace zefiro_graphics {
+//CUPPA:namespace=-
+
+class DXExceptionTest : public CppUnit::TestFixture {
+  CPPUNIT_TEST_SUITE(DXExceptionTest);
+//CUPPA:suite=+
+  CPPUNIT_TEST(testGetHResult);
+  CPPUNIT_TEST(testLineNumber);
+  CPPUNIT_TEST(testFileName);
+  CPPUNIT_TEST(testIsInstanceOf);
+  CPPUNIT_TEST(testType);
+//CUPPA:suite=-
+  CPPUNIT_TEST_SUITE_END();
+private:
+
+  DXException *dxexception_;
+
+public:
+
+  virtual void setUp() { dxexception_ = new DXException( HRESULT , LINENUMBER , FILENAME ); }
+  virtual void tearDown() { delete dxexception_; }
+
+//CUPPA:decl=+
+  void testGetHResult() {
+		CPPUNIT_ASSERT_EQUAL( HRESULT , dxexception_->getHResult() );
+  }
+  void testLineNumber() {
+		CPPUNIT_ASSERT_EQUAL( LINENUMBER , dxexception_->lineNumber() );
+  }
+  void testFileName() {
+		CPPUNIT_ASSERT_EQUAL( std::string(FILENAME), dxexception_->fileName() );
+  }
+  void testIsInstanceOf() {
+		CPPUNIT_ASSERT( dxexception_->isInstanceOf( zefiro_graphics::DXException::type() ) ); 
+		CPPUNIT_ASSERT( dxexception_->isInstanceOf( zefiro_std::Exception::type() ) );
+		CPPUNIT_ASSERT( !dxexception_->isInstanceOf( zefiro_std::InvalidArgument::type() ) );
+  }
+  void testType() {
 		CPPUNIT_ASSERT( zefiro_std::Exception::Type("zefiro_graphics::DXException") == zefiro_graphics::DXException::type() );
-	}
+  }
+//CUPPA:decl=-
 };
+
+}
+
+namespace zefiro_graphics {
+//CUPPA:impl=+
+//CUPPA:impl=-
+
+CPPUNIT_TEST_SUITE_REGISTRATION(DXExceptionTest);
+CPPUNIT_TEST_SUITE_NAMED_REGISTRATION(DXExceptionTest,"zefiro_graphics");
+
+}

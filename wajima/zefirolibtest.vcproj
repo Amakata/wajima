@@ -162,9 +162,6 @@
 				RelativePath=".\src\lib\graphics\sys\test\AdapterTest.cpp">
 			</File>
 			<File
-				RelativePath=".\include\lib\graphics\sys\test\AdapterTest.h">
-			</File>
-			<File
 				RelativePath=".\src\lib\graphics\sys\test\D3D8Test.cpp">
 			</File>
 			<File
@@ -172,9 +169,6 @@
 			</File>
 			<File
 				RelativePath=".\src\lib\graphics\sys\test\DXExceptionTest.cpp">
-			</File>
-			<File
-				RelativePath=".\include\lib\graphics\sys\test\DXExceptionTest.h">
 			</File>
 			<File
 				RelativePath=".\src\lib\graphics\sys\test\ModeTest.cpp">
