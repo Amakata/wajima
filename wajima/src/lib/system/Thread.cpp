@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.cpp,v 1.7 2002/11/04 16:29:19 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.cpp,v 1.8 2002/11/07 10:38:44 ama Exp $
  */
 
 #include "Thread.h"
@@ -10,114 +10,88 @@
 #include <sstream>
 
 namespace zefiro_system {
-	std::vector<Thread *>	Thread::threads__;
-	Mutex Thread::threadsMutex__;
 	const int Thread::NULLTHREAD = -1;
 	
 	Thread::Thread( int stackSize )
-		:runnable_(NULL),thread_(NULL),threadMutex_(new Mutex()),threadID_(0),constructError_(0),hasStarted_(false),joinable_(true),canRemoveRunnable_(true),name_(""){
+		:runnable_(NULL),thread_(NULL),threadID_(0),constructError_(0),hasStarted_(false),joinable_(true),canRemoveRunnable_(true),name_(""){
 		create( stackSize );
 	}
 	Thread::Thread( std::string name , int stackSize )
-		:runnable_(NULL),thread_(NULL),threadMutex_(new Mutex()),threadID_(0),constructError_(0),hasStarted_(false),joinable_(true),canRemoveRunnable_(true),name_(name){
+		:runnable_(NULL),thread_(NULL),threadID_(0),constructError_(0),hasStarted_(false),joinable_(true),canRemoveRunnable_(true),name_(name){
 		create( stackSize );
 	}
 	Thread::Thread( Runnable *r , int stackSize )
-		:runnable_(r),thread_(NULL),threadMutex_(new Mutex()),threadID_(0),constructError_(0),hasStarted_(false),joinable_(true),canRemoveRunnable_(true),name_(""){
+		:runnable_(r),thread_(NULL),threadID_(0),constructError_(0),hasStarted_(false),joinable_(true),canRemoveRunnable_(true),name_(""){
 		create( stackSize );
 	}
 	Thread::Thread( Runnable *r , std::string name , int stackSize )
-		:runnable_(r),thread_(NULL),threadMutex_(new Mutex()),threadID_(0),constructError_(0),hasStarted_(false),joinable_(true),canRemoveRunnable_(true),name_(name){
+		:runnable_(r),thread_(NULL),threadID_(0),constructError_(0),hasStarted_(false),joinable_(true),canRemoveRunnable_(true),name_(name){
 		create( stackSize );
 	}
 
-	bool Thread::isAvailable() const {
-		threadMutex_->lock();
+	bool Thread::isAvailable(){
+		Lock lock(*this);
 		ZEFIRO_LOG( "NORMAL" , "Thread::isAvailable()" + toString());
-		bool result = thread_ != NULL;
-		threadMutex_->unlock();
-		return result;
+		return thread_ != NULL;
 	}
-	bool Thread::isJoinable() const {
-		threadMutex_->lock();
-		ZEFIRO_LOG( "NORMAL" , "Thread::isJoinable() Begin" + toString());
-		bool result = joinable_;
-		ZEFIRO_LOG( "NORMAL" , "Thread::isJoinable() End" + toString());
-		threadMutex_->unlock();
-		return result;
+	bool Thread::isJoinable(){
+		Lock lock(*this);
+		ZEFIRO_LOG( "NORMAL" , "Thread::isJoinable()" + toString());
+		return joinable_;
 	}
 	void Thread::setJoinable( bool joinable ){
-		threadMutex_->lock();
-		ZEFIRO_LOG( "NORMAL" , "Thread::setJoinable() Begin" + toString());
-		joinable_ = joinable;
-		ZEFIRO_LOG( "NORMAL" , "Thread::setJoinable() End" + toString());
-		threadMutex_->unlock();
+		Lock lock(*this);
+		ZEFIRO_LOG( "NORMAL" , "Thread::setJoinable()" + toString());
 	}
-	bool Thread::canRemoveRunnable() const {
-		threadMutex_->lock();
-		bool result = canRemoveRunnable_;
-		threadMutex_->unlock();
-		return result;
+	bool Thread::canRemoveRunnable(){
+		Lock lock(*this);
+		return canRemoveRunnable_;
 	}
 	void Thread::setCanRemoveRunnable( bool canRemoveRunnable ){
-		threadMutex_->lock();
+		Lock lock(*this);
 		bool canRemoveRunnable_ = canRemoveRunnable;
-		threadMutex_->unlock();
-	
 	}
 	void Thread::start(){
-		threadMutex_->lock();
+		Lock lock(*this);
 		ZEFIRO_LOG( "NORMAL" , "Thread::start() Begin" + toString());
 		if( !isAvailable() ){
 			ZEFIRO_LOG( "ERROR" , "Thread::start()" + toString());
-			threadMutex_->unlock();
 			WIN32ASSERT( constructError_ );
 		}
 		if( !hasStarted_ ){
 			hasStarted_ = true;
 		}else{
-			threadMutex_->unlock();
 			throw IllegalThreadStateException();
 		}
 		if( -1 == ResumeThread( thread_ ) ){
 			ZEFIRO_LOG( "ERROR" , "Thread::start()" + toString());
 			DWORD error = GetLastError();
-			threadMutex_->unlock();
 			WIN32ASSERT( error );
 		}
 		ZEFIRO_LOG( "NORMAL" , "Thread::start() End" + toString());
-		threadMutex_->unlock();
 	}
-	int Thread::getThreadID() const{
-		threadMutex_->lock();
-		int result = threadID_;
-		threadMutex_->unlock();
-		return result;
+	int Thread::getThreadID(){
+		Lock lock(*this);
+		return threadID_;
 	}
-	std::string Thread::getName() const{
-		threadMutex_->lock();
-		std::string result = name_;
-		threadMutex_->unlock();
-		return result;
+	std::string Thread::getName(){
+		Lock lock(*this);
+		return name_;
 	}
-	int Thread::getPriority() const{
+	int Thread::getPriority(){
+		Lock lock(*this);
 		int result;
-		threadMutex_->lock();
 		if( THREAD_PRIORITY_ERROR_RETURN == ( result = GetThreadPriority( thread_ ) ) ){
-			threadMutex_->unlock();
 			WIN32ASSERT( GetLastError() );
 		}
-		threadMutex_->unlock();
 		return result;
 	}
 	void Thread::setPriority( int priority ){
 		ZEFIRO_STD_ASSERT( priority >= 0 );
-		threadMutex_->lock();
+		Lock lock(*this);
 		if( 0 == SetThreadPriority( thread_ , priority ) ){
-			threadMutex_->unlock();
 			WIN32ASSERT( GetLastError() );
 		}
-		threadMutex_->unlock();
 	}
 	int Thread::join(){
 		return doJoin( 0 );
@@ -138,17 +112,20 @@ namespace zefiro_system {
 		ZEFIRO_LOG( "NORMAL" , "Thread::sleep() End");
 	}
 	void Thread::exit( int exitCode ){
+		bool joinable;
 		ZEFIRO_LOG( "NORMAL" , "Thread::exit() Begin");
 		Thread *currentThread = getCurrentThread();
-		currentThread->threadMutex_->lock();
-		if( ! currentThread->joinable_ ){
-			if( currentThread->canRemoveRunnable_ ){
-				delete currentThread->runnable_;
+		{
+			Thread::Lock lock(*currentThread);
+			joinable = currentThread->joinable_;
+			if( ! joinable ){
+				if( currentThread->canRemoveRunnable_ ){
+					delete currentThread->runnable_;
+				}
 			}
-			currentThread->threadMutex_->unlock();
+		}
+		if( !joinable){
 			delete currentThread;
-		}else{
-			currentThread->threadMutex_->unlock();
 		}
 		ZEFIRO_LOG( "NORMAL" , "Thread::exit() End");
 		_endthreadex( exitCode );
@@ -187,45 +164,46 @@ namespace zefiro_system {
 		if( threads__.size() == 0 ){
 			addMainThread();
 		}
-		threadMutex_->lock();
-		ZEFIRO_LOG( "NORMAL" , "Thread::Thread( Runnable *, int ) Begin" + toString());
-		if( NULL == (thread_ = (HANDLE)_beginthreadex( NULL , stackSize , (unsigned (__stdcall *)(void *))runProc , this , CREATE_SUSPENDED , &threadID_ ) ) ){
-			constructError_ = GetLastError();	//	コンストラクタ内で例外は発生させたくないので、エラーを記憶
+		{
+			Lock lock(*this);
+			ZEFIRO_LOG( "NORMAL" , "Thread::Thread( Runnable *, int ) Begin" + toString());
+			if( NULL == (thread_ = (HANDLE)_beginthreadex( NULL , stackSize , (unsigned (__stdcall *)(void *))runProc , this , CREATE_SUSPENDED , &threadID_ ) ) ){
+				constructError_ = GetLastError();	//	コンストラクタ内で例外は発生させたくないので、エラーを記憶
+			}
+			threads__.push_back( this );
+			ZEFIRO_LOG( "NORMAL" , "Thread::Thread( Runnable *, int ) END" + toString() );
 		}
-		threads__.push_back( this );
-		ZEFIRO_LOG( "NORMAL" , "Thread::Thread( Runnable *, int ) END" + toString() );
-		threadMutex_->unlock();
 		threadsMutex__.unlock();
 	}
 	int Thread::doJoin( int millisecond ){
 		ZEFIRO_STD_ASSERT( millisecond >= 0 );
-		threadMutex_->lock();
-		ZEFIRO_LOG( "NORMAL" , "Thread::join() Begin" + toString());
-		if( !isAvailable() ){
-			ZEFIRO_LOG( "ERROR" , "Thread::join()" + toString());
-			threadMutex_->unlock();
-			WIN32ASSERT( constructError_ );
-		}
-		threadMutex_->unlock();
-		DWORD result = WaitForSingleObject( thread_ , millisecond );
-		threadMutex_->lock();
-		switch( result ){
-		case WAIT_ABANDONED:
-		case WAIT_OBJECT_0:
-			break;
-		case WAIT_TIMEOUT:
-			ZEFIRO_LOG( "NORMAL" , "Thread::join() End" + toString());
-			threadMutex_->unlock();
-			throw TimeOutException();
-		case WAIT_FAILED:
-			ZEFIRO_LOG( "ERROR" , "Thread::join()" + toString());
-			WIN32ASSERT( GetLastError() );
-		}
 		DWORD exitCode;
-		if( 0 == GetExitCodeThread( thread_ , &exitCode ) ){
-			threadMutex_->unlock();
-			ZEFIRO_LOG( "ERROR" , "Thread::join()" + toString());
-			WIN32ASSERT( GetLastError() );
+		{
+			Lock lock(*this);
+			ZEFIRO_LOG( "NORMAL" , "Thread::join() Begin" + toString());
+			if( !isAvailable() ){
+				ZEFIRO_LOG( "ERROR" , "Thread::join()" + toString());
+				WIN32ASSERT( constructError_ );
+			}
+		}
+		DWORD result = WaitForSingleObject( thread_ , millisecond );
+		{
+			Lock lock(*this);
+			switch( result ){
+			case WAIT_ABANDONED:
+			case WAIT_OBJECT_0:
+				break;
+			case WAIT_TIMEOUT:
+				ZEFIRO_LOG( "NORMAL" , "Thread::join() End" + toString());
+				throw TimeOutException();
+			case WAIT_FAILED:
+				ZEFIRO_LOG( "ERROR" , "Thread::join()" + toString());
+				WIN32ASSERT( GetLastError() );
+			}
+			if( 0 == GetExitCodeThread( thread_ , &exitCode ) ){
+				ZEFIRO_LOG( "ERROR" , "Thread::join()" + toString());
+				WIN32ASSERT( GetLastError() );
+			}
 		}
 		ZEFIRO_LOG( "NORMAL" , "Thread::join() End" + toString());
 		delete this;
@@ -242,7 +220,7 @@ namespace zefiro_system {
 	Thread::Thread( HANDLE thread , unsigned int threadid )
 		:thread_(thread),threadID_(threadid),
 		runnable_(false),constructError_(0),
-		threadMutex_(new Mutex),hasStarted_(true),
+		hasStarted_(true),
 		joinable_(false),canRemoveRunnable_(false),name_("main"){
 		ZEFIRO_LOG( "NORMAL" , "Thread::Thread( HANDLE , unsigned int )" + toString());
 	}
@@ -252,7 +230,6 @@ namespace zefiro_system {
 		removeThread( this );
 		threadsMutex__.unlock();
 		if( isAvailable() ){
-			delete threadMutex_;
 			CloseHandle( thread_ );
 		}
 		ZEFIRO_LOG( "NORMAL" , "Thread::~Thread() End" + toString());

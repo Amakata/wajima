@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.h,v 1.2 2002/11/04 16:29:19 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.h,v 1.3 2002/11/07 10:38:44 ama Exp $
  */
 
 #ifndef __THREAD_H__
@@ -14,9 +14,10 @@
 #include "IllegalThreadStateException.h"
 #include "TimeOutException.h"
 #include "std/sys/Win32Assert.h"
+#include "ThreadingModel.h"
 
 namespace zefiro_system {
-	class Thread : public Runnable
+	class Thread : public Runnable , public ObjectLevelCountedLockable<Thread>
 	{
 	public:
 		/**
@@ -34,7 +35,7 @@ namespace zefiro_system {
 		 * \retval true スレッドオブジェクトは利用可能である。
 		 * \retval false 　スレッドオブジェクトは利用不可能である。
 		 */
-		bool isAvailable() const;
+		bool isAvailable();
 		/**
 		 * スレッドのJoin可能判定
 		 * <ul>
@@ -50,7 +51,7 @@ namespace zefiro_system {
 		 * \retval true Join可能
 		 * \retval false Join不可能
 		 */
-		bool isJoinable() const;
+		bool isJoinable();
 		/**
 		 * スレッドのJoin可能設定。
 		 * このメソッドはstart()が呼ばれる前に呼ばなければならない。
@@ -65,7 +66,7 @@ namespace zefiro_system {
 		 * Runnableオブジェクトの所有権の取得
 		 * Joinableでないときに、Runnableを削除するか？
 		 */
-		bool canRemoveRunnable() const;
+		bool canRemoveRunnable();
 		/**
 		 * Runnableオブジェクトの所有権の設定
 		 * setJoinableがfalseの時にcanRemoveRunnableがtrueだと、Thread::exit()したときに、
@@ -78,18 +79,18 @@ namespace zefiro_system {
 		 * スレッドIDを返す。
 		 * \return スレッドID
 		 */
-		int getThreadID() const;
+		int getThreadID();
 		/**
 		 * スレッドの名前を返す。
 		 * \return スレッドの名前。この名前はユーザがコンストラクタで指定した名前となる。
 		 */
-		std::string getName() const;
+		std::string getName();
 		/**
 		 * スレッドの優先度を返す。
 		 * \return スレッドの優先度
 		 * \throw Win32Exception
 		 */
-		int getPriority() const;
+		int getPriority();
 		/**
 		 * スレッドの優先度を設定する。
 		 * \param priority スレッドの優先度
@@ -182,6 +183,10 @@ namespace zefiro_system {
 		 */
 		static int runProc( Thread *thread );
 	private:
+		class Threads : public ClassLevelCountedLockable<Threads> {
+			std::vector<Thread *> threads_;
+		public:
+		};
 		/**
 		 * __threadsに登録してある現在のスレッドのイテレータを返す。
 		 */
@@ -196,13 +201,11 @@ namespace zefiro_system {
 		unsigned int	threadID_;
 		Runnable *runnable_;
 		DWORD	constructError_;
-		Mutex	*threadMutex_;
 		bool	hasStarted_;
 		bool	joinable_;
 		bool	canRemoveRunnable_;
 		std::string	name_;
-		static Mutex threadsMutex__;
-		static std::vector<Thread *>	threads__;
+		static Threads threads__;
 	};
 };
 

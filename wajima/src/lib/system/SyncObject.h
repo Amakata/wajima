@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/SyncObject.h,v 1.3 2002/11/06 18:42:54 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/SyncObject.h,v 1.4 2002/11/07 10:38:40 ama Exp $
  */
 
 #ifndef __SYNCOBJECT_H__
@@ -51,29 +51,31 @@ namespace zefiro_system {
 					}
 				}
 			}
-			bool doWait( int millisecond = INFINITE ){
-				waitThreads_.push_back( Thread::getCurrentThread() );
-				while( waitThreads_.end() != std::find( waitThreads_.begin() , waitThreads_.end() , Thread::getCurrentThread() ) ){
-					Unlock unlock(*this);
-					if( !waitSync_.wait( millisecond ) ){
-						return false;
+			bool wait( SyncObject &monitorLock , int millisecond = INFINITE ){
+				Lock lock(*this);
+				{
+					SyncObject::Unlock unlock(monitorLock);
+					{
+						waitThreads_.push_back( Thread::getCurrentThread() );
+						while( waitThreads_.end() != std::find( waitThreads_.begin() , waitThreads_.end() , Thread::getCurrentThread() ) ){
+							Unlock unlock(*this);
+							if( !waitSync_.wait( millisecond ) ){
+								return false;
+							}
+						}
+						waitSync_.reset();
 					}
 				}
-				waitSync_.reset();
 				return true;
 			}
 		};
 		WaitThreads waitThreads_;
 	public:
-		SyncObject():
-			waitThreads_(),
-			monitorSync_(new Win32Event()),monitorOwnerID_(Thread::NULLTHREAD){
+		SyncObject(): waitThreads_(){
 			ZEFIRO_LOG( "NORMAL" , "SyncObject::SyncObject()" + toString());
-			monitorSync_->reset();
 		}
 		virtual ~SyncObject(){
 			ZEFIRO_LOG( "NORMAL" , "SyncObject::~SyncObject()" + toString());
-			delete monitorSync_;
 		}
 		/**
 		 * 一つの待機への通知。
@@ -100,11 +102,7 @@ namespace zefiro_system {
 		 */
 		virtual void wait(){
 			ZEFIRO_LOG( "NORMAL" , "SyncObject::wait() Begin" + toString());
-			WaitThreads::Lock lock(waitThreads_);
-			{
-				Lock unlock(*this);	
-				waitThreads_.doWait();
-			}
+			waitThreads_.wait( *this );
 			ZEFIRO_LOG( "NORMAL" , "SyncObject::wait() End" + toString());
 		}
 		/**
@@ -116,29 +114,17 @@ namespace zefiro_system {
 		 * \retval false タイムアウトした。
 		 */
 		virtual bool wait( int millisecond ){
-			bool result;
 			ZEFIRO_LOG( "NORMAL" , "SyncObject::wait( int ) Begin" + toString());
-			WaitThreads::Lock lock(waitThreads_);
-			{
-				Unlock unlock(*this);
-				result = waitThreads_.doWait( millisecond );
-			}
+			bool result = waitThreads_.wait( *this , millisecond );
 			ZEFIRO_LOG( "NORMAL" , "SyncObject::wait( int ) End" + toString());
 			return result;
 		}
 		virtual std::string toString() const{
-			std::ostringstream ostrstr;	
-			ostrstr << 
-						"( monitor owner id = " << monitorOwnerID_ << 
-						" , monitor sync = "  << monitorSync_->toString() <<  " ) ";
-
-			return ostrstr.str();
+			return std::string();
 		}
 	protected:
 		SyncObject( const SyncObject &syncObject );
 		SyncObject &operator =( const SyncObject &syncObject );
-		Win32Event	*monitorSync_;				//	モニター用同期
-		int	monitorOwnerID_;					//	モニターの所有ThreadのID
 	};
 };
 
