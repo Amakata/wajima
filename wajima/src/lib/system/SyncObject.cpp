@@ -4,88 +4,135 @@
 
 #include "system/SyncObject.h"
 #include "std/Logger.h"
+#include "std/Assert.h"
 
 #include <algorithm>
 #include <sstream>
 
 namespace zefiro_system {
-	SyncObject::SyncObject():sync_(new Win32Event),syncObjectMutex_(new Mutex()),countOfHasNotified_(0){
+	SyncObject::SyncObject():
+		waitSync_(new Win32Event),waitMutex_(new Mutex()),
+		monitorSync_(new Win32Event()),monitorMutex_(new Mutex()),monitorOwnerID_(Thread::NULLTHREAD),
+		countOfMonitorLock_(0),countOfMonitorLockWait_(0){
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::SyncObject()" + toString());
-		sync_->reset();
+		waitSync_->reset();
+		monitorSync_->reset();
 	}
 	SyncObject::~SyncObject(){
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::~SyncObject()" + toString());
-		delete sync_;
-		delete syncObjectMutex_;
+		delete waitSync_;
+		delete monitorSync_;
+		delete waitMutex_;
+		delete monitorMutex_;
 	}
 	void SyncObject::notify(){
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::notify() Begin" + toString());
-		syncObjectMutex_->lock();
+		waitMutex_->lock();
 		if( waitThreads_.size() > 0 ){
 			waitThreads_.erase( waitThreads_.begin() );
 		}
-		++countOfHasNotified_;
-		sync_->set();
-		syncObjectMutex_->unlock();
+		waitMutex_->unlock();
+		waitSync_->set();
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::notify() End" + toString());
 	}
 	void SyncObject::notifyAll(){
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::notifyAll() Begin" + toString());
-		syncObjectMutex_->lock();
+		waitMutex_->lock();
 		if( waitThreads_.size() > 0 ){
-			countOfHasNotified_ += waitThreads_.size();
 			waitThreads_.erase( waitThreads_.begin() , waitThreads_.end() );
+			waitMutex_->unlock();
+			waitSync_->set();
 		}
-		sync_->set();
-		syncObjectMutex_->unlock();
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::notifyAll() End" + toString());
 	}
 	void SyncObject::wait(){
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::wait() Begin" + toString());
-		syncObjectMutex_->lock();
+		waitMutex_->lock();
+		int countOfMonitorLock = countOfMonitorLock_;
+		for( int count=0 ; count<countOfMonitorLock ; ++count ){
+			this->unlock();
+		}
+
 		waitThreads_.push_back( Thread::getCurrentThread() );
 		while( waitThreads_.end() != std::find( waitThreads_.begin() , waitThreads_.end() , Thread::getCurrentThread() ) ){
-			syncObjectMutex_->unlock();
-			sync_->wait();
-			syncObjectMutex_->lock();
+			waitMutex_->unlock();
+			waitSync_->wait();
+			waitMutex_->lock();
 		}
-		--countOfHasNotified_;
-		if( countOfHasNotified_ == 0 ){
-			sync_->reset();
-		}
-		syncObjectMutex_->unlock();
+		waitSync_->reset();
+		waitMutex_->unlock();
+		this->lock();
+		countOfMonitorLock_ = countOfMonitorLock;
+
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::wait() End" + toString());
 	}
 	bool SyncObject::wait( int millisecond ){
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::wait( int ) Begin" + toString());
-		syncObjectMutex_->lock();
+		waitMutex_->lock();
+		int countOfMonitorLock = countOfMonitorLock_;
+		for( int count=0 ; count<countOfMonitorLock ; ++count ){
+			this->unlock();
+		}
+
 		waitThreads_.push_back( Thread::getCurrentThread() );
 		while( waitThreads_.end() != std::find( waitThreads_.begin() , waitThreads_.end() , Thread::getCurrentThread() ) ){
-			syncObjectMutex_->unlock();
-			if( sync_->wait( millisecond ) ){
-				syncObjectMutex_->lock();
+			waitMutex_->unlock();
+			if( waitSync_->wait( millisecond ) ){
+				waitMutex_->lock();
+				this->lock();		
+				countOfMonitorLock_ = countOfMonitorLock;
+				ZEFIRO_LOG( "NORMAL" , "SyncObject::wait( int ) End" + toString());
 				return false;
 			}
-			syncObjectMutex_->lock();
+			waitMutex_->lock();
 		}
-		--countOfHasNotified_;
-		if( countOfHasNotified_ == 0 ){
-			sync_->reset();
-		}
-		syncObjectMutex_->unlock();
+		waitSync_->reset();
+		waitMutex_->unlock();
+		this->lock();
+		countOfMonitorLock_ = countOfMonitorLock;
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::wait( int ) End" + toString());
 		return true;
 	}
 	void SyncObject::lock() {
-		syncObjectMutex_->lock();
+		int currentThreadID = Thread::getCurrentThreadID();
+		monitorMutex_->lock();
+		if( monitorOwnerID_ == currentThreadID ){	//	現在のスレッドがモニターロックの所有者なら、ロックカウントを増やす。
+			++countOfMonitorLock_;
+		}else{
+			while( monitorOwnerID_ != Thread::NULLTHREAD ){	//	ロックが誰かに所有されている間、待つ
+				++countOfMonitorLockWait_;
+				monitorMutex_->unlock();
+				monitorSync_->wait();
+				monitorMutex_->lock();
+			}
+			monitorOwnerID_ = currentThreadID;	//	モニターロックの所有者を現在のスレッドにする。
+			countOfMonitorLock_ = 1;			//	ロックカウントを1にする。
+		}
+		monitorMutex_->unlock();
 	}
 	void SyncObject::unlock() {
-		syncObjectMutex_->unlock();
+		int currentThreadID = Thread::getCurrentThreadID();
+		monitorMutex_->lock();
+		ZEFIRO_STD_ASSERT_EQUAL( currentThreadID , monitorOwnerID_ );	//	自分のスレッド以外のlockを解除したら例外を発生する。
+		--countOfMonitorLock_;
+		if( countOfMonitorLock_ == 0 ){	//	ロックが0なら、モニターロックの所有者をなしにする。
+			monitorOwnerID_ = Thread::NULLTHREAD;
+			if( countOfMonitorLockWait_ > 0 ){	//	誰かロックを待っているなら、waitをなくす。
+				--countOfMonitorLockWait_;
+				monitorMutex_->unlock();
+				monitorSync_->pulse();
+				return;
+			}
+		}
+		monitorMutex_->unlock();
 	}
 	std::string SyncObject::toString() const {
 		std::ostringstream ostrstr;
 
-		ostrstr << "count of has notified = " << countOfHasNotified_ << " , sync = " << sync_->toString() << " , wait thread size = " << waitThreads_.size(); 
+		ostrstr << " ( wait mutex = " << waitMutex_ << " , wait sync = " << waitSync_->toString() << 
+					" , monitor owner id = " << monitorOwnerID_ << " , count of monitor lock = " <<  countOfMonitorLock_ << " , count of monitor lock wait = " << countOfMonitorLockWait_ <<
+					" , monitor mutex = " << monitorMutex_ << " , monitor sync = "  << monitorSync_->toString() << 
+					" , wait thread size = " << waitThreads_.size() << " ) "; 
 
 		return ostrstr.str();
 	}
