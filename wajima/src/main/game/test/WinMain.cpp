@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/WinMain.cpp,v 1.7 2002/05/10 20:07:45 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/WinMain.cpp,v 1.8 2002/09/18 14:47:12 ama Exp $
  */
 
 #include <fstream>
@@ -41,7 +41,7 @@ int APIENTRY WinMain( HINSTANCE hInstance ,
 		TranslateMessage( &msg );
 		DispatchMessage( &msg );
 	}
-//	delete window;
+	delete window;
 	return( msg.wParam );
 }
 
