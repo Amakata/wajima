@@ -101,6 +101,10 @@ SOURCE=.\src\lib\std\InvalidArgument.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\std\Logger.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\std\NotEqualException.cpp
 # End Source File
 # Begin Source File
@@ -330,6 +334,10 @@ SOURCE=.\include\lib\std\Exception.h
 # Begin Source File
 
 SOURCE=.\include\lib\std\InvalidArgument.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\Logger.h
 # End Source File
 # Begin Source File
 

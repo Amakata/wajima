@@ -6,6 +6,7 @@
  */
 
 #include <windows.h>
+#include <string>
 
 namespace zefiro_thread {
 	class Mutex
@@ -15,8 +16,9 @@ namespace zefiro_thread {
 		virtual ~Mutex();
 		void lock();
 		void unlock();
+		virtual std::string toString() const;
 	private:
-		CRITICAL_SECTION _criticalSection;
+		CRITICAL_SECTION criticalSection_;
 	};
 };
 #endif //__MUTEX_H__

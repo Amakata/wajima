@@ -22,7 +22,7 @@ CFG=zefirolibtest - Win32 Debug
 !MESSAGE 
 
 # Begin Project
-# PROP AllowPerConfigDependencies 0
+# PROP AllowPerConfigDependencies 1
 # PROP Scc_ProjName ""
 # PROP Scc_LocalPath ""
 CPP=cl.exe
@@ -93,6 +93,13 @@ LINK32=link.exe
 # Begin Source File
 
 SOURCE=.\resource\lib\zefirolibtest.rc
+
+!IF  "$(CFG)" == "zefirolibtest - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "zefirolibtest - Win32 Debug"
+
+!ENDIF 
+
 # End Source File
 # End Group
 # Begin Group "graphics"
