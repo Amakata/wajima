@@ -27,5 +27,7 @@
 #include "d3d.h"
 #include "device.h"
 #include "vertex.h"
+#include "input.h"
+//#include "KeyboardDevice.h"
 
 #define WM_RENDER	WM_USER
