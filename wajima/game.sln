@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game", "game.vcproj", "{B47B8DC1-1110-484D-B843-C602BF0BF651}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zefirolib", "zefirolib.vcproj", "{4A315AAC-ADBC-43F0-A0AE-DCD8FEF82F80}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zefirolibtest", "zefirolibtest.vcproj", "{E7E4D5AC-2671-4353-895B-E67182941547}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{B47B8DC1-1110-484D-B843-C602BF0BF651}.0 = {4A315AAC-ADBC-43F0-A0AE-DCD8FEF82F80}
+		{E7E4D5AC-2671-4353-895B-E67182941547}.0 = {4A315AAC-ADBC-43F0-A0AE-DCD8FEF82F80}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B47B8DC1-1110-484D-B843-C602BF0BF651}.Debug.ActiveCfg = Debug|Win32
+		{B47B8DC1-1110-484D-B843-C602BF0BF651}.Debug.Build.0 = Debug|Win32
+		{B47B8DC1-1110-484D-B843-C602BF0BF651}.Release.ActiveCfg = Release|Win32
+		{B47B8DC1-1110-484D-B843-C602BF0BF651}.Release.Build.0 = Release|Win32
+		{4A315AAC-ADBC-43F0-A0AE-DCD8FEF82F80}.Debug.ActiveCfg = Debug|Win32
+		{4A315AAC-ADBC-43F0-A0AE-DCD8FEF82F80}.Debug.Build.0 = Debug|Win32
+		{4A315AAC-ADBC-43F0-A0AE-DCD8FEF82F80}.Release.ActiveCfg = Release|Win32
+		{4A315AAC-ADBC-43F0-A0AE-DCD8FEF82F80}.Release.Build.0 = Release|Win32
+		{E7E4D5AC-2671-4353-895B-E67182941547}.Debug.ActiveCfg = Debug|Win32
+		{E7E4D5AC-2671-4353-895B-E67182941547}.Debug.Build.0 = Debug|Win32
+		{E7E4D5AC-2671-4353-895B-E67182941547}.Release.ActiveCfg = Release|Win32
+		{E7E4D5AC-2671-4353-895B-E67182941547}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
