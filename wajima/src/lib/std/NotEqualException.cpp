@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/NotEqualException.cpp,v 1.3 2002/04/28 13:31:40 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/NotEqualException.cpp,v 1.4 2002/04/29 16:29:05 ama Exp $
  */
 
-#include <std/NotEqualException.h>
+#include "std/NotEqualException.h"
 
 namespace zefiro_std {
 

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/test/Attic/WinMain.cpp,v 1.4 2002/04/28 13:33:01 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/test/Attic/WinMain.cpp,v 1.5 2002/04/29 16:27:09 ama Exp $
  */
 
 #include <fstream>
@@ -7,9 +7,9 @@
 
 #include <graphics/sys/D3D8.h>
 
-#include <graphics/test/WindowClass.h>
-#include <graphics/test/Window.h>
-#include <graphics/test/resource.h>
+#include "graphics/test/WindowClass.h"
+#include "graphics/test/Window.h"
+#include "graphics/test/resource.h"
 
 #include <cppunit/TextTestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>

@@ -1,11 +1,11 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/Attic/SpriteFactory.h,v 1.2 2002/04/28 13:31:05 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/Attic/SpriteFactory.h,v 1.3 2002/04/29 16:27:33 ama Exp $
  */
 
 #ifndef __SPRITEFACTORY_H__
 #define __SPRITEFACTORY_H__
 
-#include <graphics/ImageSpriteImp.h>
+#include "graphics/ImageSpriteImp.h"
 
 namespace zefiro_graphics {
 	/**

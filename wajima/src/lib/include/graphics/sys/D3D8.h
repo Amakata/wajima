@@ -1,13 +1,13 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/sys/Attic/D3D8.h,v 1.7 2002/04/28 13:31:11 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/sys/Attic/D3D8.h,v 1.8 2002/04/29 16:28:02 ama Exp $
  */
 
 #ifndef __D3D8_H__
 #define __D3D8_H__
 
-#include <graphics/sys/Adapter.h>
-
 #include <d3d8.h>
+
+#include "graphics/sys/Adapter.h"
 
 namespace zefiro_graphics {
 	class D3D8

@@ -1,12 +1,13 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/Asserter.h,v 1.2 2002/04/28 13:31:29 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/Asserter.h,v 1.3 2002/04/29 16:28:42 ama Exp $
  */
 
 #ifndef ZEFIRO_STD_ASSERTER_H
 #define ZEFIRO_STD_ASSERTER_H
 
-#include <std/SourceLine.h>
 #include <string>
+
+#include "std/SourceLine.h"
 
 namespace zefiro_std
 {

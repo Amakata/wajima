@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/D3D8Test.cpp,v 1.6 2002/04/28 13:32:55 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/D3D8Test.cpp,v 1.7 2002/04/29 16:25:57 ama Exp $
  */
 
-#include <graphics/sys/test/D3D8Test.h>
+#include "graphics/sys/test/D3D8Test.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_graphicstest::D3D8Test );
 

@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/Attic/ImageSpriteImp.cpp,v 1.3 2002/04/28 13:32:42 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/Attic/ImageSpriteImp.cpp,v 1.4 2002/04/29 16:24:34 ama Exp $
  */
 
-#include <graphics/ImageSpriteImp.h>
+#include "graphics/ImageSpriteImp.h"
 
 namespace zefiro_graphics{
 	ImageSpriteImp::ImageSpriteImp():BaseSpriteImp(){

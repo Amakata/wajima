@@ -1,10 +1,10 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/ModeTest.cpp,v 1.2 2002/04/28 13:32:55 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/ModeTest.cpp,v 1.3 2002/04/29 16:25:57 ama Exp $
  */
 
 #include <sstream>
 
-#include <graphics/sys/test/ModeTest.h>
+#include "graphics/sys/test/ModeTest.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_graphicstest::ModeTest );
 

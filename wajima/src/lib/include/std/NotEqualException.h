@@ -1,11 +1,11 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/NotEqualException.h,v 1.3 2002/04/28 13:31:29 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/NotEqualException.h,v 1.4 2002/04/29 16:28:42 ama Exp $
  */
 
 #ifndef NOTEQUALEXCEPTION_H
 #define NOTEQUALEXCEPTION_H
 
-#include <std/Exception.h>
+#include "std/Exception.h"
 
 
 namespace zefiro_std {

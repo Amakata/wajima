@@ -1,12 +1,13 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/UniqueNumberBadAlloc.h,v 1.3 2002/04/28 13:31:29 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/UniqueNumberBadAlloc.h,v 1.4 2002/04/29 16:28:42 ama Exp $
  */
 
 #ifndef __UNIQUENUMBERBADALLOC_H__
 #define __UNIQUENUMBERBADALLOC_H__
 
-#include <std/Exception.h>
 #include <string>
+
+#include "std/Exception.h"
 
 namespace zefiro_std {
 	/**

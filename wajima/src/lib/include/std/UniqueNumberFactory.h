@@ -1,12 +1,13 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/UniqueNumberFactory.h,v 1.3 2002/04/28 13:31:29 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/UniqueNumberFactory.h,v 1.4 2002/04/29 16:28:42 ama Exp $
  */
 
 #ifndef __UNIQUENUMBERFACTORY_H__
 #define __UNIQUENUMBERFACTORY_H__
 
 #include <vector>
-#include <std/UniqueNumberBadAlloc.h>
+
+#include "std/UniqueNumberBadAlloc.h"
 
 namespace zefiro_std{
 	/**	ユニークナンバー生成クラス。

@@ -1,9 +1,11 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.6 2002/04/28 13:32:49 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.7 2002/04/29 16:25:41 ama Exp $
  */
 
-#include <graphics/sys/D3D8.h>
 #include <std/Assert.h>
+
+#include "graphics/sys/D3D8.h"
+
 namespace zefiro_graphics {
 	D3D8::D3D8(){
 		_pD3D = Direct3DCreate8( D3D_SDK_VERSION );

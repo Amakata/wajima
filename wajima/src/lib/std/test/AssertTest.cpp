@@ -1,11 +1,12 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/AssertTest.cpp,v 1.6 2002/04/28 13:31:47 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/AssertTest.cpp,v 1.7 2002/04/29 16:29:26 ama Exp $
  */
 
-#include <std/test/AssertTest.h>
 #include <string>
 
 #include <std/Assert.h>
+
+#include "std/test/AssertTest.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_stdtest::AssertTest );
 

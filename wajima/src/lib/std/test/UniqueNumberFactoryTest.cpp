@@ -1,10 +1,11 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/UniqueNumberFactoryTest.cpp,v 1.4 2002/04/28 13:31:47 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/UniqueNumberFactoryTest.cpp,v 1.5 2002/04/29 16:29:26 ama Exp $
  */
 
 #include <limits>
-#include <std/test/UniqueNumberFactoryTest.h>
 #include <std/UniqueNumberBadAlloc.h>
+
+#include "std/test/UniqueNumberFactoryTest.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_stdtest::UniqueNumberFactoryTest );
 

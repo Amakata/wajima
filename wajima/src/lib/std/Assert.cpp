@@ -1,13 +1,13 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Assert.cpp,v 1.5 2002/04/28 13:31:40 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Assert.cpp,v 1.6 2002/04/29 16:29:05 ama Exp $
  */
 
 #include <cmath>
 
 
-#include <std/Assert.h>
-#include <std/NotEqualException.h>
-#include <std/SourceLine.h>
+#include "std/Assert.h"
+#include "std/NotEqualException.h"
+#include "std/SourceLine.h"
 
 namespace zefiro_std {
 

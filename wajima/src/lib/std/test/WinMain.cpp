@@ -1,19 +1,19 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/WinMain.cpp,v 1.3 2002/04/28 13:31:47 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/WinMain.cpp,v 1.4 2002/04/29 16:29:26 ama Exp $
  */
 
 #include <fstream>
 #include <windows.h>
 
-#include <std/test/WindowClass.h>
-#include <std/test/Window.h>
-#include <std/test/resource.h>
-#include <std/test/UniqueNumberFactoryTest.h>
-
 #include <cppunit/TextTestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
 #include <cppunit/TextOutputter.h>
+
+#include "std/test/WindowClass.h"
+#include "std/test/Window.h"
+#include "std/test/resource.h"
+#include "std/test/UniqueNumberFactoryTest.h"
 
 using namespace zefiro_stdtest;
 

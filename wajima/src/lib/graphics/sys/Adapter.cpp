@@ -1,10 +1,10 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Adapter.cpp,v 1.2 2002/04/28 13:32:49 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Adapter.cpp,v 1.3 2002/04/29 16:25:41 ama Exp $
  */
 
 #include <sstream>
 
-#include <graphics/sys/Adapter.h>
+#include "graphics/sys/Adapter.h"
 
 namespace zefiro_graphics {
 	Adapter::Adapter( const int adapterNumber , const std::string name ):_adapterNumber(adapterNumber),_name(name){

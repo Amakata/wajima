@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/NotEqualExceptionTest.cpp,v 1.3 2002/04/28 13:31:47 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/NotEqualExceptionTest.cpp,v 1.4 2002/04/29 16:29:26 ama Exp $
  */
 
-#include <std/test/NotEqualExceptionTest.h>
+#include "std/test/NotEqualExceptionTest.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_stdtest::NotEqualExceptionTest );
 

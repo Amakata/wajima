@@ -1,10 +1,10 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/test/Attic/SpriteFactoryTest.cpp,v 1.3 2002/04/28 13:33:01 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/test/Attic/SpriteFactoryTest.cpp,v 1.4 2002/04/29 16:27:09 ama Exp $
  */
 
 #include <typeinfo.h>
 
-#include <graphics/test/SpriteFactoryTest.h>
+#include "graphics/test/SpriteFactoryTest.h"
 #include <graphics/SpriteFactory.h>
 #include <graphics/sys/Win32SpriteFactory.h>
 
