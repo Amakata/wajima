@@ -1,13 +1,13 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.4 2002/05/22 23:00:46 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.5 2002/05/23 15:58:47 ama Exp $
  */
 
 #include <fstream>
 #include <windows.h>
 
-#include <graphics/sys/D3D8.h>
-#include <thread/Thread.h>
-#include <std/Logger.h>
+#include "graphics/sys/D3D8.h"
+#include "system/Thread.h"
+#include "std/Logger.h"
 
 #include "WindowClass.h"
 #include "Window.h"
