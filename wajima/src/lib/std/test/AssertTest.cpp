@@ -1,21 +1,34 @@
-/**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/AssertTest.cpp,v 1.8 2002/05/23 16:00:06 ama Exp $
- */
-
-#include <string>
-
+//CUPPA:include=+
 #include "std/Assert.h"
+//CUPPA:include=-
+#include <string>
+#include <cppunit/extensions/HelperMacros.h>
+#include <cppunit/TestAssert.h>
 
-#include "std/test/AssertTest.h"
+//CUPPA:namespace=+
+namespace zefiro_std {
+//CUPPA:namespace=-
 
-CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_stdtest::AssertTest );
+class AssertTest : public CppUnit::TestFixture {
+  CPPUNIT_TEST_SUITE(AssertTest);
+//CUPPA:suite=+
+  CPPUNIT_TEST(testAssertImplementation);
+  CPPUNIT_TEST(testAssertNotEqualImplementation);
+  CPPUNIT_TEST(testAssertEqualsTemplate);
+  CPPUNIT_TEST(testAssertDoubleEqualsTemplate);
+//CUPPA:suite=-
+  CPPUNIT_TEST_SUITE_END();
+private:
 
-namespace zefiro_stdtest {
-	void AssertTest::setUp(){
-	}
-	void AssertTest::tearDown(){
-	}
-	void AssertTest::testAssertImplementation(){
+  // your stuff...
+
+public:
+
+  virtual void setUp() { /* initialize */ }
+  virtual void tearDown() { /* terminate */ }
+
+//CUPPA:decl=+
+  void testAssertImplementation() {
 		try{
 			zefiro_std::Assert::assertImplementation( true , "true" , 1 , __FILE__ );
 			CPPUNIT_FAIL("");
@@ -24,8 +37,8 @@ namespace zefiro_stdtest {
 			CPPUNIT_ASSERT_EQUAL( 1L  ,e.lineNumber() );
 		}
 		zefiro_std::Assert::assertImplementation( false , "false" , __LINE__ , __FILE__ );
-	}
-	void AssertTest::testAssertNotEqualImplementation(){
+  }
+  void testAssertNotEqualImplementation() {
 		try{
 			zefiro_std::Assert::assertNotEqualImplementation( "false" , "false" , 1 , __FILE__ );
 			CPPUNIT_FAIL("");
@@ -33,8 +46,8 @@ namespace zefiro_stdtest {
 			CPPUNIT_ASSERT_EQUAL( std::string(__FILE__) , e.fileName()  );
 			CPPUNIT_ASSERT_EQUAL( 1L , e.lineNumber());
 		}
-	}
-	void AssertTest::testAssertEqualsTemplate(){
+  }
+  void testAssertEqualsTemplate() {
 		try{
 			zefiro_std::Assert::assertEquals( 100 , -100 , 10L , __FILE__ );
 			CPPUNIT_FAIL("");
@@ -45,8 +58,8 @@ namespace zefiro_stdtest {
 			CPPUNIT_ASSERT_EQUAL( std::string("-100") , e.actualValue() );
 		}
 		zefiro_std::Assert::assertEquals( 100 , 100 , __LINE__ , __FILE__ );
-	}
-	void AssertTest::testAssertDoubleEqualsTemplate(){
+  }
+  void testAssertDoubleEqualsTemplate() {
 		try{
 			zefiro_std::Assert::assertEquals( 100.0 , -100.0 , 0.1 , 10L , __FILE__ );
 			CPPUNIT_FAIL("");
@@ -57,5 +70,17 @@ namespace zefiro_stdtest {
 			CPPUNIT_ASSERT_EQUAL( std::string("-100") , e.actualValue() );
 		}
 		zefiro_std::Assert::assertEquals( 100.0 , 100.01 , 0.1 ,__LINE__ , __FILE__ );
-	}
+  }
+//CUPPA:decl=-
 };
+
+}
+
+namespace zefiro_std {
+//CUPPA:impl=+
+//CUPPA:impl=-
+
+CPPUNIT_TEST_SUITE_REGISTRATION(AssertTest);
+CPPUNIT_TEST_SUITE_NAMED_REGISTRATION(AssertTest,"zefiro_std");
+
+}

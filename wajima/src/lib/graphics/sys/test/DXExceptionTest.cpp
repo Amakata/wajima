@@ -9,7 +9,7 @@
 #define HRESULT 1L
 #define LINENUMBER 2L
 #define FILENAME "test"
-
+#define MESSAGE "[DXException Message]"
 
 //CUPPA:namespace=+
 namespace zefiro_graphics {
@@ -23,6 +23,7 @@ class DXExceptionTest : public CppUnit::TestFixture {
   CPPUNIT_TEST(testFileName);
   CPPUNIT_TEST(testIsInstanceOf);
   CPPUNIT_TEST(testType);
+  CPPUNIT_TEST(testWhat);
 //CUPPA:suite=-
   CPPUNIT_TEST_SUITE_END();
 private:
@@ -31,7 +32,7 @@ private:
 
 public:
 
-  virtual void setUp() { dxexception_ = new DXException( HRESULT , LINENUMBER , FILENAME ); }
+  virtual void setUp() { dxexception_ = new DXException( HRESULT , LINENUMBER , FILENAME , MESSAGE ); }
   virtual void tearDown() { delete dxexception_; }
 
 //CUPPA:decl=+
@@ -51,6 +52,9 @@ public:
   }
   void testType() {
 		CPPUNIT_ASSERT( zefiro_std::Exception::Type("zefiro_graphics::DXException") == zefiro_graphics::DXException::type() );
+  }
+  void testWhat() {
+	  CPPUNIT_ASSERT_EQUAL( std::string(MESSAGE) , std::string(dxexception_->what()) );
   }
 //CUPPA:decl=-
 };

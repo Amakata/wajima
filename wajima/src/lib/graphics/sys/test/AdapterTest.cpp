@@ -38,17 +38,17 @@ public:
 		CPPUNIT_ASSERT_EQUAL( adapter_->getAdapterNumber() , ADAPTERNUMBER );
   }
   void AdapterTest::testGetModeVector(){
-		adapter_->addMode( zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ) );
+		adapter_->addMode( zefiro_graphics::Mode( 800 , 600 , 0 , D3DFMT_R8G8B8 ) );
 		std::vector<zefiro_graphics::Mode> modes = adapter_->getModeVector();
 		CPPUNIT_ASSERT_EQUAL( (UINT)1 , modes.size() );
-		CPPUNIT_ASSERT_EQUAL( zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ).toString() , modes[0].toString() );
+		CPPUNIT_ASSERT_EQUAL( zefiro_graphics::Mode( 800 , 600 , 0 , D3DFMT_R8G8B8 ).toString() , modes[0].toString() );
   }
   void testToString() {
-		adapter_->addMode( zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ) );
+		adapter_->addMode( zefiro_graphics::Mode( 800 , 600 , 0 , D3DFMT_R8G8B8 ) );
 		std::ostringstream oss;
 		oss << std::string(ADAPTERNAME) 
 			<< std::endl 
-			<< zefiro_graphics::Mode( 1 , 800 , 600 , 0 , D3DFMT_R8G8B8 ).toString()
+			<< zefiro_graphics::Mode( 800 , 600 , 0 , D3DFMT_R8G8B8 ).toString()
 			<< std::endl;
 
 		CPPUNIT_ASSERT_EQUAL( oss.str() , adapter_->toString() );

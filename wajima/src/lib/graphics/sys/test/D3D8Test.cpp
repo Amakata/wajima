@@ -1,8 +1,23 @@
 //CUPPA:include=+
 #include "graphics/sys/D3D8.h"
+#include "graphics/sys/D3DDevice.h"
+#include "graphics/sys/DXAssert.h"
+#include "graphics/sys/DXException.h"
 //CUPPA:include=-
 #include <cppunit/extensions/HelperMacros.h>
 #include <cppunit/TestAssert.h>
+
+#define DEVICENUMBER 0
+#define HEIGHT 600
+#define WIDTH 800
+#define REFRESHRATE	0
+#define	FORMAT	D3DFMT_X8R8G8B8
+#define WINDOWMODE false
+#define THREADED true
+
+
+extern HWND hWnd__;
+
 
 //CUPPA:namespace=+
 namespace zefiro_graphics {
@@ -15,6 +30,7 @@ class D3D8Test : public CppUnit::TestFixture {
   CPPUNIT_TEST(testAdapterModeCount);
   CPPUNIT_TEST(testIsAvailable);
   CPPUNIT_TEST(testGetAdapterVector);
+  CPPUNIT_TEST(testCreateDevice);
 //CUPPA:suite=-
   CPPUNIT_TEST_SUITE_END();
 private:
@@ -36,13 +52,35 @@ public:
 	}
   }
   void testIsAvailable() {
-		std::vector<zefiro_graphics::Adapter> adapters = d3d8_->getAdapterVector();
-		CPPUNIT_ASSERT( 0 < adapters.size() );
+	std::vector<zefiro_graphics::Adapter> adapters = d3d8_->getAdapterVector();
+	CPPUNIT_ASSERT( 0 < adapters.size() );
   }
   void testGetAdapterVector() {
-		CPPUNIT_ASSERT_EQUAL( true , d3d8_->isAvailable() );
+	CPPUNIT_ASSERT_EQUAL( true , d3d8_->isAvailable() );
+  }
+  void testCreateDevice() {
+	try{
+		D3DDevice *d3ddevice =  d3d8_->createDevice(  DEVICENUMBER , getDefaultAdapterMode() , WINDOWMODE , THREADED , hWnd__ ); 
+		delete d3ddevice;
+	}catch( zefiro_graphics::DXException &dxe ){
+		std::stringstream message;
+		message << dxe.what() << " " << dxe.getHResult() <<" "<< getDefaultAdapterMode().toString() << " " << hWnd__;
+		CPPUNIT_ASSERT_MESSAGE(message.str(),false);
+	}
   }
 //CUPPA:decl=-
+  Mode getDefaultAdapterMode(){
+	std::vector<zefiro_graphics::Adapter> adapters = d3d8_->getAdapterVector();
+	std::vector<zefiro_graphics::Mode> modes = adapters[0].getModeVector();
+	std::vector<Mode>::iterator end = modes.end();
+	for( std::vector<Mode>::iterator current = modes.begin() ; current != end ; ++current ){
+		if( current->getWidth() == WIDTH && current->getHeight() == HEIGHT && current->getFormat() == FORMAT ){
+			return *current;
+		}
+	}
+	return Mode(0,0,0,D3DFMT_X8R8G8B8);
+  }
+
 };
 
 }

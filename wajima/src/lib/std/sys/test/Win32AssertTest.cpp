@@ -1,22 +1,46 @@
-/**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/test/Attic/Win32AssertTest.cpp,v 1.3 2002/05/20 18:36:53 ama Exp $
- */
-
-#include "std/sys/test/Win32AssertTest.h"
-
+//CUPPA:include=+
 #include "std/sys/Win32Assert.h"
+//CUPPA:include=-
+#include <cppunit/extensions/HelperMacros.h>
+#include <cppunit/TestAssert.h>
 
-CPPUNIT_TEST_SUITE_REGISTRATION( zefiro_stdtest::Win32AssertTest );
+//CUPPA:namespace=+
+namespace zefiro_std {
+//CUPPA:namespace=-
 
-namespace zefiro_stdtest {
-	void Win32AssertTest::setUp(){
-	}
-	void Win32AssertTest::tearDown(){
-	}
-	void Win32AssertTest::testWin32Assert(){
-		WIN32ASSERT( 1 );
-	}
-	void Win32AssertTest::testErrorSuccess(){
-		WIN32ASSERT( ERROR_SUCCESS );
-	}
+class Win32AssertTest : public CppUnit::TestFixture {
+  CPPUNIT_TEST_SUITE(Win32AssertTest);
+//CUPPA:suite=+
+  CPPUNIT_TEST(testErrorSuccess);
+  CPPUNIT_TEST_EXCEPTION( testWin32Assert , zefiro_std::Win32Exception );
+//CUPPA:suite=-
+  CPPUNIT_TEST_SUITE_END();
+private:
+
+  // your stuff...
+	
+public:
+
+  virtual void setUp() { /* initialize */ }
+  virtual void tearDown() { /* terminate */ }
+
+//CUPPA:decl=+
+  void testErrorSuccess() {
+	WIN32ASSERT( ERROR_SUCCESS );
+  }
+  void testWin32Assert(){
+    WIN32ASSERT( 1 );
+  }
+//CUPPA:decl=-
 };
+
+}
+
+namespace zefiro_std {
+//CUPPA:impl=+
+//CUPPA:impl=-
+
+CPPUNIT_TEST_SUITE_REGISTRATION(Win32AssertTest);
+CPPUNIT_TEST_SUITE_NAMED_REGISTRATION(Win32AssertTest,"zefiro_std");
+
+}

@@ -5,7 +5,7 @@
 #include <cppunit/TestAssert.h>
 
 
-#define MODENUMBER	1
+
 #define WIDTH		800
 #define HEIGHT		600
 #define REFRESHRATE	0
@@ -19,7 +19,6 @@ namespace zefiro_graphics {
 class ModeTest : public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE(ModeTest);
 //CUPPA:suite=+
-  CPPUNIT_TEST(testGetModeNumber);
   CPPUNIT_TEST(testGetWidth);
   CPPUNIT_TEST(testGetHeight);
   CPPUNIT_TEST(testGetRefreshRate);
@@ -33,13 +32,10 @@ private:
 
 public:
 
-  virtual void setUp() { mode_ = new Mode( MODENUMBER , WIDTH , HEIGHT , REFRESHRATE , FORMAT ); }
+  virtual void setUp() { mode_ = new Mode(  WIDTH , HEIGHT , REFRESHRATE , FORMAT ); }
   virtual void tearDown() { delete mode_; }
 
 //CUPPA:decl=+
-  void testGetModeNumber() {
-	CPPUNIT_ASSERT_EQUAL( MODENUMBER , mode_->getModeNumber() );
-  }
   void testGetWidth() {
 		CPPUNIT_ASSERT_EQUAL( WIDTH , mode_->getWidth() );
   }
