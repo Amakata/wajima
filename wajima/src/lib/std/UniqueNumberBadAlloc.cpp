@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/UniqueNumberBadAlloc.cpp,v 1.3 2002/04/29 16:29:05 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/UniqueNumberBadAlloc.cpp,v 1.4 2002/09/18 14:46:25 ama Exp $
  */
 
 #include "std/UniqueNumberBadAlloc.h"
@@ -10,10 +10,6 @@ namespace zefiro_std {
 	}
 	Exception *UniqueNumberBadAlloc::clone() const{
 		return new UniqueNumberBadAlloc( *this );
-	}
-	UniqueNumberBadAlloc & UniqueNumberBadAlloc::operator= (const UniqueNumberBadAlloc& other ){
-		*this = other;
-		return *this;
 	}
 	bool UniqueNumberBadAlloc::isInstanceOf( const Exception::Type &type ) const{
 		return ( UniqueNumberBadAlloc::getType() == type );
