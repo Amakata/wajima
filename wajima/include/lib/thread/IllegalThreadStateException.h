@@ -5,7 +5,7 @@
  * $ Header: $
  */
 
-#include <std/Exception.h>
+#include "std/Exception.h"
 
 namespace zefiro_thread {
 	class IllegalThreadStateException : public zefiro_std::Exception
