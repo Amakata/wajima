@@ -41,7 +41,7 @@ RSC=rc.exe
 # PROP Intermediate_Dir "build/zefirolib/release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /GX /O2 /I "include/lib/" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
+# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I "include/lib/" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
 # ADD BASE RSC /l 0x411 /d "NDEBUG"
 # ADD RSC /l 0x411 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -188,33 +188,33 @@ SOURCE=.\src\lib\graphics\sys\Win32ImageSpriteImp.cpp
 SOURCE=.\src\lib\graphics\sys\Win32SpriteFactory.cpp
 # End Source File
 # End Group
-# Begin Group "thread src"
-
-# PROP Default_Filter "cpp"
-# Begin Source File
-
-SOURCE=.\src\lib\thread\IllegalThreadStateException.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\lib\thread\Mutex.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\lib\thread\Thread.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\lib\thread\TimeOutException.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\lib\thread\sys\Win32Event.cpp
-# End Source File
-# End Group
 # Begin Group "system src"
 
 # PROP Default_Filter "cpp"
+# Begin Source File
+
+SOURCE=.\src\lib\system\IllegalThreadStateException.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\system\Mutex.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\system\Process.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\system\Thread.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\system\TimeOutException.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\system\sys\Win32Event.cpp
+# End Source File
 # End Group
 # Begin Group "input src"
 
@@ -284,37 +284,37 @@ SOURCE=.\include\lib\graphics\sys\Win32ImageSpriteImp.h
 SOURCE=.\include\lib\graphics\sys\Win32SpriteFactory.h
 # End Source File
 # End Group
-# Begin Group "thread header"
-
-# PROP Default_Filter "h"
-# Begin Source File
-
-SOURCE=.\include\lib\thread\IllegalThreadStateException.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\include\lib\thread\Mutex.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\include\lib\thread\Runnable.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\include\lib\thread\Thread.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\include\lib\thread\TimeOutException.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\include\lib\thread\sys\Win32Event.h
-# End Source File
-# End Group
 # Begin Group "system header"
 
 # PROP Default_Filter "h"
+# Begin Source File
+
+SOURCE=.\include\lib\system\IllegalThreadStateException.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\system\Mutex.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\system\Process.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\system\Runnable.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\system\Thread.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\system\TimeOutException.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\system\sys\Win32Event.h
+# End Source File
 # End Group
 # Begin Group "input header"
 
