@@ -11,17 +11,4 @@ namespace zefiro_graphics {
 		texture_->Release();
 		texture_ = NULL;
 	}
-	int D3DTexture::getHeight()const{
-		return height_;
-	}
-	int D3DTexture::getWidth()const{
-		return width_;
-	}
-	float D3DTexture::getHeightRatio()const{
-		return maxHeightRatio_;
-	}
-	float D3DTexture::getWidthRatio()const{
-		return maxWidthRatio_;
-	}
-
 };

@@ -12,10 +12,18 @@ namespace zefiro_graphics {
 	public:
 		D3DTexture( LPDIRECT3DTEXTURE8 texture , D3DXIMAGE_INFO &info );
 		virtual ~D3DTexture();
-		int getWidth()const;
-		int getHeight()const;
-		float getWidthRatio()const;
-		float getHeightRatio()const;
+		int getHeight() const{
+			return height_;
+		}
+		int getWidth() const{
+			return width_;
+		}
+		float getHeightRatio() const{
+			return maxHeightRatio_;
+		}
+		float getWidthRatio() const{
+			return maxWidthRatio_;
+		}
 	protected:
 		LPDIRECT3DTEXTURE8 texture_;
 		int width_;
