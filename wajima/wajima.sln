@@ -1,13 +1,13 @@
 Microsoft Visual Studio Solution File, Format Version 8.00
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cppx", "cppx\cppx.vcproj", "{A61035B3-18FE-4DC4-B954-A44E49A78576}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "console", "console\console.vcproj", "{8C0B5612-EF64-4513-A8BB-A9B39BAA3E73}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pss", "pss\pss.vcproj", "{758AAB06-FDBD-46F0-96EE-9C4843ACC803}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "library", "library\library.vcproj", "{DC9BEF36-C48E-46F1-8C80-1262D7ED7A47}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -17,10 +17,6 @@ Global
 		Release = Release
 	EndGlobalSection
 	GlobalSection(ProjectConfiguration) = postSolution
-		{A61035B3-18FE-4DC4-B954-A44E49A78576}.Debug.ActiveCfg = Debug|Win32
-		{A61035B3-18FE-4DC4-B954-A44E49A78576}.Debug.Build.0 = Debug|Win32
-		{A61035B3-18FE-4DC4-B954-A44E49A78576}.Release.ActiveCfg = Release|Win32
-		{A61035B3-18FE-4DC4-B954-A44E49A78576}.Release.Build.0 = Release|Win32
 		{8C0B5612-EF64-4513-A8BB-A9B39BAA3E73}.Debug.ActiveCfg = Debug|Win32
 		{8C0B5612-EF64-4513-A8BB-A9B39BAA3E73}.Debug.Build.0 = Debug|Win32
 		{8C0B5612-EF64-4513-A8BB-A9B39BAA3E73}.Release.ActiveCfg = Release|Win32
@@ -29,9 +25,10 @@ Global
 		{758AAB06-FDBD-46F0-96EE-9C4843ACC803}.Debug.Build.0 = Debug|Win32
 		{758AAB06-FDBD-46F0-96EE-9C4843ACC803}.Release.ActiveCfg = Release|Win32
 		{758AAB06-FDBD-46F0-96EE-9C4843ACC803}.Release.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionItems) = postSolution
-		build.xml = build.xml
+		{DC9BEF36-C48E-46F1-8C80-1262D7ED7A47}.Debug.ActiveCfg = Debug|Win32
+		{DC9BEF36-C48E-46F1-8C80-1262D7ED7A47}.Debug.Build.0 = Debug|Win32
+		{DC9BEF36-C48E-46F1-8C80-1262D7ED7A47}.Release.ActiveCfg = Release|Win32
+		{DC9BEF36-C48E-46F1-8C80-1262D7ED7A47}.Release.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
