@@ -14,12 +14,14 @@ namespace zefiro_graphicstest{
 		CPPUNIT_TEST( testAdapterCount );
 		CPPUNIT_TEST( testAdapterModeCount );
 		CPPUNIT_TEST( testIsAvailable );
+		CPPUNIT_TEST( testGetAdapterVector );
 		CPPUNIT_TEST_SUITE_END();
 	public:
 		void setUp();
 		void tearDown();
 		void testAdapterCount();
 		void testAdapterModeCount();
+		void testGetAdapterVector();
 		void testIsAvailable();
 	protected:
 		zefiro_graphics::D3D8 *_d3d8;

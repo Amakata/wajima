@@ -13,7 +13,13 @@ namespace zefiro_graphicstest{
 		CPPUNIT_ASSERT( 0 < _d3d8->getAdapterCount() );
 	}
 	void D3D8Test::testAdapterModeCount(){
-		CPPUNIT_ASSERT( 0 < _d3d8->getAdapterModeCount( D3DADAPTER_DEFAULT ) );
+		for( int i=0 ; i<_d3d8->getAdapterCount() ; ++i ){
+			CPPUNIT_ASSERT( 0 < _d3d8->getAdapterModeCount( i ) );
+		}
+	}
+	void D3D8Test::testGetAdapterVector(){
+		std::vector<zefiro_graphics::Adapter> adapters = _d3d8->getAdapterVector();
+		CPPUNIT_ASSERT( 0 < adapters.size() );
 	}
 	void D3D8Test::testIsAvailable(){
 		CPPUNIT_ASSERT_EQUAL( true , _d3d8->isAvailable() );

@@ -1,6 +1,8 @@
 #ifndef __D3D8_H__
 #define __D3D8_H__
 
+#include <graphics/sys/Adapter.h>
+
 #include <d3d8.h>
 
 namespace zefiro_graphics {
@@ -12,7 +14,10 @@ namespace zefiro_graphics {
 		int getAdapterCount() const;
 		int getAdapterModeCount( const int adapter ) const;
 		bool isAvailable() const;
+		std::vector<Adapter> getAdapterVector() const;
 	protected:
+		std::string getAdapterIdentifier( const int adapterid ) const;
+		Mode getAdapterMode( const int adapterid , const int modeid ) const;
 		LPDIRECT3D8 _pD3D;
 	private:
 		D3D8( const D3D8  & d3d8 );
