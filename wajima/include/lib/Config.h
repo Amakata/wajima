@@ -1,31 +1,26 @@
-#ifndef __CONFIG_H__
-#define __CONFIG_H__
+#ifndef __Config__H__
+#define __Config__H__
 
+#include <fstream>
+#include <sstream>
 #include <map>
+#include <ios>
 #include <string>
 
 class Config {
 public:
-	Config( std::string configFilePath ){
-		std::ifstream ifs;
-		std::string name;
-		std::string value;
+	static Config *Config::config__;
+	Config( std::string configFilePath );
+	virtual ~Config();
+	std::string getString( std::string key );
+	const char *getCStr( std::string key );
+	int getInteger( std::string key );
+	double getDouble( std::string key );
+	bool getBool( std::string key );
 
-		ifs.open( configFilePath.c_str() );
-		while( !ifs.eof() ){
-			ifs >> name >> value;
-			config_.insert( std::pair<std::string,std::string>( name , value ) );
-		}
-		ifs.close();
-	}
-	std::string getString( std::string key ){
-		return config_[key];
-	}
-	const char *getCStr( std::string key ){
-		return config_[key].c_str();
-	}
 protected:
-	std::map< std::string , std::string > config_;
+	std::map< std::string , std::string > param_;
+	std::ofstream	logfile_;
 };
 
-#endif //__CONFIG_H__
+#endif //__Config__H__
