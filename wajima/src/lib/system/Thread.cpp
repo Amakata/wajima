@@ -158,6 +158,9 @@ namespace zefiro_system {
 	Thread* Thread::getCurrentThread(){
 		ZEFIRO_LOG( "NORMAL" , "Thread::getCurrentThread() Begin" );
 		threadsMutex__.lock();
+		if( threads__.size() == 0 ){
+			addMainThread();
+		}
 		std::vector<Thread*>::iterator itr;
 		Thread *result;
 		if( threads__.end() != (itr = getCurrentThreadIterator() ) ){
@@ -180,6 +183,9 @@ namespace zefiro_system {
 	void Thread::create( int stackSize ){
 		ZEFIRO_STD_ASSERT( stackSize >= 0 );
 		threadsMutex__.lock();					//	デッドロックを避けるために必ずこの順番でロック
+		if( threads__.size() == 0 ){
+			addMainThread();
+		}
 		threadMutex_->lock();
 		ZEFIRO_LOG( "NORMAL" , "Thread::Thread( Runnable *, int ) Begin" + toString());
 		if( NULL == (thread_ = (HANDLE)_beginthreadex( NULL , stackSize , (unsigned (__stdcall *)(void *))runProc , this , CREATE_SUSPENDED , &threadID_ ) ) ){
@@ -223,6 +229,21 @@ namespace zefiro_system {
 		ZEFIRO_LOG( "NORMAL" , "Thread::join() End" + toString());
 		delete this;
 		return exitCode;
+	}
+	void Thread::addMainThread(){
+		ZEFIRO_LOG( "NORMAL" , "Thread::addMainThread() Begin");
+		Thread *mainThread = new Thread( GetCurrentThread() , GetCurrentThreadId() );
+		threadsMutex__.lock();
+		threads__.push_back( mainThread );
+		threadsMutex__.unlock();
+		ZEFIRO_LOG( "NORMAL" , "Thread::addMainThread() End");
+	}
+	Thread::Thread( HANDLE thread , unsigned int threadid )
+		:thread_(thread),threadID_(threadid),
+		runnable_(false),constructError_(0),
+		threadMutex_(new Mutex),hasStarted_(true),
+		joinable_(false),canRemoveRunnable_(false),name_("main"){
+		ZEFIRO_LOG( "NORMAL" , "Thread::Thread( HANDLE , unsigned int )" + toString());
 	}
 	Thread::~Thread(){
 		ZEFIRO_LOG( "NORMAL" , "Thread::~Thread() Begin" + toString());

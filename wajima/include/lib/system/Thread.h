@@ -157,6 +157,14 @@ namespace zefiro_system {
 		 */
 		int doJoin( int millisecond ); 
 		/**
+		 * メインスレッドの登録
+		 */
+		static void addMainThread();
+		/**
+		 * メインスレッド用コンストラクタ
+		 */
+		Thread( HANDLE thread , unsigned int threadid );
+		/**
 		 * デストラクタ
 		 * スレッドはjoinされるかexitされるまでデストラクトされないので、protectedとする。
 		 * このようにすることで、必ずThreadはnewでメモリ確保しなければならなくなる。
