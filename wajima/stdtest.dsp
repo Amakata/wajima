@@ -106,10 +106,21 @@ SOURCE=.\src\lib\std\test\NotEqualExceptionTest.cpp
 # Begin Source File
 
 SOURCE=.\src\lib\std\test\stdtest.rc
+
+!IF  "$(CFG)" == "stdtest - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "stdtest - Win32 Debug"
+
+!ENDIF 
+
 # End Source File
 # Begin Source File
 
 SOURCE=.\src\lib\std\test\UniqueNumberFactoryTest.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\sys\test\Win32AssertTest.cpp
 # End Source File
 # Begin Source File
 
@@ -138,6 +149,10 @@ SOURCE=.\src\lib\include\std\test\resource.h
 # Begin Source File
 
 SOURCE=.\src\lib\include\std\test\UniqueNumberFactoryTest.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\std\sys\test\Win32AssertTest.h
 # End Source File
 # Begin Source File
 

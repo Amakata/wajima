@@ -1,24 +1,24 @@
-# Microsoft Developer Studio Project File - Name="game" - Package Owner=<4>
+# Microsoft Developer Studio Project File - Name="thread" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** 編集しないでください **
 
 # TARGTYPE "Win32 (x86) Application" 0x0101
 
-CFG=game - Win32 Debug
+CFG=thread - Win32 Debug
 !MESSAGE これは有効なﾒｲｸﾌｧｲﾙではありません。 このﾌﾟﾛｼﾞｪｸﾄをﾋﾞﾙﾄﾞするためには NMAKE を使用してください。
 !MESSAGE [ﾒｲｸﾌｧｲﾙのｴｸｽﾎﾟｰﾄ] ｺﾏﾝﾄﾞを使用して実行してください
 !MESSAGE 
-!MESSAGE NMAKE /f "game.mak".
+!MESSAGE NMAKE /f "thread.mak".
 !MESSAGE 
 !MESSAGE NMAKE の実行時に構成を指定できます
 !MESSAGE ｺﾏﾝﾄﾞ ﾗｲﾝ上でﾏｸﾛの設定を定義します。例:
 !MESSAGE 
-!MESSAGE NMAKE /f "game.mak" CFG="game - Win32 Debug"
+!MESSAGE NMAKE /f "thread.mak" CFG="thread - Win32 Debug"
 !MESSAGE 
 !MESSAGE 選択可能なﾋﾞﾙﾄﾞ ﾓｰﾄﾞ:
 !MESSAGE 
-!MESSAGE "game - Win32 Release" ("Win32 (x86) Application" 用)
-!MESSAGE "game - Win32 Debug" ("Win32 (x86) Application" 用)
+!MESSAGE "thread - Win32 Release" ("Win32 (x86) Application" 用)
+!MESSAGE "thread - Win32 Debug" ("Win32 (x86) Application" 用)
 !MESSAGE 
 
 # Begin Project
@@ -29,7 +29,7 @@ CPP=cl.exe
 MTL=midl.exe
 RSC=rc.exe
 
-!IF  "$(CFG)" == "game - Win32 Release"
+!IF  "$(CFG)" == "thread - Win32 Release"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 0
@@ -38,24 +38,24 @@ RSC=rc.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Release"
-# PROP Intermediate_Dir "Release"
+# PROP Output_Dir "build/lib/thread/release/"
+# PROP Intermediate_Dir "build/lib/thread/release/"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /GX /O2 /I "src/main/include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
+# ADD CPP /nologo /W3 /GR /GX /O2 /I "src/lib/include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x411 /d "NDEBUG"
-# ADD RSC /l 0x411 /i "src/main/include" /d "NDEBUG"
+# ADD RSC /l 0x411 /d "NDEBUG"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 std.lib cppunit.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
 
-!ELSEIF  "$(CFG)" == "game - Win32 Debug"
+!ELSEIF  "$(CFG)" == "thread - Win32 Debug"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 1
@@ -64,100 +64,63 @@ LINK32=link.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "Debug"
-# PROP Intermediate_Dir "Debug"
-# PROP Ignore_Export_Lib 0
+# PROP Output_Dir "build/lib/thread/debug/"
+# PROP Intermediate_Dir "build/lib/thread/debug/"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "src/main/include" /I "src/lib/include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
+# ADD CPP /nologo /W3 /Gm /GR /GX /ZI /Od /I "src/lib/include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x411 /d "_DEBUG"
-# ADD RSC /l 0x411 /i "src/main/include" /d "_DEBUG"
+# ADD RSC /l 0x411 /d "_DEBUG"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 stdd.lib cppunitd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept /libpath:"lib"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
 
 !ENDIF 
 
 # Begin Target
 
-# Name "game - Win32 Release"
-# Name "game - Win32 Debug"
+# Name "thread - Win32 Release"
+# Name "thread - Win32 Debug"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
-# Begin Group "Test Source Files"
-
-# PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\src\main\game\test\GameTest.cpp
+SOURCE=.\src\lib\thread\sys\Event.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\main\game\test\PlayerTest.cpp
-# End Source File
-# End Group
-# Begin Source File
-
-SOURCE=.\src\main\game\Game.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\main\game\Player.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\main\game\test\WinMain.cpp
+SOURCE=.\src\lib\thread\Mutex.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
 
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
-# Begin Group "Test Header Files"
-
-# PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\src\main\include\test\GameTest.h
+SOURCE=.\src\lib\include\thread\sys\Event.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\main\include\test\PlayerTest.h
-# End Source File
-# End Group
-# Begin Source File
-
-SOURCE=.\src\main\include\Game.h
+SOURCE=.\src\lib\include\thread\Mutex.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\main\include\Player.h
+SOURCE=.\src\lib\include\thread\Runnable.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\main\include\test\resource.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\main\include\test\Window.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\main\include\test\WindowClass.h
+SOURCE=.\src\lib\include\thread\Thread.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"
 
 # PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
-# Begin Source File
-
-SOURCE=.\src\main\game\test\graphicstest.rc
-# End Source File
 # End Group
 # End Target
 # End Project

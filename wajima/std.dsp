@@ -115,6 +115,14 @@ SOURCE=.\src\lib\std\UniqueNumberBadAlloc.cpp
 
 SOURCE=.\src\lib\std\UniqueNumberFactory.cpp
 # End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\sys\Win32Assert.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\sys\Win32Exception.cpp
+# End Source File
 # End Group
 # Begin Group "Header Files"
 
@@ -154,6 +162,14 @@ SOURCE=.\src\lib\include\std\UniqueNumberBadAlloc.h
 # Begin Source File
 
 SOURCE=.\src\lib\include\std\UniqueNumberFactory.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\std\sys\Win32Assert.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\std\sys\Win32Exception.h
 # End Source File
 # End Group
 # End Target
