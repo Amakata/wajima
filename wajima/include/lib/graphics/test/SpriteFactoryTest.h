@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/test/Attic/SpriteFactoryTest.h,v 1.1 2002/05/10 19:30:42 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/test/Attic/SpriteFactoryTest.h,v 1.2 2002/05/23 15:59:26 ama Exp $
  */
 
 #ifndef __SPRITEFACTORYTEST_H__
@@ -10,7 +10,7 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-#include <graphics/SpriteFactory.h>
+#include "graphics/SpriteFactory.h"
 
 namespace zefiro_graphicstest{
 	class SpriteFactoryTest : public CppUnit::TestCase {

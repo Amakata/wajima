@@ -1,10 +1,10 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/AssertTest.cpp,v 1.7 2002/04/29 16:29:26 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/AssertTest.cpp,v 1.8 2002/05/23 16:00:06 ama Exp $
  */
 
 #include <string>
 
-#include <std/Assert.h>
+#include "std/Assert.h"
 
 #include "std/test/AssertTest.h"
 

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/test/Attic/DXExceptionTest.h,v 1.1 2002/05/10 19:29:10 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/test/Attic/DXExceptionTest.h,v 1.2 2002/05/23 15:59:22 ama Exp $
  */
 #ifndef __DXEXCEPTIONTEST_H__
 #define __DXEXCEPTIONTEST_H__
@@ -9,7 +9,7 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-#include <graphics/sys/DXException.h>
+#include "graphics/sys/DXException.h"
 
 namespace zefiro_graphicstest {
 

@@ -6,7 +6,7 @@
 
 #include <d3d8.h>
 
-#include <std/Exception.h>
+#include "std/Exception.h"
 
 namespace zefiro_graphics {
 	class DXException : virtual public zefiro_std::Exception

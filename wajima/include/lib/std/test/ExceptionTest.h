@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/std/test/Attic/ExceptionTest.h,v 1.1 2002/05/10 19:31:12 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/std/test/Attic/ExceptionTest.h,v 1.2 2002/05/23 15:59:35 ama Exp $
  */
 
 #ifndef __EXCEPTIONTEST_H__
@@ -12,7 +12,7 @@
 
 #include <string>
 
-#include <std/Exception.h>
+#include "std/Exception.h"
 
 #define LINENUMBER 20L
 #define MESSAGE std::string("test-message")

@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/ExceptionTest.cpp,v 1.4 2002/04/29 16:29:26 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/ExceptionTest.cpp,v 1.5 2002/05/23 16:00:06 ama Exp $
  */
 
-#include <std/Exception.h>
+#include "std/Exception.h"
 
 #include "std/test/ExceptionTest.h"
 

@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.8 2002/04/29 18:42:16 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.9 2002/05/23 15:59:48 ama Exp $
  */
 
-#include <std/Assert.h>
+#include "std/Assert.h"
 
 #include "graphics/sys/D3D8.h"
 #include "graphics/sys/DXAssert.h"

@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/Game.cpp,v 1.7 2002/04/28 17:43:00 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/Game.cpp,v 1.8 2002/05/23 16:00:20 ama Exp $
  */
 
-#include <std/Assert.h>
+#include "std/Assert.h"
 
 #include "Game.h"
 

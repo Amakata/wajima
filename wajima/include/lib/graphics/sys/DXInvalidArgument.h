@@ -4,7 +4,7 @@
 #ifndef __DXINVALIDARGUMENT_H__
 #define __DXINVALIDARGUMENT_H__
 
-#include <std/InvalidArgument.h>
+#include "std/InvalidArgument.h"
 
 #include "graphics/sys/DXException.h"
 

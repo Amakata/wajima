@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/std/test/Attic/NotEqualExceptionTest.h,v 1.1 2002/05/10 19:31:12 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/std/test/Attic/NotEqualExceptionTest.h,v 1.2 2002/05/23 15:59:35 ama Exp $
  */
 
 #ifndef __NOTEQUALEXCEPTIONTEST_H__
@@ -11,7 +11,7 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-#include <std/NotEqualException.h>
+#include "std/NotEqualException.h"
 
 namespace zefiro_stdtest {
 	class NotEqualExceptionTest : public CppUnit::TestCase

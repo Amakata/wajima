@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/DXExceptionTest.cpp,v 1.1 2002/05/02 01:30:24 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/DXExceptionTest.cpp,v 1.2 2002/05/23 15:59:52 ama Exp $
  */
 
-#include <std/InvalidArgument.h>
+#include "std/InvalidArgument.h"
 
 #include "graphics/sys/test/DXExceptionTest.h"
 

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/test/Attic/D3D8Test.h,v 1.1 2002/05/10 19:29:10 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/test/Attic/D3D8Test.h,v 1.2 2002/05/23 15:59:22 ama Exp $
  */
 
 #ifndef __D3D8TEST_H__
@@ -10,7 +10,7 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-#include <graphics/sys/D3D8.h>
+#include "graphics/sys/D3D8.h"
 
 namespace zefiro_graphicstest{
 	class D3D8Test : public CppUnit::TestCase {

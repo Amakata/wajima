@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/test/Attic/AdapterTest.h,v 1.1 2002/05/10 19:29:10 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/test/Attic/AdapterTest.h,v 1.2 2002/05/23 15:59:22 ama Exp $
  */
 
 #ifndef __ADAPTERTEST_H__
@@ -13,8 +13,8 @@
 #define ADAPTERNAME		"adaptername"
 #define ADAPTERNUMBER	1
 
-#include <graphics/sys/Adapter.h>
-#include <graphics/sys/Mode.h>
+#include "graphics/sys/Adapter.h"
+#include "graphics/sys/Mode.h"
 
 namespace zefiro_graphicstest{
 	class AdapterTest : public CppUnit::TestCase {

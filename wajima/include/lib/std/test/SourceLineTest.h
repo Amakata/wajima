@@ -9,7 +9,7 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-#include <std/SourceLine.h>
+#include "std/SourceLine.h"
 
 namespace zefiro_stdtest {
 	class SourceLineTest : public CppUnit::TestCase

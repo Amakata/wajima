@@ -1,9 +1,9 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/UniqueNumberFactoryTest.cpp,v 1.5 2002/04/29 16:29:26 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/UniqueNumberFactoryTest.cpp,v 1.6 2002/05/23 16:00:06 ama Exp $
  */
 
 #include <limits>
-#include <std/UniqueNumberBadAlloc.h>
+#include "std/UniqueNumberBadAlloc.h"
 
 #include "std/test/UniqueNumberFactoryTest.h"
 

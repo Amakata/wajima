@@ -9,7 +9,7 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-#include <std/InvalidArgument.h>
+#include "std/InvalidArgument.h"
 
 namespace zefiro_stdtest {
 	class InvalidArgumentTest : public CppUnit::TestCase
