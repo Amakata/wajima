@@ -20,6 +20,7 @@ namespace zefiro_graphics {
 
 				switch( hr ){
 				case D3DERR_INVALIDCALL:
+
 					throw zefiro_graphics::DXInvalidArgument( hr , sourceLine , errStr + "." + message );
 					break;
 				default:
