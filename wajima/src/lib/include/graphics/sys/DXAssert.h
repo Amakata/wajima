@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/sys/Attic/DXAssert.h,v 1.1 2002/04/29 18:41:02 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/sys/Attic/DXAssert.h,v 1.2 2002/05/02 01:32:53 ama Exp $
  */
-#ifndef __DXEXCEPTION_H__
-#define __DXEXCEPTION_H__
+#ifndef __DXASSERT_H__
+#define __DXASSERT_H__
 
 #include <D3D8.h>
 
@@ -17,4 +17,4 @@ namespace zefiro_graphics {
 	};
 };
 
-#endif //__DXEXCEPTION_H__
+#endif //__DXASSERT_H__

@@ -5,7 +5,8 @@
 
 #include <Dxerr8.h>
 
-#include <std/InvalidArgument.h>
+#include "graphics/sys/DXException.h"
+#include "graphics/sys/DXInvalidArgument.h"
 
 namespace zefiro_graphics {
 	namespace DXAssert {
@@ -19,9 +20,10 @@ namespace zefiro_graphics {
 
 				switch( hr ){
 				case D3DERR_INVALIDCALL:
-					throw zefiro_std::InvalidArgument( sourceLine , errStr + "." + message );
+					throw zefiro_graphics::DXInvalidArgument( hr , sourceLine , errStr + "." + message );
 				default:
-					throw zefiro_std::Exception( "予期しないエラーです." + errStr , sourceLine ); 
+
+					throw zefiro_graphics::DXException( hr , sourceLine ,"予期しないエラーです." + errStr ); 
 					break;
 				}
 				break;
