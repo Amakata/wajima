@@ -9,19 +9,19 @@ class OwnerPolicyTest : public CppUnit::TestFixture {
 //CUPPA:usercode=+
 	class TestObject {
 	public:
-		TestObject( int *count ):cnt_(count){
-			++(*cnt_);
+		TestObject():cnt_(0){
+			++cnt_;
 		}
 		virtual ~TestObject(){
-			--(*cnt_);
+			--cnt_;
 		}
 		int getCount() const{
-			return *cnt_;
+			return cnt_;
 		}
 	private:
-		int *cnt_;
+		int cnt_;
 	};
-	typedef Loki::SmartPtr<TestObject,Loki::WrapTemplate<zefiro_std::RefCounted>,Loki::DisallowConversion,Loki::WrapTemplate<Loki::RejectNull> > SP;
+	typedef Loki::SmartPtr<TestObject,Loki::WrapTemplate<zefiro_std::RefCounted>,Loki::DisallowConversion, Loki::WrapTemplate<Loki::NoCheck> > SP;
 	typedef Loki::SmartPtr<TestObject,Loki::WrapTemplate<zefiro_std::NoOwnerRefCounted>,Loki::DisallowConversion,Loki::WrapTemplate<Loki::RejectNull> > NOSP;
 private:
 	// your staff
@@ -36,9 +36,7 @@ public:
 
 //CUPPA:decl=+
     void test_copy() {
-
 	}
-
 //CUPPA:decl=-
 
 	CPPUNIT_TEST_SUITE(OwnerPolicyTest);
