@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/sys/Attic/Win32Event.h,v 1.2 2002/05/25 15:58:29 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/sys/Attic/Win32Event.h,v 1.3 2002/05/26 17:01:14 ama Exp $
  */
 
 #ifndef __WIN32EVENT_H__
@@ -16,9 +16,21 @@ namespace zefiro_system {
 		bool isAlreadyExist() const;
 		bool isAvailable() const;
 		std::string getName() const;
+		/**
+		 * \throw Win32Exception() 
+		 */
 		void set();
+		/**
+		 * \throw Win32Exception() 
+		 */
 		void reset();
+		/**
+		 * \throw Win32Exception() 
+		 */
 		void pulse();
+		/**
+		 * \throw Win32Exception() 
+		 */
 		bool wait( long milliseconds = INFINITE );
 		std::string toString() const;
 	protected:
