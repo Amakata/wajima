@@ -1,8 +1,7 @@
-#include <loki/SmartPtr.hpp>
+#include <loki/SmartPtr.h>
 #include <loki/Singleton.h>
 #include "pss/system/Thread.hpp"
 #include "pss/system/ThreadingModel.hpp"
-#include "pss/system/ThreadLocal.hpp"
 #include "Win32Exception.hpp"
 
 namespace pss {

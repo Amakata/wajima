@@ -132,7 +132,8 @@ namespace pss {
 			/**
 			 * 文字を１文字読み戻す。uflow()のキャンセル操作
 			 */
-			virtual int_type pbackfail(int_type _Meta = traits_type::eof);
+			virtual int_type pbackfail(int_type _Meta = traits_type::eof) {
+			}
 			/**
 			 * 読み込み位置を移動する。
 			 */
@@ -176,11 +177,15 @@ namespace pss {
 			/**
 			 * 文字を１文字読み取る。
 			 */
-			virtual int_type underflow();
+			virtual int_type underflow() {
+				return traits_type::eof;
+			}
 			/**
 			 * 文字を１文字読み取り、ポインタを一つ進める。
 			 */
-			virtual int_type uflow();
+			virtual int_type uflow() {
+				return traits_type::eof;
+			}
 		private:
 			/**
 			 * アーカイブファイルの拡張子取得
@@ -190,6 +195,7 @@ namespace pss {
 			}
 			enum ARCHIVE_MODE {NORMAL,WAF_NORMAL,WAF_ZLIB};
 			HANDLE		file_;
+
 			pos_type		begin_;
 			pos_type		end_;
 			ARCHIVE_MODE	mode_;
