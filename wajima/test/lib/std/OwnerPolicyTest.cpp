@@ -3,26 +3,25 @@
 //CUPPA:include=+
 #include <SmartPtr.h>
 #include <std/OwnershipPolicy.h>
+#include <std/CheckingPolicy.h>
+#include <std/StoragePolicy.h>
 //CUPPA:include=-
 
 class OwnerPolicyTest : public CppUnit::TestFixture {
 //CUPPA:usercode=+
 	class TestObject {
 	public:
-		TestObject():cnt_(0){
+		TestObject(int &cnt):cnt_(cnt){
 			++cnt_;
 		}
 		virtual ~TestObject(){
 			--cnt_;
 		}
-		int getCount() const{
-			return cnt_;
-		}
 	private:
-		int cnt_;
+		int& cnt_;
 	};
-	typedef Loki::SmartPtr<TestObject,Loki::WrapTemplate<zefiro_std::RefCounted>,Loki::DisallowConversion, Loki::WrapTemplate<Loki::NoCheck> > SP;
-	typedef Loki::SmartPtr<TestObject,Loki::WrapTemplate<zefiro_std::NoOwnerRefCounted>,Loki::DisallowConversion,Loki::WrapTemplate<Loki::RejectNull> > NOSP;
+	typedef Loki::SmartPtr<TestObject,Loki::WrapTemplate<zefiro_std::RefCounted>,Loki::DisallowConversion, Loki::WrapTemplate<zefiro_std::RejectNull> > SP;
+	typedef Loki::SmartPtr<TestObject,Loki::WrapTemplate<zefiro_std::NoOwnerRefCounted>,Loki::DisallowConversion,Loki::WrapTemplate<zefiro_std::RejectNull> > NOSP;
 private:
 	// your staff
 public:
@@ -36,6 +35,29 @@ public:
 
 //CUPPA:decl=+
     void test_copy() {
+		try{
+			// コンストラクタ・デストラクタのカウンタ
+			int cnt = 0;
+			//	SPのコンストラクトとデストラクトによるカウンタ値のチェック
+			{
+				CPPUNIT_ASSERT_EQUAL( 0 , cnt );
+				SP sp = SP( new TestObject( cnt ));
+				CPPUNIT_ASSERT_EQUAL( 1 , cnt );
+			}
+			CPPUNIT_ASSERT_EQUAL( 0 , cnt );
+			{
+				SP sp = SP( new TestObject( cnt ));
+				{
+					CPPUNIT_ASSERT_EQUAL( 1 , cnt );
+					NOSP nosp = sp;
+					CPPUNIT_ASSERT_EQUAL( 1 , cnt );
+				}
+				CPPUNIT_ASSERT_EQUAL( 1 , cnt );
+			}
+			CPPUNIT_ASSERT_EQUAL( 0 , cnt );
+		}catch( zefiro_std::NullPointerException &e ){
+			CPPUNIT_FAIL("NullPointerException");
+		}
 	}
 //CUPPA:decl=-
 

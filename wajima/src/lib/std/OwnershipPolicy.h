@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/OwnershipPolicy.h,v 1.2 2002/11/20 23:11:41 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/OwnershipPolicy.h,v 1.3 2002/11/22 17:07:54 ama Exp $
  */
 #ifndef __OWNERSHIPPOLICY_H__
 #define __OWNERSHIPPOLICY_H__
@@ -28,22 +28,22 @@ namespace zefiro_std {
         template <typename P1>
         RefCounted(const RefCounted<P1>& rhs) 
         : pCount_(reinterpret_cast<const RefCounted&>(rhs).pCount_)
-        {}
-        
+        {
+		}     
 		template <typename P1>
 		RefCounted( const NoOwnerRefCounted<P1>& rhs)
 		: pCount_(reinterpret_cast<const NoOwnerRefCounted<P1>&>(rhs).pCount_)
-		{}
-
+		{
+		}
 		P Clone(const P& val)
         {
-            ++*pCount_;
+			++*pCount_;
             return val;
         }
         
         bool Release(const P&, bool = false)
         {
-            if (!--*pCount_)
+			if (!--*pCount_)
             {
 				Loki::SmallObject<>::operator delete(pCount_, sizeof(unsigned int));
                 return true;
@@ -67,11 +67,6 @@ namespace zefiro_std {
     {
 		friend class RefCounted<P>;
     public:        
-        NoOwnerRefCounted() 
-        {
-            pCount_ = static_cast<unsigned int*>(Loki::SmallObject<>::operator new(sizeof(unsigned int)));
-            assert(pCount_);
-        }       
 		NoOwnerRefCounted(const NoOwnerRefCounted& rhs) 
         : pCount_(rhs.pCount_)
         {}
@@ -79,11 +74,13 @@ namespace zefiro_std {
         template <typename P1>
         NoOwnerRefCounted(const NoOwnerRefCounted<P1>& rhs) 
         : pCount_(reinterpret_cast<const NoOwnerRefCounted&>(rhs).pCount_)
-        {}
+        {
+		}
 		template <typename P1>
 		NoOwnerRefCounted(const RefCounted<P1>& rhs)
 		: pCount_(reinterpret_cast<const RefCounted<P1>&>(rhs).pCount_)
-		{}
+		{
+		}
 
         P Clone(const P& val)
         {
@@ -92,12 +89,7 @@ namespace zefiro_std {
         
         bool Release(const P&, bool = false)
         {
-            if (!*pCount_)
-            {
-				Loki::SmallObject<>::operator delete(pCount_, sizeof(unsigned int));
-                return true;
-            }
-            return false;
+			return false;
         }
         
         void Swap(NoOwnerRefCounted& rhs)
@@ -188,9 +180,6 @@ namespace zefiro_std {
             typedef typename base_type::IntType       CountType;
             typedef volatile CountType               *CountPtrType;
         public:
-	        NoOwnerRefCountedMT() 
-	        {
-		    }       
 
             NoOwnerRefCountedMT(const NoOwnerRefCountedMT& rhs) 
             : pCount_(rhs.pCount_)
