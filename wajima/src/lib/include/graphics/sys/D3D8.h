@@ -9,6 +9,7 @@ namespace zefiro_graphics {
 	public:
 		D3D8();
 		virtual ~D3D8();
+		int getModeSize() const;
 	protected:
 		LPDIRECT3D8 _pD3D;
 	private:
