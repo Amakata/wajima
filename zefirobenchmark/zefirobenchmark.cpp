@@ -129,6 +129,7 @@ public:
 			eof_ = true;
 			return;
 		}
+		device_->printRenderState();
 		device_->setRenderState( transparent );
 		device_->printRenderState();
 		input_ = new Input( hInst );
@@ -163,7 +164,7 @@ public:
 			device_->render( buffer , texture );
 			buffer->lock();
 			for( int i=0 ; i<getTextureNumber(countOfTextureNumber_) ; ++i){
-				buffer->setVertex( i , texture , (int)((float)rand()/RAND_MAX*DISPLAY_WIDTH) , (int)((float)rand()/RAND_MAX*DISPLAY_HEIGHT) , (float)rand()/RAND_MAX );
+				buffer->setVertex( i , texture , (float)(int)((float)rand()/RAND_MAX*DISPLAY_WIDTH) , (float)(int)((float)rand()/RAND_MAX*DISPLAY_HEIGHT) , (float)rand()/RAND_MAX );
 			}
 			buffer->unlock();
 			if( frameCount <= 0 ){
