@@ -1,10 +1,11 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.7 2002/04/29 16:25:41 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.8 2002/04/29 18:42:16 ama Exp $
  */
 
 #include <std/Assert.h>
 
 #include "graphics/sys/D3D8.h"
+#include "graphics/sys/DXAssert.h"
 
 namespace zefiro_graphics {
 	D3D8::D3D8(){
@@ -43,8 +44,7 @@ namespace zefiro_graphics {
 		
 		D3DDISPLAYMODE d3dDisplayMode ;
 		HRESULT hr = _pD3D->EnumAdapterModes( adapterid , modeid , &d3dDisplayMode );
-		if( hr == D3DERR_INVALIDCALL ){
-		}
+		DXASSERT( hr );
 		return Mode( modeid , d3dDisplayMode.Width , d3dDisplayMode.Height , d3dDisplayMode.RefreshRate , d3dDisplayMode.Format );
 	}
 	std::string D3D8::getAdapterIdentifier( const int adapterid ) const{
@@ -52,8 +52,7 @@ namespace zefiro_graphics {
 
 		D3DADAPTER_IDENTIFIER8	d3dAdapterIdentifier;
 		HRESULT hr = _pD3D->GetAdapterIdentifier( adapterid , D3DENUM_NO_WHQL_LEVEL , & d3dAdapterIdentifier );
-		if( hr == D3DERR_INVALIDCALL ){
-		}
+		DXASSERT( hr );
 		return std::string( d3dAdapterIdentifier.Description );
 	}
 };
