@@ -52,14 +52,7 @@ namespace zefiro_system {
 		for( int count=0 ; count<countOfMonitorLock ; ++count ){
 			this->unlock();
 		}
-
-		waitThreads_.push_back( Thread::getCurrentThread() );
-		while( waitThreads_.end() != std::find( waitThreads_.begin() , waitThreads_.end() , Thread::getCurrentThread() ) ){
-			waitMutex_->unlock();
-			waitSync_->wait();
-			waitMutex_->lock();
-		}
-		waitSync_->reset();
+		doWait();
 		waitMutex_->unlock();
 		this->lock();
 		countOfMonitorLock_ = countOfMonitorLock;
@@ -73,25 +66,12 @@ namespace zefiro_system {
 		for( int count=0 ; count<countOfMonitorLock ; ++count ){
 			this->unlock();
 		}
-
-		waitThreads_.push_back( Thread::getCurrentThread() );
-		while( waitThreads_.end() != std::find( waitThreads_.begin() , waitThreads_.end() , Thread::getCurrentThread() ) ){
-			waitMutex_->unlock();
-			if( waitSync_->wait( millisecond ) ){
-				waitMutex_->lock();
-				this->lock();		
-				countOfMonitorLock_ = countOfMonitorLock;
-				ZEFIRO_LOG( "NORMAL" , "SyncObject::wait( int ) End" + toString());
-				return false;
-			}
-			waitMutex_->lock();
-		}
-		waitSync_->reset();
+		bool result = doWait( millisecond );
 		waitMutex_->unlock();
 		this->lock();
 		countOfMonitorLock_ = countOfMonitorLock;
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::wait( int ) End" + toString());
-		return true;
+		return result;
 	}
 	void SyncObject::lock() {
 		int currentThreadID = Thread::getCurrentThreadID();
@@ -135,5 +115,20 @@ namespace zefiro_system {
 					" , wait thread size = " << waitThreads_.size() << " ) "; 
 
 		return ostrstr.str();
+	}
+	bool SyncObject::doWait( int millisecond ){
+		ZEFIRO_LOG( "NORMAL" , "SyncObject::doWait() Begin" + toString());
+		waitThreads_.push_back( Thread::getCurrentThread() );
+		while( waitThreads_.end() != std::find( waitThreads_.begin() , waitThreads_.end() , Thread::getCurrentThread() ) ){
+			waitMutex_->unlock();
+			if( !waitSync_->wait( millisecond ) ){
+				waitMutex_->lock();
+				return false;
+			}
+			waitMutex_->lock();
+		}
+		waitSync_->reset();
+		ZEFIRO_LOG( "NORMAL" , "SyncObject::doWait() End" + toString());
+		return true;
 	}
 };

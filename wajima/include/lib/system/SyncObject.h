@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/SyncObject.h,v 1.2 2002/05/31 19:11:46 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/SyncObject.h,v 1.3 2002/06/02 17:59:47 ama Exp $
  */
 
 #ifndef __SYNCOBJECT_H__
@@ -60,6 +60,7 @@ namespace zefiro_system {
 	protected:
 		SyncObject( const SyncObject &syncObject );
 		SyncObject &operator =( const SyncObject &syncObject );
+		bool doWait( int millisecond = INFINITE );
 		Mutex *monitorMutex_;					//	モニター用排他
 		Win32Event	*monitorSync_;				//	モニター用同期
 		int	monitorOwnerID_;					//	モニターの所有ThreadのID
