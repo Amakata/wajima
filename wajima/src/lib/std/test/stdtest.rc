@@ -1,0 +1,12 @@
+#include <windows.h>
+#include "std/test/resource.h"
+#include <winver.h>
+
+TESTAPP MENU DISCARDABLE
+BEGIN
+	POPUP "&File"
+	BEGIN
+		MENUITEM "E&xit",			IDM_EXIT
+	END
+	MENUITEM "&Test!",				IDM_TEST
+END

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="cppunit" default="debug-compile" basedir=".">
+  <taskdef name="VSCompiler" classname="org.dnsalias.zefiro.vs.compiler.VSCompiler" />
+  <taskdef name="VSCompilerOption" classname="org.dnsalias.zefiro.vs.compiler.VSCompilerOption" />
+  <taskdef name="VSLinker" classname="org.dnsalias.zefiro.vs.linker.VSLinker" />
+  <taskdef name="VSLib" classname="org.dnsalias.zefiro.vs.lib.VSLib" />
+
+  <property name="src.dir" value="./src" />
+  <property name="include.dir" value="include" />
+  
+  <property name="build.dir" value="build" />
+  <property name="lib.dir" value="./lib" />
+ 
+  <property name="include.install.dir" value="c:/include" />
+  <property name="lib.install.dir" value="c:/lib" />
+  
+  <target name="prepare" >
+	<mkdir dir="${build.dir}" />
+	<mkdir dir="${lib.dir}" />
+  </target>
+  <target name="clean" >
+	<delete dir="${build.dir}" />
+	<delete dir="${lib.dir}" />
+  </target>
+</project>
