@@ -1,11 +1,10 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Assert.cpp,v 1.2 2002/05/10 19:49:42 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Assert.cpp,v 1.3 2002/07/02 16:59:02 ama Exp $
  */
 
 #include "std/sys/Win32Assert.h"
 
 #include <string>
-
 #include <windows.h>
 
 namespace zefiro_std {
@@ -16,7 +15,6 @@ namespace zefiro_std {
 				break;
 			default:
 				TCHAR *tcMessage;
-
 				if( 0 == FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS |FORMAT_MESSAGE_FROM_SYSTEM , NULL , result , MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),(LPTSTR)&tcMessage , 0 , NULL ) ){
 					throw ::zefiro_std::Win32Exception( GetLastError() , ZEFIRO_STD_SOURCELINE() , "" );
 				}
