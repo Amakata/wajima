@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.12 2002/09/18 14:45:37 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.13 2002/09/19 02:19:02 ama Exp $
  */
 
 #include "std/Assert.h"
@@ -50,8 +50,9 @@ namespace zefiro_graphics {
 		param.BackBufferCount = 1;
 		param.SwapEffect = D3DSWAPEFFECT_DISCARD;
 		param.Windowed = windowed;
-		param.EnableAutoDepthStencil = TRUE;
-		param.AutoDepthStencilFormat = D3DFMT_D16;
+// TODO: Zバッファなし
+//		param.EnableAutoDepthStencil = TRUE;
+//		param.AutoDepthStencilFormat = D3DFMT_D16;
 		LPDIRECT3DDEVICE8 d3dDevice;
 		DWORD behaviorFlags = NULL;
 		if( threaded ){
@@ -69,6 +70,18 @@ namespace zefiro_graphics {
 			hr = d3d_->CreateDevice( adapterid , D3DDEVTYPE_REF , hwnd , D3DCREATE_SOFTWARE_VERTEXPROCESSING | behaviorFlags , &param , &d3dDevice );
 		}
 		DXASSERT( hr );
+
+		if( windowed ){
+			SetWindowPos( 
+				hwnd ,
+				HWND_TOP ,
+				0 ,
+				0 ,
+				mode.getWidth() + GetSystemMetrics(SM_CYSIZEFRAME) ,
+				mode.getHeight() + GetSystemMetrics(SM_CYCAPTION) + GetSystemMetrics(SM_CYSIZEFRAME) ,
+				SWP_DRAWFRAME|SWP_NOMOVE|SWP_SHOWWINDOW 
+			);
+		}
 		return new D3DDevice(d3dDevice);
 	}
 	Mode D3D8::getAdapterMode( const int adapterid , const int modeid ) const{
