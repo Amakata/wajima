@@ -3,17 +3,14 @@
 #include <windows.h>
 #include <d3d8.h>
 #include "device.h"
+#include "logger.h"
 
 class D3D {
 public:
 	D3D():d3d_(NULL){
 		d3d_ = Direct3DCreate8(D3D_SDK_VERSION);
 		if( d3d_ == NULL ){
-			std::ofstream ofs;
-			ofs.open("error_log",std::ios_base::out | std::ios_base::app );
-			ofs <<__FILE__<<":"<<__LINE__<< std::endl;
-			ofs.close();		
-
+			DXERROR_LOG( NULL );
 		}
 	}
 	Device *createDevice( HWND hWnd , bool windowed ){
