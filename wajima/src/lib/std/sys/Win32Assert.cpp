@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Assert.cpp,v 1.1 2002/05/08 15:20:25 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Assert.cpp,v 1.2 2002/05/10 19:49:42 ama Exp $
  */
 
 #include "std/sys/Win32Assert.h"
@@ -8,11 +8,9 @@
 
 #include <windows.h>
 
-
 namespace zefiro_std {
 	namespace Win32Assert {
-		void Win32Assert( ::zefiro_std::SourceLine sourceLine , std::string message ){
-			DWORD result = GetLastError();
+		void Win32Assert( DWORD result , ::zefiro_std::SourceLine sourceLine , std::string message ){
 			switch( result ){
 			case ERROR_SUCCESS:
 				break;
