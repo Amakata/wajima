@@ -19,7 +19,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="./include/loki;./include/lib"
+				AdditionalIncludeDirectories="./src/loki;./src/lib;./test/lib"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="TRUE"
 				ExceptionHandling="TRUE"
@@ -54,7 +54,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="./include/lib"/>
+				AdditionalIncludeDirectories="./test/lib"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -71,7 +71,7 @@
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="TRUE"
-				AdditionalIncludeDirectories="./include/loki;./include/lib"
+				AdditionalIncludeDirectories="./src/loki;./src/lib;./test/lib"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -106,7 +106,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="./include/lib"/>
+				AdditionalIncludeDirectories="./test/lib"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -114,53 +114,6 @@
 		</Configuration>
 	</Configurations>
 	<Files>
-		<Filter
-			Name="graphics"
-			Filter="">
-			<File
-				RelativePath="src\lib\graphics\sys\test\AdapterTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\graphics\sys\test\D3D8Test.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\graphics\sys\test\D3DDeviceTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\graphics\sys\test\DXAssertTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\graphics\sys\test\DXExceptionTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\graphics\sys\test\ModeTest.cpp">
-			</File>
-		</Filter>
-		<Filter
-			Name="std"
-			Filter="">
-			<File
-				RelativePath="src\lib\std\test\AssertTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\std\test\ExceptionTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\std\test\InvalidArgumentTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\std\test\NotEqualExceptionTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\std\test\SourceLineTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\std\test\UniqueNumberFactoryTest.cpp">
-			</File>
-			<File
-				RelativePath="src\lib\std\sys\test\Win32AssertTest.cpp">
-			</File>
-		</Filter>
 		<Filter
 			Name="リソース ファイル"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
@@ -175,51 +128,96 @@
 			</File>
 			<File
 				RelativePath="resource\lib\zefirolibtest.rc">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCResourceCompilerTool"
-						AdditionalIncludeDirectories="./include/lib"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCResourceCompilerTool"
-						AdditionalIncludeDirectories="./include/lib"/>
-				</FileConfiguration>
 			</File>
 		</Filter>
 		<Filter
-			Name="main"
+			Name="src"
 			Filter="">
 			<File
-				RelativePath="src\lib\ApplicationTest.cpp">
+				RelativePath="test\lib\ApplicationTest.cpp">
 			</File>
 			<File
-				RelativePath="include\lib\ApplicationTest.h">
+				RelativePath="test\lib\ApplicationTest.h">
 			</File>
 			<File
-				RelativePath="src\lib\Config.cpp">
+				RelativePath="test\lib\Config.cpp">
 			</File>
 			<File
-				RelativePath="include\lib\Config.h">
+				RelativePath="test\lib\Config.h">
 			</File>
 			<File
-				RelativePath="include\lib\Resource.h">
+				RelativePath="test\lib\ThreadTest.cpp">
 			</File>
 			<File
-				RelativePath="src\lib\ThreadTest.cpp">
+				RelativePath="test\lib\ThreadTest.h">
 			</File>
 			<File
-				RelativePath="include\lib\ThreadTest.h">
+				RelativePath="test\lib\WinMain.cpp">
 			</File>
 			<File
-				RelativePath="src\lib\WinMain.cpp">
+				RelativePath="test\lib\Window.h">
 			</File>
-		</Filter>
-		<Filter
-			Name="system"
-			Filter="">
+			<File
+				RelativePath="test\lib\WindowClass.h">
+			</File>
+			<File
+				RelativePath="test\lib\resource.h">
+			</File>
+			<Filter
+				Name="graphics"
+				Filter="">
+				<Filter
+					Name="sys"
+					Filter="">
+					<File
+						RelativePath="test\lib\graphics\sys\AdapterTest.cpp">
+					</File>
+					<File
+						RelativePath="test\lib\graphics\sys\D3D8Test.cpp">
+					</File>
+					<File
+						RelativePath="test\lib\graphics\sys\D3DDeviceTest.cpp">
+					</File>
+					<File
+						RelativePath="test\lib\graphics\sys\DXAssertTest.cpp">
+					</File>
+					<File
+						RelativePath="test\lib\graphics\sys\DXExceptionTest.cpp">
+					</File>
+					<File
+						RelativePath="test\lib\graphics\sys\ModeTest.cpp">
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="std"
+				Filter="">
+				<File
+					RelativePath="test\lib\std\AssertTest.cpp">
+				</File>
+				<File
+					RelativePath="test\lib\std\ExceptionTest.cpp">
+				</File>
+				<File
+					RelativePath="test\lib\std\InvalidArgumentTest.cpp">
+				</File>
+				<File
+					RelativePath="test\lib\std\NotEqualExceptionTest.cpp">
+				</File>
+				<File
+					RelativePath="test\lib\std\SourceLineTest.cpp">
+				</File>
+				<File
+					RelativePath="test\lib\std\UniqueNumberFactoryTest.cpp">
+				</File>
+				<Filter
+					Name="sys"
+					Filter="">
+					<File
+						RelativePath="test\lib\std\sys\Win32AssertTest.cpp">
+					</File>
+				</Filter>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>
