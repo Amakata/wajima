@@ -106,17 +106,6 @@ SOURCE=.\src\lib\std\test\NotEqualExceptionTest.cpp
 # Begin Source File
 
 SOURCE=.\src\lib\std\test\stdtest.rc
-
-!IF  "$(CFG)" == "stdtest - Win32 Release"
-
-!ELSEIF  "$(CFG)" == "stdtest - Win32 Debug"
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\lib\std\UniqueNumberBadAlloc.cpp
 # End Source File
 # Begin Source File
 

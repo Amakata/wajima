@@ -117,6 +117,10 @@ SOURCE=.\src\lib\std\UniqueNumberFactory.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
+SOURCE=.\src\lib\include\std\Assert.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\include\std\Asserter.h
 # End Source File
 # Begin Source File
@@ -133,15 +137,7 @@ SOURCE=.\src\lib\include\std\NotEqualException.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\lib\include\std\Portability.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\src\lib\include\std\SourceLine.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\lib\include\std\TestAssert.h
 # End Source File
 # Begin Source File
 
