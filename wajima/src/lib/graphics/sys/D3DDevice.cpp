@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.7 2002/09/19 10:59:08 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.8 2002/09/20 02:33:30 ama Exp $
  */
 
 #include "graphics/sys/D3DDevice.h"
@@ -8,19 +8,17 @@
 #include "std/Logger.h"
 #include <sstream>
 
-#define D3DFVF_CUSTOMVERTEX	(D3DFVF_XYZRHW|D3DFVF_DIFFUSE|D3DFVF_TEX1)
+#define D3DFVF_CUSTOMVERTEX	(D3DFVF_XYZRHW|D3DFVF_TEX1)
 
 typedef struct CUSTOMVERTEX_ {
 	float x,y,z,rhw;
-	DWORD color;
 	float tu,tv;
 }CUSTOMVERTEX;
 
 namespace zefiro_graphics {
 	D3DDevice::D3DDevice( LPDIRECT3DDEVICE8 d3ddevice8 ):d3dDevice8_(d3ddevice8){
-// TODO: Zバッファなし
-//		d3dDevice8_->SetRenderState( D3DRS_ZENABLE  , D3DZB_TRUE );
-//		d3dDevice8_->SetRenderState( D3DRS_ZWRITEENABLE , TRUE );
+		DXASSERT( d3dDevice8_->SetRenderState( D3DRS_ZENABLE  , D3DZB_TRUE ) );
+		DXASSERT( d3dDevice8_->SetRenderState( D3DRS_ZWRITEENABLE , TRUE ) );
 //		d3dDevice8_->SetRenderState( D3DRS_ALPHAREF , 0 );
 //		d3dDevice8_->SetRenderState( D3DRS_ALPHATESTENABLE , TRUE );
 //		d3dDevice8_->SetRenderState( D3DRS_ALPHAFUNC , D3DCMP_GREATEREQUAL );
@@ -28,11 +26,12 @@ namespace zefiro_graphics {
 //		d3dDevice8_->SetRenderState( D3DRS_SRCBLEND , D3DBLEND_SRCALPHA );
 //		d3dDevice8_->SetRenderState( D3DRS_DESTBLEND , D3DBLEND_INVSRCALPHA );
 //		d3dDevice8_->SetRenderState( D3DRS_BLENDOP , D3DBLENDOP_ADD );	
-		d3dDevice8_->SetRenderState( D3DRS_LIGHTING , FALSE );
-		d3dDevice8_->SetVertexShader( D3DFVF_CUSTOMVERTEX );
-
-//		d3dDevice8_->SetTextureStageState( 0, D3DTSS_MAGFILTER, D3DTEXF_POINT );
-//		d3dDevice8_->SetTextureStageState( 0, D3DTSS_MINFILTER, D3DTEXF_POINT );
+//		DXASSERT( d3dDevice8_->SetRenderState( D3DRS_CULLMODE , FALSE ) );
+		DXASSERT( d3dDevice8_->SetRenderState( D3DRS_LIGHTING , FALSE ) );
+		DXASSERT( d3dDevice8_->SetVertexShader( D3DFVF_CUSTOMVERTEX ) );
+		DXASSERT( d3dDevice8_->SetTextureStageState( 0 , D3DTSS_MIPFILTER , D3DTEXF_NONE ) );
+		DXASSERT( d3dDevice8_->SetTextureStageState( 0, D3DTSS_MAGFILTER, D3DTEXF_NONE ) );
+		DXASSERT( d3dDevice8_->SetTextureStageState( 0, D3DTSS_MINFILTER, D3DTEXF_NONE ) );
 	}
 	D3DDevice::~D3DDevice(){
 		D3DDEVICE_CREATION_PARAMETERS param;
@@ -110,22 +109,20 @@ namespace zefiro_graphics {
 		static const float heightRatio = texture->getHeightRatio();
 		static const float widthRatio = texture->getWidthRatio();
 		static CUSTOMVERTEX cv[4] = {
-			0.0f , 0.0f , 0.0f , 1.0f , 0xFFFFFFFF , 0.0f , 0.0f ,
-			0.0f , 0.0f , 0.0f , 1.0f , 0xFFFFFFFF , 0.0f , 0.0f ,
-			0.0f , 0.0f , 0.0f , 1.0f , 0xFFFFFFFF , 0.0f , 0.0f ,
-			0.0f , 0.0f , 0.0f , 1.0f , 0xFFFFFFFF , 0.0f , 0.0f 
+			0.0f , 0.0f , 0.0f , 1.0f  , 0.0f , 0.0f ,
+			0.0f , 0.0f , 0.0f , 1.0f  , 0.0f , 0.0f ,
+			0.0f , 0.0f , 0.0f , 1.0f  , 0.0f , 0.0f ,
+			0.0f , 0.0f , 0.0f , 1.0f  , 0.0f , 0.0f ,
 		};
-		cv[0].x = x ;			cv[0].y = y;			cv[0].z = z;
+		cv[0].x = x;			cv[0].y = y;			cv[0].z = z; cv[0].tu =0.0;
 		cv[1].x = x + width;	cv[1].y = y;			cv[1].z = z; cv[1].tu = widthRatio;
 		cv[2].x = x + width;	cv[2].y = y + height;	cv[2].z = z; cv[2].tu = widthRatio; cv[2].tv = heightRatio;
 		cv[3].x = x;			cv[3].y = y + height;	cv[3].z = z; cv[3].tv = heightRatio;
 
 		d3dDevice8_->SetTexture( 0 , texture->texture_ );
-		d3dDevice8_->DrawPrimitiveUP( D3DPT_TRIANGLEFAN , 2 , cv  , sizeof CUSTOMVERTEX );
+		d3dDevice8_->DrawPrimitiveUP( D3DPT_TRIANGLELIST , 100 , cv  , sizeof CUSTOMVERTEX );
 	}
 	void D3DDevice::clear(){
-// TODO: Zバッファなし
-//		DXASSERT( d3dDevice8_->Clear( 0 , NULL , D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER , D3DCOLOR_XRGB( 128 , 0 , 0 ) , 1.0f , 0 ) );
-		DXASSERT( d3dDevice8_->Clear( 0 , NULL , D3DCLEAR_TARGET , D3DCOLOR_XRGB( 128 , 0 , 0 ) , 1.0f , 0 ) );
+		DXASSERT( d3dDevice8_->Clear( 0 , NULL , D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER , D3DCOLOR_XRGB( 128 , 0 , 0 ) , 1.0f , 0 ) );
 	}
 };
