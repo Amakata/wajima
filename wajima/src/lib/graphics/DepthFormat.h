@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/DepthFormat.h,v 1.2 2002/12/13 18:25:13 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/DepthFormat.h,v 1.3 2002/12/13 18:45:39 ama Exp $
  */
 #ifndef __DEPTHFORMAT_H__
 #define __DEPTHFORMAT_H__
@@ -7,7 +7,7 @@
 namespace zefiro_graphics {
 	class DepthFormat {
 	public:
-		enum FORMAT { D16_LOCKABLE , D32 , D15S1 , D24S8 , D16 , D24X8 , D24X4S4 };
+		enum FORMAT { D16_LOCKABLE , D32 , D15S1 , D24S8 , D16 , D24X8 , D24X4S4 , NONE };
 		DepthFormat( FORMAT format ):format_(format){
 		}
 		FORMAT getFormat() const{

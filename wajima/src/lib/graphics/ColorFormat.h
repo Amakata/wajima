@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/ColorFormat.h,v 1.2 2002/11/26 11:25:14 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/ColorFormat.h,v 1.3 2002/12/13 18:45:39 ama Exp $
  */
 #ifndef __COLORFORMAT_H__
 #define __COLORFORMAT_H__
@@ -7,7 +7,7 @@
 namespace zefiro_graphics {
 	class ColorFormat {
 	public:
-		enum FORMAT { R8G8B8 , A8R8G8B8 , X8R8G8B8 , R5G6B5 , X1R5G5B5 , A1R5G5B5 };
+		enum FORMAT { R8G8B8 , A8R8G8B8 , X8R8G8B8 , R5G6B5 , X1R5G5B5 , A1R5G5B5 , NONE };
 		ColorFormat( FORMAT format ):format_(format){
 		}
 		FORMAT getFormat() const{
@@ -49,6 +49,8 @@ namespace zefiro_graphics {
 				case X1R5G5B5:
 				case A1R5G5B5:
 					return 16;
+				default:
+					return 0;
 			}
 		}
 	protected:
