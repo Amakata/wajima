@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.5 2002/09/18 18:02:34 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.6 2002/09/19 02:18:44 ama Exp $
  */
 
 #include "graphics/sys/D3DDevice.h"
@@ -19,8 +19,20 @@ namespace zefiro_graphics {
 	D3DDevice::D3DDevice( LPDIRECT3DDEVICE8 d3ddevice8 ):d3dDevice8_(d3ddevice8){
 	}
 	D3DDevice::~D3DDevice(){
+		D3DDEVICE_CREATION_PARAMETERS param;
+		d3dDevice8_->GetCreationParameters(&param);
 		d3dDevice8_->Release();
 		d3dDevice8_ = NULL;
+
+		SetWindowPos( 
+			param.hFocusWindow ,
+			HWND_NOTOPMOST ,
+			0 ,
+			0 ,
+			0 ,
+			0 ,
+			SWP_DRAWFRAME|SWP_NOMOVE|SWP_SHOWWINDOW|SWP_NOSIZE
+		);
 	}
 	D3DTexture *D3DDevice::loadTexture( const std::string filename )const{
 		LPDIRECT3DTEXTURE8 texture;
@@ -46,14 +58,16 @@ namespace zefiro_graphics {
 	}
 	void D3DDevice::renderBegin(){
 		DXASSERT( d3dDevice8_->BeginScene() );
-		d3dDevice8_->SetRenderState( D3DRS_ZENABLE  , D3DZB_TRUE );
-		d3dDevice8_->SetRenderState( D3DRS_ZWRITEENABLE , TRUE );
+// TODO: Zバッファなし
+//		d3dDevice8_->SetRenderState( D3DRS_ZENABLE  , D3DZB_TRUE );
+//		d3dDevice8_->SetRenderState( D3DRS_ZWRITEENABLE , TRUE );
 		d3dDevice8_->SetRenderState( D3DRS_ALPHAREF , 0 );
 		d3dDevice8_->SetRenderState( D3DRS_ALPHATESTENABLE , TRUE );
 		d3dDevice8_->SetRenderState( D3DRS_ALPHAFUNC , D3DCMP_GREATEREQUAL );
 		d3dDevice8_->SetRenderState( D3DRS_ALPHABLENDENABLE , TRUE );
 		d3dDevice8_->SetRenderState( D3DRS_SRCBLEND , D3DBLEND_SRCALPHA );
 		d3dDevice8_->SetRenderState( D3DRS_DESTBLEND , D3DBLEND_INVSRCALPHA );
+		d3dDevice8_->SetRenderState( D3DRS_BLENDOP , D3DBLENDOP_ADD );	
 		d3dDevice8_->SetVertexShader( D3DFVF_CUSTOMVERTEX );
 	}
 	void D3DDevice::renderEnd(){
@@ -71,6 +85,8 @@ namespace zefiro_graphics {
 		d3dDevice8_->DrawPrimitiveUP( D3DPT_TRIANGLEFAN , 2 , cv  , sizeof CUSTOMVERTEX );
 	}
 	void D3DDevice::clear(){
-		DXASSERT( d3dDevice8_->Clear( 0 , NULL , D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER , D3DCOLOR_XRGB( 128 , 0 , 0 ) , 1.0f , 0 ) );
+// TODO: Zバッファなし
+//		DXASSERT( d3dDevice8_->Clear( 0 , NULL , D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER , D3DCOLOR_XRGB( 128 , 0 , 0 ) , 1.0f , 0 ) );
+		DXASSERT( d3dDevice8_->Clear( 0 , NULL , D3DCLEAR_TARGET , D3DCOLOR_XRGB( 128 , 0 , 0 ) , 1.0f , 0 ) );
 	}
 };
