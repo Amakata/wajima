@@ -20,11 +20,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Documents and Settings\ama\My Documents\Visual Studio Projects\wajima\Loki\src&quot;;&quot;C:\Documents and Settings\ama\My Documents\Visual Studio Projects\wajima\pssx\src&quot;"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="5"
+				RuntimeLibrary="1"
+				ForceConformanceInForLoopScope="TRUE"
+				RuntimeTypeInfo="TRUE"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
@@ -33,10 +35,10 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Loki.lib"
+				AdditionalDependencies="loki-mt-d.lib pss-mt-d.lib"
 				OutputFile="$(OutDir)/console.exe"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;C:\Documents and Settings\ama\My Documents\Visual Studio Projects\wajima\Loki\Debug&quot;"
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)lib&quot;"
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="$(OutDir)/console.pdb"
 				SubSystem="1"
@@ -70,8 +72,11 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
-				RuntimeLibrary="4"
+				RuntimeLibrary="0"
+				ForceConformanceInForLoopScope="TRUE"
+				RuntimeTypeInfo="TRUE"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
@@ -80,8 +85,10 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="loki-mt.lib pss-mt.lib"
 				OutputFile="$(OutDir)/console.exe"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)lib&quot;"
 				GenerateDebugInformation="TRUE"
 				SubSystem="1"
 				OptimizeReferences="2"

@@ -4,6 +4,7 @@
 class A {
 public:
 	A(){
+		::std::cout << "constuct A" << ::std::endl;
 	}
 };
 
