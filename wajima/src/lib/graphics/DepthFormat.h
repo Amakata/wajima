@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/DepthFormat.h,v 1.3 2002/12/13 18:45:39 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/DepthFormat.h,v 1.4 2002/12/13 19:53:20 ama Exp $
  */
 #ifndef __DEPTHFORMAT_H__
 #define __DEPTHFORMAT_H__
@@ -51,7 +51,7 @@ namespace zefiro_graphics {
 				return 32;
 			case D16_LOCKABLE:
 			case D16:
-			case D16S1:
+			case D15S1:
 				return 16;
 			default:
 				return 0;
