@@ -174,7 +174,7 @@ namespace zefiro_thread {
 	}
 	std::string Thread::toString() const{
 		std::ostringstream	ostrstr;
-		ostrstr << " Thread HANDLE = " << thread_ << " , Thread ID = " << threadID_ << " , hasStarted = " << hasStarted_ << " , joinable = " << joinable_ << " , name = " << name_ ; 		
+		ostrstr << " Thread HANDLE = " << thread_ << " , Thread ID = " << threadID_ << " , hasStarted = " << hasStarted_ << " , joinable = " << joinable_ << " , name = " << name_ << " , canRemoveRunnable = " << canRemoveRunnable_ << " , constructError = " << constructError_; 		
 		return ostrstr.str();
 	}
 	void Thread::create( int stackSize ){
