@@ -122,14 +122,34 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 class Application {
 public:
-	Application( HWND hWnd , bool windowed , bool transparent ):countOfTextureSize_(0),countOfTextureNumber_(0),transparent_(transparent){
+	Application( HWND hWnd , bool windowed , bool transparent ):countOfTextureSize_(0),countOfTextureNumber_(0),transparent_(transparent),keyboard_(NULL),input_(NULL),device_(NULL),d3d_(NULL),eof_(false){
 		d3d_ = new D3D();
 		device_ = d3d_->createDevice( hWnd , windowed );
+		if( !device_->isAvailable() ){
+			eof_ = true;
+			return;
+		}
 		device_->setRenderState( transparent );
+		input_ = new Input( hInst );
+		keyboard_ = input_->createKeyboardDevice();
 	}
 	~Application(){
-		delete device_;
-		delete d3d_;
+		if( keyboard_ != NULL ){
+			delete keyboard_;
+			keyboard_ = NULL;
+		}
+		if( input_ != NULL ){
+			delete input_;
+			input_ = NULL;
+		}
+		if( device_ != NULL ){
+			delete device_;
+			device_ = NULL;
+		}
+		if( d3d_ != NULL ){
+			delete d3d_;
+			d3d_ = NULL;
+		}
 	}
 	void render(){
 		Texture *texture = device_->createTexture( getFilename(countOfTextureSize_) );
@@ -156,6 +176,12 @@ public:
 			oss << texture->getHeight() << "x" << texture->getWidth() << "x" << getTextureNumber(countOfTextureNumber_) <<"[Sprites] " << fps << "[fps] " << fps * texture->getHeight() * texture->getWidth() * getTextureNumber(countOfTextureNumber_) / 1000000.0f << "[Mtexel/s] " << fps * getTextureNumber(countOfTextureNumber_) * 2 << "[tri/s]";
 			device_->renderFont(oss.str(),0,0,800,16);
 			device_->present();
+			if( keyboard_->getState() ){
+				if( keyboard_->getKey( DIK_ESCAPE ) ){
+					eof_ = true;
+					break;
+				}
+			}
 		}while( now - begin < 5000 );
 		std::ofstream ofs;
 		ofs.open("zefirobenchmarkoutput.txt",std::ios_base::out | std::ios_base::app );
@@ -170,7 +196,7 @@ public:
 		}
 	}
 	bool eof(){
-		return (countOfTextureSize_ == 5 && countOfTextureNumber_ == 0);
+		return (countOfTextureSize_ == 5 && countOfTextureNumber_ == 0)||eof_;
 	}
 protected:
 	int getTextureNumber( int countOfTextureSize ){
@@ -193,9 +219,12 @@ protected:
 	}
 	D3D *d3d_;
 	Device *device_;
+	Input *input_;
+	KeyboardDevice *keyboard_;
 	int countOfTextureSize_;
 	int countOfTextureNumber_;
 	bool transparent_;
+	bool eof_;
 };
 
 
@@ -219,10 +248,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	switch (message) 
 	{
 	case WM_RENDER:
-		app->render();
 		if( app->eof() ){
 			delete app;
+			MessageBox(hWnd,"ベンチマークを終了しました。","終了",MB_OK);
 		}else{
+			app->render();
 			PostMessage( hWnd , WM_RENDER , 0 , 0 );
 		}
 		break;
