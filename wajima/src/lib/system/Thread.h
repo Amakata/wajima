@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.h,v 1.3 2002/11/07 10:38:44 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.h,v 1.4 2002/11/07 14:36:54 ama Exp $
  */
 
 #ifndef __THREAD_H__
@@ -162,10 +162,6 @@ namespace zefiro_system {
 		 */
 		int doJoin( int millisecond ); 
 		/**
-		 * メインスレッドの登録
-		 */
-		static void addMainThread();
-		/**
 		 * メインスレッド用コンストラクタ
 		 */
 		Thread( HANDLE thread , unsigned int threadid );
@@ -186,16 +182,60 @@ namespace zefiro_system {
 		class Threads : public ClassLevelCountedLockable<Threads> {
 			std::vector<Thread *> threads_;
 		public:
+			/**
+			 * __threadsに登録してあるスレッドを削除する。
+			 * \param thread 削除するスレッド
+			 */
+			void removeThread( Thread *thread ){
+				Lock lock;
+				std::vector<Thread*>::iterator end = threads_.end();
+				for( std::vector<Thread*>::iterator itr = threads_.begin() ; itr != end ; ++itr ){
+					if( *itr == thread ){
+						threads_.erase( itr );
+						return;
+					}
+				}
+			}
+			/**
+			 * __threadsに登録してある現在のスレッドのイテレータを返す。
+			 */
+			std::vector<Thread*>::iterator getCurrentThreadIterator(){
+				int currentID = getCurrentThreadID();
+				std::vector<Thread*>::iterator end = threads_.end();
+				for( std::vector<Thread*>::iterator itr = threads_.begin() ; itr != end ; ++itr ){
+					if(  (*itr)->getThreadID() == currentID ){
+						return itr;
+					}
+				}
+				return end;
+			}
+			/**
+			 * メインスレッドの登録
+			*/
+			void addMainThread(){
+				if( threads_.size() == 0 ){
+					Thread *mainThread = new Thread( ::GetCurrentThread() , ::GetCurrentThreadId() );
+					addThread( mainThread );
+				}
+			}
+
+			void addThread( Thread* thread ){
+				Lock lock;
+				threads_.push_back( thread );
+			}
+			Thread* getCurrentThread(){ 
+				Lock lock;
+				addMainThread();
+				std::vector<Thread*>::iterator itr;
+				Thread *result;
+				if( threads_.end() != (itr = getCurrentThreadIterator() ) ){
+					result = (*itr);
+				}else{
+					result = NULL;
+				}
+				return result;
+			}
 		};
-		/**
-		 * __threadsに登録してある現在のスレッドのイテレータを返す。
-		 */
-		static std::vector<Thread*>::iterator getCurrentThreadIterator();
-		/**
-		 * __threadsに登録してあるスレッドを削除する。
-		 * \param thread 削除するスレッド
-		 */
-		static void removeThread( Thread *thread );
 
 		HANDLE	thread_;
 		unsigned int	threadID_;
