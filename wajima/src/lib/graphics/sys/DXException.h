@@ -1,5 +1,5 @@
 /**
- * $Header : $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXException.h,v 1.2 2002/11/13 18:22:47 ama Exp $
  */
 #ifndef __DXEXCEPTION_H__
 #define __DXEXCEPTION_H__

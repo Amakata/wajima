@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/test/lib/ApplicationTest.h,v 1.3 2002/11/13 18:23:21 ama Exp $
+ */
+
 #ifndef __APPLICATIONTEST_H__
 #define __APPLICATIONTEST_H__
 

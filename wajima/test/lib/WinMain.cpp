@@ -1,6 +1,6 @@
-// game.cpp : コンソール アプリケーションのエントリ ポイントを定義します。
-//
-
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/test/lib/WinMain.cpp,v 1.3 2002/11/13 18:23:11 ama Exp $
+ */
 #define WIN32_LEAN_AND_MEAN		
 // Windows ヘッダーから使用されていない部分を除外します。
 // Windows ヘッダー ファイル :
