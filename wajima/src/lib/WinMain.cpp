@@ -1,10 +1,9 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.13 2002/07/03 14:11:13 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.14 2002/08/25 10:52:22 ama Exp $
  */
 
 #include <fstream>
 #include <windows.h>
-#include <map>
 
 #include "graphics/sys/D3D8.h"
 #include "system/Process.h"
@@ -13,6 +12,7 @@
 #include "std/Logger.h"
 #include "std/sys/Win32Exception.h"
 
+#include "Config.h"
 #include "WindowClass.h"
 #include "Window.h"
 #include "resource.h"
@@ -120,31 +120,37 @@ zefiro_system::Thread* ThreadTest::thread__;
 int ThreadTest::count__ = 0;
 bool ThreadTest::active__ = false;
 
+
+HWND hWnd__ = 0;
+
+
 class ZefirolibTestApp
 {
 public:
 	ZefirolibTestApp( HWND hWnd ):hWnd_(hWnd){
-		configRead("zefirolibtest.ini");
-		ostr_.open(config_["logfile"].c_str());
+		hWnd__ = hWnd;
+		config_ = new Config("zefirolibtest.ini");
+		ostr_.open(config_->getCStr("logfile") );
 		zefiro_std::Logger::setOutputter( &ostr_ );
 	}
 	virtual ~ZefirolibTestApp(){
+		delete config_;
 		ostr_.close();
 		zefiro_std::Logger::resetOutputter();
 	}
 	void testUnit(){
         std::ofstream ofs;
-        ofs.open( config_["unittestfile"].c_str() );
+        ofs.open( config_->getCStr("unittestfile") );
         CppUnit::TextUi::TestRunner runner;        
         runner.addTest( CppUnit::TestFactoryRegistry::getRegistry().makeTest() );
         runner.setOutputter( new CppUnit::TextOutputter(&runner.result(),ofs ) );
         runner.run( "" , true );
         ofs.close();
-		exec( config_["editor"] + " " + config_["unittestfile"]);
+		exec( config_->getString("editor") + " " + config_->getString("unittestfile") );
 	}
 	void testGetAdapterDeviceInfo(){
         std::ofstream        ofs;
-        ofs.open( config_["devicefile"].c_str() );
+        ofs.open( config_->getCStr("devicefile") );
         zefiro_graphics::D3D8 *d3d8 = new zefiro_graphics::D3D8();
         std::vector<zefiro_graphics::Adapter> adapters = d3d8->getAdapterVector();
         for( std::vector<zefiro_graphics::Adapter>::iterator adapter = adapters.begin() ; adapter < adapters.end(); ++adapter ){
@@ -152,29 +158,17 @@ public:
         }
         delete d3d8;
         ofs.close();
-		exec( config_["editor"] + " " + config_["devicefile"]);
+		exec( config_->getString("editor") + " " + config_->getString("devicefile") );
 	}
 	void testThread(){
 		ThreadTest::create( hWnd_ );
 		ThreadTest::start();
-		exec(config_["editor"] + " " + config_["logfile"]);
+		exec(config_->getString("editor") + " " + config_->getString("logfile") );
 	}
 	void testThreadNotify(){
 		ThreadTest::notify();
 	}
 protected:
-	void configRead( std::string configFilePath ){
-		std::ifstream ifs;
-		std::string name;
-		std::string value;
-
-		ifs.open( configFilePath.c_str() );
-		while( !ifs.eof() ){
-			ifs >> name >> value;
-			config_.insert( std::pair<std::string,std::string>( name , value ) );
-		}
-		ifs.close();
-	}
 	void exec( std::string cmdLine ){
 		zefiro_system::Process *process = new zefiro_system::Process( cmdLine );
 		try{
@@ -185,10 +179,11 @@ protected:
 		}
 		delete process;
 	}
-	HWND hWnd_;
 	std::ofstream ostr_;
-	std::map< std::string , std::string > config_;
+	Config *config_;
+ 	HWND hWnd_;
 };
+
 
 LRESULT CALLBACK WndProc( HWND hWnd ,
                                                   UINT message ,
