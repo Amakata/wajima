@@ -1,3 +1,10 @@
+/**
+ * $Log: graphicstest.rc,v $
+ * Revision 1.3  2002/04/28 13:20:23  ama
+ * キーワードを追加した。
+ *
+ */
+
 #include <windows.h>
 #include <test/resource.h>
 #include <winver.h>

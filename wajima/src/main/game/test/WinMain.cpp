@@ -1,3 +1,10 @@
+/**
+ * $Log: WinMain.cpp,v $
+ * Revision 1.3  2002/04/28 13:20:23  ama
+ * キーワードを追加した。
+ *
+ */
+
 #include <fstream>
 #include <windows.h>
 

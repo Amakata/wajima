@@ -1,3 +1,10 @@
+/**
+ * $Log: Window.h,v $
+ * Revision 1.2  2002/04/28 13:20:16  ama
+ * キーワードを追加した。
+ *
+ */
+
 #ifndef __WINDOW_H__
 #define __WINDOW_H__
 

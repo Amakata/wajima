@@ -1,3 +1,10 @@
+/**
+ * $Log: WindowClass.h,v $
+ * Revision 1.2  2002/04/28 13:20:16  ama
+ * キーワードを追加した。
+ *
+ */
+
 #ifndef __WINDOWCLASS_H__
 #define __WINDOWCLASS_H__
 
