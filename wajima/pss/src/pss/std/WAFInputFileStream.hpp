@@ -2,7 +2,12 @@
 #include <ios>
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
+#include <boost/filesystem/convenience.hpp>
+#include <boost/lexical_cast.hpp>
 #include <windows.h>
+#include "Logger.hpp"
+
+
 
 namespace pss {
 	namespace std {
@@ -30,57 +35,87 @@ namespace pss {
 			 * ファイルクローズ
 			 */
 			basic_waf_filebuf *close() {
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_filebuf");
+				LOG4CXX_DEBUG(log, "close begin.");
+
 				if (is_open()) {
+					LOG4CXX_DEBUG(log, "CloseHandle");
 					::CloseHandle(file_);
 					file_ = NULL;
-					buffer_.resize(0);
-					
+					buffer_.resize(0);	
 				}
+
+				LOG4CXX_DEBUG(log, "close end.");
 				return this;
 			}
 			/**
 			 * ファイルオープンしているか
 			 */
 			bool is_open( ) {
-				return file? != NULL;
+				return file_ != NULL;
 			}
 			/**
 			 * ファイルオープン
+			 * ファイルサイズ	4byte
+			 * ファイルモード	4byte
+			 * ファイルサイズ	260byte
+			 * データ			ファイルサイズ
 			 */
-			basic_waf_filebuf *open(::boost::filesystem::path _Filepath, ::std::ios_base::open_mode _Mode) {
+			basic_waf_filebuf *open(::boost::filesystem::path _Filepath,  ios_base::openmode _Which = ios_base::in ) {
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_filebuf");
+				LOG4CXX_DEBUG(log, "open begin.");
+				// とりあえず、以前に開いていたファイルをクローズ
+				close();
+
 				// ファイルのパスをフルパスに変換
-				::boost::filesystem::path file = ::boost::filesystem::complete(::boost::filesystem::path(_Filepath, ::boost::filesystem::windows_name));
+				::boost::filesystem::path file = ::boost::filesystem::complete(::boost::filesystem::path(_Filepath));
 
 				if (::boost::filesystem::exists(file)) {
-					// _Filepathで指定されたファイルが存在する場合
+					// _Filepathで指定されたファイルが存在する場合、以下の処理を実行
+
+					LOG4CXX_DEBUG(log, "open normal file.");
+					LOG4CXX_DEBUG(log, file.string());
 					file_ = ::CreateFile(file.native_file_string().c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
 					if (INVALID_HANDLE_VALUE  == file_) {
+						// ファイルハンドルが無効の場合
 						file_ = NULL;
 						return NULL;
 					}
 
 					// モード：ノーマル
 					mode_ = NORMAL;
-					buffer_.resize(1024 * 4);
-					setg(&buffer_[0], &buffer_[0], &buffer_[1024 * 4]);
+					// バッファ確保
+					buffer_.resize(getBufferSize() * sizeof(char_type));
+					// バッファサイズを設定
+					setg(&buffer_[0], &buffer_[0], &buffer_[0]);
+					// ファイルの先頭位置
 					begin_ = 0;
+					// ファイルの終端位置
 					end_ = ::GetFileSize(file_, NULL);
+					// バッファの先頭位置
+					bufferPos_ = 0;
+
 					return this;
+
 				} else {
-					// _Filepathで指定されたファイル画存在しない場合。
+					// _Filepathで指定されたファイル画存在しない場合は、以下の処理を実行。
 
 					// アーカイブ内ファイル名
 					::std::string inner_file = file.leaf();
 
 					// アーカイブファイル名
 					file = ::boost::filesystem::change_extension(file.branch_path(), get_extension());
-
+					
 					if (::boost::filesystem::exists(file)) {
 						// _Filepathの上位ディレクトリにWAFファイルが存在する場合
 
+						LOG4CXX_DEBUG(log, "file is waf file.");
+						LOG4CXX_DEBUG(log, file.string());
+
 						file_ = ::CreateFile(file.native_file_string().c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 						if (INVALID_HANDLE_VALUE  == file_) {
+							// ファイルハンドルが無効の場合の処理
 							file_ = NULL;
 							return NULL;
 						}
@@ -89,10 +124,11 @@ namespace pss {
 						struct Header {
 							DWORD	size_;
 							ARCHIVE_MODE	mode_;
-							char	filename_[258];
+							char	filename_[260];
 						} header;
 
 						DWORD readSize;
+						
 						while (1) {
 							// アーカイブの先頭から順次読み込み
 							if (0 == ::ReadFile(file_, &header, sizeof(header), &readSize, NULL) || readSize != sizeof(header)) {
@@ -100,30 +136,53 @@ namespace pss {
 								close();
 								return NULL;
 							}
-							// サイズ-1なのでファイル終端
-							if (aize_ == -1) {
+							LOG4CXX_DEBUG(log, "header.size = " + ::boost::lexical_cast<::std::string>(header.size_));
+							LOG4CXX_DEBUG(log, "header.mode = " + ::boost::lexical_cast<::std::string>(header.mode_));
+							LOG4CXX_DEBUG(log, "header.filename = " + ::boost::lexical_cast<::std::string>(header.filename_));
+
+							if (header.size_ == -1) {
+								// サイズ-1なのでファイル終端
 								close();
 								return NULL;
 							}
-							// ファイル名が同じならそのアーカイブを利用
-							if (file_ == ::std::string(filename_)) {
-								DWORD modeSize;
-								begin_ = ::SetFilePointer(file_, 0 , NULL, FILE_CURRENT);
-								if (begin_ == INVALID_SET_FILE_POINTER) {
+							if (inner_file == ::std::string(header.filename_)) {
+								// ファイル名が同じならそのアーカイブを利用
+
+								// ファイルの先頭設定
+								DWORD modeSize = ::SetFilePointer(file_, 0 , NULL, FILE_CURRENT);
+
+								// ファイルの先頭設定
+								begin_ = modeSize;
+								if (modeSize == INVALID_SET_FILE_POINTER) {
+									// 無効なファイルポインタ
 									close();
 									return NULL;
 								}
-								end_ = begin_ + header.size_;
+
+								// ファイルの終端設定
+								end_ = begin_ + (::std::streamoff) header.size_;
+
+								// モード設定
 								mode_ = header.mode_;
+
 								break;
 							}
 						}
-						buffer_.resize(1024 * 4);
-						setg(&buffer_[0], &buffer_[0], &buffer_[1024 * 4]);
+
+						// バッファを確保
+						buffer_.resize(getBufferSize() * sizeof(char_type));
+
+						// バッファサイズを設定
+						setg(&buffer_[0], &buffer_[0], &buffer_[0]);
+
+						// バッファ先頭位置設定
+						bufferPos_ = 0;
 						return this;
 					} else {
-
 						// ファイルが存在しない場合。
+
+						LOG4CXX_DEBUG(log, "file not exits");
+						LOG4CXX_DEBUG(log, file.string());
 						return NULL;
 					}
 				}
@@ -133,72 +192,239 @@ namespace pss {
 			 * 文字を１文字読み戻す。uflow()のキャンセル操作
 			 */
 			virtual int_type pbackfail(int_type _Meta = traits_type::eof) {
+				// 今回は未実装
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_filebuf");
+				LOG4CXX_DEBUG(log, "pbackfail begin.");
+				LOG4CXX_DEBUG(log, "pbackfail end.");
+				return traits_type::eof();
 			}
 			/**
 			 * 読み込み位置を移動する。
 			 */
 			virtual pos_type seekoff(off_type _Off, ios_base::seekdir _Way, ios_base::openmode _Which = ios_base::in) {
-				if (_Which == ios_base::in) {
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_filebuf");
+				LOG4CXX_DEBUG(log, "seekoff begin.");
+
+				if (!is_open()) {
+					LOG4CXX_DEBUG(log, "file is close.");
+					LOG4CXX_DEBUG(log, "seekoff end.");
 					return pos_type(-1);
 				}
-				DWORD method;
+
+				if (_Which != ios_base::in) {
+					LOG4CXX_DEBUG(log, "illegal argument.");
+					LOG4CXX_DEBUG(log, "seekoff end.");
+					return pos_type(-1);
+				}
+
+				DWORD result = 0;
 				if (_Way == ios_base::beg) {
-					method = FILE_BEGIN;
+					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(begin_ + (::std::streamoff) (sizeof(char_type) * _Off)));
+					result = ::SetFilePointer(file_, begin_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
+					bufferPos_ = result - begin_;
 				} else if (_Way == ios_base::cur) {
-					method = FILE_CURRENT;
+					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(begin_ + bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off)));
+					result = ::SetFilePointer(file_, begin_ + bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
+					bufferPos_ = result - begin_;
 				} else {
-					method = FILE_END;
+					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(end_ + (::std::streamoff) (sizeof(char_type) * _Off)));
+					result = ::SetFilePointer(file_, end_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
+					bufferPos_ = result - begin_;
 				}
-				DWORD result = ::SetFilePointer(file_, begin_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, method);
+
 				if (result == INVALID_SET_FILE_POINTER) {
-					if (NO_ERROR == ::GetLastError()) {
-						return pos_type(-1);
-					}
+					LOG4CXX_DEBUG(log, "INVALID_SET_FILE_POINTER");
+					LOG4CXX_DEBUG(log, "seekoff end.");
+					return pos_type(-1);
 				}
+
+				LOG4CXX_DEBUG(log, "point = " + ::boost::lexical_cast<::std::string>(result));
+
+				// バッファ先頭位置を設定
+				DWORD readSize = 0;
+				// ファイル読み込み
+				::ReadFile(file_, &buffer_[0], getBufferSize() * sizeof(char_type), &readSize, NULL);
+
+
+				if (bufferPos_ + (::std::streamoff) readSize > end_ - begin_) {
+					// ファイル位置、設定が、終端より大きくなるので、調整
+					readSize = end_ - begin_ - bufferPos_;
+				}
+
+				// ファイルバッファを設定
+				setg(&buffer_[0], &buffer_[0], &buffer_[readSize / sizeof(char_type)] );
+				LOG4CXX_DEBUG(log, "readSize = " + ::boost::lexical_cast<::std::string>(readSize));
+				LOG4CXX_DEBUG(log, "bufferSize = " + ::boost::lexical_cast<::std::string>(readSize / sizeof(char_type)));
+				LOG4CXX_DEBUG(log, "seekoff end.");
+
 				return result;
-
-
 			}
 			/**
 			 * 読み込み位置を移動する
 			 */
 			virtual pos_type seekpos( pos_type _Sp, ios_base::openmode _Which = ios_base::in) {
-				if (_Which == ios_base::in) {
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_filebuf");
+				LOG4CXX_DEBUG(log, "seekpos begin.");
+
+				if (!is_open()) {
+					LOG4CXX_DEBUG(log, "file is close.");
+					LOG4CXX_DEBUG(log, "seekpos end.");
 					return pos_type(-1);
 				}
+
+				if (_Which != ios_base::in) {
+					LOG4CXX_DEBUG(log, "illegal argument.");
+					LOG4CXX_DEBUG(log, "seekpos end.");
+					return pos_type(-1);
+				}
+
 				DWORD result = ::SetFilePointer(file_, begin_ + (::std::streamoff) (sizeof(char_type) * _Sp), NULL, FILE_BEGIN);
 				if (result == INVALID_SET_FILE_POINTER) {
-					if (NO_ERROR == ::GetLastError()) {
-						return pos_type(-1);
-					}
+					LOG4CXX_DEBUG(log, "seekpos end.");
+					return pos_type(-1);
 				}
+
+				// バッファ先頭位置を設定
+				bufferPos_ = result;
+
+				DWORD readSize = 0;
+				// ファイル読み込み
+				::ReadFile(file_, &buffer_[0], getBufferSize() * sizeof(char_type), &readSize, NULL);
+				if (bufferPos_ + (::std::streamoff) readSize > end_ - begin_) {
+					// ファイル位置、設定が、終端より大きくなるので、調整
+					readSize = end_ - begin_ - bufferPos_;
+				}
+
+				// ファイルバッファを設定
+				setg(&buffer_[0], &buffer_[0], &buffer_[readSize / sizeof(char_type)] );				
+
+				LOG4CXX_DEBUG(log, "seekpos end.");
 				return result;
 			}
 			/**
 			 * 文字を１文字読み取る。
 			 */
 			virtual int_type underflow() {
-				return traits_type::eof;
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_filebuf");
+				LOG4CXX_DEBUG(log, "underflow begin.");
+
+				if (!is_open()) {
+					LOG4CXX_DEBUG(log, "file is close.");
+					LOG4CXX_DEBUG(log, "underflow end.");
+					return traits_type::eof();
+				}
+
+				if (egptr() <= gptr()) {
+					// 読み取りポインタの移動できる終端位置 < 現在の読み取りポインタの位置の場合の処理
+
+					if (getSize() < bufferPos_ + (::std::streamoff)((gptr() - egptr()) * sizeof(char_type))) {
+						// ファイルの終端なので、エラー
+						LOG4CXX_DEBUG(log, "size = " + ::boost::lexical_cast<::std::string>(getSize()));
+						LOG4CXX_DEBUG(log, "pos = " + ::boost::lexical_cast<::std::string>(bufferPos_ + (::std::streamoff)((gptr() - egptr()) * sizeof(char_type))));
+						LOG4CXX_DEBUG(log, "read error.");
+						LOG4CXX_DEBUG(log, "underflow end.");
+						return traits_type::eof();					
+					}
+
+					LOG4CXX_DEBUG(log, "file read.");
+					DWORD readSize = 0;
+					// ファイル読み込み
+					bufferPos_ += (egptr() - eback()) * sizeof(char_type);
+					::ReadFile(file_, &buffer_[0], getBufferSize() * sizeof(char_type), &readSize, NULL);
+
+					LOG4CXX_DEBUG(log, "bufferPos_ = " + ::boost::lexical_cast<::std::string>(bufferPos_));
+					LOG4CXX_DEBUG(log, "readSize = " + ::boost::lexical_cast<::std::string>(readSize));
+					LOG4CXX_DEBUG(log, "end_ = " + ::boost::lexical_cast<::std::string>(end_));
+
+					if (bufferPos_ + (::std::streamoff) readSize > end_ - begin_) {
+						// ファイル位置、設定が、終端より大きくなるので、調整
+						readSize = end_ - begin_ - bufferPos_;
+					}
+
+					// ファイルバッファを設定
+					setg(&buffer_[0], &buffer_[0], &buffer_[readSize / sizeof(char_type)]);
+
+					if (egptr() <= gptr()) {
+						LOG4CXX_DEBUG(log, "file eof.");
+						LOG4CXX_DEBUG(log, "underflow end.");
+						// ファイルの終端なので、エラー
+						return traits_type::eof();
+					}
+				}
+
+				LOG4CXX_DEBUG(log, "underflow end.");
+				// 現在のポインタの位置を返す。
+				return Tr::to_int_type(*gptr());
 			}
 			/**
 			 * 文字を１文字読み取り、ポインタを一つ進める。
 			 */
 			virtual int_type uflow() {
-				return traits_type::eof;
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_filebuf");
+				LOG4CXX_DEBUG(log, "uflow begin.");
+
+				if (!is_open()) {
+					LOG4CXX_DEBUG(log, "uflow end.");
+					return traits_type::eof();
+				}
+
+				int_type result = underflow();
+				gbump(1);
+
+				LOG4CXX_DEBUG(log, "uflow end.");
+				return result;
 			}
 		private:
 			/**
 			 * アーカイブファイルの拡張子取得
 			 */
-			::std::string get_extention() const {
+			::std::string get_extension() const {
 				return ".waf";
 			}
+			/**
+			 * バッファサイズの取得
+			 * \retval バッファサイズ[sizeof(char_type)]
+			 */
+			int getBufferSize() const {
+				return 1024 * 4;
+			}
+			/**
+			 * ファイルサイズの取得
+			 * \retval ファイルサイズ[byte]
+			 */
+			int getSize() const {
+				return end_ - begin_;
+			}
+			/**
+			 * ファイルの保存モード
+			 * NORMAL		通常ファイル
+			 * WAF_NORMAL	WAFファイル非圧縮
+			 * WAF_ZLIB		WAFファイルZLIB
+			 */
 			enum ARCHIVE_MODE {NORMAL,WAF_NORMAL,WAF_ZLIB};
+			/**
+			 * ファイルハンドル
+			 */
 			HANDLE		file_;
-
+			/**
+			 * file_の先頭アドレス [byte]
+			 */
 			pos_type		begin_;
+			/**
+			 * file_の終端アドレス+1 [byte]
+			 */
 			pos_type		end_;
+			/**
+			 * バッファの先頭位置(各ファイルの先頭からの) [byte]
+			 */
+			pos_type		bufferPos_;
+			/**
+			 * ファイルの保存モード
+			 */
 			ARCHIVE_MODE	mode_;
+			/**
+			 * バッファ
+			 */
 			::std::vector< char_type > buffer_;
 		};
 
