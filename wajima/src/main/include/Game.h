@@ -1,9 +1,13 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/include/Attic/Game.h,v 1.4 2002/04/28 14:52:25 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/include/Attic/Game.h,v 1.5 2002/04/28 17:34:10 ama Exp $
  */
 
 #ifndef __GAME_H__
 #define __GAME_H__
+
+#include <vector>
+
+#include "Player.h"
 
 namespace zefiro_game {
 	/**
@@ -36,8 +40,19 @@ namespace zefiro_game {
 		 * フェーズを1進める。ターンも自動的に更新される。
 		 */
 		void iteratePhase();
+		/**
+		 * ゲームに参加するプレーヤを追加する。
+		 * \param player 追加するプレーヤ
+		 */
+		void addPlayer( Player *player );
+		/**
+		 * ゲームに参加しているプレーヤを削除する。
+		 * ただし、削除するのはポインタのみで、実体は削除しない。
+		 * \param player 削除するプレーヤ
+		 */
+		void deletePlayer( Player *player );
 	private:
-		int _playerSize;			///<	プレーヤ人数
+		std::vector<Player*>	_players;	///< プレーヤーの配列
 		int _currentPhaseNumber;	///<	現在のフェーズ番号
 		int _currentTurnNumber;		///<	現在のターン番号
 	};
