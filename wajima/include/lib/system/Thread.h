@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/Thread.h,v 1.4 2002/05/25 15:56:33 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/Thread.h,v 1.5 2002/05/26 17:09:53 ama Exp $
  */
 
 #ifndef __THREAD_H__
@@ -19,7 +19,7 @@ namespace zefiro_system {
 	class Thread : public Runnable
 	{
 	public:
-		/*
+		/**
 		 * コンストラクタ
 		 * \param stackSize スレッドで確保するスタックのサイズ(0にすると、呼び出し側スレッドと同じサイズになる。)
 		 * \param name スレッドにつく名前
@@ -87,19 +87,21 @@ namespace zefiro_system {
 		/**
 		 * スレッドの優先度を返す。
 		 * \return スレッドの優先度
+		 * \throw Win32Exception
 		 */
 		int getPriority() const;
 		/**
 		 * スレッドの優先度を設定する。
 		 * \param priority スレッドの優先度
+		 * \throw Win32Exception
 		 */
 		void setPriority( int priority );
-
 		/**
 		 * スレッドを開始する。
 		 * 一度、開始したスレッドを再び開始することはできない。もし再びstartが呼ばれたら、
 		 * IllegalThreadStateExceptionが呼ばれる。
 		 * \throw IllegalThreadStateException 異常なスレッド状態例外が発生した。
+		 * \throw Win32Exception
 		 */
 		void start();
 		/**
