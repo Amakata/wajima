@@ -19,7 +19,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="./include/lib"
+				AdditionalIncludeDirectories="./include/loki;./include/lib"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="0"
@@ -59,7 +59,7 @@
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="TRUE"
-				AdditionalIncludeDirectories="./include/lib"
+				AdditionalIncludeDirectories="./include/loki;./include/lib"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -276,6 +276,79 @@
 			</File>
 			<File
 				RelativePath="include\lib\std\typemanip.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="loki"
+			Filter="">
+			<File
+				RelativePath="include\loki\AbstractFactory.h">
+			</File>
+			<File
+				RelativePath="include\loki\AssocVector.h">
+			</File>
+			<File
+				RelativePath="include\loki\EmptyType.h">
+			</File>
+			<File
+				RelativePath="include\loki\Factory.h">
+			</File>
+			<File
+				RelativePath="include\loki\Functor.h">
+			</File>
+			<File
+				RelativePath="include\loki\HierarchyGenerators.h">
+			</File>
+			<File
+				RelativePath="include\loki\LokiTypeInfo.h">
+			</File>
+			<File
+				RelativePath="include\loki\MinMax.h">
+			</File>
+			<File
+				RelativePath="include\loki\MultiMethods.h">
+			</File>
+			<File
+				RelativePath="include\loki\NullType.h">
+			</File>
+			<File
+				RelativePath="include\loki\Singleton.cpp">
+			</File>
+			<File
+				RelativePath="include\loki\Singleton.h">
+			</File>
+			<File
+				RelativePath="include\loki\SmallObj.cpp">
+			</File>
+			<File
+				RelativePath="include\loki\SmallObj.h">
+			</File>
+			<File
+				RelativePath="include\loki\SmartPtr.h">
+			</File>
+			<File
+				RelativePath="include\loki\Threads.h">
+			</File>
+			<File
+				RelativePath="include\loki\TypeManip.h">
+			</File>
+			<File
+				RelativePath="include\loki\TypeTraits.h">
+			</File>
+			<File
+				RelativePath="include\loki\Typelist.h">
+			</File>
+			<File
+				RelativePath="include\loki\VC_Alignment.h">
+			</File>
+			<File
+				RelativePath="include\loki\Variant.h">
+			</File>
+			<File
+				RelativePath="include\loki\Visitor.h">
+			</File>
+			<File
+				RelativePath="include\loki\static_check.h">
 			</File>
 		</Filter>
 	</Files>
