@@ -255,9 +255,6 @@
 					RelativePath="src\lib\graphics\GraphicsDevice.h">
 				</File>
 				<File
-					RelativePath="src\lib\graphics\GraphicsDeviceMode.h">
-				</File>
-				<File
 					RelativePath="src\lib\graphics\GraphicsManager.cpp">
 				</File>
 				<File
