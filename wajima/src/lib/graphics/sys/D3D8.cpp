@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.14 2002/09/19 10:58:23 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.15 2002/09/20 02:34:48 ama Exp $
  */
 
 #include "std/Assert.h"
@@ -50,24 +50,23 @@ namespace zefiro_graphics {
 		param.BackBufferCount = 1;
 		param.SwapEffect = D3DSWAPEFFECT_DISCARD;
 		param.Windowed = windowed;
-// TODO: Zバッファなし
-//		param.EnableAutoDepthStencil = TRUE;
-//		param.AutoDepthStencilFormat = D3DFMT_D16;
+		param.EnableAutoDepthStencil = TRUE;
+		param.AutoDepthStencilFormat = D3DFMT_D16;
 		LPDIRECT3DDEVICE8 d3dDevice;
 		DWORD behaviorFlags = NULL;
 		if( threaded ){
 			behaviorFlags = D3DCREATE_MULTITHREADED;
 		}
 		HRESULT hr;
-		hr = d3d_->CreateDevice( adapterid , D3DDEVTYPE_HAL  , hwnd  ,D3DCREATE_HARDWARE_VERTEXPROCESSING | behaviorFlags ,&param , &d3dDevice );
+		hr = d3d_->CreateDevice( adapterid , D3DDEVTYPE_HAL  , hwnd  ,D3DCREATE_HARDWARE_VERTEXPROCESSING | D3DCREATE_PUREDEVICE | behaviorFlags ,&param , &d3dDevice );
 		if( D3D_OK != hr  ){
-			hr = d3d_->CreateDevice( adapterid , D3DDEVTYPE_HAL , hwnd , D3DCREATE_SOFTWARE_VERTEXPROCESSING | behaviorFlags, &param , &d3dDevice );
+			hr = d3d_->CreateDevice( adapterid , D3DDEVTYPE_HAL , hwnd , D3DCREATE_SOFTWARE_VERTEXPROCESSING | D3DCREATE_PUREDEVICE |behaviorFlags, &param , &d3dDevice );
 		}
 		if( D3D_OK != hr ){
-			hr = d3d_->CreateDevice( adapterid , D3DDEVTYPE_REF , hwnd , D3DCREATE_HARDWARE_VERTEXPROCESSING | behaviorFlags , &param , &d3dDevice );
+			hr = d3d_->CreateDevice( adapterid , D3DDEVTYPE_REF , hwnd , D3DCREATE_HARDWARE_VERTEXPROCESSING | D3DCREATE_PUREDEVICE |behaviorFlags , &param , &d3dDevice );
 		}
 		if( D3D_OK != hr ){
-			hr = d3d_->CreateDevice( adapterid , D3DDEVTYPE_REF , hwnd , D3DCREATE_SOFTWARE_VERTEXPROCESSING | behaviorFlags , &param , &d3dDevice );
+			hr = d3d_->CreateDevice( adapterid , D3DDEVTYPE_REF , hwnd , D3DCREATE_SOFTWARE_VERTEXPROCESSING | D3DCREATE_PUREDEVICE |behaviorFlags , &param , &d3dDevice );
 		}
 		DXASSERT( hr );
 
