@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/Thread.h,v 1.5 2002/05/26 17:09:53 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/Thread.h,v 1.6 2002/05/31 19:11:10 ama Exp $
  */
 
 #ifndef __THREAD_H__
@@ -150,6 +150,7 @@ namespace zefiro_system {
 		 */
 		virtual std::string toString() const;
 
+		static const int NULLTHREAD;
 	protected:
 		/**
 		 * スレッドをコンストラクトする。
