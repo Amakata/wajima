@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.cpp,v 1.5 2002/05/25 16:01:10 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.cpp,v 1.6 2002/05/31 19:13:14 ama Exp $
  */
 
 #include "system/Thread.h"
@@ -12,6 +12,7 @@
 namespace zefiro_system {
 	std::vector<Thread *>	Thread::threads__;
 	Mutex Thread::threadsMutex__;
+	const int Thread::NULLTHREAD = -1;
 	
 	Thread::Thread( int stackSize )
 		:runnable_(NULL),thread_(NULL),threadMutex_(new Mutex()),threadID_(0),constructError_(0),hasStarted_(false),joinable_(true),canRemoveRunnable_(true),name_(""){
