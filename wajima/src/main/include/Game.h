@@ -4,6 +4,8 @@
 namespace zefiro_game {
 	class Game 
 	{
+	public:
+		int getPlayerSize() const;
 	};
 };
 
