@@ -43,5 +43,19 @@ namespace zefiro_stdtest {
 		CPPUNIT_ASSERT_EQUAL( true , *_sourceLineDefault != *_sourceLine );
 		CPPUNIT_ASSERT_EQUAL( true , *_sourceLine != *_sourceLineDefault );
 	}
+	void SourceLineTest::testUseCase1(){
+		zefiro_std::SourceLine *sourceLine = new zefiro_std::SourceLine();
+		CPPUNIT_ASSERT( !sourceLine->isValid() );
+		CPPUNIT_ASSERT_EQUAL( std::string("") , sourceLine->fileName() );
+		CPPUNIT_ASSERT_EQUAL( -1 , sourceLine->lineNumber() );
+		delete sourceLine;
+	}
+	void SourceLineTest::testUseCase2(){
+		zefiro_std::SourceLine *sourceLine = new zefiro_std::SourceLine( FILENAME , LINENUMBER );
+		CPPUNIT_ASSERT( sourceLine->isValid() );
+		CPPUNIT_ASSERT_EQUAL( std::string(FILENAME) , sourceLine->fileName() );
+		CPPUNIT_ASSERT_EQUAL( LINENUMBER , sourceLine->lineNumber() );
+		delete sourceLine;		
+	}
 
 };

@@ -20,6 +20,8 @@ namespace zefiro_stdtest {
 		CPPUNIT_TEST( testIsValid );
 		CPPUNIT_TEST( testEqual );
 		CPPUNIT_TEST( testNotEqual );
+		CPPUNIT_TEST( testUseCase1 );
+		CPPUNIT_TEST( testUseCase2 );
 		CPPUNIT_TEST_SUITE_END();
 	protected:
 		zefiro_std::SourceLine *_sourceLine;
@@ -32,6 +34,8 @@ namespace zefiro_stdtest {
 		void testIsValid();
 		void testEqual();
 		void testNotEqual();
+		void testUseCase1();
+		void testUseCase2();
 	};
 };
 

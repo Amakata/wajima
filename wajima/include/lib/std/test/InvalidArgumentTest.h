@@ -15,15 +15,20 @@ namespace zefiro_stdtest {
 	class InvalidArgumentTest : public CppUnit::TestCase
 	{
 		CPPUNIT_TEST_SUITE( InvalidArgumentTest );
-		CPPUNIT_TEST( testConstruct );
-
+		CPPUNIT_TEST( testLineNumber );
+		CPPUNIT_TEST( testFileName );
+		CPPUNIT_TEST( testWhat );
+		CPPUNIT_TEST( testInstanceOf );
 		CPPUNIT_TEST_SUITE_END();		
 	public:
 		void setUp();
 		void tearDown();
-		void testConstruct();
+		void testLineNumber();
+		void testFileName();
+		void testWhat();
+		void testInstanceOf();
 	protected:
-		zefiro_std::InvalidArgument *_notEqualException;
+		zefiro_std::InvalidArgument *_invalidArgument;
 	};
 };
 
