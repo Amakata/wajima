@@ -16,14 +16,15 @@ namespace zefiro_thread {
 		void reset();
 		void pulse();
 		bool wait( long milliseconds = INFINITE );
+		std::string toString() const;
 	protected:
 		Win32Event( const Win32Event &event );
 		Win32Event &operator=( const Win32Event &other );
-		HANDLE	_event;
-		std::string _name;
-		bool	_manualReset;
-		bool	_exist;
-		DWORD	_constructErrorCode;
+		HANDLE	event_;
+		std::string name_;
+		bool	manualReset_;
+		bool	exist_;
+		DWORD	constructError_;
 	};
 };
 

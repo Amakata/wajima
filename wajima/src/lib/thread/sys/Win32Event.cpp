@@ -3,92 +3,129 @@
  */
 
 
-#include <std/Assert.h>
-#include <std/sys/Win32Assert.h>
+#include <string>
+#include <sstream>
+
+#include "std/Assert.h"
+#include "std/sys/Win32Assert.h"
+#include "std/Logger.h"
 #include "thread/sys/Win32Event.h"
 
 
 namespace zefiro_thread {
 	Win32Event::Win32Event( bool initState  , bool manualReset , std::string name )
-		:_manualReset(manualReset),_name(name),_exist(false),_constructErrorCode(0){
-		if( _name == std::string("") ){
-			_event = CreateEvent( NULL , manualReset , initState , NULL );
+		:manualReset_(manualReset),name_(name),exist_(false),constructError_(0){
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::Win32Event( bool , bool , std::string ) Begin" + toString());
+		if( name_ == std::string("") ){
+			event_ = CreateEvent( NULL , manualReset , initState , NULL );
 		}else{
-			_event = CreateEvent( NULL , manualReset , initState , _name.c_str() );
+			event_ = CreateEvent( NULL , manualReset , initState , name_.c_str() );
 		}
-		if( _event == NULL ){
-			_constructErrorCode = GetLastError();
+		if( event_ == NULL ){
+			constructError_ = GetLastError();
+			ZEFIRO_LOG( "ERROR" , "Win32Event::Win32Event( bool , bool , std::string ) END" + toString());
 			return;
 		}
 		if( GetLastError() == ERROR_ALREADY_EXISTS ){
-			_exist = true;
+			exist_ = true;
 		}
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::Win32Event( bool , bool , std::string ) END" + toString());
 	}
 	Win32Event::~Win32Event(){
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::~Win32Event() Begin" + toString());
 		if( isAvailable() ){
-			CloseHandle( _event );
+			CloseHandle( event_ );
 		}
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::~Win32Event() End" + toString());
 	}
 	bool Win32Event::isAlreadyExist() const{
-		return _exist;
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::isAlreadyExist()" + toString());
+		return exist_;
 	}
 	bool Win32Event::isAvailable() const{
-		return _event != NULL;
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::isAvailable()" + toString());
+		return event_ != NULL;
 	}
 	std::string Win32Event::getName() const{
-		return _name;
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::getName()" + toString());
+		return name_;
 	}
 	void Win32Event::set() {
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::set() Begin" + toString());
 		if( isAvailable() ){
-			if( 0 == SetEvent( _event ) ){
+			if( 0 == SetEvent( event_ ) ){
+				ZEFIRO_LOG( "ERROR" , "Win32Event::set()" + toString());
 				WIN32ASSERT(GetLastError());
 			}
 		}else{
-			WIN32ASSERT( _constructErrorCode );
+			ZEFIRO_LOG( "ERROR" , "Win32Event::set()" + toString());
+			WIN32ASSERT( constructError_ );
 		}
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::set() End" + toString());
 	}
 	void Win32Event::reset() {
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::reset() Begin" + toString());
 		if( isAvailable() ){
-			if( 0 == ResetEvent( _event ) ){
+			if( 0 == ResetEvent( event_ ) ){
+				ZEFIRO_LOG( "ERROR" , "Win32Event::reset()" + toString());
 				WIN32ASSERT(GetLastError());
 			}
 		}else{
-			WIN32ASSERT( _constructErrorCode );
+			ZEFIRO_LOG( "ERROR" , "Win32Event::reset()" + toString());
+			WIN32ASSERT( constructError_ );
 		}
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::reset() End" + toString());
 	}
 	void Win32Event::pulse() {
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::pulse() Begin" + toString());
 		if( isAvailable() ){
-			if( 0 == PulseEvent( _event ) ){
+			if( 0 == PulseEvent( event_ ) ){
+				ZEFIRO_LOG( "ERROR" , "Win32Event::pluse()" + toString());
 				WIN32ASSERT(GetLastError());
 			}
 		}else{
-			WIN32ASSERT( _constructErrorCode );
+			ZEFIRO_LOG( "ERROR" , "Win32Event::pluse()" + toString());
+			WIN32ASSERT( constructError_ );
 		}
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::pulse() End" + toString());
 	}
 	bool Win32Event::wait( long milliseconds ) {
+		ZEFIRO_LOG( "NORMAL" , "Win32Event::wait() Begin" + toString());
 		if( isAvailable() ){
-			DWORD result = WaitForSingleObject( _event , milliseconds );
+			DWORD result = WaitForSingleObject( event_ , milliseconds );
 			switch( result ){
 			case WAIT_TIMEOUT:
+				// タイムアウトによるリターン
+				ZEFIRO_LOG( "NORMAL" , "Win32Event::wait() End" + toString());
 				return false;
 			case WAIT_OBJECT_0:
+				// 正常にwaitから解放された。
+				ZEFIRO_LOG( "NORMAL" , "Win32Event::wait() End" + toString());
 				return true;
 			case WAIT_ABANDONED:
 				// 所有権が放棄されたeventだった。
+				ZEFIRO_LOG( "NORMAL" , "Win32Event::wait() End" + toString());
 				return true;
 			case WAIT_FAILED:
+				ZEFIRO_LOG( "ERROR" , "Win32Event::wait() End" + toString());
 				WIN32ASSERT( GetLastError() );
-				break;
 			default:
 				// 不明なエラー
+				ZEFIRO_LOG( "ERROR" , "Win32Event::wait()" + toString());
 				WIN32ASSERT( GetLastError() );
-				break;
 			}
+			ZEFIRO_LOG( "ERROR" , "Win32Event::wait()" + toString());
 			return false;
 		}else{
 			//	eventオブジェクト生成時のエラー
-			WIN32ASSERT( _constructErrorCode );
+			ZEFIRO_LOG( "ERROR" , "Win32Event::wait()" + toString());
+			WIN32ASSERT( constructError_ );
 			return false;
 		}
+	}
+	std::string Win32Event::toString() const {
+		std::ostringstream ostrstr;
+		ostrstr << " Event Handle = "  << event_ << " , Event Name = " << name_ << " , Manual Reset = " << manualReset_ << " , Already Exist = " << exist_;
+		return ostrstr.str();
 	}
 };
