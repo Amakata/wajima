@@ -1,11 +1,12 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.5 2002/05/23 15:58:47 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.6 2002/05/23 16:11:43 ama Exp $
  */
 
 #include <fstream>
 #include <windows.h>
 
 #include "graphics/sys/D3D8.h"
+#include "system/Process.h"
 #include "system/Thread.h"
 #include "std/Logger.h"
 
@@ -104,30 +105,6 @@ void ThreadTest(){
 	}
 }
 
-class Process
-{
-public:
-	Process( std::string cmdLine ):_cmdLine(cmdLine),_process(NULL),_processID(0){
-	}
-	virtual ~Process(){
-	}
-	void start(){
-		PROCESS_INFORMATION processInformation;
-		STARTUPINFO	startupInfo;
-		memset( &startupInfo , 0 , sizeof(startupInfo) );
-		startupInfo.cb = sizeof(startupInfo);
-		if( 0 == CreateProcess(NULL,const_cast<char*>(_cmdLine.c_str()),NULL,NULL,FALSE,0,NULL,NULL, &startupInfo , &processInformation ) ){
-			WIN32ASSERT( GetLastError() );
-		}
-		_process = processInformation.hProcess;
-		_processID = processInformation.dwProcessId;
-	}
-protected:
-	std::string _cmdLine;
-	HANDLE _process;
-	DWORD _processID;
-};
-
 
 std::ofstream *g_ostr;
 
@@ -137,7 +114,7 @@ LRESULT CALLBACK WndProc( HWND hWnd ,
                                                   WPARAM wParam ,
                                                   LPARAM lParam )
 {
-	Process *process;
+	zefiro_system::Process *process;
 	switch( message )
     {
 	case WM_CREATE:
@@ -150,20 +127,20 @@ LRESULT CALLBACK WndProc( HWND hWnd ,
 		{
 		case IDM_TEST:
 			UnitTest();
-			process = new Process("c:\\windows\\notepad.exe output.txt");
+			process = new zefiro_system::Process("c:\\windows\\notepad.exe output.txt");
 			process->start();
 			delete process;
 			break;
 		case IDM_ADAPTER_DEVICE_OUTPUT:
 			AdapterDeviceOutput();
-			process = new Process("c:\\windows\\notepad.exe AdapterDevice.txt");
+			process = new zefiro_system::Process("c:\\windows\\notepad.exe AdapterDevice.txt");
 			process->start();
 			delete process;
 			break;
 		case IDM_THREAD_TEST:
 			ThreadTest();
 			Sleep(1000);
-			process = new Process("c:\\windows\\notepad.exe logger.txt");
+			process = new zefiro_system::Process("c:\\windows\\notepad.exe logger.txt");
 			process->start();
 			delete process;
 			break;
