@@ -205,6 +205,10 @@ SOURCE=.\src\lib\thread\Thread.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\thread\TimeOutException.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\thread\sys\Win32Event.cpp
 # End Source File
 # End Group
@@ -298,6 +302,10 @@ SOURCE=.\include\lib\thread\Runnable.h
 # Begin Source File
 
 SOURCE=.\include\lib\thread\Thread.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\thread\TimeOutException.h
 # End Source File
 # Begin Source File
 
