@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Asserter.cpp,v 1.4 2002/11/04 16:29:31 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Asserter.cpp,v 1.5 2002/11/14 16:52:32 ama Exp $
  */
 
 #include "Asserter.h"
@@ -38,8 +38,9 @@ failNotEqual( std::string expected,
 {
   throw NotEqualException( expected, 
                            actual, 
-                           sourceLine, 
-                           additionalMessage );
+                           additionalMessage ,
+						   sourceLine)
+                           ;
 }
 
 

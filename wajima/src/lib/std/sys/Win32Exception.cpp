@@ -1,15 +1,15 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Exception.cpp,v 1.4 2002/11/04 16:29:38 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Exception.cpp,v 1.5 2002/11/14 16:52:53 ama Exp $
  */
 
 #include "Win32Exception.h"
 
 namespace zefiro_std {
-	Win32Exception::Win32Exception( DWORD errorCode , zefiro_std::SourceLine sourceLine ,
-		std::string additionalMessage ):Exception(additionalMessage,sourceLine),_errorCode(errorCode){
+	Win32Exception::Win32Exception( std::string message , DWORD errorCode , zefiro_std::SourceLine sourceLine 
+		):Exception(message,sourceLine),_errorCode(errorCode){
 	}
-	Win32Exception::Win32Exception( DWORD errorCode , long lineNumber, 
-		std::string fileName ,std::string additionalMessage ):Exception(additionalMessage,lineNumber,fileName),_errorCode(errorCode){
+	Win32Exception::Win32Exception(  std::string message , DWORD errorCode , long lineNumber, 
+		std::string fileName):Exception(message,lineNumber,fileName),_errorCode(errorCode){
 	}
 	Win32Exception::Win32Exception( const Win32Exception &other ):Exception(other),_errorCode(other._errorCode){
 	}

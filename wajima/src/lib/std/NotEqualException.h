@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/NotEqualException.h,v 1.2 2002/11/04 16:29:31 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/NotEqualException.h,v 1.3 2002/11/14 16:52:22 ama Exp $
  */
 
 #ifndef NOTEQUALEXCEPTION_H
@@ -25,8 +25,9 @@ public:
    */
   NotEqualException( std::string expected,
                      std::string actual, 
-                     SourceLine sourceLine = SourceLine(),
-                     std::string additionalMessage = "" );
+					 std::string additionalMessage = "" ,
+                     SourceLine sourceLine = SourceLine()
+                   );
 
 
   NotEqualException( std::string expected,

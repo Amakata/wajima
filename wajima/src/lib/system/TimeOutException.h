@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/TimeOutException.h,v 1.1 2002/11/03 09:05:26 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/TimeOutException.h,v 1.2 2002/11/14 16:53:01 ama Exp $
  */
 
 #ifndef __TIMEOUTEXCEPTION_H__
@@ -11,10 +11,9 @@ namespace zefiro_system {
 	class TimeOutException : public zefiro_std::Exception
 	{
 	public:
-		TimeOutException ( zefiro_std::SourceLine sourceLine = zefiro_std::SourceLine(),
-                     std::string additionalMessage = "" );
-		TimeOutException ( long lineNumber, 
-                     std::string fileName ,std::string additionalMessage = "");
+		TimeOutException (  std::string message = ""  , zefiro_std::SourceLine sourceLine = zefiro_std::SourceLine() );
+		TimeOutException ( std::string message , long lineNumber, 
+                     std::string fileName );
 		TimeOutException ( const TimeOutException  &other );
 		virtual ~TimeOutException ();
 		std::string additionalMessage() const;

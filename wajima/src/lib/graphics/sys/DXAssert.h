@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXAssert.h,v 1.1 2002/11/03 09:04:44 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXAssert.h,v 1.2 2002/11/14 16:51:59 ama Exp $
  */
 #ifndef __DXASSERT_H__
 #define __DXASSERT_H__
@@ -8,12 +8,12 @@
 
 #include "std/SourceLine.h"
 
-#define DXASSERT( HRESULT ) ::zefiro_graphics::DXAssert::DXAssert( HRESULT , ZEFIRO_STD_SOURCELINE() );
-#define DXASSERT_MESSAGE( HRESULT  , MESSAGE ) ::zefiro_graphics::DXAssert::DXAssert( HRESULT , ZEFIRO_STD_SOURCELINE() , MESSAGE );
+#define DXASSERT( HRESULT ) ::zefiro_graphics::DXAssert::DXAssert( "" , HRESULT , ZEFIRO_STD_SOURCELINE() );
+#define DXASSERT_MESSAGE( MESSAGE , HRESULT  ) ::zefiro_graphics::DXAssert::DXAssert( MESSAGE , HRESULT , ZEFIRO_STD_SOURCELINE() );
 
 namespace zefiro_graphics {
 	namespace DXAssert {
-		void DXAssert( HRESULT hr , ::zefiro_std::SourceLine sourceLine , std::string message ="" );
+		void DXAssert( std::string message , HRESULT hr , ::zefiro_std::SourceLine sourceLine );
 	};
 };
 

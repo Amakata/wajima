@@ -1,15 +1,15 @@
 /**
- * $Header : $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXInvalidArgument.cpp,v 1.3 2002/11/14 16:51:59 ama Exp $
  */
 
 #include "DXInvalidArgument.h"
 
 namespace zefiro_graphics {
-	DXInvalidArgument::DXInvalidArgument( HRESULT hr , zefiro_std::SourceLine sourceLine , std::string additionalMessage )
-		:DXException(hr,sourceLine,additionalMessage){
+	DXInvalidArgument::DXInvalidArgument( std::string message , HRESULT hr , zefiro_std::SourceLine sourceLine )
+		:DXException(message , hr,sourceLine){
 	}
-	DXInvalidArgument::DXInvalidArgument( HRESULT hr , long lineNumber , std::string fileName ,std::string additionalMessage )
-		: DXException( hr , lineNumber , fileName , additionalMessage ){
+	DXInvalidArgument::DXInvalidArgument( std::string message , HRESULT hr , long lineNumber , std::string fileName )
+		: DXException( message , hr , lineNumber , fileName  ){
 	}
 	DXInvalidArgument::DXInvalidArgument( const DXInvalidArgument &other ):DXException(other){
 	}

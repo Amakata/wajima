@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXException.h,v 1.2 2002/11/13 18:22:47 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXException.h,v 1.3 2002/11/14 16:51:59 ama Exp $
  */
 #ifndef __DXEXCEPTION_H__
 #define __DXEXCEPTION_H__
@@ -12,10 +12,8 @@ namespace zefiro_graphics {
 	class DXException : virtual public zefiro_std::Exception
 	{
 	public:
-		DXException( HRESULT hr , zefiro_std::SourceLine sourceLine = zefiro_std::SourceLine(),
-                     std::string additionalMessage = "" );
-		DXException( HRESULT hr , long lineNumber, 
-                     std::string fileName ,std::string additionalMessage = "");
+		DXException( std::string message , HRESULT hr , zefiro_std::SourceLine sourceLine = zefiro_std::SourceLine());
+		DXException( std::string message , HRESULT hr , long lineNumber, std::string fileName );
 		DXException( const DXException &other );
 		virtual ~DXException() throw();
 		HRESULT getHResult() const;

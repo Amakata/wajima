@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXInvalidArgument.h,v 1.3 2002/11/12 15:47:44 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXInvalidArgument.h,v 1.4 2002/11/14 16:51:59 ama Exp $
  */
 #ifndef __DXINVALIDARGUMENT_H__
 #define __DXINVALIDARGUMENT_H__
@@ -13,9 +13,8 @@ namespace zefiro_graphics {
 	class DXInvalidArgument : public DXException , public zefiro_std::InvalidArgument
 	{
 	public:
-		DXInvalidArgument( HRESULT hr , zefiro_std::SourceLine sourceLine = zefiro_std::SourceLine() , std::string additionalMessage = "" );
-		DXInvalidArgument( HRESULT hr , long lineNumber, 
-                     std::string fileName ,std::string additionalMessage = "");
+		DXInvalidArgument( std::string message , HRESULT hr , zefiro_std::SourceLine sourceLine = zefiro_std::SourceLine()  );
+		DXInvalidArgument( std::string message , HRESULT hr , long lineNumber, std::string fileName );
 		DXInvalidArgument( const DXInvalidArgument &other );
 		virtual ~DXInvalidArgument() throw();
 		/** Copy operator.

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/IllegalThreadStateException.h,v 1.1 2002/11/03 09:05:26 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/IllegalThreadStateException.h,v 1.2 2002/11/14 16:53:22 ama Exp $
  */
 
 #ifndef __ILLEGALTHREADSTATEEXCEPTION_H__
@@ -11,10 +11,9 @@ namespace zefiro_system {
 	class IllegalThreadStateException : public zefiro_std::Exception
 	{
 	public:
-		IllegalThreadStateException( zefiro_std::SourceLine sourceLine = zefiro_std::SourceLine(),
-                     std::string additionalMessage = "" );
-		IllegalThreadStateException( long lineNumber, 
-                     std::string fileName ,std::string additionalMessage = "");
+		IllegalThreadStateException( std::string message = ""  , zefiro_std::SourceLine sourceLine = zefiro_std::SourceLine()
+                     );
+		IllegalThreadStateException( std::string message , long lineNumber, std::string fileName );
 		IllegalThreadStateException( const IllegalThreadStateException &other );
 		virtual ~IllegalThreadStateException();
 		std::string additionalMessage() const;

@@ -1,12 +1,13 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/InvalidArgument.cpp,v 1.5 2002/11/04 16:29:31 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/InvalidArgument.cpp,v 1.6 2002/11/14 16:52:22 ama Exp $
  */
 
 #include "InvalidArgument.h"
 
 namespace zefiro_std {
-	InvalidArgument::InvalidArgument( SourceLine sourceLine ,
-		std::string additionalMessage):Exception( additionalMessage , sourceLine ){
+	InvalidArgument::InvalidArgument( std::string message , SourceLine sourceLine ):Exception( message , sourceLine ){
+	}
+	InvalidArgument::InvalidArgument( std::string message , long lineNumber , std::string fileName ):Exception( message , lineNumber , fileName ){
 	}
 	InvalidArgument::InvalidArgument( const InvalidArgument &other ):Exception( other){
 	}

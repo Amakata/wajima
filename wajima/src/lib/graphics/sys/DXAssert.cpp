@@ -1,6 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/DXAssert.cpp,v 1.6 2002/11/14 16:51:59 ama Exp $
+ */
 #include "DxAssert.h"
-
-
 #include <string>
 
 #include <Dxerr8.h>
@@ -10,7 +11,7 @@
 
 namespace zefiro_graphics {
 	namespace DXAssert {
-		void DXAssert( HRESULT hr , ::zefiro_std::SourceLine sourceLine , std::string message ){
+		void DXAssert( std::string message , HRESULT hr , ::zefiro_std::SourceLine sourceLine  ){
 			switch( hr ){
 			case D3D_OK:
 				return;
@@ -21,10 +22,10 @@ namespace zefiro_graphics {
 				switch( hr ){
 				case D3DERR_INVALIDCALL:
 
-					throw zefiro_graphics::DXInvalidArgument( hr , sourceLine , errStr + "." + message );
+					throw zefiro_graphics::DXInvalidArgument( errStr + "." + message , hr , sourceLine  );
 					break;
 				default:
-					throw zefiro_graphics::DXException( hr , sourceLine , "予期しないエラーです." + errStr + "." + message ); 
+					throw zefiro_graphics::DXException( "予期しないエラーです." + errStr + "." + message , hr , sourceLine  ); 
 					break;
 				}
 				break;

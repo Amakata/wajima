@@ -1,3 +1,6 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/InvalidArgument.h,v 1.3 2002/11/14 16:52:22 ama Exp $
+ */
 #ifndef __INVALIDARGUMENT_H__
 #define __INVALIDARGUMENT_H__
 
@@ -7,10 +10,8 @@ namespace zefiro_std {
 	class InvalidArgument : virtual public Exception
 	{
 	public:
-		InvalidArgument( SourceLine sourceLine = SourceLine(),
-                     std::string additionalMessage = "" );
-		InvalidArgument( long lineNumber, 
-                     std::string fileName ,std::string additionalMessage = "");
+		InvalidArgument( std::string message = "" , SourceLine sourceLine = SourceLine() );
+		InvalidArgument( std::string message , long lineNumber, std::string fileName );
 		InvalidArgument( const InvalidArgument &other );
 		virtual ~InvalidArgument() throw();
 		std::string additionalMessage() const;

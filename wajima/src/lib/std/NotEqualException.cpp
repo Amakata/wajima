@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/NotEqualException.cpp,v 1.5 2002/11/04 16:29:31 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/NotEqualException.cpp,v 1.6 2002/11/14 16:52:22 ama Exp $
  */
 
 #include "NotEqualException.h"
@@ -9,15 +9,16 @@ namespace zefiro_std {
 
 NotEqualException::NotEqualException( std::string expected,
                                       std::string actual, 
-                                      SourceLine sourceLine ,
-                                      std::string additionalMessage ) :
+                                      std::string message,
+									  SourceLine sourceLine 
+                                       ) :
     Exception( "Expected: " + expected + 
                    ", but was: " + actual + 
-                   "." + additionalMessage ,
+                   "." + message ,
                sourceLine),
     m_expected( expected ),
     m_actual( actual ),
-    m_additionalMessage( additionalMessage )
+    m_additionalMessage( message )
 {
 }
 
