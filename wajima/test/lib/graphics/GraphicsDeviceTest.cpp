@@ -13,6 +13,8 @@ class GraphicsDeviceTest : public CppUnit::TestFixture {
 
 private:
 	// your staff
+	typedef zefiro_graphics::GraphicsManager::GM GM;
+	typedef zefiro_graphics::GraphicsDevice::GD GD;
 public:
 	virtual void setUp() {
 		// initialize
@@ -24,8 +26,8 @@ public:
 
 //CUPPA:decl=+
     void test_present() {
-		zefiro_graphics::GraphicsManager::GM gm;
-		zefiro_graphics::GraphicsDevice::GD gd;
+		GM gm;
+		GD gd;
 		try{
 			gm = zefiro_graphics::GraphicsManager::createGM( Config::getHWND() );
 		}catch( zefiro_std::Exception &e ){

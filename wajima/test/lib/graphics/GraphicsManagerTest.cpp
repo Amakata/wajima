@@ -13,6 +13,8 @@ class GraphicsManagerTest : public CppUnit::TestFixture {
 //CUPPA:usercode=+
 
 private:
+	typedef zefiro_graphics::GraphicsDevice::GD GD;
+	typedef zefiro_graphics::GraphicsManager::GM GM;
 	// your staff
 public:
 	virtual void setUp() {
@@ -26,19 +28,19 @@ public:
 //CUPPA:decl=+
     void test_createGM() {
 		try{
-			zefiro_graphics::GraphicsManager::GM gm = zefiro_graphics::GraphicsManager::createGM( 0 );
+			GM gm = zefiro_graphics::GraphicsManager::createGM( 0 );
 			CPPUNIT_FAIL("");
 		}catch( zefiro_std::InvalidArgument &e ){
 		}
 		try{
-			zefiro_graphics::GraphicsManager::GM gm = zefiro_graphics::GraphicsManager::createGM( Config::getHWND() );
+			GM gm = zefiro_graphics::GraphicsManager::createGM( Config::getHWND() );
 		}catch( zefiro_std::Exception &e ){
 			CPPUNIT_FAIL("");
 		}
 	}
     void test_createGD() {
-		zefiro_graphics::GraphicsManager::GM gm;
-		zefiro_graphics::GraphicsDevice::GD gd;
+		GM gm;
+		GD gd;
 		try{
 			gm = zefiro_graphics::GraphicsManager::createGM( Config::getHWND() );
 		}catch( zefiro_std::Exception &e ){
