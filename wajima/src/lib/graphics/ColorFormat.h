@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/ColorFormat.h,v 1.1 2002/11/24 14:53:45 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/ColorFormat.h,v 1.2 2002/11/26 11:25:14 ama Exp $
  */
 #ifndef __COLORFORMAT_H__
 #define __COLORFORMAT_H__
@@ -7,7 +7,7 @@
 namespace zefiro_graphics {
 	class ColorFormat {
 	public:
-		enum FORMAT { RGB888 , ARGB8888 , XRGB8888 , RGB565 , XRGB1555 , ARGB1555 };
+		enum FORMAT { R8G8B8 , A8R8G8B8 , X8R8G8B8 , R5G6B5 , X1R5G5B5 , A1R5G5B5 };
 		ColorFormat( FORMAT format ):format_(format){
 		}
 		FORMAT getFormat() const{
@@ -15,14 +15,14 @@ namespace zefiro_graphics {
 		}
 		int getRGBBitLength() const{
 			switch( format_ ){
-				case RGB888:
-				case ARGB8888:
-				case XRGB8888:
+				case R8G8B8:
+				case A8R8G8B8:
+				case X8R8G8B8:
 					return 24;
-				case RGB565:
+				case R5G6B5:
 					return 16;
-				case XRGB1555:
-				case ARGB1555:
+				case X1R5G5B5:
+				case A1R5G5B5:
 					return 15;
 				default:
 					return 0;
@@ -30,9 +30,9 @@ namespace zefiro_graphics {
 		}
 		int getABitLength() const{
 			switch( format_ ){
-				case ARGB8888:
+				case A8R8G8B8:
 					return 8;
-				case ARGB1555:
+				case A1R5G5B5:
 					return 1;
 				default:
 					return 0;
@@ -40,14 +40,14 @@ namespace zefiro_graphics {
 		}
 		int getBitLength() const{
 			switch( format_ ){
-				case ARGB8888:
-				case XRGB8888:
+				case A8R8G8B8:
+				case X8R8G8B8:
 					return 32;
-				case RGB888:
+				case R8G8B8:
 					return 24;
-				case RGB565:
-				case XRGB1555:
-				case ARGB1555:
+				case R5G6B5:
+				case X1R5G5B5:
+				case A1R5G5B5:
 					return 16;
 			}
 		}

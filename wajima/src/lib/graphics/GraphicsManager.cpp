@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.cpp,v 1.4 2002/11/25 13:07:00 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.cpp,v 1.5 2002/11/26 11:26:24 ama Exp $
  */
 
 #include "GraphicsManager.h"
@@ -55,22 +55,22 @@ namespace zefiro_graphics {
 				DXASSERT( d3d_->EnumAdapterModes( adapterCount , deviceCount , &mode ));
 				switch( mode.Format ){
 					case D3DFMT_R8G8B8:
-						format = ColorFormat::RGB888;
+						format = ColorFormat::R8G8B8;
 						break;
 					case D3DFMT_A8R8G8B8:
-						format = ColorFormat::ARGB8888;
+						format = ColorFormat::A8R8G8B8;
 						break;
 					case D3DFMT_X8R8G8B8:
-						format = ColorFormat::XRGB8888;
+						format = ColorFormat::X8R8G8B8;
 						break;
 					case D3DFMT_R5G6B5:
-						format = ColorFormat::RGB565;
+						format = ColorFormat::R5G6B5;
 						break;
 					case D3DFMT_X1R5G5B5:
-						format = ColorFormat::XRGB1555;
+						format = ColorFormat::X1R5G5B5;
 						break;
 					case D3DFMT_A1R5G5B5:
-						format = ColorFormat::ARGB1555;
+						format = ColorFormat::A1R5G5B5;
 						break;
 					default:
 						continue;
