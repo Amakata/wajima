@@ -1,3 +1,7 @@
+/**
+ * $ Header: $
+ */
+
 #include "std/sys/Win32Exception.h"
 
 namespace zefiro_std {

@@ -1,3 +1,7 @@
+/**
+ * $ Header: $
+ */
+
 #include "std/InvalidArgument.h"
 
 namespace zefiro_std {
