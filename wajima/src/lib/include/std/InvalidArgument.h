@@ -4,7 +4,7 @@
 #include "std/Exception.h"
 
 namespace zefiro_std {
-	class InvalidArgument : public Exception
+	class InvalidArgument : virtual public Exception
 	{
 	public:
 		InvalidArgument( SourceLine sourceLine = SourceLine(),
