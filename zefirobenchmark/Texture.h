@@ -3,7 +3,7 @@
 #include <string>
 #include "vertex.h"
 
-#define DXERROR_LOG( hr )	{	HRESULT hr2 = hr; if( hr2 != D3D_OK ){std::ofstream ofs;	ofs.open("error_log",std::ios_base::out | std::ios_base::app ); ofs <<__FILE__<<":"<<__LINE__<<":"<<hr2<< std::endl; ofs.close();} }
+#define DXERROR_LOG( hr )	{	HRESULT hr2 = hr; if( hr2 != D3D_OK ){std::ofstream ofs;	ofs.open("error_log.txt",std::ios_base::out | std::ios_base::app ); ofs <<__FILE__<<":"<<__LINE__<<":"<<hr2<< std::endl; ofs.close();} }
 
 class Texture {
 public:
@@ -18,7 +18,7 @@ public:
 											1 , // ミニマップレベル
 											0 , // レンダリングターゲットOFF
 											D3DFMT_A8R8G8B8, // ファイルからカラーフォーマットを決定
-											D3DPOOL_DEFAULT , // プールの方式
+											D3DPOOL_MANAGED , // プールの方式
 											D3DX_FILTER_LINEAR , // フィルタの方式
 											D3DX_FILTER_LINEAR , // フィルタの方式
 											0 , // カラーキーOFF
