@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.cpp,v 1.7 2002/12/13 21:16:49 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.cpp,v 1.8 2002/12/15 20:07:56 ama Exp $
  */
 
 #include "GraphicsManager.h"
@@ -28,9 +28,9 @@ namespace zefiro_graphics {
 	GraphicsDevice::GD GraphicsManager::createGD(
 		int width , int height , 
 		ColorFormat back , DepthFormat depth , 
-		bool windowed , bool hal , int adapterNumber , int refreshRate ){
-			LPDIRECT3DDEVICE8 result;
-			D3DPRESENT_PARAMETERS param;
+		bool windowed , bool hal , bool threaded , int adapterNumber , int refreshRate ){
+			LPDIRECT3DDEVICE8		result;
+			D3DPRESENT_PARAMETERS	param;
 			if( d3d_ == NULL ){
 				throw zefiro_std::Exception();
 			}
@@ -48,8 +48,11 @@ namespace zefiro_graphics {
 			param.hDeviceWindow = hwnd_;
 			param.SwapEffect = D3DSWAPEFFECT_DISCARD;
 			D3DDEVTYPE type = hal ? D3DDEVTYPE_HAL : D3DDEVTYPE_REF;
-			if( HRESULT hr = d3d_->CreateDevice( adapterNumber , type , hwnd_ , D3DCREATE_HARDWARE_VERTEXPROCESSING , &param , &result ) ){
-				DXASSERT(hr);
+			DWORD flag = threaded ?  D3DCREATE_MULTITHREADED : NULL ;
+			if( HRESULT hr = d3d_->CreateDevice( adapterNumber , type , hwnd_ , flag | D3DCREATE_HARDWARE_VERTEXPROCESSING , &param , &result ) != D3D_OK ){
+				if( HRESULT hr = d3d_->CreateDevice( adapterNumber , type , hwnd_ , flag | D3DCREATE_SOFTWARE_VERTEXPROCESSING , &param , &result ) != D3D_OK ){
+					DXASSERT(hr);
+				}
 			}
 			return GraphicsDevice::GD( new GraphicsDevice( result ) );
 	}
