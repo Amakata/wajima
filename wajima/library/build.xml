@@ -202,12 +202,27 @@
 		</copy>
 	</target>
 	<target name="clean">
-		<delete dir="${lib.dir}" failonerror="false"/>
-		<mkdir dir="${lib.dir}"/>
-		<delete dir="${include.dir}" failonerror="false"/>
-		<mkdir dir="${include.dir}"/>
-		<delete dir="${build.dir}" failonerror="false"/>
-		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${lib.dir}" failonerror="false"/>
+		<delete failonerror="false">
+			<fileset basedir="${lib.dir}">
+				<includes name="*.*"/>
+				<excludes name=".svn"/>
+			</fileset>
+		</delete>
+		<mkdir dir="${include.dir}" failonerror="false"/>
+		<delete failonerror="false">
+			<fileset basedir="${lib.dir}">
+				<includes name="*.*"/>
+				<excludes name=".svn"/>
+			</fileset>
+		</delete>
+		<mkdir dir="${build.dir}" failonerror="false"/>
+		<delete failonerror="false">
+			<fileset basedir="${lib.dir}">
+				<includes name="*.*"/>
+				<excludes name=".svn"/>
+			</fileset>
+		</delete>
 	</target>
 	<target name="library" depends="clean,loki,log4cxx,zlib,libpng,boost,ogg">
 	</target>

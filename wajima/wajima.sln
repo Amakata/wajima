@@ -11,6 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "library", "library\library.
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "waftool", "waftool\waftool.vcproj", "{8249690B-C47D-4DD5-A3CB-FBA96D74C52B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -29,6 +33,10 @@ Global
 		{DC9BEF36-C48E-46F1-8C80-1262D7ED7A47}.Debug.Build.0 = Debug|Win32
 		{DC9BEF36-C48E-46F1-8C80-1262D7ED7A47}.Release.ActiveCfg = Release|Win32
 		{DC9BEF36-C48E-46F1-8C80-1262D7ED7A47}.Release.Build.0 = Release|Win32
+		{8249690B-C47D-4DD5-A3CB-FBA96D74C52B}.Debug.ActiveCfg = Debug|Win32
+		{8249690B-C47D-4DD5-A3CB-FBA96D74C52B}.Debug.Build.0 = Debug|Win32
+		{8249690B-C47D-4DD5-A3CB-FBA96D74C52B}.Release.ActiveCfg = Release|Win32
+		{8249690B-C47D-4DD5-A3CB-FBA96D74C52B}.Release.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

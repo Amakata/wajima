@@ -15,6 +15,21 @@ namespace pss {
 		class basic_waf_filebuf : public ::std::basic_streambuf<Elem, Tr> {
 		public:
 			/**
+			 * ファイルの保存モード
+			 * NORMAL		通常ファイル
+			 * WAF_NORMAL	WAFファイル非圧縮
+			 * WAF_ZLIB		WAFファイルZLIB
+			 */
+			enum ARCHIVE_MODE {NORMAL,WAF_NORMAL,WAF_ZLIB};
+			/**
+			 * アーカイブファイルヘッダ構造体
+			 */
+			struct Header {
+				DWORD	size_;
+				ARCHIVE_MODE	mode_;
+				char	filename_[260];
+			};
+			/**
 			 * 要素型
 			 */
 			typedef Elem char_type;
@@ -129,12 +144,7 @@ namespace pss {
 						}
 
 						// アーカイブファイルのヘッダ情報
-						struct Header {
-							DWORD	size_;
-							ARCHIVE_MODE	mode_;
-							char	filename_[260];
-						} header;
-
+						Header header;
 						DWORD readSize;
 						
 						while (1) {
@@ -406,13 +416,6 @@ namespace pss {
 			int getSize() const {
 				return end_ - begin_;
 			}
-			/**
-			 * ファイルの保存モード
-			 * NORMAL		通常ファイル
-			 * WAF_NORMAL	WAFファイル非圧縮
-			 * WAF_ZLIB		WAFファイルZLIB
-			 */
-			enum ARCHIVE_MODE {NORMAL,WAF_NORMAL,WAF_ZLIB};
 			/**
 			 * ファイルハンドル
 			 */
