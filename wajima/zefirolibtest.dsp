@@ -93,6 +93,13 @@ LINK32=link.exe
 # Begin Source File
 
 SOURCE=.\resource\lib\zefirolibtest.rc
+
+!IF  "$(CFG)" == "zefirolibtest - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "zefirolibtest - Win32 Debug"
+
+!ENDIF 
+
 # End Source File
 # End Group
 # Begin Group "graphics"
