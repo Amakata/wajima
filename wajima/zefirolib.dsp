@@ -205,6 +205,10 @@ SOURCE=.\src\lib\system\Process.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\system\SyncObject.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\system\Thread.cpp
 # End Source File
 # Begin Source File
@@ -302,6 +306,10 @@ SOURCE=.\include\lib\system\Process.h
 # Begin Source File
 
 SOURCE=.\include\lib\system\Runnable.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\system\SyncObject.h
 # End Source File
 # Begin Source File
 
