@@ -1,18 +1,11 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/ThreadingModel.h,v 1.3 2002/11/14 16:53:14 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/ThreadingModel.h,v 1.4 2002/11/17 10:28:37 ama Exp $
  */
 #ifndef __THREADINGMODEL_H__
 #define __THREADINGMODEL_H__
 
 namespace zefiro_system{
 #ifdef _WINDOWS_
-
-////////////////////////////////////////////////////////////////////////////////
-// class template ObjectLevelLockable
-// Implementation of the ThreadingModel policy used by various classes
-// Implements a object-level locking scheme
-////////////////////////////////////////////////////////////////////////////////
-
     template <class Host>
     class ObjectLevelCountedLockable
     {
