@@ -12,7 +12,6 @@
  * wafbuf、wafstraem、ifstreamの動作チェック
  */
 int test(int argc, char *argv[]) {
-	LOG4CXX_CONFIGUER("console.properties");
 	LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("main");
 	LOG4CXX_DEBUG(log, "begin.");
 	// ウィンドウズネームのみ許可
@@ -113,23 +112,29 @@ int test(int argc, char *argv[]) {
 	return 0;
 }
 
-int main(int argc, char* argv[]) {
-	LOG4CXX_CONFIGUER("console.properties");
-	LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("main");
-	LOG4CXX_DEBUG(log, "begin.");
+void wafFileExpand(const ::std::string filename) {
+	LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("wafFileExpand");
 	::pss::std::basic_waf_ifstream<char> ws1,ws2;
-	ws1.open("data/hogehoge.txt");
-	ws1.seekg(0, ::std::io_base::end);
+	// 一つ目のファイルを開く
+	ws1.open(filename.c_str());
+	ws1.seekg(0, ::std::ios_base::end);
 	int size1 = ws1.tellg();
 	LOG4CXX_DEBUG(log, "size1 = " + ::boost::lexical_cast<::std::string>(size1));
-	::std::ofstream ofs("hogehoge.txt", ::std::ios_base::out | ::std::ios_base::binary);
+	ws1.seekg(0, ::std::ios_base::beg);
+	::std::ofstream ofs(filename.c_str(), ::std::ios_base::out | ::std::ios_base::binary);
 	for (int i = 0; i < size1 ; ++i) {
 		char buf;
 		ws1.read(&buf, 1);
 		ofs.write(&buf, 1);
 	}
 	ws1.close();
+}
 
-
+int main(int argc, char* argv[]) {
+	LOG4CXX_CONFIGUER("console.properties");
+	LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("main");
+	LOG4CXX_DEBUG(log, "begin.");
+//	wafFileExpand("data/bjam.exe");
+	wafFileExpand("data/index.HTM");
 	LOG4CXX_DEBUG(log, "end.");
 }
