@@ -114,8 +114,10 @@ namespace pss {
 					setg(&buffer_[0], &buffer_[0], &buffer_[0]);
 					// ファイルの先頭位置
 					begin_ = 0;
+					LOG4CXX_DEBUG(log, "begin_ = " + ::boost::lexical_cast<::std::string>(begin_));
 					// ファイルの終端位置
 					end_ = ::GetFileSize(file_, NULL);
+					LOG4CXX_DEBUG(log, "end_ = " + ::boost::lexical_cast<::std::string>(end_));
 					// バッファの先頭位置
 					bufferPos_ = 0;
 
@@ -171,6 +173,7 @@ namespace pss {
 
 								// ファイルの先頭設定
 								begin_ = modeSize;
+								LOG4CXX_DEBUG(log, "begin_ = " + ::boost::lexical_cast<::std::string>(begin_));
 								if (modeSize == INVALID_SET_FILE_POINTER) {
 									// 無効なファイルポインタ
 									close();
@@ -179,12 +182,16 @@ namespace pss {
 
 								// ファイルの終端設定
 								end_ = begin_ + (::std::streamoff) header.size_;
+								LOG4CXX_DEBUG(log, "end_ = " + ::boost::lexical_cast<::std::string>(end_));
 
 								// モード設定
 								mode_ = header.mode_;
 
 								break;
 							}
+							// 次のヘッダへ移動
+							::SetFilePointer(file_, header.size_ , NULL, FILE_CURRENT);
+							
 						}
 
 						// バッファを確保
@@ -235,31 +242,31 @@ namespace pss {
 					return pos_type(-1);
 				}
 
-				DWORD result = 0;
+				DWORD point = 0;
 				if (_Way == ios_base::beg) {
 					LOG4CXX_DEBUG(log, "offset + begin = " + ::boost::lexical_cast<::std::string>(begin_ + (::std::streamoff) (sizeof(char_type) * _Off)));
 					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>((::std::streamoff) (sizeof(char_type) * _Off)));
-					result = ::SetFilePointer(file_, begin_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
-					bufferPos_ = result - begin_;
+					point = ::SetFilePointer(file_, begin_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
+					bufferPos_ = point - begin_;
 				} else if (_Way == ios_base::cur) {
 					LOG4CXX_DEBUG(log, "offset + begin = " + ::boost::lexical_cast<::std::string>(begin_ + bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off)));
 					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off)));
-					result = ::SetFilePointer(file_, begin_ + bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
-					bufferPos_ = result - begin_;
+					point = ::SetFilePointer(file_, begin_ + bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
+					bufferPos_ = point - begin_;
 				} else {
 					LOG4CXX_DEBUG(log, "offset + begin = " + ::boost::lexical_cast<::std::string>(end_ + (::std::streamoff) (sizeof(char_type) * _Off)));
 					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(end_ - begin_ + (::std::streamoff) (sizeof(char_type) * _Off)));
-					result = ::SetFilePointer(file_, end_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
-					bufferPos_ = result - begin_;
+					point = ::SetFilePointer(file_, end_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
+					bufferPos_ = point - begin_;
 				}
 
-				if (result == INVALID_SET_FILE_POINTER) {
+				if (point == INVALID_SET_FILE_POINTER) {
 					LOG4CXX_DEBUG(log, "INVALID_SET_FILE_POINTER");
 					LOG4CXX_DEBUG(log, "seekoff end.");
 					return pos_type(-1);
 				}
 
-				LOG4CXX_DEBUG(log, "point = " + ::boost::lexical_cast<::std::string>(result));
+				LOG4CXX_DEBUG(log, "point = " + ::boost::lexical_cast<::std::string>(point));
 
 				// バッファ先頭位置を設定
 				DWORD readSize = 0;
@@ -276,9 +283,10 @@ namespace pss {
 				setg(&buffer_[0], &buffer_[0], &buffer_[readSize / sizeof(char_type)] );
 				LOG4CXX_DEBUG(log, "readSize = " + ::boost::lexical_cast<::std::string>(readSize));
 				LOG4CXX_DEBUG(log, "bufferSize = " + ::boost::lexical_cast<::std::string>(readSize / sizeof(char_type)));
+				LOG4CXX_DEBUG(log, "result = " + ::boost::lexical_cast<::std::string>(point - begin_));
 				LOG4CXX_DEBUG(log, "seekoff end.");
 
-				return result;
+				return point - begin_;
 			}
 			/**
 			 * 読み込み位置を移動する
@@ -286,38 +294,7 @@ namespace pss {
 			virtual pos_type seekpos( pos_type _Sp, ios_base::openmode _Which = ios_base::in) {
 				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_filebuf");
 				LOG4CXX_DEBUG(log, "seekpos begin.");
-
-				if (!is_open()) {
-					LOG4CXX_DEBUG(log, "file is close.");
-					LOG4CXX_DEBUG(log, "seekpos end.");
-					return pos_type(-1);
-				}
-
-				if (_Which != ios_base::in) {
-					LOG4CXX_DEBUG(log, "illegal argument.");
-					LOG4CXX_DEBUG(log, "seekpos end.");
-					return pos_type(-1);
-				}
-
-				DWORD result = ::SetFilePointer(file_, begin_ + (::std::streamoff) (sizeof(char_type) * _Sp), NULL, FILE_BEGIN);
-				if (result == INVALID_SET_FILE_POINTER) {
-					LOG4CXX_DEBUG(log, "seekpos end.");
-					return pos_type(-1);
-				}
-
-				// バッファ先頭位置を設定
-				bufferPos_ = result;
-
-				DWORD readSize = 0;
-				// ファイル読み込み
-				::ReadFile(file_, &buffer_[0], getBufferSize() * sizeof(char_type), &readSize, NULL);
-				if (bufferPos_ + (::std::streamoff) readSize > end_ - begin_) {
-					// ファイル位置、設定が、終端より大きくなるので、調整
-					readSize = end_ - begin_ - bufferPos_;
-				}
-
-				// ファイルバッファを設定
-				setg(&buffer_[0], &buffer_[0], &buffer_[readSize / sizeof(char_type)] );				
+				DWORD result = seekoff(_Sp, ::std::ios_base::beg, _Which);
 
 				LOG4CXX_DEBUG(log, "seekpos end.");
 				return result;
