@@ -11,6 +11,9 @@ TestRunnable::~TestRunnable(){
 void TestRunnable::notify(){
 	syncObject_->notify();
 }
+void TestRunnable::notifyAll(){
+	syncObject_->notifyAll();
+}
 void TestRunnable::run(){
 	zefiro_system::Thread *thread = zefiro_system::Thread::getCurrentThread();
 	std::ostringstream ostrstr;
@@ -26,6 +29,9 @@ void TestRunnable::run(){
 void ThreadTest::create( HWND hWnd ){
 	if( count__ == 0 && !active__ ){
 		r__ = new TestRunnable( hWnd );
+		// wait()でどのスレッドも待機していないときにnotifyを実行しても問題ないか？
+		r__->notifyAll();
+		r__->notify();
 		thread__ = new zefiro_system::Thread(r__,"TestThread");
 	}
 }

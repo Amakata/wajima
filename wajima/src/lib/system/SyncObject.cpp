@@ -30,9 +30,9 @@ namespace zefiro_system {
 		waitMutex_->lock();
 		if( waitThreads_.size() > 0 ){
 			waitThreads_.erase( waitThreads_.begin() );
+			waitSync_->set();
 		}
 		waitMutex_->unlock();
-		waitSync_->set();
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::notify() End" + toString());
 	}
 	void SyncObject::notifyAll(){
@@ -43,6 +43,7 @@ namespace zefiro_system {
 			waitMutex_->unlock();
 			waitSync_->set();
 		}
+		waitMutex_->unlock();
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::notifyAll() End" + toString());
 	}
 	void SyncObject::wait(){

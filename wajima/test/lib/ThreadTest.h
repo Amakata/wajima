@@ -11,6 +11,7 @@ public:
 	TestRunnable( HWND hWnd );
 	virtual ~TestRunnable();
 	virtual void notify();
+	virtual void notifyAll();
 	virtual void run();
 protected:
 	zefiro_system::SyncObject *syncObject_;
