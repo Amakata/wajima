@@ -1,231 +1,219 @@
-/**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.15 2002/08/30 09:23:23 ama Exp $
- */
+// game.cpp : コンソール アプリケーションのエントリ ポイントを定義します。
+//
 
-#include <fstream>
+#define WIN32_LEAN_AND_MEAN		
+// Windows ヘッダーから使用されていない部分を除外します。
+// Windows ヘッダー ファイル :
 #include <windows.h>
+// C RunTime ヘッダー ファイル
+#include <stdlib.h>
+#include <malloc.h>
+#include <memory.h>
+#include <tchar.h>
+// todo:hoge
+// HACK:uni.
 
-#include "graphics/sys/D3D8.h"
-#include "system/Process.h"
-#include "system/Thread.h"
-#include "system/SyncObject.h"
-#include "std/Logger.h"
-#include "std/sys/Win32Exception.h"
+#include "ApplicationTest.h"
 
-#include "Config.h"
-#include "WindowClass.h"
-#include "Window.h"
 #include "resource.h"
+#define MAX_LOADSTRING 100
 
+// グローバル変数 :
+HINSTANCE hInst;								// 現在のインターフェイス
+TCHAR szTitle[MAX_LOADSTRING];					// タイトル バーのテキスト
+TCHAR szWindowClass[MAX_LOADSTRING];			// メイン ウィンドウ クラス名
+	
+// このコード モジュールに含まれる関数の宣言を転送します :
+ATOM				MyRegisterClass(HINSTANCE hInstance);
+BOOL				InitInstance(HINSTANCE, int);
+LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK	About(HWND, UINT, WPARAM, LPARAM);
 
-#include <cppunit/TextTestRunner.h>
-#include <cppunit/extensions/TestFactoryRegistry.h>
-#include <cppunit/TextOutputter.h>
-
-
-LRESULT CALLBACK WndProc( HWND hWnd ,
-                                                  UINT message ,
-                                                  WPARAM wParam ,
-                                                  LPARAM lParam );
-
-
-int APIENTRY WinMain( HINSTANCE hInstance ,
-                                         HINSTANCE hPrevInstance , 
-                                         LPSTR lpCmdLine ,
-                                         int nShowCmd )
+int APIENTRY _tWinMain(HINSTANCE hInstance,
+                     HINSTANCE hPrevInstance,
+                     LPTSTR    lpCmdLine,
+                     int       nCmdShow)
 {
+ 	// TODO: ここにコードを挿入してください。
+	MSG msg;
+	HACCEL hAccelTable;
 
-        if( !hPrevInstance ){
-			zefiro_stdtest::WindowClass *windowClass = new zefiro_stdtest::WindowClass( hInstance , WndProc ,"TestApp");
-                windowClass->registerClass();
-                delete windowClass;
-        }
-        zefiro_stdtest::Window *window = new zefiro_stdtest::Window( hInstance , "TestApp" , "TestApplicationWindow");
-        window->show(nShowCmd);
+	// グローバル文字列を初期化しています。
+	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+	LoadString(hInstance, IDC_GAME, szWindowClass, MAX_LOADSTRING);
+	MyRegisterClass(hInstance);
 
-        MSG        msg;
-        while( GetMessage( &msg , NULL , 0 , 0 ) ){
-                TranslateMessage( &msg );
-                DispatchMessage( &msg );
-        }
-//      delete window;
-        return( msg.wParam );
+	// アプリケーションの初期化を実行します。:
+	if (!InitInstance (hInstance, nCmdShow)) 
+	{
+		return FALSE;
+	}
+
+	hAccelTable = LoadAccelerators(hInstance, (LPCTSTR)IDC_GAME);
+
+	// メイン メッセージ ループ :
+	while (GetMessage(&msg, NULL, 0, 0)) 
+	{
+		if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) 
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+	}
+
+	return (int) msg.wParam;
 }
 
 
 
-
-class TestRunnable : public zefiro_system::Runnable
+//
+//  関数 : MyRegisterClass()
+//
+//  目的 : ウィンドウ クラスを登録します。
+//
+//  コメント :
+//
+//    この関数および使い方は、'RegisterClassEx' 関数が追加された
+//     Windows 95 より前の Win32 システムと互換させる場合にのみ必要です。
+//    アプリケーションが、関連付けられた 
+//    正しい形式の小さいアイコンを取得できるようにするには、
+//    この関数を呼び出してください。
+//
+ATOM MyRegisterClass(HINSTANCE hInstance)
 {
-public:
-	TestRunnable( HWND hWnd ):syncObject_(new zefiro_system::SyncObject()),hWnd_(hWnd){
-	}
-	virtual ~TestRunnable(){
-		delete syncObject_;
-	}
-	virtual void notify(){
-			syncObject_->notify();
-	}
-	virtual void run(){
-		zefiro_system::Thread *thread = zefiro_system::Thread::getCurrentThread();
-		std::ostringstream ostrstr;
-		ostrstr << thread << " " << thread->getThreadID();
-		HDC hdc = GetDC( hWnd_ );
-		for( int y=0 ; y<16 ; y+=16 ){
-			TextOut(hdc,10,y,ostrstr.str().c_str(),ostrstr.str().size());
-			syncObject_->wait();
-		}
-		ReleaseDC( hWnd_ , hdc );
-	}
-protected:
-	zefiro_system::SyncObject *syncObject_;
-	HWND hWnd_;
-};
+	WNDCLASSEX wcex;
 
-class ThreadTest{
-public:
-	static void create( HWND hWnd ){
-		if( count__ == 0 && !active__ ){
-			r__ = new TestRunnable( hWnd );
-			thread__ = new zefiro_system::Thread(r__,"TestThread");
-		}
-	}
-	static void start(){
-		if( count__ == 0 && !active__ ){
-			thread__->setJoinable( false );
-			thread__->start();
-			active__ = true;
-		}
-	}
-	static void notify(){
-		if( !active__ ){
-			return;
-		}
-		if( count__ < 1 ){
-			r__->notify();
-			++count__;
-		}else{
-			count__ = 0;
-			active__ = false;
-		}
-	}
-	static bool active__;	//	スレッドが活動中か？
-	static int count__;		//	notifyが何回発動したか？
-	static TestRunnable *r__;
-	static zefiro_system::Thread *thread__;
-};
+	wcex.cbSize = sizeof(WNDCLASSEX); 
 
-TestRunnable* ThreadTest::r__;
-zefiro_system::Thread* ThreadTest::thread__;
-int ThreadTest::count__ = 0;
-bool ThreadTest::active__ = false;
+	wcex.style			= CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc	= (WNDPROC)WndProc;
+	wcex.cbClsExtra		= 0;
+	wcex.cbWndExtra		= 0;
+	wcex.hInstance		= hInstance;
+	wcex.hIcon			= LoadIcon(hInstance, (LPCTSTR)IDI_GAME);
+	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
+	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
+	wcex.lpszMenuName	= (LPCTSTR)IDC_GAME;
+	wcex.lpszClassName	= szWindowClass;
+	wcex.hIconSm		= LoadIcon(wcex.hInstance, (LPCTSTR)IDI_SMALL);
 
+	return RegisterClassEx(&wcex);
+}
 
-HWND hWnd__ = 0;
-
-
-class ZefirolibTestApp
+//
+//   関数 : InitInstance(HANDLE, int)
+//
+//   目的 : インスタンス ハンドルを保存して、メイン ウィンドウを作成します。
+//
+//   コメント :
+//
+//        この関数で、グローバル変数でインスタンス ハンドルを保存し、
+//        メイン プログラム ウィンドウを作成および表示します。
+//
+BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-public:
-	ZefirolibTestApp( HWND hWnd ):hWnd_(hWnd){
-		hWnd__ = hWnd;
-		Config::config__ = new Config("zefirolibtest.ini");
-		ostr_.open(Config::config__->getCStr("logfile") );
-		zefiro_std::Logger::setOutputter( &ostr_ );
-	}
-	virtual ~ZefirolibTestApp(){
-		delete Config::config__;
-		ostr_.close();
-		zefiro_std::Logger::resetOutputter();
-	}
-	void testUnit(){
-        std::ofstream ofs;
-		ofs.open( Config::config__->getCStr("unittestfile") );
-        CppUnit::TextUi::TestRunner runner;        
-        runner.addTest( CppUnit::TestFactoryRegistry::getRegistry().makeTest() );
-        runner.setOutputter( new CppUnit::TextOutputter(&runner.result(),ofs ) );
-        runner.run( "" , true );
-        ofs.close();
-		exec( Config::config__->getString("editor") + " " + Config::config__->getString("unittestfile") );
-	}
-	void testGetAdapterDeviceInfo(){
-        std::ofstream        ofs;
-        ofs.open( Config::config__->getCStr("devicefile") );
-        zefiro_graphics::D3D8 *d3d8 = new zefiro_graphics::D3D8();
-        std::vector<zefiro_graphics::Adapter> adapters = d3d8->getAdapterVector();
-        for( std::vector<zefiro_graphics::Adapter>::iterator adapter = adapters.begin() ; adapter < adapters.end(); ++adapter ){
-                 ofs << adapter->toString() << std::endl;
-        }
-        delete d3d8;
-        ofs.close();
-		exec( Config::config__->getString("editor") + " " + Config::config__->getString("devicefile") );
-	}
-	void testThread(){
-		ThreadTest::create( hWnd_ );
-		ThreadTest::start();
-		exec(Config::config__->getString("editor") + " " + Config::config__->getString("logfile") );
-	}
-	void testThreadNotify(){
-		ThreadTest::notify();
-	}
-protected:
-	void exec( std::string cmdLine ){
-		zefiro_system::Process *process = new zefiro_system::Process( cmdLine );
-		try{
-			process->start();
-		}catch( zefiro_std::Win32Exception &e ){
-			std::string message = std::string(e.what()) + "\n" + cmdLine;
-			MessageBox( hWnd_ , message.c_str() , "Error" , MB_OK );
-		}
-		delete process;
-	}
-	std::ofstream ostr_;
- 	HWND hWnd_;
-};
+   HWND hWnd;
 
+   hInst = hInstance; // グローバル変数にインスタンス処理を格納します。
 
-LRESULT CALLBACK WndProc( HWND hWnd ,
-                                                  UINT message ,
-                                                  WPARAM wParam ,
-												  LPARAM lParam )
+   hWnd = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+      CW_USEDEFAULT, 0, 800, 600, NULL, NULL, hInstance, NULL);
+
+   if (!hWnd)
+   {
+      return FALSE;
+   }
+
+   ShowWindow(hWnd, nCmdShow);
+   UpdateWindow(hWnd);
+
+   return TRUE;
+}
+
+//
+//  関数 : WndProc(HWND, unsigned, WORD, LONG)
+//
+//  目的 :  メイン ウィンドウのメッセージを処理します。
+//
+//  WM_COMMAND	- アプリケーション メニューの処理
+//  WM_PAINT	- メイン ウィンドウの描画
+//  WM_DESTROY	- 中止メッセージを表示して戻る
+//
+//
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	static ZefirolibTestApp *app;
+	int wmId, wmEvent;
+	PAINTSTRUCT ps;
+	HDC hdc;
+	static ApplicationTest *app;
 
-	switch( message )
-    {
+	switch (message) 
+	{
 	case WM_CREATE:
-		app = new ZefirolibTestApp( hWnd );
+		app = new ApplicationTest(hWnd);
 		break;
 	case WM_COMMAND:
-		switch( LOWORD(wParam) )
+		wmId    = LOWORD(wParam); 
+		wmEvent = HIWORD(wParam); 
+		// 選択されたメニューの解析 :
+		switch (wmId)
 		{
-		case IDM_TEST:
+		case IDM_TEST_UNITTEST:
 			app->testUnit();
 			break;
-		case IDM_ADAPTER_DEVICE_OUTPUT:
-			app->testGetAdapterDeviceInfo();
-			break;
-		case IDM_THREAD_TEST:
+		case IDM_TEST_THREADTEST:
 			app->testThread();
 			break;
-		case IDM_THREAD_NOTIFY:
+		case IDM_TEST_THREADNOTIFYTEST:
 			app->testThreadNotify();
 			break;
-		case IDM_EXIT:
-			PostMessage( hWnd , WM_CLOSE , 0 , 0 );
+		case IDM_DIRECTX_TEST:
+			app->demoDirectX();
 			break;
+		case IDM_DIRECTX_ADAPTER:
+			app->testGetAdapterDeviceInfo();
+			break;
+		case IDM_ABOUT:
+			DialogBox(hInst, (LPCTSTR)IDD_ABOUTBOX, hWnd, (DLGPROC)About);
+			break;
+		case IDM_EXIT:
+			DestroyWindow(hWnd);
+			break;
+		default:
+			return DefWindowProc(hWnd, message, wParam, lParam);
 		}
+		break;
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		// TODO: 描画コードをここに追加してください...
+		EndPaint(hWnd, &ps);
 		break;
 	case WM_DESTROY:
 		delete app;
 		PostQuitMessage(0);
 		break;
-	case WM_CLOSE:
-		delete app;
-		PostQuitMessage(0);
-		break;
 	default:
-		return( DefWindowProc( hWnd , message , wParam , lParam ) );
+		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
-	return 0L;
+	return 0;
 }
+
+// バージョン情報ボックスのメッセージ ハンドラです。
+LRESULT CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+	case WM_INITDIALOG:
+		return TRUE;
+
+	case WM_COMMAND:
+		if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL) 
+		{
+			EndDialog(hDlg, LOWORD(wParam));
+			return TRUE;
+		}
+		break;
+	}
+	return FALSE;
+}
+
