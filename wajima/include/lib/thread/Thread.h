@@ -143,7 +143,7 @@ namespace zefiro_thread {
 		 */
 		static void removeThread( Thread *thread );
 		HANDLE	thread_;
-		DWORD	threadID_;
+		unsigned int	threadID_;
 		Runnable *runnable_;
 		DWORD	constructError_;
 		Mutex	*threadMutex_;
