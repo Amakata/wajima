@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/std/Attic/UniqueNumberFactory.h,v 1.1 2002/05/10 19:30:53 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/std/Attic/UniqueNumberFactory.h,v 1.2 2002/08/25 10:49:15 ama Exp $
  */
 
 #ifndef __UNIQUENUMBERFACTORY_H__
@@ -28,7 +28,7 @@ namespace zefiro_std{
 		 *	\return 生成されたユニークナンバー
 		 * \throw zefiro_std::unique_number_bad_alloc ユニークナンバーの生成範囲を超える生成を行った。
 		 */
-		virtual int createNumber() throw(zefiro_std::UniqueNumberBadAlloc);			
+		virtual int createNumber();			
 		/**
 		 *	ユニークナンバーの削除
 		 *	\param number 削除するユニークナンバー
@@ -42,7 +42,7 @@ namespace zefiro_std{
 		 * \retval false 削除したユニークナンバーの集合に含まれない。
 		 * \throw std::invalid_argument 利用していないユニークナンバーを指定した。
 		*/
-		virtual bool isContainedInDeletedUniqueNumbers( int number ) throw(std::invalid_argument);
+		virtual bool isContainedInDeletedUniqueNumbers( int number );
 		/**
 		 * 利用されているユニークナンバーに含まれるか判定する。
 		 * \param number 利用しているか判定するユニークナンバー
