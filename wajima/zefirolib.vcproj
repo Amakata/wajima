@@ -190,7 +190,19 @@
 					RelativePath="src\lib\std\NotEqualException.h">
 				</File>
 				<File
+					RelativePath="src\lib\std\NullPointerException.cpp">
+				</File>
+				<File
+					RelativePath="src\lib\std\NullPointerException.h">
+				</File>
+				<File
 					RelativePath="src\lib\std\OwnershipPolicy.h">
+				</File>
+				<File
+					RelativePath="src\lib\std\RuntimeError.cpp">
+				</File>
+				<File
+					RelativePath="src\lib\std\RuntimeError.h">
 				</File>
 				<File
 					RelativePath="src\lib\std\SourceLine.cpp">
