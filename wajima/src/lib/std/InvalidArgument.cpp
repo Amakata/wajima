@@ -1,10 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/InvalidArgument.cpp,v 1.4 2002/05/25 16:00:47 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/InvalidArgument.cpp,v 1.5 2002/11/04 16:29:31 ama Exp $
  */
 
-#include "std/InvalidArgument.h"
-
-
+#include "InvalidArgument.h"
 
 namespace zefiro_std {
 	InvalidArgument::InvalidArgument( SourceLine sourceLine ,

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/UniqueNumberFactory.h,v 1.1 2002/11/03 09:05:09 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/UniqueNumberFactory.h,v 1.2 2002/11/04 16:29:31 ama Exp $
  */
 
 #ifndef __UNIQUENUMBERFACTORY_H__
@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "std/UniqueNumberBadAlloc.h"
+#include "UniqueNumberBadAlloc.h"
 
 namespace zefiro_std{
 	/**	ユニークナンバー生成クラス。

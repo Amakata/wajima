@@ -1,9 +1,9 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Asserter.cpp,v 1.3 2002/04/29 16:29:05 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Asserter.cpp,v 1.4 2002/11/04 16:29:31 ama Exp $
  */
 
-#include "std/Asserter.h"
-#include "std/NotEqualException.h"
+#include "Asserter.h"
+#include "NotEqualException.h"
 
 
 namespace zefiro_std

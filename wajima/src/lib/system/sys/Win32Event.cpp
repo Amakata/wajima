@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/sys/Win32Event.cpp,v 1.3 2002/05/25 16:01:15 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/sys/Win32Event.cpp,v 1.4 2002/11/04 16:29:09 ama Exp $
  */
 
 
@@ -9,7 +9,7 @@
 #include "std/Assert.h"
 #include "std/sys/Win32Assert.h"
 #include "std/Logger.h"
-#include "system/sys/Win32Event.h"
+#include "Win32Event.h"
 
 
 namespace zefiro_system {

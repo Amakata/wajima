@@ -1,12 +1,12 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/UniqueNumberFactory.cpp,v 1.4 2002/04/29 16:29:05 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/UniqueNumberFactory.cpp,v 1.5 2002/11/04 16:29:31 ama Exp $
  */
 
 #include <limits>
 #include <stdexcept>
 #include <algorithm>
-#include "std/UniqueNumberBadAlloc.h"
-#include "std/UniqueNumberFactory.h"
+#include "UniqueNumberBadAlloc.h"
+#include "UniqueNumberFactory.h"
 
 namespace zefiro_std{
 	// public 

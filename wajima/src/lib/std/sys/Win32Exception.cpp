@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Exception.cpp,v 1.3 2002/05/25 16:01:03 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Exception.cpp,v 1.4 2002/11/04 16:29:38 ama Exp $
  */
 
-#include "std/sys/Win32Exception.h"
+#include "Win32Exception.h"
 
 namespace zefiro_std {
 	Win32Exception::Win32Exception( DWORD errorCode , zefiro_std::SourceLine sourceLine ,

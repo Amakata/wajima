@@ -1,7 +1,7 @@
 #ifndef __INVALIDARGUMENT_H__
 #define __INVALIDARGUMENT_H__
 
-#include "std/Exception.h"
+#include "Exception.h"
 
 namespace zefiro_std {
 	class InvalidArgument : virtual public Exception

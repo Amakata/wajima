@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Assert.cpp,v 1.3 2002/07/02 16:59:02 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Assert.cpp,v 1.4 2002/11/04 16:29:38 ama Exp $
  */
 
-#include "std/sys/Win32Assert.h"
+#include "Win32Assert.h"
 
 #include <string>
 #include <windows.h>

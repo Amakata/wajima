@@ -1,11 +1,11 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.15 2002/09/20 02:34:48 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.16 2002/11/04 16:30:49 ama Exp $
  */
 
 #include "std/Assert.h"
 #include "std/Logger.h"
-#include "graphics/sys/D3D8.h"
-#include "graphics/sys/DXAssert.h"
+#include "D3D8.h"
+#include "DXAssert.h"
 
 
 namespace zefiro_graphics {

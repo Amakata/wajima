@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Adapter.h,v 1.1 2002/11/03 09:04:44 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Adapter.h,v 1.2 2002/11/04 16:30:49 ama Exp $
  */
 
 #ifndef __ADAPTER_H__
@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-#include "graphics/sys/Mode.h"
+#include "Mode.h"
 
 namespace zefiro_graphics {
 

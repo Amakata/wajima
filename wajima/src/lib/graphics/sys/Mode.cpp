@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Mode.cpp,v 1.4 2002/08/25 12:01:57 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Mode.cpp,v 1.5 2002/11/04 16:30:49 ama Exp $
  */
 
-#include "graphics/sys/Mode.h"
+#include "Mode.h"
 
 #include <sstream>
 

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Assert.h,v 1.1 2002/11/03 09:05:09 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Assert.h,v 1.2 2002/11/04 16:29:31 ama Exp $
  */
 
 #ifndef ZEFIRO_STD_ASSERT_H
@@ -7,9 +7,9 @@
 
 #include <sstream>
 
-#include "std/Exception.h"
-#include "std/NotEqualException.h"
-#include "std/Asserter.h"
+#include "Exception.h"
+#include "NotEqualException.h"
+#include "Asserter.h"
 
 namespace zefiro_std {
 

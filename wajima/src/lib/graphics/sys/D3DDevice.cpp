@@ -1,9 +1,9 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.9 2002/10/29 14:10:34 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.10 2002/11/04 16:30:49 ama Exp $
  */
 
-#include "graphics/sys/D3DDevice.h"
-#include "graphics/sys/DXAssert.h"
+#include "D3DDevice.h"
+#include "DXAssert.h"
 #include <d3dx8tex.h>
 #include "std/Logger.h"
 #include <sstream>
@@ -87,33 +87,10 @@ namespace zefiro_graphics {
 		DXASSERT( device_->Clear( 0 , NULL , D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER , D3DCOLOR_XRGB( 0 , 0 , 0 ) , 1.0f , 0 ) );
 	}
 	void D3DDevice::render(){
-		DXASSERT( device_->BeginScene() );		
-
-
-		device_->SetTexture( 0 , texture->first->texture_ );
-		device_->DrawPrimitiveUP( D3DPT_TRIANGLELIST , numOfSprites * 2 , pV , sizeof CUSTOMVERTEX );
-		DXASSERT( device_->EndScene() );
-		if( vbOfSprites_ != NULL ){
-			DXASSERT( vbOfSprites_->Release() );
-			vbOfSprites_ = NULL;
-		}
-		if( vbOfTransparentSprites_ != NULL ){
-			DXASSERT( vbOfTransparentSprites_->Release() );
-			vbOfTransparentSprites_ = NULL;
-		}
 	}
 	void D3DDevice::setBegin(){
-		sprites_.clear();
-		transparentSprites_.clear();
 	}
 	void D3DDevice::setSprite( const D3DTexture* texture , const float x , const float y , const float z , const bool transparent ){
-		if( transparent ){
-			transparentSprites_[ (LPD3DTEXTURE)texture ].push_back( D3DXVECTOR3(x,y,z) );
-			++numOfTransparentSprite_;
-		}else{
-			sprites_[ (LPD3DTEXTURE)texture ].push_back( D3DXVECTOR3(x,y,z) );
-			++numOfSprite_;
-		}
 	}
 	void D3DDevice::setEnd(){
 		if( vbOfSprites_ == NULL ){

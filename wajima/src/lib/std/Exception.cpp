@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Exception.cpp,v 1.3 2002/04/28 13:31:40 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Exception.cpp,v 1.4 2002/11/04 16:29:31 ama Exp $
  */
 
-#include "std/Exception.h"
+#include "Exception.h"
 
 
 namespace zefiro_std {

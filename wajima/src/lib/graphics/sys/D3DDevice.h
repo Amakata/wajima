@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.h,v 1.1 2002/11/03 09:04:44 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.h,v 1.2 2002/11/04 16:30:49 ama Exp $
  */
 #ifndef __D3DDEVICE8_H__
 #define __D3DDEVICE8_H__
@@ -10,8 +10,8 @@
 #include <map>
 #include <vector>
 
-#include "graphics/sys/D3DTexture.h"
-#include "graphics/sys/D3DFont.h"
+#include "D3DTexture.h"
+#include "D3DFont.h"
 
 
 namespace zefiro_graphics {

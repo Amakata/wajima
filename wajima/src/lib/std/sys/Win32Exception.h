@@ -1,10 +1,10 @@
 #ifndef __WIN32EXCEPTION_H__
 #define __WIN32EXCEPTION_H__
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Exception.h,v 1.1 2002/11/03 09:05:17 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Exception.h,v 1.2 2002/11/04 16:29:38 ama Exp $
  */
 
-#include "std/Exception.h"
+#include "../Exception.h"
 #include <windows.h>
 
 namespace zefiro_std {

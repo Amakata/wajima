@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/UniqueNumberBadAlloc.cpp,v 1.4 2002/09/18 14:46:25 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/UniqueNumberBadAlloc.cpp,v 1.5 2002/11/04 16:29:31 ama Exp $
  */
 
-#include "std/UniqueNumberBadAlloc.h"
+#include "UniqueNumberBadAlloc.h"
 
 namespace zefiro_std {
 	UniqueNumberBadAlloc::UniqueNumberBadAlloc( std::string message , long lineNumber , std::string fileName )

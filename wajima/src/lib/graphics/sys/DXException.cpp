@@ -2,7 +2,7 @@
  * $Header : $
  */
 
-#include "graphics/sys/DXException.h"
+#include "DXException.h"
 
 namespace zefiro_graphics {
 	DXException::DXException( HRESULT hr , zefiro_std::SourceLine sourceLine , std::string additionalMessage )

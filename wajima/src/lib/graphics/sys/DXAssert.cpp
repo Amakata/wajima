@@ -1,12 +1,12 @@
-#include "graphics/sys/DxAssert.h"
+#include "DxAssert.h"
 
 
 #include <string>
 
 #include <Dxerr8.h>
 
-#include "graphics/sys/DXException.h"
-#include "graphics/sys/DXInvalidArgument.h"
+#include "DXException.h"
+#include "DXInvalidArgument.h"
 
 namespace zefiro_graphics {
 	namespace DXAssert {

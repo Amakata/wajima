@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.h,v 1.1 2002/11/03 09:05:26 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.h,v 1.2 2002/11/04 16:29:19 ama Exp $
  */
 
 #ifndef __THREAD_H__
@@ -9,10 +9,10 @@
 #include <string>
 #include <vector>
 
-#include "system/Runnable.h"
-#include "system/Mutex.h"
-#include "system/IllegalThreadStateException.h"
-#include "system/TimeOutException.h"
+#include "Runnable.h"
+#include "Mutex.h"
+#include "IllegalThreadStateException.h"
+#include "TimeOutException.h"
 #include "std/sys/Win32Assert.h"
 
 namespace zefiro_system {

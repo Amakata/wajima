@@ -2,7 +2,7 @@
  * $ Header: $
  */
 
-#include "system/SyncObject.h"
+#include "SyncObject.h"
 #include "std/Logger.h"
 #include "std/Assert.h"
 

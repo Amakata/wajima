@@ -2,7 +2,7 @@
  * $Header : $
  */
 
-#include "graphics/sys/DXInvalidArgument.h"
+#include "DXInvalidArgument.h"
 
 namespace zefiro_graphics {
 	DXInvalidArgument::DXInvalidArgument( HRESULT hr , zefiro_std::SourceLine sourceLine , std::string additionalMessage )

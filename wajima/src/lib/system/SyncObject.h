@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/SyncObject.h,v 1.1 2002/11/03 09:05:26 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/SyncObject.h,v 1.2 2002/11/04 16:29:19 ama Exp $
  */
 
 #ifndef __SYNCOBJECT_H__
@@ -8,9 +8,9 @@
 #include <vector>
 #include <string>
 
-#include "system/Mutex.h"
-#include "system/sys/Win32Event.h"
-#include "system/Thread.h"
+#include "Mutex.h"
+#include "sys/Win32Event.h"
+#include "Thread.h"
 
 namespace zefiro_system {
 	/**

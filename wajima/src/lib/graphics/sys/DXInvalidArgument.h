@@ -6,7 +6,7 @@
 
 #include "std/InvalidArgument.h"
 
-#include "graphics/sys/DXException.h"
+#include "DXException.h"
 
 
 namespace zefiro_graphics {

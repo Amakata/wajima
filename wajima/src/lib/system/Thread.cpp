@@ -1,8 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.cpp,v 1.6 2002/05/31 19:13:14 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.cpp,v 1.7 2002/11/04 16:29:19 ama Exp $
  */
 
-#include "system/Thread.h"
+#include "Thread.h"
 #include "std/Logger.h"
 #include "std/Assert.h"
 
