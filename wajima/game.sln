@@ -20,6 +20,8 @@ Global
 		{648E2E8C-30AB-471C-95F6-B1276A6C356B}.Debug.Build.0 = Debug|Win32
 		{648E2E8C-30AB-471C-95F6-B1276A6C356B}.Release.ActiveCfg = Release|Win32
 		{648E2E8C-30AB-471C-95F6-B1276A6C356B}.Release.Build.0 = Release|Win32
+		{110FE3E0-9B08-420A-BAF8-06FF3E77EEA1}.Debug.ActiveCfg = Debug|Win32
+		{110FE3E0-9B08-420A-BAF8-06FF3E77EEA1}.Release.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		DPBuild = 6
