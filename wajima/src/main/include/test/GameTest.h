@@ -6,7 +6,7 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-//#include "Game.h"
+#include "Game.h"
 
 namespace zefiro_gametest{
 	class GameTest : public CppUnit::TestCase {
@@ -18,6 +18,7 @@ namespace zefiro_gametest{
 		void tearDown();
 //		void test();
 	protected:
+		zefiro_game::Game *_game;
 	};
 };
 
