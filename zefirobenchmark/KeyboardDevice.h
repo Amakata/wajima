@@ -1,10 +1,7 @@
 #pragma once
 
 #include <dinput.h>
-
-
-#define DXIERROR_LOG( hr )	{	HRESULT hr2 = hr; if( hr2 != DI_OK ){std::ofstream ofs;	ofs.open("error_log.txt",std::ios_base::out | std::ios_base::app ); ofs <<__FILE__<<":"<<__LINE__<<":"<<hr2<< std::endl; ofs.close();} }
-
+#include "logger.h"
 
 class KeyboardDevice
 {

@@ -6,13 +6,11 @@
 #include "vertexbuffer.h"
 #include <sstream>
 #include <string>
-
-
-#define DXERROR_LOG( hr )	{	HRESULT hr2 = hr; if( hr2 != D3D_OK ){std::ofstream ofs;	ofs.open("error_log.txt",std::ios_base::out | std::ios_base::app ); ofs <<__FILE__<<":"<<__LINE__<<":"<<hr2<< std::endl; ofs.close();} }
+#include "Logger.h"
 
 class Device {
 public:
-	Device( HWND hWnd , LPDIRECT3D8 &d3d , bool windowed ):device_(NULL),font_(NULL),hwnd_(hWnd),windowed_(windowed),transparent_(false){
+	Device( HWND hWnd , LPDIRECT3D8 &d3d , bool windowed ):device_(NULL),font_(NULL),hwnd_(hWnd),windowed_(windowed),transparent_(false),isSetRenderState_(false){
 		createDevice( hWnd , d3d , windowed );
 		setVertexShader();
 		setTextureStageState();
@@ -54,12 +52,29 @@ public:
 			}else{
 				DXERROR_LOG(device_->SetRenderState( D3DRS_ZWRITEENABLE , TRUE ));
 			}
+			isSetRenderState_ = true;
 		}
 	}
 	void printRenderState(){
 		std::ofstream ofs;
-		ofs.open("state.txt", std::ios_base::out & std::ios_base::app );
+		ofs.open("zefirobenchmarkoutput.txt", std::ios_base::out | std::ios_base::app );
 		if( device_ != NULL ){
+			if( windowed_ ){
+				ofs << "ウィンドウモード ";
+			}else{
+				ofs << "フルスクリーンモード";
+			}
+			if( transparent_ ){
+				ofs << "半透明 ";
+			}else{
+				ofs << "不透明 ";
+			}
+			if( isSetRenderState_ ){
+				ofs << "設定済みレンダーステート";
+			}else{
+				ofs << "デフォルトレンダーステート";
+			}
+			ofs << std::endl;
 			DWORD v;
 			D3DLINEPATTERN pattern;
 			float f;
@@ -608,4 +623,5 @@ protected:
 	HWND	hwnd_;
 	bool windowed_;
 	bool transparent_;
+	bool isSetRenderState_;
 };
