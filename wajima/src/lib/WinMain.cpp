@@ -1,9 +1,10 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.11 2002/06/02 18:00:17 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.12 2002/07/02 16:58:27 ama Exp $
  */
 
 #include <fstream>
 #include <windows.h>
+#include <map>
 
 #include "graphics/sys/D3D8.h"
 #include "system/Process.h"
@@ -50,9 +51,9 @@ int APIENTRY WinMain( HINSTANCE hInstance ,
         return( msg.wParam );
 }
 
-void UnitTest(){
+void UnitTest( std::string output ){
         std::ofstream        ofs;
-        ofs.open("output.txt");
+        ofs.open( output.c_str() );
         CppUnit::TextUi::TestRunner runner;        
         runner.addTest( CppUnit::TestFactoryRegistry::getRegistry().makeTest() );
         runner.setOutputter( new CppUnit::TextOutputter(&runner.result(),ofs ) );
@@ -60,9 +61,9 @@ void UnitTest(){
         ofs.close();
 }
 
-void AdapterDeviceOutput(){
+void AdapterDeviceOutput( std::string output ){
         std::ofstream        ofs;
-        ofs.open("AdapterDevice.txt");
+        ofs.open( output.c_str() );
         zefiro_graphics::D3D8 *d3d8 = new zefiro_graphics::D3D8();
         std::vector<zefiro_graphics::Adapter> adapters = d3d8->getAdapterVector();
         for( std::vector<zefiro_graphics::Adapter>::iterator adapter = adapters.begin() ; adapter < adapters.end(); ++adapter ){
@@ -140,7 +141,6 @@ zefiro_system::Thread* ThreadTest::thread__;
 int ThreadTest::count__ = 0;
 bool ThreadTest::active__ = false;
 
-std::ofstream *g_ostr;
 
 
 LRESULT CALLBACK WndProc( HWND hWnd ,
@@ -148,26 +148,41 @@ LRESULT CALLBACK WndProc( HWND hWnd ,
                                                   WPARAM wParam ,
                                                   LPARAM lParam )
 {
+	static std::ofstream *g_ostr;
+	static std::map< std::string , std::string > sIni;
+	static std::string sEditorPath;
+
 	zefiro_system::Process *process;
+	std::ifstream ifs;
+
 	switch( message )
     {
 	case WM_CREATE:
+		ifs.open("zefirolibtest.ini");
+		while( !ifs.eof() ){
+			std::string name;
+			std::string value;
+			ifs >> name >> value;
+			sIni.insert( std::pair<std::string,std::string>( name , value ) );
+		}
+		ifs.close();
 		g_hwnd = hWnd;
-		g_ostr = new std::ofstream("logger.txt");
+		g_ostr = new std::ofstream( sIni["logfile"].c_str() );
 		zefiro_std::Logger::setOutputter( g_ostr );
+		// ‰Šú‰»ƒtƒ@ƒCƒ‹‚Ì“Ç‚Ýž‚Ý
 		break;
 	case WM_COMMAND:
 		switch( LOWORD(wParam) )
 		{
 		case IDM_TEST:
-			UnitTest();
-			process = new zefiro_system::Process("c:\\windows\\notepad.exe output.txt");
+			UnitTest(sIni["unittestfile"]);
+			process = new zefiro_system::Process( sIni["editor"] + " " + sIni["unittestfile"] );
 			process->start();
 			delete process;
 			break;
 		case IDM_ADAPTER_DEVICE_OUTPUT:
-			AdapterDeviceOutput();
-			process = new zefiro_system::Process("c:\\windows\\notepad.exe AdapterDevice.txt");
+			AdapterDeviceOutput(sIni["devicefile"]);
+			process = new zefiro_system::Process( sIni["editor"] + " " + sIni["devicefile"]);
 			process->start();
 			delete process;
 			break;
@@ -176,7 +191,7 @@ LRESULT CALLBACK WndProc( HWND hWnd ,
 			ThreadTest::start();
 			Sleep(1000);
 			ThreadTest::notify();
-			process = new zefiro_system::Process("c:\\windows\\notepad.exe logger.txt");
+			process = new zefiro_system::Process( sIni["editor"] + " " + sIni["logfile"] );
 			process->start();
 			delete process;
 			break;
