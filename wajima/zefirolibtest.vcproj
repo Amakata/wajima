@@ -167,6 +167,9 @@
 				Name="graphics"
 				Filter="">
 				<File
+					RelativePath="test\lib\graphics\GraphicsDeviceTest.cpp">
+				</File>
+				<File
 					RelativePath="test\lib\graphics\GraphicsManagerTest.cpp">
 				</File>
 				<Filter
