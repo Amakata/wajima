@@ -35,7 +35,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="loki-mt-d.lib pss-mt-d.lib"
+				AdditionalDependencies="loki-mt-d.lib pss-mt-d.lib libboost_filesystem-vc71-mt-sgd-1_31.lib"
 				OutputFile="$(OutDir)/console.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;$(SolutionDir)lib&quot;"

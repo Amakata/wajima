@@ -29,7 +29,10 @@
 				WarningLevel="4"
 				DebugInformationFormat="4"/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCCustomBuildTool"
+				Description="ソリューション直下にincludeとlibをコピーします。"
+				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:build.xml"
+				Outputs="output.txt"/>
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="$(OutDir)/$(ProjectName)-mt-d.lib"/>
@@ -37,8 +40,7 @@
 				Name="VCMIDLTool"/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="ソリューション直下にincludeとlibをコピーします。"
-				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:build.xml"/>
+				ExcludedFromBuild="FALSE"/>
 			<Tool
 				Name="VCPreBuildEventTool"
 				ExcludedFromBuild="FALSE"/>
@@ -124,7 +126,7 @@
 						RelativePath=".\src\pss\std\Timer.hpp">
 					</File>
 					<File
-						RelativePath=".\WAFInputFileStream.hpp">
+						RelativePath=".\src\pss\std\WAFInputFileStream.hpp">
 					</File>
 					<File
 						RelativePath=".\src\pss\std\Win32ConsoleStream.hpp">
