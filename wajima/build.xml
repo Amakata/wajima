@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<project name="wajima project" default="build" basedir=".">
+	<property name="archive.dir" value=".\archive" />
+	<property name="lib.dir" value=".\lib" />
+	<property name="include.dir" value=".\include" />
+	<property name="cl.option" value='/Ox /Ob2 /Ot /GA /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /FD /EHsc /MT /GS /Zc:forScope /GR /W3 /nologo /c /Zi /TP' />
+	<property name="cl.debug.option" value='/Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Gm /EHsc /RTC1 /MTd /Zc:forScope /GR  /W3 /nologo /c /ZI /TP' />
+	<property name="c.option" value='/Ox /Ob2 /Ot /GA /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /FD /EHsc /MT /GS /Zc:forScope /GR /W3 /nologo /c /Zi /TC' />
+	<property name="c.debug.option" value='/Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Gm /EHsc /RTC1 /MTd /Zc:forScope /GR  /W3 /nologo /c /ZI /TC' />
+	
+	<target name="loki">
+		<!-- Lokiの解凍 -->
+		<unzip zipfile="${archive.dir}/loki.zip" todir="${archive.dir}"/>
+		<!-- インクルードファイルのコピー -->
+		<copy todir="${include.dir}">
+			<fileset basedir="${archive.dir}">
+				<includes name="loki\**\*.hpp"/>
+				<includes name="loki\**\*.h"/>
+			</fileset>
+		</copy>
+		<mkdir dir="${archive.dir}\loki\debug"/>
+		<mkdir dir="${archive.dir}\loki\release"/>
+		<!-- コンパイルとリンク -->
+		<!-- マルチスレッドデバッグ -->
+		<cl outputdir="${archive.dir}\loki\debug" options='${cl.debug.option}'>
+			<sources basedir="${archive.dir}">
+				<includes name="loki\*.cpp"/>
+			</sources>
+		</cl>
+		<lib output="${lib.dir}\loki-mt-d.lib" options="">
+			<sources basedir="${archive.dir}">
+				<includes name="loki\debug\*.obj"/>
+			</sources>
+		</lib>
+		<!-- マルチスレッド -->
+		<cl outputdir="${archive.dir}\loki\release" options='${cl.option}'>
+			<sources basedir="${archive.dir}">
+				<includes name="loki\*.cpp"/>
+			</sources>
+		</cl>
+		<lib output="${lib.dir}\loki-mt.lib" options="">
+			<sources basedir="${archive.dir}">
+				<includes name="loki\release\*.obj"/>
+			</sources>
+		</lib>
+	</target>
+	<target name="log4cxx" description="">
+		<!-- Log4Cxx -->
+		<unzip zipfile="${archive.dir}/log4cxx-0.9.7.zip" todir="${archive.dir}"/>
+		<!-- インクルードファイルのコピー -->
+		<copy todir="${include.dir}">
+			<fileset basedir="${archive.dir}\log4cxx-0.9.7\include">
+				<includes name="**\*.hpp"/>
+				<includes name="**\*.h"/>
+			</fileset>
+		</copy>
+		<mkdir dir="${archive.dir}\log4cxx-0.9.7\debug"/>
+		<mkdir dir="${archive.dir}\log4cxx-0.9.7\release"/>
+		<!-- マルチスレッドデバッグ -->
+		<cl outputdir="${archive.dir}\log4cxx-0.9.7\debug" options='${cl.debug.option} /D "LOG4CXX"'>
+			<sources basedir="${archive.dir}">
+				<includes name="log4cxx-0.9.7\src\*.cpp"/>
+				<includes name="log4cxx-0.9.7\msvc\static\*.cpp"/>
+			</sources>
+			<includedirs>
+				<includes name="${archive.dir}\log4cxx-0.9.7\include"/>
+			</includedirs>
+		</cl>
+		<lib output="${lib.dir}\log4cxx-mt-d.lib" options="">
+			<sources basedir="${archive.dir}">
+				<includes name="log4cxx-0.9.7\debug\*.obj"/>
+			</sources>
+		</lib>
+		<!-- マルチスレッド -->
+		<cl outputdir="${archive.dir}\log4cxx-0.9.7\release" options='${cl.option} /D "LOG4CXX"'>
+			<sources basedir="${archive.dir}">
+				<includes name="log4cxx-0.9.7\src\*.cpp"/>
+				<includes name="log4cxx-0.9.7\msvc\static\*.cpp"/>
+			</sources>
+			<includedirs>
+				<includes name="${archive.dir}\log4cxx-0.9.7\include"/>
+			</includedirs>
+		</cl>
+		<lib output="${lib.dir}\log4cxx-mt.lib" options="">
+			<sources basedir="${archive.dir}">
+				<includes name="log4cxx-0.9.7\release\*.obj"/>
+			</sources>
+		</lib>
+	</target>
+	<target name="zlib">
+		<unzip zipfile="${archive.dir}/zlib122.zip" todir="${archive.dir}/zlib122"/>
+		<mkdir dir="${archive.dir}\zlib122\debug"/>
+		<mkdir dir="${archive.dir}\zlib122\release"/>
+		<cl outputdir="${archive.dir}\zlib122\debug" options="${c.debug.option}">
+			<sources basedir="${archive.dir}\zlib122">
+				<includes name="*.c"/>
+				<excludes name="example.c"/>
+			</sources>
+		</cl>
+		<lib output="${lib.dir}\libz-mt-d.lib" options="">
+			<sources basedir="${archive.dir}\zlib122">
+				<includes name="debug\*.obj"/>
+			</sources>
+		</lib>
+		<cl outputdir="${archive.dir}\zlib122\release" options="${c.option}">
+			<sources basedir="${archive.dir}\zlib122">
+				<includes name="*.c"/>
+				<excludes name="example.c"/>
+			</sources>
+		</cl>
+		<lib output="${lib.dir}\libz-mt.lib" options="">
+			<sources basedir="${archive.dir}\zlib122">
+				<includes name="release\*.obj"/>
+			</sources>
+		</lib>
+		<copy todir="${include.dir}">
+			<fileset basedir="${archive.dir}\zlib122">
+				<includes name="zlib.h"/>
+				<includes name="zconf.h"/>
+			</fileset>
+		</copy>
+	</target>
+	<target name="libpng">
+		<unzip zipfile="${archive.dir}\lpng127.zip" todir="${archive.dir}"/>
+		<mkdir dir="${archive.dir}\lpng127\release"/>
+		<mkdir dir="${archive.dir}\lpng127\debug"/>
+		<cl outputdir="${archive.dir}\lpng127\debug" options="${c.debug.option}">
+			<sources basedir="${archive.dir}\lpng127">
+				<includes name="*.c"/>
+				<excludes name="example.c"/>
+			</sources>
+			<includedirs>
+				<includes name="${include.dir}"/>
+			</includedirs>		
+		</cl>
+		<lib output="${lib.dir}\libpng-mt-d.lib" options="">
+			<sources basedir="${archive.dir}\lpng127">
+				<includes name="debug\*.obj"/>
+			</sources>
+		</lib>
+		<cl outputdir="${archive.dir}\lpng127\release" options="${c.option}">
+			<sources basedir="${archive.dir}\lpng127">
+				<includes name="*.c"/>
+				<excludes name="example.c"/>
+			</sources>
+			<includedirs>
+				<includes name="${include.dir}"/>
+			</includedirs>		
+		</cl>
+		<lib output="${lib.dir}\libpng-mt.lib" options="">
+			<sources basedir="${archive.dir}\lpng127">
+				<includes name="release\*.obj"/>
+			</sources>
+		</lib>
+		<copy todir="${include.dir}">
+			<fileset basedir="${archive.dir}\lpng127">
+				<includes name="png.h"/>
+				<includes name="pngconf.h"/>
+			</fileset>
+		</copy>
+	</target>
+	<target name="boost">
+		<unzip zipfile="${archive.dir}\boost_1_31_0.zip" todir="${archive.dir}"/>
+		<unzip zipfile="${archive.dir}\boost-1.31.0-regex-patch-20040503.zip" todir="${archive.dir}\boost_1_31_0\boost\regex\v4"/>
+		<unzip zipfile="${archive.dir}\boost-jam-3.1.10-1-ntx86.zip" todir="${archive.dir}"/>
+		<copy todir="${archive.dir}\boost_1_31_0">
+			<fileset basedir="${archive.dir}\boost-jam-3.1.10-1-ntx86">
+				<includes name="bjam.exe"/>
+			</fileset>
+		</copy>
+		<copy todir="${archive.dir}\boost_1_31_0">
+			<fileset basedir="${archive.dir}">
+				<includes name="boost.bat"/>
+			</fileset>
+		</copy>
+		<exec basedir="${archive.dir}\boost_1_31_0" program="boost.bat" />
+		<move todir="${include.dir}">
+			<fileset basedir="${include.dir}\boost-1_31">
+				<includes name="boost\**\*.*"/>
+			</fileset>
+		</move>
+		<delete dir="${include.dir}\boost-1_31"/>
+	</target>
+	<target name="ogg">
+		<unzip zipfile="${archive.dir}\OggVorbis-win32sdk-1.0.1.zip" todir="${archive.dir}"/>
+		<copy todir="${lib.dir}">
+			<fileset basedir="${archive.dir}\oggvorbis-win32sdk-1.0.1\lib">
+				<includes name="*.lib"/>
+			</fileset>
+		</copy>
+		<copy todir="${include.dir}">
+			<fileset basedir="${archive.dir}\oggvorbis-win32sdk-1.0.1\include">
+				<includes name="**\*.h"/>
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="${lib.dir}"/>
+		<mkdir dir="${lib.dir}"/>
+		<delete dir="${include.dir}"/>
+		<mkdir dir="${include.dir}"/>
+	</target>
+<!--	<target name="init" description="archive build" depends="clean,zlib,loki,log4cxx">-->
+	<target name="init" depends="loki,log4cxx,zlib,libpng,boost,ogg">
+	</target>
+	<target name="build" description="build">
+	</target>
+
+</project>
