@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.8 2002/05/25 15:59:05 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.9 2002/05/26 17:11:17 ama Exp $
  */
 
 #include <fstream>
@@ -8,6 +8,7 @@
 #include "graphics/sys/D3D8.h"
 #include "system/Process.h"
 #include "system/Thread.h"
+#include "system/SyncObject.h"
 #include "std/Logger.h"
 
 #include "WindowClass.h"
@@ -76,41 +77,66 @@ HWND g_hwnd;
 class TestRunnable : public zefiro_system::Runnable
 {
 public:
+	TestRunnable():syncObject_(new zefiro_system::SyncObject()){
+	}
+	virtual ~TestRunnable(){
+		delete syncObject_;
+	}
+	virtual void notify(){
+			syncObject_->notify();
+	}
 	virtual void run(){
 		zefiro_system::Thread *thread = zefiro_system::Thread::getCurrentThread();
 		std::ostringstream ostrstr;
 		ostrstr << thread << " " << thread->getThreadID();
 		HDC hdc = GetDC( g_hwnd );
-		for( int y=0 ; y<320 ; y+=16 ){
+		for( int y=0 ; y<80 ; y+=16 ){
 			TextOut(hdc,10,y,ostrstr.str().c_str(),ostrstr.str().size());
-			zefiro_system::Thread::yield();
+			syncObject_->wait();
 		}
 		ReleaseDC( g_hwnd , hdc );
 	}
+protected:
+	zefiro_system::SyncObject *syncObject_;
 };
 
-
-void ThreadTest(){
-	std::ostringstream ostrstr;
-
-	ostrstr << zefiro_system::Thread::getCurrentThread() << " " << zefiro_system::Thread::getCurrentThread()->getThreadID();
-	HDC hdc = GetDC( g_hwnd );
-	TextOut( hdc , 10, 400 , ostrstr.str().c_str(),ostrstr.str().size());
-	ReleaseDC( g_hwnd , hdc );
-	zefiro_system::Runnable *r = new TestRunnable();
-	zefiro_system::Thread *thread = new zefiro_system::Thread(r,"TestThread");
-	thread->setJoinable( true );
-	thread->start();
-	bool loop = true;
-	while(loop){
-		try{
-			thread->join(1);	//	0にすると、とまらなくなる。
-			loop = false;
-		}catch( zefiro_system::TimeOutException &toe ){
+class ThreadTest{
+public:
+	static void create(){
+		if( count__ == 0 && !active__ ){
+			r__ = new TestRunnable();
+			thread__ = new zefiro_system::Thread(r__,"TestThread");
 		}
 	}
-}
+	static void start(){
+		if( count__ == 0 && !active__ ){
+			thread__->setJoinable( false );
+			thread__->start();
+			active__ = true;
+		}
+	}
+	static void notify(){
+		if( !active__ ){
+			return;
+		}
+		if( count__ < 5 ){
+			r__->notify();
+			++count__;
+		}else{
+			count__ = 0;
+			active__ = false;
+		}
+	}
+	static bool active__;	//	スレッドが活動中か？
+	static int count__;		//	notifyが何回発動したか？
+	static TestRunnable *r__;
+	static zefiro_system::Thread *thread__;
+};
 
+TestRunnable* ThreadTest::r__;
+zefiro_system::Thread* ThreadTest::thread__;
+int ThreadTest::count__ = 0;
+bool ThreadTest::active__ = false;
 
 std::ofstream *g_ostr;
 
@@ -144,11 +170,15 @@ LRESULT CALLBACK WndProc( HWND hWnd ,
 			delete process;
 			break;
 		case IDM_THREAD_TEST:
-			ThreadTest();
+			ThreadTest::create();
+			ThreadTest::start();
 			Sleep(1000);
 			process = new zefiro_system::Process("c:\\windows\\notepad.exe logger.txt");
 			process->start();
 			delete process;
+			break;
+		case IDM_THREAD_NOTIFY:
+			ThreadTest::notify();
 			break;
 		case IDM_EXIT:
 			PostMessage( hWnd , WM_CLOSE , 0 , 0 );
