@@ -234,33 +234,6 @@
 					Name="sys"
 					Filter="">
 					<File
-						RelativePath="src\lib\graphics\sys\Adapter.cpp">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\Adapter.h">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\D3D8.cpp">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\D3D8.h">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\D3DDevice.cpp">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\D3DDevice.h">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\D3DFont.h">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\D3DTexture.cpp">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\D3DTexture.h">
-					</File>
-					<File
 						RelativePath="src\lib\graphics\sys\DXAssert.cpp">
 					</File>
 					<File
@@ -277,12 +250,6 @@
 					</File>
 					<File
 						RelativePath="src\lib\graphics\sys\DXInvalidArgument.h">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\Mode.cpp">
-					</File>
-					<File
-						RelativePath="src\lib\graphics\sys\Mode.h">
 					</File>
 				</Filter>
 			</Filter>
