@@ -13,12 +13,12 @@ namespace zefiro_stdtest {
 		delete _exceptionDefault;
 	}
 	void ExceptionTest::testLineNumber(){
-		CPPUNIT_ASSERT_EQUAL( LINENUMBER , _exception->getLineNumber() );
-		CPPUNIT_ASSERT_EQUAL( zefiro_std::Exception::UNKNOWNLINENUMBER , _exceptionDefault->getLineNumber() );
+		CPPUNIT_ASSERT_EQUAL( LINENUMBER , _exception->lineNumber() );
+		CPPUNIT_ASSERT_EQUAL( zefiro_std::Exception::UNKNOWNLINENUMBER , _exceptionDefault->lineNumber() );
 	}
 	void ExceptionTest::testFileName(){
-		CPPUNIT_ASSERT_EQUAL( FILENAME , _exception->getFileName() );
-		CPPUNIT_ASSERT_EQUAL( zefiro_std::Exception::UNKNOWNFILENAME , _exceptionDefault->getFileName() );
+		CPPUNIT_ASSERT_EQUAL( FILENAME , _exception->fileName() );
+		CPPUNIT_ASSERT_EQUAL( zefiro_std::Exception::UNKNOWNFILENAME , _exceptionDefault->fileName() );
 	}
 	void ExceptionTest::testMessage(){
 		CPPUNIT_ASSERT_EQUAL( MESSAGE , std::string(_exception->what()) );
@@ -26,23 +26,23 @@ namespace zefiro_stdtest {
 	}
 	void ExceptionTest::testClone(){
 		zefiro_std::Exception *exception = _exception->clone();
-		CPPUNIT_ASSERT_EQUAL( _exception->getLineNumber() , exception->getLineNumber() );
-		CPPUNIT_ASSERT_EQUAL( _exception->getFileName() , exception->getFileName() );
+		CPPUNIT_ASSERT_EQUAL( _exception->lineNumber() , exception->lineNumber() );
+		CPPUNIT_ASSERT_EQUAL( _exception->fileName() , exception->fileName() );
 		CPPUNIT_ASSERT_EQUAL( _exception->what() , exception->what() );
 		delete exception;
 	}
 	void ExceptionTest::testCopy(){
 		zefiro_std::Exception *exception = new zefiro_std::Exception();
 		*exception = *_exception;
-		CPPUNIT_ASSERT_EQUAL( _exception->getLineNumber() , exception->getLineNumber() ,  );
-		CPPUNIT_ASSERT_EQUAL( _exception->getFileName() ,  exception->getFileName() );
+		CPPUNIT_ASSERT_EQUAL( _exception->lineNumber() , exception->lineNumber() ,  );
+		CPPUNIT_ASSERT_EQUAL( _exception->fileName() ,  exception->fileName() );
 		CPPUNIT_ASSERT_EQUAL( _exception->what() , exception->what() );
 		delete exception;
 	}
 	void ExceptionTest::testCopyConstruct(){
 		zefiro_std::Exception *exception = new zefiro_std::Exception( *_exception );
-		CPPUNIT_ASSERT_EQUAL( _exception->getLineNumber() , exception->getLineNumber() ,  );
-		CPPUNIT_ASSERT_EQUAL( _exception->getFileName() ,  exception->getFileName() );
+		CPPUNIT_ASSERT_EQUAL( _exception->lineNumber() , exception->lineNumber() ,  );
+		CPPUNIT_ASSERT_EQUAL( _exception->fileName() ,  exception->fileName() );
 		CPPUNIT_ASSERT_EQUAL( _exception->what() , exception->what() );
 		delete exception;
 	}
@@ -52,7 +52,7 @@ namespace zefiro_stdtest {
 		
 		CPPUNIT_ASSERT( *type1 == *type2 );
 
-		CPPUNIT_ASSERT( zefiro_std::Exception::Type("zefiro_std::Exception") == zefiro_std::Exception::getType() );
+		CPPUNIT_ASSERT( zefiro_std::Exception::Type("zefiro_std::Exception") == zefiro_std::Exception::type() );
 
 		delete type1;
 		delete type2;
