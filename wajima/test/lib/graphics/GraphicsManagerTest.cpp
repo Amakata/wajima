@@ -46,7 +46,7 @@ public:
 			CPPUNIT_FAIL("");
 		}
 		try{
-			GD gd = gm->createGD( 800 , 600 , zefiro_graphics::ColorFormat(zefiro_graphics::ColorFormat::RGB888) , 0 ,  true );
+			GD gd = gm->createGD( 800 , 600 , zefiro_graphics::ColorFormat(zefiro_graphics::ColorFormat::RGB888) , 0 ,  true , 0 );
 		}catch( zefiro_std::InvalidArgument &e ){
 			CPPUNIT_FAIL("");
 		}
