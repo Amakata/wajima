@@ -1,3 +1,6 @@
+//
+// $Header: /home/zefiro/cvsrep/cpp/wajima/test/lib/resource.h,v 1.2 2002/11/14 16:53:40 ama Exp $
+//
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
 // Used by c:\home\ama\tmp\wajima\resource\lib\zefirolibtest.rc

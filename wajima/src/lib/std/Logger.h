@@ -1,9 +1,9 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Logger.h,v 1.3 2002/11/14 16:52:44 ama Exp $
+ */
+
 #ifndef __LOGGER_H__
 #define __LOGGER_H__
-
-/**
- * $Header:
- */
 
 #include <iostream>
 #include <string>

@@ -30,7 +30,7 @@ private:
 public:
 
   virtual void setUp() {
-	_invalidArgument = new zefiro_std::InvalidArgument( zefiro_std::SourceLine( FILENAME , LINENUMBER ) );
+	_invalidArgument = new zefiro_std::InvalidArgument( "" , zefiro_std::SourceLine( FILENAME , LINENUMBER ) );
   }
   virtual void tearDown() {
 	delete _invalidArgument;

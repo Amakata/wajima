@@ -32,7 +32,7 @@ private:
 
 public:
 
-  virtual void setUp() { dxexception_ = new DXException( HRESULT , LINENUMBER , FILENAME , MESSAGE ); }
+  virtual void setUp() { dxexception_ = new DXException( MESSAGE , HRESULT , LINENUMBER , FILENAME  ); }
   virtual void tearDown() { delete dxexception_; }
 
 //CUPPA:decl=+

@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/test/lib/ThreadTest.h,v 1.3 2002/11/14 16:53:40 ama Exp $
+ */
+
 #ifndef __THREADTEST_H__
 #define __THREADTEST_H__
 

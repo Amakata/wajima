@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/test/lib/ThreadTest.cpp,v 1.3 2002/11/14 16:53:40 ama Exp $
+ */
+
 #include "ThreadTest.h"
 
 #include <sstream>

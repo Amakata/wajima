@@ -1,8 +1,9 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDevice.h,v 1.2 2002/11/14 16:51:06 ama Exp $
+ */
+
 #ifndef __GRAPHICSDEVICE_H__
 #define __GRAPHICSDEVICE_H__
-/**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDevice.h,v 1.1 2002/11/13 18:28:08 ama Exp $
- */
 
 namespace zefiro_graphics {
 	class GraphicsDevice {
