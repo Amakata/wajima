@@ -1,8 +1,8 @@
-#pragma once;
+#pragma once
 
 // デバッグビルド用
 // デバッグビルドで外部で配布されるプログラムはlog4cxxを使うことで、Apacheへの謝辞を記述する必要がある。
-#ifdef DEBUG
+#ifdef _DEBUG
 
 #include <log4cxx/logger.h>
 #include <log4cxx/basicconfigurator.h>
