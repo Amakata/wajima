@@ -1,6 +1,7 @@
 #ifndef __Config__H__
 #define __Config__H__
 
+#include <windows.h>
 #include <fstream>
 #include <sstream>
 #include <map>
@@ -17,8 +18,14 @@ public:
 	int getInteger( std::string key );
 	double getDouble( std::string key );
 	bool getBool( std::string key );
-
+	static HWND getHWND(){
+		return hwnd__;
+	}
+	static void setHWND( HWND hwnd ){
+		hwnd__ = hwnd;
+	}
 protected:
+	static HWND hwnd__;
 	std::map< std::string , std::string > param_;
 	std::ofstream	logfile_;
 };

@@ -1,3 +1,6 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/test/lib/Config.cpp,v 1.2 2002/11/13 18:24:01 ama Exp $
+ */
 #include "Config.h"
 
 Config * Config::config__;
@@ -49,3 +52,4 @@ bool Config::getBool( std::string key ){
 	logfile_ << "key = " << key << " , value = " << result << std::endl;
 	return result;
 }
+HWND Config::hwnd__ = 0;
