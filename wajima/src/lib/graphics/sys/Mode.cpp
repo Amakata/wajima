@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Mode.cpp,v 1.3 2002/04/29 16:25:41 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Mode.cpp,v 1.4 2002/08/25 12:01:57 ama Exp $
  */
 
 #include "graphics/sys/Mode.h"
@@ -7,11 +7,10 @@
 #include <sstream>
 
 namespace zefiro_graphics {
-	Mode::Mode( const int modeNumber , const int width , const int height , const int refreshRate , const D3DFORMAT format )
-		:_modeNumber(modeNumber),_width(width),_height(height),_refreshRate(refreshRate),_d3dFormat(format){
+	Mode::Mode(  const int width , const int height , const int refreshRate , const D3DFORMAT format )
+		:_width(width),_height(height),_refreshRate(refreshRate),_d3dFormat(format){
 	}
 	Mode::Mode( const Mode &mode ){
-		_modeNumber = mode._modeNumber;
 		_width = mode._width;
 		_height = mode._height;
 		_refreshRate = mode._refreshRate;
@@ -21,15 +20,11 @@ namespace zefiro_graphics {
 	Mode::~Mode(){
 	}
 	Mode& Mode::operator=( const Mode &mode ){
-		_modeNumber = mode._modeNumber;
 		_width = mode._width;
 		_height = mode._height;
 		_refreshRate = mode._refreshRate;
 		_d3dFormat = mode._d3dFormat;
 		return *this;
-	}
-	int Mode::getModeNumber() const{
-		return _modeNumber;
 	}
 	int Mode::getWidth() const{
 		return _width;
