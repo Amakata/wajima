@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.cpp,v 1.9 2002/11/07 14:36:54 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Thread.cpp,v 1.10 2002/11/07 16:58:49 ama Exp $
  */
 
 #include "Thread.h"
@@ -164,6 +164,7 @@ namespace zefiro_system {
 	int Thread::doJoin( int millisecond ){
 		ZEFIRO_STD_ASSERT( millisecond >= 0 );
 		DWORD exitCode;
+		HANDLE thread;
 		{
 			Lock lock(*this);
 			ZEFIRO_LOG( "NORMAL" , "Thread::join() Begin" + toString());
@@ -171,8 +172,9 @@ namespace zefiro_system {
 				ZEFIRO_LOG( "ERROR" , "Thread::join()" + toString());
 				WIN32ASSERT( constructError_ );
 			}
+			thread = thread_;
 		}
-		DWORD result = WaitForSingleObject( thread_ , millisecond );
+		DWORD result = WaitForSingleObject( thread , millisecond );
 		{
 			Lock lock(*this);
 			switch( result ){
