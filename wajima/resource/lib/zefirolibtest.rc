@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/resource/lib/zefirolibtest.rc,v 1.3 2002/05/20 18:34:29 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/resource/lib/zefirolibtest.rc,v 1.4 2002/06/01 06:00:57 ama Exp $
  */
 
 #include <windows.h>
@@ -15,4 +15,5 @@ BEGIN
 	MENUITEM "&Test!",				IDM_TEST
 	MENUITEM "&AdapterDeviceOutput!",	IDM_ADAPTER_DEVICE_OUTPUT
 	MENUITEM "&ThreadTest!",	IDM_THREAD_TEST
+	MENUITEM "&ThreadNofify!",	IDM_THREAD_NOTIFY
 END
