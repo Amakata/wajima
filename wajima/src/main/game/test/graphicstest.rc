@@ -1,9 +1,9 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/graphicstest.rc,v 1.4 2002/04/28 13:24:31 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/graphicstest.rc,v 1.5 2002/05/08 15:17:10 ama Exp $
  */
 
 #include <windows.h>
-#include <test/resource.h>
+#include "test/resource.h"
 #include <winver.h>
 
 TESTAPP MENU DISCARDABLE
@@ -13,4 +13,5 @@ BEGIN
 		MENUITEM "E&xit",			IDM_EXIT
 	END
 	MENUITEM "&Test!",				IDM_TEST
+	MENUITEM "&GameStart!",			IDM_GAME_START
 END

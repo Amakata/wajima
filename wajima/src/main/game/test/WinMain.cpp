@@ -1,14 +1,14 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/WinMain.cpp,v 1.4 2002/04/28 13:24:31 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/WinMain.cpp,v 1.5 2002/05/08 15:17:04 ama Exp $
  */
 
 #include <fstream>
 #include <windows.h>
 
 
-#include <test/WindowClass.h>
-#include <test/Window.h>
-#include <test/resource.h>
+#include "test/WindowClass.h"
+#include "test/Window.h"
+#include "test/resource.h"
 
 #include <cppunit/TextTestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
@@ -68,6 +68,9 @@ LRESULT CALLBACK WndProc( HWND hWnd ,
 		{
 		case IDM_TEST:
 			UnitTest();
+			PostQuitMessage(0);
+			break;
+		case IDM_GAME_START:
 			PostQuitMessage(0);
 			break;
 		case IDM_EXIT:
