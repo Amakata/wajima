@@ -2,7 +2,7 @@
 #define __UNIQUENUMBERFACTORY_H__
 
 #include <vector>
-#include <std/unique_number_bad_alloc.h>
+#include <std/UniqueNumberBadAlloc.h>
 
 namespace zefiro_std{
 	/**	ユニークナンバー生成クラス。
@@ -23,7 +23,7 @@ namespace zefiro_std{
 		 *	\return 生成されたユニークナンバー
 		 * \throw zefiro_std::unique_number_bad_alloc ユニークナンバーの生成範囲を超える生成を行った。
 		 */
-		virtual int createNumber() throw(zefiro_std::unique_number_bad_alloc);			
+		virtual int createNumber() throw(zefiro_std::UniqueNumberBadAlloc);			
 		/**
 		 *	ユニークナンバーの削除
 		 *	\param number 削除するユニークナンバー

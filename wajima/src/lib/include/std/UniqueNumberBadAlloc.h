@@ -1,7 +1,7 @@
-#ifndef __UNIQUE_NUMBER_BAD_ALLOC_H__
-#define __UNIQUE_NUMBER_BAD_ALLOC_H__
+#ifndef __UNIQUENUMBERBADALLOC_H__
+#define __UNIQUENUMBERBADALLOC_H__
 
-#include <exception>
+#include <std/Exception.h>
 #include <string>
 
 namespace zefiro_std {
@@ -9,10 +9,11 @@ namespace zefiro_std {
 	 * ユニークナンバーの割り当てエラー
 	 * ユニークナンバーの割り当て資源を使いきり、割り当てられないときに発生する。
 	 */
-	class unique_number_bad_alloc : public std::exception
+	class UniqueNumberBadAlloc : public zefiro_std::Exception
 	{
 	public:
-		unique_number_bad_alloc(const std::string& what_arg="A unique number is not assigned."){
+
+		UniqueNumberBadAlloc(const std::string& what_arg="A unique number is not assigned."){
 			_what_arg = what_arg;
 		}
 		virtual const char *what() const throw(){
@@ -23,4 +24,4 @@ namespace zefiro_std {
 	};
 };
 
-#endif //__UNIQUE_NUMBER_BAD_ALLOC_H__
+#endif //__UNIQUENUMBERBADALLOC_H__
