@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.10 2002/05/31 19:12:44 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.11 2002/06/02 18:00:17 ama Exp $
  */
 
 #include <fstream>
@@ -73,6 +73,8 @@ void AdapterDeviceOutput(){
 }
 
 HWND g_hwnd;
+
+
 
 class TestRunnable : public zefiro_system::Runnable
 {

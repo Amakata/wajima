@@ -56,7 +56,6 @@ namespace zefiro_system {
 		waitMutex_->unlock();
 		this->lock();
 		countOfMonitorLock_ = countOfMonitorLock;
-
 		ZEFIRO_LOG( "NORMAL" , "SyncObject::wait() End" + toString());
 	}
 	bool SyncObject::wait( int millisecond ){
