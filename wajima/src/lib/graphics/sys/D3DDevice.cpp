@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.8 2002/09/20 02:33:30 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.9 2002/10/29 14:10:34 ama Exp $
  */
 
 #include "graphics/sys/D3DDevice.h"
@@ -10,34 +10,22 @@
 
 #define D3DFVF_CUSTOMVERTEX	(D3DFVF_XYZRHW|D3DFVF_TEX1)
 
-typedef struct CUSTOMVERTEX_ {
-	float x,y,z,rhw;
-	float tu,tv;
-}CUSTOMVERTEX;
-
 namespace zefiro_graphics {
-	D3DDevice::D3DDevice( LPDIRECT3DDEVICE8 d3ddevice8 ):d3dDevice8_(d3ddevice8){
-		DXASSERT( d3dDevice8_->SetRenderState( D3DRS_ZENABLE  , D3DZB_TRUE ) );
-		DXASSERT( d3dDevice8_->SetRenderState( D3DRS_ZWRITEENABLE , TRUE ) );
-//		d3dDevice8_->SetRenderState( D3DRS_ALPHAREF , 0 );
-//		d3dDevice8_->SetRenderState( D3DRS_ALPHATESTENABLE , TRUE );
-//		d3dDevice8_->SetRenderState( D3DRS_ALPHAFUNC , D3DCMP_GREATEREQUAL );
-//		d3dDevice8_->SetRenderState( D3DRS_ALPHABLENDENABLE , TRUE );
-//		d3dDevice8_->SetRenderState( D3DRS_SRCBLEND , D3DBLEND_SRCALPHA );
-//		d3dDevice8_->SetRenderState( D3DRS_DESTBLEND , D3DBLEND_INVSRCALPHA );
-//		d3dDevice8_->SetRenderState( D3DRS_BLENDOP , D3DBLENDOP_ADD );	
-//		DXASSERT( d3dDevice8_->SetRenderState( D3DRS_CULLMODE , FALSE ) );
-		DXASSERT( d3dDevice8_->SetRenderState( D3DRS_LIGHTING , FALSE ) );
-		DXASSERT( d3dDevice8_->SetVertexShader( D3DFVF_CUSTOMVERTEX ) );
-		DXASSERT( d3dDevice8_->SetTextureStageState( 0 , D3DTSS_MIPFILTER , D3DTEXF_NONE ) );
-		DXASSERT( d3dDevice8_->SetTextureStageState( 0, D3DTSS_MAGFILTER, D3DTEXF_NONE ) );
-		DXASSERT( d3dDevice8_->SetTextureStageState( 0, D3DTSS_MINFILTER, D3DTEXF_NONE ) );
+	D3DDevice::D3DDevice( LPDIRECT3DDEVICE8 d3ddevice8 ):
+		device_(d3ddevice8),
+		numOfSprite_(0),numOfTransparentSprite_(0),
+		vbOfSprites_(NULL),vbOfTransparentSprites_(NULL){
+
+		getDeviceCapability();
+		setDefaultRenderState();
+		setDefaultTextureStageState();
+		DXASSERT( device_->SetVertexShader( D3DFVF_CUSTOMVERTEX ) );
 	}
 	D3DDevice::~D3DDevice(){
 		D3DDEVICE_CREATION_PARAMETERS param;
-		d3dDevice8_->GetCreationParameters(&param);
-		d3dDevice8_->Release();
-		d3dDevice8_ = NULL;
+		DXASSERT(device_->GetCreationParameters(&param));
+		DXASSERT(device_->Release());
+		device_ = NULL;
 
 		SetWindowPos( 
 			param.hFocusWindow ,
@@ -53,7 +41,7 @@ namespace zefiro_graphics {
 		LPDIRECT3DTEXTURE8 texture;
 		D3DXIMAGE_INFO info;
 
-		HRESULT hr = D3DXCreateTextureFromFileExA( d3dDevice8_ , // テクスチャーを作成するデバイス
+		HRESULT hr = D3DXCreateTextureFromFileExA( device_ , // テクスチャーを作成するデバイス
 													filename.c_str() , // 読み込むファイル名
 													D3DX_DEFAULT , // 幅
 													D3DX_DEFAULT  , // 高さ
@@ -91,38 +79,74 @@ namespace zefiro_graphics {
 			fontname.c_str()          // フォント名
 			);
 
-		DXASSERT( D3DXCreateFont(d3dDevice8_, hFont, &d3dFont ) );
+		DXASSERT( D3DXCreateFont(device_, hFont, &d3dFont ) );
 		DeleteObject(hFont);
 		return new D3DFont( d3dFont );
 	}
-	void D3DDevice::renderBegin(){
-		DXASSERT( d3dDevice8_->BeginScene() );
-
-	}
-	void D3DDevice::renderEnd(){
-		DXASSERT( d3dDevice8_->EndScene() );
-		DXASSERT( d3dDevice8_->Present( NULL , NULL , NULL , NULL ) );
-	}
-	void D3DDevice::render( const D3DTexture *texture , const float x , const float y , const float z ){
-		static const float height = texture->getHeight();
-		static const float width = texture->getWidth();
-		static const float heightRatio = texture->getHeightRatio();
-		static const float widthRatio = texture->getWidthRatio();
-		static CUSTOMVERTEX cv[4] = {
-			0.0f , 0.0f , 0.0f , 1.0f  , 0.0f , 0.0f ,
-			0.0f , 0.0f , 0.0f , 1.0f  , 0.0f , 0.0f ,
-			0.0f , 0.0f , 0.0f , 1.0f  , 0.0f , 0.0f ,
-			0.0f , 0.0f , 0.0f , 1.0f  , 0.0f , 0.0f ,
-		};
-		cv[0].x = x;			cv[0].y = y;			cv[0].z = z; cv[0].tu =0.0;
-		cv[1].x = x + width;	cv[1].y = y;			cv[1].z = z; cv[1].tu = widthRatio;
-		cv[2].x = x + width;	cv[2].y = y + height;	cv[2].z = z; cv[2].tu = widthRatio; cv[2].tv = heightRatio;
-		cv[3].x = x;			cv[3].y = y + height;	cv[3].z = z; cv[3].tv = heightRatio;
-
-		d3dDevice8_->SetTexture( 0 , texture->texture_ );
-		d3dDevice8_->DrawPrimitiveUP( D3DPT_TRIANGLELIST , 100 , cv  , sizeof CUSTOMVERTEX );
-	}
 	void D3DDevice::clear(){
-		DXASSERT( d3dDevice8_->Clear( 0 , NULL , D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER , D3DCOLOR_XRGB( 128 , 0 , 0 ) , 1.0f , 0 ) );
+		DXASSERT( device_->Clear( 0 , NULL , D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER , D3DCOLOR_XRGB( 0 , 0 , 0 ) , 1.0f , 0 ) );
+	}
+	void D3DDevice::render(){
+		DXASSERT( device_->BeginScene() );		
+
+
+		device_->SetTexture( 0 , texture->first->texture_ );
+		device_->DrawPrimitiveUP( D3DPT_TRIANGLELIST , numOfSprites * 2 , pV , sizeof CUSTOMVERTEX );
+		DXASSERT( device_->EndScene() );
+		if( vbOfSprites_ != NULL ){
+			DXASSERT( vbOfSprites_->Release() );
+			vbOfSprites_ = NULL;
+		}
+		if( vbOfTransparentSprites_ != NULL ){
+			DXASSERT( vbOfTransparentSprites_->Release() );
+			vbOfTransparentSprites_ = NULL;
+		}
+	}
+	void D3DDevice::setBegin(){
+		sprites_.clear();
+		transparentSprites_.clear();
+	}
+	void D3DDevice::setSprite( const D3DTexture* texture , const float x , const float y , const float z , const bool transparent ){
+		if( transparent ){
+			transparentSprites_[ (LPD3DTEXTURE)texture ].push_back( D3DXVECTOR3(x,y,z) );
+			++numOfTransparentSprite_;
+		}else{
+			sprites_[ (LPD3DTEXTURE)texture ].push_back( D3DXVECTOR3(x,y,z) );
+			++numOfSprite_;
+		}
+	}
+	void D3DDevice::setEnd(){
+		if( vbOfSprites_ == NULL ){
+			DXASSERT( device_->CreateVertexBuffer( sizeof(CUSTOMVERTEX) * numOfSprite_ * 6 , D3DUSAGE_WRITEONLY , D3DFVF_CUSTOMVERTEX , D3DPOOL_MANAGED , &vbOfSprites_ ) );
+		}
+		
+
+
+		if( vbOfTransparentSprites_ == NULL ){
+			DXASSERT( device_->CreateVertexBuffer( sizeof(CUSTOMVERTEX) * numOfTransparentSprite_ * 6 , D3DUSAGE_WRITEONLY , D3DFVF_CUSTOMVERTEX , D3DPOOL_MANAGED , &vbOfTransparentSprites_ ) );
+		}
+
+	}
+	void D3DDevice::present(){
+		DXASSERT( device_->Present( NULL , NULL , NULL , NULL ) );
+	}
+	void D3DDevice::getDeviceCapability(){
+		DXASSERT( device_->GetDeviceCaps( &caps_ ) );
+	}
+	void D3DDevice::setDefaultRenderState(){
+		DXASSERT( device_->SetRenderState( D3DRS_ZENABLE  , D3DZB_TRUE ) );
+		DXASSERT( device_->SetRenderState( D3DRS_ZWRITEENABLE , TRUE ) );
+		DXASSERT( device_->SetRenderState( D3DRS_CULLMODE , D3DCULL_NONE ) );
+		DXASSERT( device_->SetRenderState( D3DRS_LIGHTING , FALSE ) );
+		DXASSERT( device_->SetRenderState( D3DRS_ALPHAREF , 0 ) );
+		DXASSERT( device_->SetRenderState( D3DRS_ALPHAFUNC , D3DCMP_GREATEREQUAL ) );
+		DXASSERT( device_->SetRenderState( D3DRS_ALPHABLENDENABLE , FALSE ) );
+		DXASSERT( device_->SetRenderState( D3DRS_ALPHATESTENABLE , TRUE ) );
+		DXASSERT( device_->SetRenderState( D3DRS_SHADEMODE , D3DSHADE_FLAT ) );
+	}
+	void D3DDevice::setDefaultTextureStageState(){
+		DXASSERT( device_->SetTextureStageState( 0 , D3DTSS_MIPFILTER , D3DTEXF_NONE ) );
+		DXASSERT( device_->SetTextureStageState( 0, D3DTSS_MAGFILTER, D3DTEXF_NONE ) );
+		DXASSERT( device_->SetTextureStageState( 0, D3DTSS_MINFILTER, D3DTEXF_NONE ) );
 	}
 };

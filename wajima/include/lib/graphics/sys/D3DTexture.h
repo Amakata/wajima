@@ -5,8 +5,14 @@
 #include <d3d8.h>
 #include <d3dx8mesh.h>
 
+
+
 namespace zefiro_graphics {
 	class D3DDevice;
+	typedef struct CUSTOMVERTEX_ {
+		float x,y,z,rhw;
+		float tu,tv;
+	}CUSTOMVERTEX;
 	class D3DTexture{
 		friend D3DDevice;
 	public:
@@ -18,18 +24,11 @@ namespace zefiro_graphics {
 		int getWidth() const{
 			return width_;
 		}
-		float getHeightRatio() const{
-			return maxHeightRatio_;
-		}
-		float getWidthRatio() const{
-			return maxWidthRatio_;
-		}
 	protected:
 		LPDIRECT3DTEXTURE8 texture_;
 		int width_;
 		int height_;
-		float maxWidthRatio_;
-		float maxHeightRatio_;
+		CUSTOMVERTEX cv[6];
 	};
 };
 
