@@ -17,6 +17,12 @@ namespace zefiro_thread {
 	class Thread : public Runnable
 	{
 	public:
+		/*
+		 * コンストラクタ
+		 * \param stackSize スレッドで確保するスタックのサイズ(0にすると、呼び出し側スレッドと同じサイズになる。)
+		 * \param name スレッドにつく名前
+		 * \param runnable スレッドで呼び出すrunメソッドのあるオブジェクト、Threadを派生させずに使う場合指定する。
+　		 */
 		Thread( int stackSize = 0 );
 		Thread( std::string name , int stackSize = 0 );
 		Thread( Runnable *runnable , int stackSize = 0 );
@@ -59,6 +65,11 @@ namespace zefiro_thread {
 		 */
 		int getThreadID() const;
 		/**
+		 * スレッドの名前を返す。
+		 * \return スレッドの名前。この名前はユーザがコンストラクタで指定した名前となる。
+		 */
+		std::string getName() const;
+		/**
 		 * スレッドの優先度を返す。
 		 * \return スレッドの優先度
 		 */
@@ -82,6 +93,7 @@ namespace zefiro_thread {
 		 * \return スレッド内で、exit()したときの引数exitCodeとなる。
 		 */
 		int join();
+		int join( int millisecond );
 		/**
 		 * スレッドのタイムスライスを譲る。
 		 */
@@ -120,6 +132,14 @@ namespace zefiro_thread {
 
 	protected:
 		/**
+		 * スレッドをコンストラクトする。
+		 */
+		void create( int stackSize );
+		/**
+		 * スレッドをJoinする。
+		 */
+		int doJoin( int millisecond ); 
+		/**
 		 * デストラクタ
 		 * スレッドはjoinされるかexitされるまでデストラクトされないので、protectedとする。
 		 * このようにすることで、必ずThreadはnewでメモリ確保しなければならなくなる。
@@ -142,6 +162,7 @@ namespace zefiro_thread {
 		 * \param thread 削除するスレッド
 		 */
 		static void removeThread( Thread *thread );
+
 		HANDLE	thread_;
 		unsigned int	threadID_;
 		Runnable *runnable_;
@@ -149,6 +170,7 @@ namespace zefiro_thread {
 		Mutex	*threadMutex_;
 		bool	start_;
 		bool	joinable_;
+		std::string	name_;
 		static Mutex threadsMutex__;
 		static std::vector<Thread *>	threads__;
 	};
