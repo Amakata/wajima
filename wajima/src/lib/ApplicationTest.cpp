@@ -12,6 +12,7 @@
 #include <cppunit/TextTestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/TextOutputter.h>
+#include <stdlib.h>
 
 HWND hWnd__ = 0;
 
@@ -51,22 +52,23 @@ void ApplicationTest::testGetAdapterDeviceInfo(){
 void ApplicationTest::demoDirectX(){
 	zefiro_graphics::D3DTexture *texBlue,*texRed,*texGreen,*texBox;
 	zefiro_graphics::D3D8 *d3d8 = new zefiro_graphics::D3D8();
-	zefiro_graphics::D3DDevice *device = d3d8->createDevice( 0 , zefiro_graphics::Mode(800,600,0,D3DFMT_X8R8G8B8) , true ,  false , hWnd_ );
+	zefiro_graphics::D3DDevice *device = d3d8->createDevice( 0 , zefiro_graphics::Mode(800,600,0,D3DFMT_X8R8G8B8) ,false,  false , hWnd_ );
 	texRed = device->loadTexture( Config::config__->getString("graphics_texture_filename_red") );
 	texGreen = device->loadTexture( Config::config__->getString("graphics_texture_filename_green") );
 	texBlue= device->loadTexture( Config::config__->getString("graphics_texture_filename_blue") );
 	texBox = device->loadTexture( Config::config__->getString("graphics_texture_filename_box") );
 
-	device->clear();
-	device->renderBegin();
-	device->render( texRed , 200.0f , 200.0f , 0.3f);
-	device->render( texGreen , 250.0f , 250.0f , 0.4f);
-	device->render( texBlue , 290.0f , 290.0f , 0.1f);
-	device->render( texBox , 300.0f , 300.0f , 0.9f);
-	device->renderEnd();
-	Sleep( 4000 );
-
-
+	for( int i=0 ; i<100 ; ++i ){
+		device->clear();
+		device->renderBegin();
+		for( int i=0 ; i<1000 ; ++i ){
+			device->render( texRed , (float)rand()/(float)RAND_MAX *700  , (float)rand()/(float)RAND_MAX *700 , i/1000.0f );
+			device->render( texGreen , (float)rand()/(float)RAND_MAX *700 , (float)rand()/(float)RAND_MAX *700 , i/1000.0f);
+			device->render( texBlue , (float)rand()/(float)RAND_MAX *700, (float)rand()/(float)RAND_MAX *700 , i/1000.0f);
+			device->render( texBox , (float)rand()/(float)RAND_MAX *700 , (float)rand()/(float)RAND_MAX *700 , i/1000.0f);
+		}
+		device->renderEnd();
+	}
 	delete texRed;
 	delete texBlue;
 	delete texGreen;
