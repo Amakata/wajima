@@ -1,2 +1,3 @@
 data.waf
-c:\boost\bjam.exe
+c:/boost/bjam.exe
+c:/boost/index.HTM
