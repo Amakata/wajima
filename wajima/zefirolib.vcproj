@@ -252,6 +252,9 @@
 					RelativePath="src\lib\graphics\DepthFormat.h">
 				</File>
 				<File
+					RelativePath="src\lib\graphics\GraphicsDevice.cpp">
+				</File>
+				<File
 					RelativePath="src\lib\graphics\GraphicsDevice.h">
 				</File>
 				<File
