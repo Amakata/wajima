@@ -157,6 +157,9 @@
 				RelativePath="src\lib\graphics\sys\D3DDevice.cpp">
 			</File>
 			<File
+				RelativePath="src\lib\graphics\sys\D3DTexture.cpp">
+			</File>
+			<File
 				RelativePath=".\src\lib\graphics\sys\DXAssert.cpp">
 			</File>
 			<File
@@ -202,6 +205,9 @@
 			</File>
 			<File
 				RelativePath="include\lib\graphics\sys\D3DDevice.h">
+			</File>
+			<File
+				RelativePath="include\lib\graphics\sys\D3DTexture.h">
 			</File>
 			<File
 				RelativePath=".\include\lib\graphics\sys\DXAssert.h">

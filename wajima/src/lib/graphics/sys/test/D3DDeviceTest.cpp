@@ -19,6 +19,8 @@ class D3DDeviceTest : public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE(D3DDeviceTest);
 //CUPPA:suite=+
   CPPUNIT_TEST(testCreateTexture);
+  CPPUNIT_TEST(testRenderTexture);
+  CPPUNIT_TEST(testClear);
 //CUPPA:suite=-
   CPPUNIT_TEST_SUITE_END();
 private:
@@ -32,14 +34,39 @@ public:
 		d3d8_ = new D3D8();
 		device_ = d3d8_->createDevice(  Config::config__->getInteger("graphics_device_num") , getDefaultAdapterMode() , Config::config__->getBool("graphics_device_windowmode") , Config::config__->getBool("graphics_device_threaded") , hWnd__ );
 	}
-  virtual void tearDown() {
-	delete device_;
-	delete d3d8_;
-  }
+	virtual void tearDown() {
+		delete device_;
+		delete d3d8_;
+	}
 
 //CUPPA:decl=+
-  void testCreateTexture() {
-	  CPPUNIT_FAIL("no implementation");
+	void testCreateTexture() {
+		D3DTexture *texture;
+		texture = device_->loadTexture( Config::config__->getString("graphics_texture_filename") );
+		delete texture;
+	}
+	void testRenderTexture() {
+		D3DTexture *texBlue,*texRed,*texGreen,*texBox;
+		texRed = device_->loadTexture( Config::config__->getString("graphics_texture_filename_red") );
+		texGreen = device_->loadTexture( Config::config__->getString("graphics_texture_filename_green") );
+		texBlue= device_->loadTexture( Config::config__->getString("graphics_texture_filename_blue") );
+		texBox = device_->loadTexture( Config::config__->getString("graphics_texture_filename_box") );
+
+		device_->clear();
+		device_->renderBegin();
+		device_->render( texRed , 200.0f , 200.0f , 0.0f);
+		device_->render( texGreen , 250.0f , 250.0f , 0.2f);
+		device_->render( texBlue , 290.0f , 290.0f , 0.1f);
+		device_->render( texBox , 300.0f , 300.0f , 0.3f);
+		device_->renderEnd();
+		Sleep( 2000 );
+		delete texRed;
+		delete texBlue;
+		delete texGreen;
+		delete texBox;
+	}
+  void testClear() {
+		device_->clear();
   }
 //CUPPA:decl=-
   Mode getDefaultAdapterMode(){

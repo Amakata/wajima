@@ -42,7 +42,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="d3d8.lib dxerr8.lib zefirolibd.lib cppunitd.lib odbc32.lib odbccp32.lib"
+				AdditionalDependencies="d3d8.lib d3dx8.lib dxerr8.lib zefirolibd.lib cppunitd.lib odbc32.lib odbccp32.lib"
 				OutputFile=".\build/lib/test/debug/zefirolibtest.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
@@ -139,6 +139,9 @@
 		<Filter
 			Name="resource"
 			Filter="">
+			<File
+				RelativePath="zefirolibtest.ini">
+			</File>
 			<File
 				RelativePath=".\resource\lib\zefirolibtest.rc">
 				<FileConfiguration
