@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/sys/test/Attic/AdapterTest.h,v 1.2 2002/04/28 13:31:17 ama Exp $
+ */
+
 #ifndef __ADAPTERTEST_H__
 #define __ADAPTERTEST_H__
 

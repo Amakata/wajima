@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/test/Attic/UniqueNumberFactoryTest.h,v 1.3 2002/04/28 13:31:34 ama Exp $
+ */
+
 #ifndef __UNIQUENUMBERFACTORYTEST_H__
 #define __UNIQUENUMBERFACTORYTEST_H__
 

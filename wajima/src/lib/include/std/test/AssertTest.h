@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/test/Attic/AssertTest.h,v 1.5 2002/04/28 13:31:34 ama Exp $
+ */
+
 #ifndef __ASSERTTEST_H__
 #define __ASSERTTEST_H__
 

@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/test/Attic/SpriteFactoryTest.h,v 1.2 2002/04/28 13:31:22 ama Exp $
+ */
+
 #ifndef __SPRITEFACTORYTEST_H__
 #define __SPRITEFACTORYTEST_H__
 

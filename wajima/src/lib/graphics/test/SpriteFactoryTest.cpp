@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/test/Attic/SpriteFactoryTest.cpp,v 1.3 2002/04/28 13:33:01 ama Exp $
+ */
+
 #include <typeinfo.h>
 
 #include <graphics/test/SpriteFactoryTest.h>

@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/sys/Attic/Mode.h,v 1.2 2002/04/28 13:31:11 ama Exp $
+ */
+
 #ifndef __MODE_H__
 #define __MODE_H__
 

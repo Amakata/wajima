@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/UniqueNumberBadAlloc.h,v 1.3 2002/04/28 13:31:29 ama Exp $
+ */
+
 #ifndef __UNIQUENUMBERBADALLOC_H__
 #define __UNIQUENUMBERBADALLOC_H__
 

@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Win32ImageSpriteImp.cpp,v 1.3 2002/04/28 13:32:49 ama Exp $
+ */
+
 #include <graphics/sys/Win32ImageSpriteImp.h>
 
 namespace zefiro_graphics {

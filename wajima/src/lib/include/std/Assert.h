@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/Assert.h,v 1.7 2002/04/28 13:32:30 ama Exp $
+ */
+
 #ifndef ZEFIRO_STD_ASSERT_H
 #define ZEFIRO_STD_ASSERT_H
 

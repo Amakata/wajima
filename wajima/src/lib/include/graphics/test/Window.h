@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/test/Attic/Window.h,v 1.2 2002/04/28 13:31:22 ama Exp $
+ */
+
 #ifndef __WINDOW_H__
 #define __WINDOW_H__
 

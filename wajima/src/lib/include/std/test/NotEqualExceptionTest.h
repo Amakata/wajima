@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/test/Attic/NotEqualExceptionTest.h,v 1.2 2002/04/28 13:31:34 ama Exp $
+ */
+
 #ifndef __NOTEQUALEXCEPTIONTEST_H__
 #define __NOTEQUALEXCEPTIONTEST_H__
 

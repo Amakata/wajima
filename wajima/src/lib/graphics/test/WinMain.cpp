@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/test/Attic/WinMain.cpp,v 1.4 2002/04/28 13:33:01 ama Exp $
+ */
+
 #include <fstream>
 #include <windows.h>
 

@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/sys/Attic/Win32ImageSpriteImp.h,v 1.3 2002/04/28 13:31:11 ama Exp $
+ */
+
 #ifndef __WIN32IMAGESPRITEIMP_H__
 #define __WIN32IMAGESPRITEIMP_H__
 

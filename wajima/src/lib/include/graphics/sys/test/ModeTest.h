@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/sys/test/Attic/ModeTest.h,v 1.2 2002/04/28 13:31:17 ama Exp $
+ */
+
 #ifndef __MODETEST_H__
 #define __MODETEST_H__
 

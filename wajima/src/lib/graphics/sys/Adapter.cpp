@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/Adapter.cpp,v 1.2 2002/04/28 13:32:49 ama Exp $
+ */
+
 #include <sstream>
 
 #include <graphics/sys/Adapter.h>

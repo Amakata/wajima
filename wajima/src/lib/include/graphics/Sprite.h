@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/Attic/Sprite.h,v 1.3 2002/04/28 13:31:05 ama Exp $
+ */
+
 #ifndef __SPRITE_H__
 #define __SPRITE_H__
 #include <graphics/BaseSprite.h>

@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/Attic/BaseSpriteImp.h,v 1.3 2002/04/28 13:31:05 ama Exp $
+ */
+
 #ifndef __BASESPRITEIMP_H__
 #define __BASESPRITEIMP_H__
 namespace zefiro_graphics{

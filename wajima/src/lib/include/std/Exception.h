@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/std/Attic/Exception.h,v 1.3 2002/04/28 13:31:29 ama Exp $
+ */
+
 #ifndef ZEFIRO_STD_EXCEPTION_H
 #define ZEFIRO_STD_EXCEPTION_H
 

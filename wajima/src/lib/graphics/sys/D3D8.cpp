@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.6 2002/04/28 13:32:49 ama Exp $
+ */
+
 #include <graphics/sys/D3D8.h>
 #include <std/Assert.h>
 namespace zefiro_graphics {

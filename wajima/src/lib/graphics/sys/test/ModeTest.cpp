@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/test/Attic/ModeTest.cpp,v 1.2 2002/04/28 13:32:55 ama Exp $
+ */
+
 #include <sstream>
 
 #include <graphics/sys/test/ModeTest.h>

@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/include/graphics/sys/test/Attic/D3D8Test.h,v 1.6 2002/04/28 13:31:17 ama Exp $
+ */
+
 #ifndef __D3D8TEST_H__
 #define __D3D8TEST_H__
 

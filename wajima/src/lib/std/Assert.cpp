@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/Assert.cpp,v 1.5 2002/04/28 13:31:40 ama Exp $
+ */
+
 #include <cmath>
 
 
