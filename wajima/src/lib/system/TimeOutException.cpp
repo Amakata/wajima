@@ -1,5 +1,5 @@
 /**
- * $ Header: $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/TimeOutException.cpp,v 1.3 2002/05/25 16:01:10 ama Exp $
  */
 
 #include "system/TimeOutException.h"

@@ -1,8 +1,9 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/Thread.h,v 1.4 2002/05/25 15:56:33 ama Exp $
+ */
+
 #ifndef __THREAD_H__
 #define __THREAD_H__
-/**
- * $ Header: $
- */
 
 #include <windows.h>
 #include <string>

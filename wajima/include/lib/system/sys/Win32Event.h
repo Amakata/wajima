@@ -1,10 +1,14 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/sys/Attic/Win32Event.h,v 1.2 2002/05/25 15:58:29 ama Exp $
+ */
+
 #ifndef __WIN32EVENT_H__
 #define __WIN32EVENT_H__
 
 #include <windows.h>
 #include <string>
 
-namespace zefiro_thread {
+namespace zefiro_system {
 	class Win32Event{
 	public:
 		Win32Event( bool initState =false , bool manualReset = true , std::string name = "" );

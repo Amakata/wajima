@@ -1,9 +1,9 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/IllegalThreadStateException.h,v 1.3 2002/05/25 15:58:21 ama Exp $
+ */
+
 #ifndef __ILLEGALTHREADSTATEEXCEPTION_H__
 #define __ILLEGALTHREADSTATEEXCEPTION_H__
-
-/**
- * $ Header: $
- */
 
 #include "std/Exception.h"
 

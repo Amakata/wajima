@@ -1,8 +1,10 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/Runnable.h,v 1.3 2002/05/25 15:58:21 ama Exp $
+ */
+
 #ifndef __RUNNABLE_H__
 #define __RUNNABLE_H__
-/**
- * $ Header: $
- */
+
 namespace zefiro_system {
 	class Runnable
 	{

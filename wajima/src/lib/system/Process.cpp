@@ -1,5 +1,5 @@
 /**
- * $ Header: $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/system/Process.cpp,v 1.2 2002/05/25 16:01:10 ama Exp $
  */
 
 #include "system/Process.h"

@@ -1,9 +1,9 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/Process.h,v 1.2 2002/05/25 15:58:21 ama Exp $
+ */
+
 #ifndef __PROCESS_H__
 #define __PROCESS_H__
-
-/**
- * $ Header: $
- */
 
 #include <string>
 #include <windows.h>

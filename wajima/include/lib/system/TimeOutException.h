@@ -1,10 +1,9 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/system/Attic/TimeOutException.h,v 1.3 2002/05/25 15:58:25 ama Exp $
+ */
+
 #ifndef __TIMEOUTEXCEPTION_H__
 #define __TIMEOUTEXCEPTION_H__
-
-
-/**
- * $ Header: $
- */
 
 #include "std/Exception.h"
 

@@ -1,5 +1,5 @@
 /**
- * $ Header: $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/sys/Win32Exception.cpp,v 1.3 2002/05/25 16:01:03 ama Exp $
  */
 
 #include "std/sys/Win32Exception.h"
