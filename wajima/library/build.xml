@@ -58,10 +58,11 @@
 		<mkdir dir="${build.dir}\log4cxx-0.9.7\debug"/>
 		<mkdir dir="${build.dir}\log4cxx-0.9.7\release"/>
 		<!-- マルチスレッドデバッグ -->
-		<cl outputdir="${build.dir}\log4cxx-0.9.7\debug" options='${cl.debug.option} /D "LOG4CXX"'>
+		<cl outputdir="${build.dir}\log4cxx-0.9.7\debug" options='${cl.debug.option} /D "LOG4CXX" /D "LOG4CXX_STATIC" /D "_LIB"'>
 			<sources basedir="${build.dir}">
 				<includes name="log4cxx-0.9.7\src\*.cpp"/>
 				<includes name="log4cxx-0.9.7\msvc\static\*.cpp"/>
+				<excludes name="log4cxx-0.9.7\src\dll.cpp"/>
 			</sources>
 			<includedirs>
 				<includes name="${build.dir}\log4cxx-0.9.7\include"/>
@@ -73,10 +74,11 @@
 			</sources>
 		</lib>
 		<!-- マルチスレッド -->
-		<cl outputdir="${build.dir}\log4cxx-0.9.7\release" options='${cl.option} /D "LOG4CXX"'>
+		<cl outputdir="${build.dir}\log4cxx-0.9.7\release" options='${cl.option} /D "LOG4CXX" /D "LOG4CXX_STATIC" /D "_LIB"'>
 			<sources basedir="${build.dir}">
 				<includes name="log4cxx-0.9.7\src\*.cpp"/>
 				<includes name="log4cxx-0.9.7\msvc\static\*.cpp"/>
+				<excludes name="log4cxx-0.9.7\src\dll.cpp"/>
 			</sources>
 			<includedirs>
 				<includes name="${build.dir}\log4cxx-0.9.7\include"/>
