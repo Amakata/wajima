@@ -9,9 +9,13 @@ namespace zefiro_graphics {
 			_pD3D->Release();
 		}
 	}
-	int D3D8::getModeSize() const{
+	int D3D8::getAdapterCount() const{
 		ZEFIRO_STD_ASSERT( isAvailable() );
 		return _pD3D->GetAdapterCount();
+	}
+	int D3D8::getAdapterModeCount( const int adapter ) const{
+		ZEFIRO_STD_ASSERT( isAvailable() );
+		return _pD3D->GetAdapterModeCount( adapter );
 	}
 	bool D3D8::isAvailable() const{
 		return _pD3D != NULL;

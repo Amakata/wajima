@@ -9,8 +9,11 @@ namespace zefiro_graphicstest{
 	void D3D8Test::tearDown(){
 		delete _d3d8;
 	}
-	void D3D8Test::testModeCount(){
-		CPPUNIT_ASSERT( 0 < _d3d8->getModeSize() );
+	void D3D8Test::testAdapterCount(){
+		CPPUNIT_ASSERT( 0 < _d3d8->getAdapterCount() );
+	}
+	void D3D8Test::testAdapterModeCount(){
+		CPPUNIT_ASSERT( 0 < _d3d8->getAdapterModeCount( D3DADAPTER_DEFAULT ) );
 	}
 	void D3D8Test::testIsAvailable(){
 		CPPUNIT_ASSERT_EQUAL( true , _d3d8->isAvailable() );

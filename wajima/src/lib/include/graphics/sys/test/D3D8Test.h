@@ -11,13 +11,15 @@
 namespace zefiro_graphicstest{
 	class D3D8Test : public CppUnit::TestCase {
 		CPPUNIT_TEST_SUITE( D3D8Test );
-		CPPUNIT_TEST( testModeCount );
+		CPPUNIT_TEST( testAdapterCount );
+		CPPUNIT_TEST( testAdapterModeCount );
 		CPPUNIT_TEST( testIsAvailable );
 		CPPUNIT_TEST_SUITE_END();
 	public:
 		void setUp();
 		void tearDown();
-		void testModeCount();
+		void testAdapterCount();
+		void testAdapterModeCount();
 		void testIsAvailable();
 	protected:
 		zefiro_graphics::D3D8 *_d3d8;
