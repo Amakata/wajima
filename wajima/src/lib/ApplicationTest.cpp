@@ -13,7 +13,7 @@
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/TextOutputter.h>
 #include <stdlib.h>
-
+#include <mmsystem.h>
 HWND hWnd__ = 0;
 
 ApplicationTest::ApplicationTest( HWND hWnd ):hWnd_(hWnd){
@@ -64,6 +64,7 @@ void ApplicationTest::demoDirectX(){
 													Config::config__->getBool("graphics_device_threaded"),
 													hWnd_ 
 												);
+	zefiro_graphics::D3DFont *font = device->createFont( 16 , 32 , "ＭＳ Ｐゴシック" );
 	
 	tex[0] = device->loadTexture( Config::config__->getString("graphics_texture_filename_red") );
 	tex[1] = device->loadTexture( Config::config__->getString("graphics_texture_filename_green") );
@@ -75,19 +76,33 @@ void ApplicationTest::demoDirectX(){
 	int maxI = Config::config__->getInteger("graphics_texture_render_number_i");
 	int maxJ = Config::config__->getInteger("graphics_texture_render_number_j");
 
+	DWORD now = 0 , old = 0;        // 時間計測に使う
+	INT FrameCount = 0;        // フレーム・カウンタ
+
 	for( int i=0 ; i<maxI ; ++i ){
+		std::ostringstream oss;
 		device->clear();
 		device->renderBegin();
 		for( int j=0 ; j<maxJ ; ++j ){
 			for( int k=0 ; k<4 ; ++k ){
-				device->render( tex[k] , (float)rand()/(float)RAND_MAX *(width-tex[k]->getWidth())  , (float)rand()/(float)RAND_MAX *(height-tex[k]->getHeight()) , (1000.0f-j)/maxI );
+//				device->render( tex[k] , (float)rand()/(float)RAND_MAX *(width-tex[k]->getWidth())  , (float)rand()/(float)RAND_MAX *(height-tex[k]->getHeight()) , j/1000.0f );
+				device->render( tex[0] , 0.0f , 0.0f , (float)(maxJ-j)/maxJ );
 			}
 		}
+		if(FrameCount <= 0){
+			old = now;
+			now = timeGetTime();
+			FrameCount = 10;
+		}
+		FrameCount--;
+		oss << 10.0f / (now - old) * 1000;
+		font->draw(oss.str(),0,0,100,32,0xFF0000FF);
 		device->renderEnd();
 	}
 	for( int k=0 ; k<4 ; ++k ){
 		delete tex[k];
 	}
+	delete font;
 	delete device;
 	delete d3d8;
 }
