@@ -230,6 +230,15 @@
 			<Filter
 				Name="graphics"
 				Filter="">
+				<File
+					RelativePath="src\lib\graphics\GraphicsDevice.h">
+				</File>
+				<File
+					RelativePath="src\lib\graphics\GraphicsManager.cpp">
+				</File>
+				<File
+					RelativePath="src\lib\graphics\GraphicsManager.h">
+				</File>
 				<Filter
 					Name="sys"
 					Filter="">

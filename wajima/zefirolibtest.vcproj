@@ -166,6 +166,9 @@
 			<Filter
 				Name="graphics"
 				Filter="">
+				<File
+					RelativePath="test\lib\graphics\GraphicsManagerTest.cpp">
+				</File>
 				<Filter
 					Name="sys"
 					Filter="">
