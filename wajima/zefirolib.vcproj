@@ -32,6 +32,7 @@
 				AssemblerListingLocation=".\build/zefirolib/debug/"
 				ObjectFile=".\build/zefirolib/debug/"
 				ProgramDataBaseFileName=".\build/zefirolib/debug/"
+				BrowseInformation="1"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="4"
