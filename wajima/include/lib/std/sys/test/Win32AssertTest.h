@@ -1,7 +1,7 @@
 #ifndef __WIN32ASSERTTEST_H__
 #define __WIN32ASSERTTEST_H__
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/std/sys/test/Attic/Win32AssertTest.h,v 1.1 2002/05/10 19:30:58 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/std/sys/test/Attic/Win32AssertTest.h,v 1.2 2002/05/20 18:37:24 ama Exp $
  */
 #include <cppunit/TestCaller.h>
 #include <cppunit/TestCase.h>
@@ -15,11 +15,13 @@ namespace zefiro_stdtest {
 	{
 		CPPUNIT_TEST_SUITE( Win32AssertTest );
 		CPPUNIT_TEST_EXCEPTION( testWin32Assert, zefiro_std::Win32Exception );
-		CPPUNIT_TEST_SUITE_END();		
+		CPPUNIT_TEST( testErrorSuccess );
+		CPPUNIT_TEST_SUITE_END();
 	public:
 		void setUp();
 		void tearDown();
 		void testWin32Assert();
+		void testErrorSuccess();
 	protected:
 	};
 };
