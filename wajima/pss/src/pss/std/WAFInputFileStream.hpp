@@ -27,9 +27,17 @@ namespace pss {
 			typedef typename traits_type::pos_type pos_type;
 			typedef typename ::std::ios_base ios_base;
 			/**
-			 * コンストラクタ
+			 * デフォルトコンストラクタ
 			 */
 			basic_waf_filebuf() : file_(NULL) {
+			}
+			/**
+			 * コンストラクタ
+			 * @param _Filepath ファイルパス
+			 * @param _Which オープンモード
+			 */
+			basic_waf_filebuf(::boost::filesystem::path _Filepath,  ios_base::openmode _Which = ios_base::in) : file_(NULL) {
+				open(_Filepath, _Which);
 			}
 			/**
 			 * ファイルクローズ
@@ -219,15 +227,18 @@ namespace pss {
 
 				DWORD result = 0;
 				if (_Way == ios_base::beg) {
-					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(begin_ + (::std::streamoff) (sizeof(char_type) * _Off)));
+					LOG4CXX_DEBUG(log, "offset + begin = " + ::boost::lexical_cast<::std::string>(begin_ + (::std::streamoff) (sizeof(char_type) * _Off)));
+					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>((::std::streamoff) (sizeof(char_type) * _Off)));
 					result = ::SetFilePointer(file_, begin_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
 					bufferPos_ = result - begin_;
 				} else if (_Way == ios_base::cur) {
-					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(begin_ + bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off)));
+					LOG4CXX_DEBUG(log, "offset + begin = " + ::boost::lexical_cast<::std::string>(begin_ + bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off)));
+					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off)));
 					result = ::SetFilePointer(file_, begin_ + bufferPos_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
 					bufferPos_ = result - begin_;
 				} else {
-					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(end_ + (::std::streamoff) (sizeof(char_type) * _Off)));
+					LOG4CXX_DEBUG(log, "offset + begin = " + ::boost::lexical_cast<::std::string>(end_ + (::std::streamoff) (sizeof(char_type) * _Off)));
+					LOG4CXX_DEBUG(log, "offset = " + ::boost::lexical_cast<::std::string>(end_ - begin_ + (::std::streamoff) (sizeof(char_type) * _Off)));
 					result = ::SetFilePointer(file_, end_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, FILE_BEGIN);
 					bufferPos_ = result - begin_;
 				}
@@ -431,30 +442,63 @@ namespace pss {
 		template <class Elem, class Tr = ::std::char_traits<Elem> >
 		class basic_waf_ifstream : public ::std::basic_istream<Elem, Tr> {
 		public:
+			typedef typename ::std::ios_base ios_base;
+
 			/**
 			 * デフォルトコンストラクタ
 			 */
-			basic_waf_ifstream();
+			basic_waf_ifstream() : ::std::basic_istream<Elem, Tr>(new ::pss::std::basic_waf_filebuf<Elem, Tr>()){
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_ifstream");
+				LOG4CXX_DEBUG(log, "basic_waf_ifstream begin.");
+				LOG4CXX_DEBUG(log, "basic_waf_ifstream end.");
+			}
 			/**
 			 * コンストラクタ
 			 */
-			explicit basic_waf_ifstream(const char *_Filename,::std::ios_base::openmode _Mode = ::std::ios_base::in);
+			explicit basic_waf_ifstream(::boost::filesystem::path _Filename, ::std::ios_base::openmode _Mode = ios_base::in) : ::std::basic_istream<Elem, Tr>(new ::pss::std::basic_waf_filebuf<Elem, Tr>(_Filepath, _Which)) {
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_ifstream");
+				LOG4CXX_DEBUG(log, "basic_waf_ifstream begin.");
+				LOG4CXX_DEBUG(log, "basic_waf_ifstream end.");
+			}
+			/**
+			 * デストラクタ
+			 */
+			virtual ~basic_waf_ifstream() {
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_ifstream");
+				LOG4CXX_DEBUG(log, "~basic_waf_ifstream begin.");
+				delete rdbuf();
+				LOG4CXX_DEBUG(log, "~basic_waf_ifstream end.");
+			}
 			/**
 			 * ファイルクローズ
 			 */
-			void close();
+			void close() {
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_ifstream");
+				LOG4CXX_DEBUG(log, "close begin.");
+				((::pss::std::basic_waf_filebuf<Elem, Tr>*) rdbuf())->close();
+				LOG4CXX_DEBUG(log, "close end.");
+			}
 			/**
 			 * ファイルオープン中か
+			 * @retval true オープン
+			 * @retval false 非オープン
 			 */
-			bool is_open();
-			basic_waf_filebuf<Elem, Tr> *open(const char *_Filename,::std::ios_base::openmode _Mode) {
-				basic_waf_filebuf<Elem, Tr> *result = rdbuf()->open(_Filename, _Mode);
+			bool is_open() {
+				return rdbuf()->is_open();
+			}
+			/**
+			 * ファイルオープン
+			 */
+			::pss::std::basic_waf_filebuf<Elem, Tr>* open(::boost::filesystem::path _Filename, ::std::ios_base::openmode _Mode = ios_base::in) {
+				LOG4CXX_LOGGER_PTR log = LOG4CXX_LOGGER("basic_waf_ifstream");
+				LOG4CXX_DEBUG(log, "open begin.");
+				::pss::std::basic_waf_filebuf<Elem, Tr>* result = ((::pss::std::basic_waf_filebuf<Elem, Tr>*) rdbuf())->open(_Filename, _Mode);
 				if (result == NULL) {
 					setstate(::std::ios::failbit);
 				}
+				LOG4CXX_DEBUG(log, "close end.");
 				return result;
 			}
-			basic_waf_filebuf<Elem, Tr> *rdbuf() const;
 		};
 	}
 }
