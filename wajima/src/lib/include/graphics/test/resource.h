@@ -1,2 +1,3 @@
 #define IDM_EXIT	100
 #define IDM_TEST	200
+#define IDM_ADAPTER_DEVICE_OUTPUT	300
