@@ -168,9 +168,6 @@
 				RelativePath=".\src\lib\graphics\sys\test\D3D8Test.cpp">
 			</File>
 			<File
-				RelativePath=".\include\lib\graphics\sys\test\D3D8Test.h">
-			</File>
-			<File
 				RelativePath="src\lib\graphics\sys\test\D3DDeviceTest.cpp">
 			</File>
 			<File
