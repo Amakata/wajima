@@ -20,6 +20,7 @@ namespace pss {
 			typedef typename traits_type::int_type int_type;
 			typedef typename traits_type::off_type off_type;
 			typedef typename traits_type::pos_type pos_type;
+			typedef typename ::std::ios_base ios_base;
 			/**
 			 * コンストラクタ
 			 */
@@ -62,6 +63,7 @@ namespace pss {
 					// モード：ノーマル
 					mode_ = NORMAL;
 					buffer_.resize(1024 * 4);
+					setg(&buffer_[0], &buffer_[0], &buffer_[1024 * 4]);
 					begin_ = 0;
 					end_ = ::GetFileSize(file_, NULL);
 					return this;
@@ -117,6 +119,7 @@ namespace pss {
 							}
 						}
 						buffer_.resize(1024 * 4);
+						setg(&buffer_[0], &buffer_[0], &buffer_[1024 * 4]);
 						return this;
 					} else {
 
@@ -133,12 +136,36 @@ namespace pss {
 			/**
 			 * 読み込み位置を移動する。
 			 */
-			virtual pos_type seekoff(off_type _Off, ::std::ios_base::seek_dir _Way, ::std::ios_base::open_mode _Which = ::std::ios_base::in);
+			virtual pos_type seekoff(off_type _Off, ios_base::seekdir _Way, ios_base::openmode _Which = ios_base::in) {
+				if (_Which == ios_base::in) {
+					return pos_type(-1);
+				}
+				DWORD method;
+				if (_Way == ios_base::beg) {
+					method = FILE_BEGIN;
+				} else if (_Way == ios_base::cur) {
+					method = FILE_CURRENT;
+				} else {
+					method = FILE_END;
+				}
+				DWORD result = ::SetFilePointer(file_, begin_ + (::std::streamoff) (sizeof(char_type) * _Off), NULL, method);
+				if (result == INVALID_SET_FILE_POINTER) {
+					if (NO_ERROR == ::GetLastError()) {
+						return pos_type(-1);
+					}
+				}
+				return result;
+
+
+			}
 			/**
 			 * 読み込み位置を移動する
 			 */
-			virtual pos_type seekpos( pos_type _Sp, ::std::ios_base::open_mode _Which = ::std::ios_base::in) {
-				DWORD result = ::SetFilePointer(file_, begin_ + sizeof(pos_type) * _Sp, NULL, FILE_BEGIN);
+			virtual pos_type seekpos( pos_type _Sp, ios_base::openmode _Which = ios_base::in) {
+				if (_Which == ios_base::in) {
+					return pos_type(-1);
+				}
+				DWORD result = ::SetFilePointer(file_, begin_ + (::std::streamoff) (sizeof(char_type) * _Sp), NULL, FILE_BEGIN);
 				if (result == INVALID_SET_FILE_POINTER) {
 					if (NO_ERROR == ::GetLastError()) {
 						return pos_type(-1);
