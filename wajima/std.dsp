@@ -97,6 +97,10 @@ SOURCE=.\src\lib\std\NotEqualException.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\std\UniqueNumberBadAlloc.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\std\UniqueNumberFactory.cpp
 # End Source File
 # End Group

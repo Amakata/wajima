@@ -116,6 +116,10 @@ SOURCE=.\src\lib\std\test\stdtest.rc
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\std\UniqueNumberBadAlloc.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\std\test\UniqueNumberFactoryTest.cpp
 # End Source File
 # Begin Source File

@@ -1,6 +1,6 @@
 #include <limits>
 #include <std/test/UniqueNumberFactoryTest.h>
-#include <std/unique_number_bad_alloc.h>
+#include <std/UniqueNumberBadAlloc.h>
 #include <cppunit/extensions/Failure.h>
 #include <cppunit/StreamFactory.h>
 
@@ -30,7 +30,7 @@ namespace zefiro_stdtest{
 		try{
 			_uniqueNumberFactoryUpperBound->createNumber();
 			failure("");
-		}catch( zefiro_std::unique_number_bad_alloc &unba ){
+		}catch( zefiro_std::UniqueNumberBadAlloc &unba ){
 		}
 	}
 };
