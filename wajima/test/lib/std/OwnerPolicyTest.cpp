@@ -4,7 +4,6 @@
 #include <SmartPtr.h>
 #include <std/OwnershipPolicy.h>
 #include <std/CheckingPolicy.h>
-#include <std/StoragePolicy.h>
 //CUPPA:include=-
 
 class OwnerPolicyTest : public CppUnit::TestFixture {
