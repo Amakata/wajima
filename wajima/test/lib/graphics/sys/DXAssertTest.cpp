@@ -1,3 +1,7 @@
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/test/lib/graphics/sys/DXAssertTest.cpp,v 1.2 2002/11/13 18:26:37 ama Exp $
+ */
+
 //CUPPA:include=+
 #include "graphics/sys/DXAssert.h"
 #include "graphics/sys/DXException.h"
