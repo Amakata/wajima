@@ -121,7 +121,7 @@ SOURCE=.\src\lib\include\std\NotEqualException.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\lib\include\std\unique_number_bad_alloc.h
+SOURCE=.\src\lib\include\std\UniqueNumberBadAlloc.h
 # End Source File
 # Begin Source File
 

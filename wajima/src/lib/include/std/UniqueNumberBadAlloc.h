@@ -13,14 +13,11 @@ namespace zefiro_std {
 	{
 	public:
 
-		UniqueNumberBadAlloc(const std::string& what_arg="A unique number is not assigned."){
-			_what_arg = what_arg;
-		}
-		virtual const char *what() const throw(){
-			return _what_arg.c_str();
-		}
-	protected:
-		std::string _what_arg;
+		UniqueNumberBadAlloc( std::string message="A unique number is not assigned." , long lineNumber =  UNKNOWNLINENUMBER , std::string fileName = UNKNOWNFILENAME );
+		virtual Exception *clone() const;
+		UniqueNumberBadAlloc & operator= (const UniqueNumberBadAlloc& other );
+		virtual bool isInstanceOf( const Exception::Type &type ) const;
+		static Exception::Type getType();		
 	};
 };
 
