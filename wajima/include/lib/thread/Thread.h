@@ -11,6 +11,7 @@
 #include "thread/Runnable.h"
 #include "thread/Mutex.h"
 #include "thread/IllegalThreadStateException.h"
+#include "thread/TimeOutException.h"
 #include "std/sys/Win32Assert.h"
 
 namespace zefiro_thread {
@@ -60,6 +61,19 @@ namespace zefiro_thread {
 		 */
 		void setJoinable( bool joinable );
 		/**
+		 * Runnableオブジェクトの所有権の取得
+		 * Joinableでないときに、Runnableを削除するか？
+		 */
+		bool canRemoveRunnable() const;
+		/**
+		 * Runnableオブジェクトの所有権の設定
+		 * setJoinableがfalseの時にcanRemoveRunnableがtrueだと、Thread::exit()したときに、
+		 * Threadの所有するRunnableをデストラクトする。
+		 * それ以外の時にはRunnableはThreadによってデストラクトされない。
+		 * \param canRemoveRunnable JoinableでないときにRunnableをデストラクトする。
+		 */
+		void setCanRemoveRunnable( bool canRemoveRunnable );
+		/**
 		 * スレッドIDを返す。
 		 * \return スレッドID
 		 */
@@ -79,6 +93,7 @@ namespace zefiro_thread {
 		 * \param priority スレッドの優先度
 		 */
 		void setPriority( int priority );
+
 		/**
 		 * スレッドを開始する。
 		 * 一度、開始したスレッドを再び開始することはできない。もし再びstartが呼ばれたら、
@@ -90,7 +105,9 @@ namespace zefiro_thread {
 		 * スレッドの結合。
 		 * スレッドが終了するまで待機する。
 		 * スレッドがJoin可能でない場合の動作は不定である。
+		 * \param millisecond 最大でmillisecondだけ待機する。
 		 * \return スレッド内で、exit()したときの引数exitCodeとなる。
+		 * \throw TimeOutException スレッドがmillisecondだけ待機してタイムアウトになったときに発生する。
 		 */
 		int join();
 		int join( int millisecond );
@@ -168,8 +185,9 @@ namespace zefiro_thread {
 		Runnable *runnable_;
 		DWORD	constructError_;
 		Mutex	*threadMutex_;
-		bool	start_;
+		bool	hasStarted_;
 		bool	joinable_;
+		bool	canRemoveRunnable_;
 		std::string	name_;
 		static Mutex threadsMutex__;
 		static std::vector<Thread *>	threads__;
