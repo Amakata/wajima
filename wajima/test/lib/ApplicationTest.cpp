@@ -1,4 +1,6 @@
-
+/**
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/test/lib/ApplicationTest.cpp,v 1.3 2002/11/13 18:23:43 ama Exp $
+ */
 
 #include "ApplicationTest.h"
 
@@ -18,6 +20,7 @@ HWND hWnd__ = 0;
 
 ApplicationTest::ApplicationTest( HWND hWnd ):hWnd_(hWnd){
 	hWnd__ = hWnd;
+	Config::setHWND( hWnd );
 	Config::config__ = new Config("zefirolibtest.ini");
 	ostr_.open(Config::config__->getCStr("logfile") );
 	zefiro_std::Logger::setOutputter( &ostr_ );
