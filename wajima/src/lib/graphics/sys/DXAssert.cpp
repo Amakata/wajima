@@ -21,9 +21,9 @@ namespace zefiro_graphics {
 				switch( hr ){
 				case D3DERR_INVALIDCALL:
 					throw zefiro_graphics::DXInvalidArgument( hr , sourceLine , errStr + "." + message );
+					break;
 				default:
-
-					throw zefiro_graphics::DXException( hr , sourceLine ,"予期しないエラーです." + errStr ); 
+					throw zefiro_graphics::DXException( hr , sourceLine , "予期しないエラーです." + errStr + "." + message ); 
 					break;
 				}
 				break;
