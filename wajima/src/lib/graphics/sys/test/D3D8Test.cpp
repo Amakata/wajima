@@ -6,14 +6,9 @@
 //CUPPA:include=-
 #include <cppunit/extensions/HelperMacros.h>
 #include <cppunit/TestAssert.h>
+#include "Config.h"
 
-#define DEVICENUMBER 0
-#define HEIGHT 600
-#define WIDTH 800
-#define REFRESHRATE	0
 #define	FORMAT	D3DFMT_X8R8G8B8
-#define WINDOWMODE false
-#define THREADED true
 
 
 extern HWND hWnd__;
@@ -60,7 +55,7 @@ public:
   }
   void testCreateDevice() {
 	try{
-		D3DDevice *d3ddevice =  d3d8_->createDevice(  DEVICENUMBER , getDefaultAdapterMode() , WINDOWMODE , THREADED , hWnd__ ); 
+		D3DDevice *d3ddevice =  d3d8_->createDevice(  Config::config__->getInteger("graphics_device_num") , getDefaultAdapterMode() ,  Config::config__->getBool("graphics_device_windowmode") , Config::config__->getBool("graphics_device_threaded") , hWnd__ ); 
 		delete d3ddevice;
 	}catch( zefiro_graphics::DXException &dxe ){
 		std::stringstream message;
@@ -71,10 +66,10 @@ public:
 //CUPPA:decl=-
   Mode getDefaultAdapterMode(){
 	std::vector<zefiro_graphics::Adapter> adapters = d3d8_->getAdapterVector();
-	std::vector<zefiro_graphics::Mode> modes = adapters[0].getModeVector();
+	std::vector<zefiro_graphics::Mode> modes = adapters[Config::config__->getInteger("graphics_device_num")].getModeVector();
 	std::vector<Mode>::iterator end = modes.end();
 	for( std::vector<Mode>::iterator current = modes.begin() ; current != end ; ++current ){
-		if( current->getWidth() == WIDTH && current->getHeight() == HEIGHT && current->getFormat() == FORMAT ){
+		if( current->getWidth() ==  Config::config__->getInteger("graphics_device_width") && current->getHeight() == Config::config__->getInteger("graphics_device_height")&& current->getFormat() == FORMAT ){
 			return *current;
 		}
 	}

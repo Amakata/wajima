@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.14 2002/08/25 10:52:22 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.15 2002/08/30 09:23:23 ama Exp $
  */
 
 #include <fstream>
@@ -129,28 +129,28 @@ class ZefirolibTestApp
 public:
 	ZefirolibTestApp( HWND hWnd ):hWnd_(hWnd){
 		hWnd__ = hWnd;
-		config_ = new Config("zefirolibtest.ini");
-		ostr_.open(config_->getCStr("logfile") );
+		Config::config__ = new Config("zefirolibtest.ini");
+		ostr_.open(Config::config__->getCStr("logfile") );
 		zefiro_std::Logger::setOutputter( &ostr_ );
 	}
 	virtual ~ZefirolibTestApp(){
-		delete config_;
+		delete Config::config__;
 		ostr_.close();
 		zefiro_std::Logger::resetOutputter();
 	}
 	void testUnit(){
         std::ofstream ofs;
-        ofs.open( config_->getCStr("unittestfile") );
+		ofs.open( Config::config__->getCStr("unittestfile") );
         CppUnit::TextUi::TestRunner runner;        
         runner.addTest( CppUnit::TestFactoryRegistry::getRegistry().makeTest() );
         runner.setOutputter( new CppUnit::TextOutputter(&runner.result(),ofs ) );
         runner.run( "" , true );
         ofs.close();
-		exec( config_->getString("editor") + " " + config_->getString("unittestfile") );
+		exec( Config::config__->getString("editor") + " " + Config::config__->getString("unittestfile") );
 	}
 	void testGetAdapterDeviceInfo(){
         std::ofstream        ofs;
-        ofs.open( config_->getCStr("devicefile") );
+        ofs.open( Config::config__->getCStr("devicefile") );
         zefiro_graphics::D3D8 *d3d8 = new zefiro_graphics::D3D8();
         std::vector<zefiro_graphics::Adapter> adapters = d3d8->getAdapterVector();
         for( std::vector<zefiro_graphics::Adapter>::iterator adapter = adapters.begin() ; adapter < adapters.end(); ++adapter ){
@@ -158,12 +158,12 @@ public:
         }
         delete d3d8;
         ofs.close();
-		exec( config_->getString("editor") + " " + config_->getString("devicefile") );
+		exec( Config::config__->getString("editor") + " " + Config::config__->getString("devicefile") );
 	}
 	void testThread(){
 		ThreadTest::create( hWnd_ );
 		ThreadTest::start();
-		exec(config_->getString("editor") + " " + config_->getString("logfile") );
+		exec(Config::config__->getString("editor") + " " + Config::config__->getString("logfile") );
 	}
 	void testThreadNotify(){
 		ThreadTest::notify();
@@ -180,7 +180,6 @@ protected:
 		delete process;
 	}
 	std::ofstream ostr_;
-	Config *config_;
  	HWND hWnd_;
 };
 

@@ -206,6 +206,9 @@
 			Name="main"
 			Filter="">
 			<File
+				RelativePath="src\lib\Config.cpp">
+			</File>
+			<File
 				RelativePath="include\lib\Config.h">
 			</File>
 			<File
