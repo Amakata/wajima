@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/Game.cpp,v 1.6 2002/04/28 17:34:16 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/Game.cpp,v 1.7 2002/04/28 17:43:00 ama Exp $
  */
 
 #include <std/Assert.h>
@@ -33,6 +33,7 @@ namespace zefiro_game {
 		for( std::vector<Player*>::iterator players = _players.begin() ; players < _players.end() ; ++players ){
 			if( *players == player ){
 				_players.erase( players );
+				return;
 			}
 		}
 	}

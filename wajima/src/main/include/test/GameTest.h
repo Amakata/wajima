@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/include/test/Attic/GameTest.h,v 1.6 2002/04/28 14:52:15 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/include/test/Attic/GameTest.h,v 1.7 2002/04/28 17:42:51 ama Exp $
  */
 
 #ifndef __GAMETEST_H__
@@ -19,6 +19,8 @@ namespace zefiro_gametest{
 		CPPUNIT_TEST( testGetPhaseNumber );
 		CPPUNIT_TEST( testGetTurnNumber );
 		CPPUNIT_TEST( testIteratePhase );
+		CPPUNIT_TEST( testAddPlayer );
+		CPPUNIT_TEST( testDeletePlayer );
 		CPPUNIT_TEST_SUITE_END();
 	public:
 		void setUp();
@@ -27,8 +29,12 @@ namespace zefiro_gametest{
 		void testGetPhaseNumber();
 		void testGetTurnNumber();
 		void testIteratePhase();
+		void testAddPlayer();
+		void testDeletePlayer();
 	protected:
 		zefiro_game::Game *_game;
+		zefiro_game::Player *_player1;
+		zefiro_game::Player *_player2;
 	};
 };
 

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/include/Attic/Game.h,v 1.5 2002/04/28 17:34:10 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/include/Attic/Game.h,v 1.6 2002/04/28 17:43:04 ama Exp $
  */
 
 #ifndef __GAME_H__
@@ -48,6 +48,7 @@ namespace zefiro_game {
 		/**
 		 * ゲームに参加しているプレーヤを削除する。
 		 * ただし、削除するのはポインタのみで、実体は削除しない。
+		 * また、同じポインタを複数登録していても、削除するのははじめの一つだけである。
 		 * \param player 削除するプレーヤ
 		 */
 		void deletePlayer( Player *player );
