@@ -1,9 +1,9 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.13 2002/09/19 02:19:02 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.14 2002/09/19 10:58:23 ama Exp $
  */
 
 #include "std/Assert.h"
-
+#include "std/Logger.h"
 #include "graphics/sys/D3D8.h"
 #include "graphics/sys/DXAssert.h"
 
@@ -77,8 +77,8 @@ namespace zefiro_graphics {
 				HWND_TOP ,
 				0 ,
 				0 ,
-				mode.getWidth() + GetSystemMetrics(SM_CYSIZEFRAME) ,
-				mode.getHeight() + GetSystemMetrics(SM_CYCAPTION) + GetSystemMetrics(SM_CYSIZEFRAME) ,
+				mode.getWidth() + GetSystemMetrics(SM_CYFRAME)*2 ,
+				mode.getHeight() + GetSystemMetrics(SM_CYCAPTION) + GetSystemMetrics(SM_CYMENU) + GetSystemMetrics(SM_CYFRAME)*2 ,
 				SWP_DRAWFRAME|SWP_NOMOVE|SWP_SHOWWINDOW 
 			);
 		}
