@@ -131,6 +131,9 @@
 					RelativePath="src\lib\system\Thread.h">
 				</File>
 				<File
+					RelativePath="src\lib\system\ThreadingModel.h">
+				</File>
+				<File
 					RelativePath="src\lib\system\TimeOutException.cpp">
 				</File>
 				<File
