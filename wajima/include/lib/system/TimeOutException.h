@@ -8,7 +8,7 @@
 
 #include "std/Exception.h"
 
-namespace zefiro_thread {
+namespace zefiro_system {
 	class TimeOutException : public zefiro_std::Exception
 	{
 	public:

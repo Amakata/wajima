@@ -4,7 +4,7 @@
 
 #include "system/IllegalThreadStateException.h"
 
-namespace zefiro_thread {
+namespace zefiro_system {
 	IllegalThreadStateException::IllegalThreadStateException( zefiro_std::SourceLine sourceLine ,
 		std::string additionalMessage):Exception( additionalMessage , sourceLine ){
 	}
@@ -25,6 +25,6 @@ namespace zefiro_thread {
 	}
 
 	zefiro_std::Exception::Type IllegalThreadStateException::type(){
-		return zefiro_std::Exception::Type( "zefiro_thread::IllegalThreadStateException" );
+		return zefiro_std::Exception::Type( "zefiro_system::IllegalThreadStateException" );
 	}
 };

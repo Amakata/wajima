@@ -9,7 +9,7 @@
 #include <process.h>
 #include <sstream>
 
-namespace zefiro_thread {
+namespace zefiro_system {
 	std::vector<Thread *>	Thread::threads__;
 	Mutex Thread::threadsMutex__;
 	

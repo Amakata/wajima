@@ -4,7 +4,7 @@
 
 #include "system/TimeOutException.h"
 
-namespace zefiro_thread {
+namespace zefiro_system {
 	TimeOutException::TimeOutException( zefiro_std::SourceLine sourceLine ,
 		std::string additionalMessage):Exception( additionalMessage , sourceLine ){
 	}
@@ -25,6 +25,6 @@ namespace zefiro_thread {
 	}
 
 	zefiro_std::Exception::Type TimeOutException::type(){
-		return zefiro_std::Exception::Type( "zefiro_thread::TimeOutException" );
+		return zefiro_std::Exception::Type( "zefiro_system::TimeOutException" );
 	}
 };

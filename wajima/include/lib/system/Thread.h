@@ -14,7 +14,7 @@
 #include "system/TimeOutException.h"
 #include "std/sys/Win32Assert.h"
 
-namespace zefiro_thread {
+namespace zefiro_system {
 	class Thread : public Runnable
 	{
 	public:

@@ -8,7 +8,7 @@
 #include <windows.h>
 #include <string>
 
-namespace zefiro_thread {
+namespace zefiro_system {
 	class Mutex
 	{
 	public:

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.6 2002/05/23 16:11:43 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.7 2002/05/25 15:11:56 ama Exp $
  */
 
 #include <fstream>
@@ -73,17 +73,17 @@ void AdapterDeviceOutput(){
 
 HWND g_hwnd;
 
-class TestRunnable : public zefiro_thread::Runnable
+class TestRunnable : public zefiro_system::Runnable
 {
 public:
 	virtual void run(){
-		zefiro_thread::Thread *thread = zefiro_thread::Thread::getCurrentThread();
+		zefiro_system::Thread *thread = zefiro_system::Thread::getCurrentThread();
 		std::ostringstream ostrstr;
 		ostrstr << thread << " " << thread->getThreadID();
 		HDC hdc = GetDC( g_hwnd );
 		for( int y=0 ; y<320 ; y+=16 ){
 			TextOut(hdc,10,y,ostrstr.str().c_str(),ostrstr.str().size());
-			zefiro_thread::Thread::yield();
+			zefiro_system::Thread::yield();
 		}
 		ReleaseDC( g_hwnd , hdc );
 	}
@@ -91,8 +91,8 @@ public:
 
 
 void ThreadTest(){
-	zefiro_thread::Runnable *r = new TestRunnable();
-	zefiro_thread::Thread *thread = new zefiro_thread::Thread(r,"TestThread");
+	zefiro_system::Runnable *r = new TestRunnable();
+	zefiro_system::Thread *thread = new zefiro_system::Thread(r,"TestThread");
 	thread->setJoinable( true );
 	thread->start();
 	bool loop = true;
@@ -100,7 +100,7 @@ void ThreadTest(){
 		try{
 			thread->join(1);	//	0Ç…Ç∑ÇÈÇ∆ÅAÇ∆Ç‹ÇÁÇ»Ç≠Ç»ÇÈÅB
 			loop = false;
-		}catch( zefiro_thread::TimeOutException &toe ){
+		}catch( zefiro_system::TimeOutException &toe ){
 		}
 	}
 }

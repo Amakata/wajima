@@ -199,10 +199,6 @@ SOURCE=.\src\lib\std\sys\test\Win32AssertTest.cpp
 SOURCE=.\include\lib\std\sys\test\Win32AssertTest.h
 # End Source File
 # End Group
-# Begin Group "thread"
-
-# PROP Default_Filter ""
-# End Group
 # Begin Group "system"
 
 # PROP Default_Filter ""

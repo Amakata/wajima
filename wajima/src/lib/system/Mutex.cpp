@@ -7,7 +7,7 @@
 
 #include <sstream>
 
-namespace zefiro_thread {
+namespace zefiro_system {
 	Mutex::Mutex(){
 		ZEFIRO_LOG( "NORMAL" , "Mutex::Mutex() Begin"+ toString());
 		InitializeCriticalSection( &criticalSection_ );

@@ -3,7 +3,7 @@
 /**
  * $ Header: $
  */
-namespace zefiro_thread {
+namespace zefiro_system {
 	class Runnable
 	{
 	public:

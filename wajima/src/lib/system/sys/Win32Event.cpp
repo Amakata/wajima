@@ -12,7 +12,7 @@
 #include "system/sys/Win32Event.h"
 
 
-namespace zefiro_thread {
+namespace zefiro_system {
 	Win32Event::Win32Event( bool initState  , bool manualReset , std::string name )
 		:manualReset_(manualReset),name_(name),exist_(false),constructError_(0){
 		ZEFIRO_LOG( "NORMAL" , "Win32Event::Win32Event( bool , bool , std::string ) Begin" + toString());
