@@ -168,6 +168,9 @@
 				RelativePath="src\lib\graphics\sys\test\D3DDeviceTest.cpp">
 			</File>
 			<File
+				RelativePath="src\lib\graphics\sys\test\DXAssertTest.cpp">
+			</File>
+			<File
 				RelativePath=".\src\lib\graphics\sys\test\DXExceptionTest.cpp">
 			</File>
 			<File
@@ -181,48 +184,30 @@
 				RelativePath=".\src\lib\std\test\AssertTest.cpp">
 			</File>
 			<File
-				RelativePath=".\include\lib\std\test\AssertTest.h">
-			</File>
-			<File
 				RelativePath=".\src\lib\std\test\ExceptionTest.cpp">
-			</File>
-			<File
-				RelativePath=".\include\lib\std\test\ExceptionTest.h">
 			</File>
 			<File
 				RelativePath=".\src\lib\std\test\InvalidArgumentTest.cpp">
 			</File>
 			<File
-				RelativePath=".\include\lib\std\test\InvalidArgumentTest.h">
-			</File>
-			<File
 				RelativePath=".\src\lib\std\test\NotEqualExceptionTest.cpp">
-			</File>
-			<File
-				RelativePath=".\include\lib\std\test\NotEqualExceptionTest.h">
 			</File>
 			<File
 				RelativePath=".\src\lib\std\test\SourceLineTest.cpp">
 			</File>
 			<File
-				RelativePath=".\include\lib\std\test\SourceLineTest.h">
-			</File>
-			<File
 				RelativePath=".\src\lib\std\test\UniqueNumberFactoryTest.cpp">
 			</File>
 			<File
-				RelativePath=".\include\lib\std\test\UniqueNumberFactoryTest.h">
-			</File>
-			<File
 				RelativePath=".\src\lib\std\sys\test\Win32AssertTest.cpp">
-			</File>
-			<File
-				RelativePath=".\include\lib\std\sys\test\Win32AssertTest.h">
 			</File>
 		</Filter>
 		<Filter
 			Name="main"
 			Filter="">
+			<File
+				RelativePath="include\lib\Config.h">
+			</File>
 			<File
 				RelativePath=".\src\lib\WinMain.cpp">
 			</File>

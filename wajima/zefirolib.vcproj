@@ -165,9 +165,6 @@
 			<File
 				RelativePath=".\src\lib\graphics\sys\DXInvalidArgument.cpp">
 			</File>
-			<File
-				RelativePath=".\src\lib\graphics\sys\Mode.cpp">
-			</File>
 		</Filter>
 		<Filter
 			Name="system src"
@@ -214,6 +211,9 @@
 			</File>
 			<File
 				RelativePath=".\include\lib\graphics\sys\DXInvalidArgument.h">
+			</File>
+			<File
+				RelativePath=".\src\lib\graphics\sys\Mode.cpp">
 			</File>
 			<File
 				RelativePath=".\include\lib\graphics\sys\Mode.h">
