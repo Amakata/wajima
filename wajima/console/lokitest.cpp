@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
 	::std::cout << test2.string() << ::std::endl;
 
 	::pss::std::basic_waf_filebuf<char> wafbuf;
+	::pss::std::basic_waf_ifstream<char> wafstream;
 	try {
 		wafbuf.open("data/test2.txt");
 		::std::basic_istream<char> is(&wafbuf);
@@ -52,6 +53,11 @@ int main(int argc, char *argv[]) {
 		LOG4CXX_DEBUG(log, "str = " + str + " , length = " + ::boost::lexical_cast<::std::string>(str.length()));
 		
 		wafbuf.close();
+		wafstream.open(::boost::filesystem::path("data/test2.txt"));
+		wafstream >>  str;
+		LOG4CXX_DEBUG(log, "str = " + str + " , length = " + ::boost::lexical_cast<::std::string>(str.length()));		
+		wafstream.close();
+
 
 		::std::basic_ifstream<char> ifs("test.txt");
 		while (!ifs.eof()) {

@@ -1,370 +1,510 @@
-2004-11-24 00:23:44,919 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:14) - begin.
-2004-11-24 00:23:44,935 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:65) - open begin.
-2004-11-24 00:23:44,935 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:23:44,935 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:23:44,935 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:106) - file is waf file.
-2004-11-24 00:23:44,935 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:107) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
-2004-11-24 00:23:44,935 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:132) - header.size = 20
-2004-11-24 00:23:44,935 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:133) - header.mode = 1
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:134) - header.filename = test2.txt
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:310) - underflow end.
-2004-11-24 00:23:44,951 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 34567890 , length = 9
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:304) - file eof.
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:305) - underflow end.
-2004-11-24 00:23:44,951 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 98765432ÿÿÿÿ , length = 12
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 268
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 268
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 22
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 22
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:23:44,951 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:36) - str = 34567890 , length = 9
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 269
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 269
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 21
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 21
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:23:44,951 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:39) - str = 4567890 , length = 8
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 276
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 276
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 14
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 14
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:23:44,951 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:42) - str =  , length = 1
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 277
-2004-11-24 00:23:44,951 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 277
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 13
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 13
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:23:44,966 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:45) - str =  , length = 0
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 278
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 278
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 12
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 12
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:304) - file eof.
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:305) - underflow end.
-2004-11-24 00:23:44,966 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:48) - str = 98765432ÿÿÿÿ , length = 12
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:204) - offset = 279
-2004-11-24 00:23:44,966 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 279
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 11
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 11
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:304) - file eof.
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:305) - underflow end.
-2004-11-24 00:23:44,982 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:52) - str = 8765432ÿÿÿÿ , length = 11
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:41) - CloseHandle
-2004-11-24 00:23:44,982 DEBUG basic_waf_filebuf 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:23:44,982 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 12345678 , length = 8
-2004-11-24 00:23:44,982 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 002233 , length = 6
-2004-11-24 00:23:44,982 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:64) - str = 12345678 , length = 8
-2004-11-24 00:23:44,982 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:67) - str =  , length = 0
-2004-11-24 00:23:44,982 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:70) - str =  , length = 0
-2004-11-24 00:23:44,982 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:73) - str = 002233 , length = 6
-2004-11-24 00:23:44,982 DEBUG main 2496 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:77) - end.
-2004-11-24 00:25:58,682 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:14) - begin.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:65) - open begin.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:106) - file is waf file.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:107) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:132) - header.size = 20
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:133) - header.mode = 1
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:134) - header.filename = test2.txt
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:310) - underflow end.
-2004-11-24 00:25:58,682 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 1234567890 , length = 11
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:304) - file eof.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:305) - underflow end.
-2004-11-24 00:25:58,682 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 98765432ÿÿÿÿ , length = 12
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:25:58,682 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 268
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 268
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 24
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 24
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:25:58,698 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:36) - str = 1234567890 , length = 11
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 269
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 269
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 23
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 23
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:25:58,698 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:39) - str = 234567890 , length = 10
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 276
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 276
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 16
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 16
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:25:58,698 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:42) - str = 90 , length = 3
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 277
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 277
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 15
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 15
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:25:58,698 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:45) - str = 0 , length = 2
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 278
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 278
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 14
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 14
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:25:58,698 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:48) - str =  , length = 1
-2004-11-24 00:25:58,698 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:25:58,714 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:204) - offset = 267
-2004-11-24 00:25:58,714 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 267
-2004-11-24 00:25:58,714 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 25
-2004-11-24 00:25:58,714 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 25
-2004-11-24 00:25:58,714 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:25:58,714 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:52) - str =  1234567890 , length = 12
-2004-11-24 00:25:58,714 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:25:58,714 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:41) - CloseHandle
-2004-11-24 00:25:58,714 DEBUG basic_waf_filebuf 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:25:58,714 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 12345678 , length = 8
-2004-11-24 00:25:58,714 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 002233 , length = 6
-2004-11-24 00:25:58,714 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:64) - str = 12345678 , length = 8
-2004-11-24 00:25:58,714 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:67) - str =  , length = 0
-2004-11-24 00:25:58,714 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:70) - str =  , length = 0
-2004-11-24 00:25:58,714 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:73) - str = 002233 , length = 6
-2004-11-24 00:25:58,714 DEBUG main 348 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:77) - end.
-2004-11-24 00:27:49,258 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:14) - begin.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:65) - open begin.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:106) - file is waf file.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:107) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:132) - header.size = 20
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:133) - header.mode = 1
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:134) - header.filename = test2.txt
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:311) - underflow end.
-2004-11-24 00:27:49,274 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 1234567890 , length = 11
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:305) - file eof.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:306) - underflow end.
-2004-11-24 00:27:49,274 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 98765432ÿÿÿÿ , length = 12
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 268
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 268
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 24
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 24
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:27:49,274 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:36) - str = 1234567890 , length = 11
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 269
-2004-11-24 00:27:49,274 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 269
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 23
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 23
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:27:49,290 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:39) - str = 234567890 , length = 10
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 276
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 276
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 16
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 16
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:27:49,290 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:42) - str = 90 , length = 3
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 277
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 277
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 15
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 15
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:27:49,290 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:45) - str = 0 , length = 2
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:27:49,290 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 278
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 278
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 14
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 14
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:27:49,305 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:48) - str =  , length = 1
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:204) - offset = 267
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 267
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 25
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 25
-2004-11-24 00:27:49,305 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:27:49,305 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:52) - str =  1234567890 , length = 12
-2004-11-24 00:27:49,321 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:27:49,321 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:41) - CloseHandle
-2004-11-24 00:27:49,321 DEBUG basic_waf_filebuf 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:27:49,321 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 12345678 , length = 8
-2004-11-24 00:27:49,321 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 002233 , length = 6
-2004-11-24 00:27:49,321 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:64) - str = 12345678 , length = 8
-2004-11-24 00:27:49,321 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:67) - str =  , length = 0
-2004-11-24 00:27:49,321 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:70) - str =  , length = 0
-2004-11-24 00:27:49,321 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:73) - str = 002233 , length = 6
-2004-11-24 00:27:49,321 DEBUG main 3152 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:77) - end.
-2004-11-24 00:30:39,099 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:14) - begin.
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:65) - open begin.
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:106) - file is waf file.
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:107) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:132) - header.size = 20
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:133) - header.mode = 1
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:134) - header.filename = test2.txt
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:297) - bufferPos_ = 0
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:298) - readSize = 24
-2004-11-24 00:30:39,115 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:299) - end_ = 288
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:314) - underflow end.
-2004-11-24 00:30:39,130 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 1234567890 , length = 11
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:297) - bufferPos_ = 24
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:298) - readSize = 0
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:299) - end_ = 288
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:308) - file eof.
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:309) - underflow end.
-2004-11-24 00:30:39,130 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 98765432ÿÿÿÿ , length = 12
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 268
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 268
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 24
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 24
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:30:39,130 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:36) - str = 1234567890 , length = 11
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 269
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 269
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 23
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 23
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:30:39,130 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:39) - str = 234567890 , length = 10
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 276
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 276
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 16
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 16
-2004-11-24 00:30:39,130 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:42) - str = 90 , length = 3
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 277
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 277
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 15
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 15
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:45) - str = 0 , length = 2
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 278
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 278
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 14
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 14
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:48) - str =  , length = 1
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:204) - offset = 267
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 267
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 25
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 25
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:52) - str =  1234567890 , length = 12
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:41) - CloseHandle
-2004-11-24 00:30:39,146 DEBUG basic_waf_filebuf 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 12345678 , length = 8
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 002233 , length = 6
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:64) - str = 12345678 , length = 8
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:67) - str =  , length = 0
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:70) - str =  , length = 0
-2004-11-24 00:30:39,146 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:73) - str = 002233 , length = 6
-2004-11-24 00:30:39,161 DEBUG main 2156 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:77) - end.
-2004-11-24 00:32:40,784 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:14) - begin.
-2004-11-24 00:32:40,784 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:65) - open begin.
-2004-11-24 00:32:40,784 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:32:40,784 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:32:40,784 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:106) - file is waf file.
-2004-11-24 00:32:40,784 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:107) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
-2004-11-24 00:32:40,784 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:132) - header.size = 20
-2004-11-24 00:32:40,784 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:133) - header.mode = 1
-2004-11-24 00:32:40,784 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:134) - header.filename = test2.txt
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:297) - bufferPos_ = 0
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:298) - readSize = 24
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:299) - end_ = 288
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:313) - underflow end.
-2004-11-24 00:32:40,800 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 1234567890 , length = 11
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:276) - underflow begin.
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:292) - file read.
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:297) - bufferPos_ = 20
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:298) - readSize = 0
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:299) - end_ = 288
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:307) - file eof.
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:308) - underflow end.
-2004-11-24 00:32:40,800 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:31) - str = 98765432 , length = 8
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 268
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 268
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 24
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 20
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:32:40,800 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:36) - str = 1234567890 , length = 11
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 269
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 269
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 23
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 19
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:32:40,800 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:39) - str = 234567890 , length = 10
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 276
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 276
-2004-11-24 00:32:40,800 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 16
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 12
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:42) - str = 90 , length = 3
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 277
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 277
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 15
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 11
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:45) - str = 0 , length = 2
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:200) - offset = 278
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 278
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 14
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 10
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:48) - str =  , length = 1
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:187) - seekoff begin.
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:204) - offset = 267
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:220) - point = 267
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:225) - readSize = 25
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:232) - bufferSize = 21
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:233) - seekoff end.
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:52) - str =  1234567890 , length = 12
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:39) - close begin.
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:41) - CloseHandle
-2004-11-24 00:32:40,815 DEBUG basic_waf_filebuf 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\pss\src\pss\std\wafinputfilestream.hpp:47) - close end.
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 12345678 , length = 8
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:59) - str = 002233 , length = 6
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:64) - str = 12345678 , length = 8
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:67) - str =  , length = 0
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:70) - str =  , length = 0
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:73) - str = 002233 , length = 6
-2004-11-24 00:32:40,815 DEBUG main 3308 (c:\documents and settings\ama\my documents\visual studio projects\wajima\console\lokitest.cpp:77) - end.
+2004-11-24 21:47:45,086 DEBUG main 2848 (14) - begin.
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (66) - open begin.
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (39) - close begin.
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (48) - close end.
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (113) - file is waf file.
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (114) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (139) - header.size = 5120
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (140) - header.mode = 1
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (141) - header.filename = test2.txt
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (312) - underflow begin.
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (332) - file read.
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (338) - bufferPos_ = 0
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (339) - readSize = 4096
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (340) - end_ = 5388
+2004-11-24 21:47:45,102 DEBUG basic_waf_filebuf 2848 (358) - underflow end.
+2004-11-24 21:47:45,102 DEBUG main 2848 (31) - str = 1234567890 , length = 11
+2004-11-24 21:47:45,117 DEBUG basic_waf_filebuf 2848 (312) - underflow begin.
+2004-11-24 21:47:45,117 DEBUG basic_waf_filebuf 2848 (332) - file read.
+2004-11-24 21:47:45,117 DEBUG basic_waf_filebuf 2848 (338) - bufferPos_ = 4096
+2004-11-24 21:47:45,117 DEBUG basic_waf_filebuf 2848 (339) - readSize = 2004
+2004-11-24 21:47:45,117 DEBUG basic_waf_filebuf 2848 (340) - end_ = 5388
+2004-11-24 21:47:45,117 DEBUG basic_waf_filebuf 2848 (358) - underflow end.
+2004-11-24 21:47:45,133 DEBUG basic_waf_filebuf 2848 (312) - underflow begin.
+2004-11-24 21:47:45,133 DEBUG basic_waf_filebuf 2848 (332) - file read.
+2004-11-24 21:47:45,133 DEBUG basic_waf_filebuf 2848 (338) - bufferPos_ = 5120
+2004-11-24 21:47:45,133 DEBUG basic_waf_filebuf 2848 (339) - readSize = 0
+2004-11-24 21:47:45,133 DEBUG basic_waf_filebuf 2848 (340) - end_ = 5388
+2004-11-24 21:47:45,133 DEBUG basic_waf_filebuf 2848 (351) - file eof.
+2004-11-24 21:47:45,133 DEBUG basic_waf_filebuf 2848 (352) - underflow end.
+2004-11-24 21:47:45,133 DEBUG main 2848 (31) - str = 98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567891234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@I8765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678ÿ1234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901 , length = 5108
+2004-11-24 21:47:45,133 DEBUG basic_waf_filebuf 2848 (206) - seekoff begin.
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (222) - offset + begin = 268
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (223) - offset = 0
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (244) - point = 268
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (259) - readSize = 4096
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (260) - bufferSize = 4096
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (261) - seekoff end.
+2004-11-24 21:47:45,149 DEBUG main 2848 (36) - str = 1234567890 , length = 11
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (206) - seekoff begin.
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (222) - offset + begin = 269
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (223) - offset = 1
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (244) - point = 269
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (259) - readSize = 4096
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (260) - bufferSize = 4096
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (261) - seekoff end.
+2004-11-24 21:47:45,149 DEBUG main 2848 (39) - str = 234567890 , length = 10
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (206) - seekoff begin.
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (222) - offset + begin = 276
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (223) - offset = 8
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (244) - point = 276
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (259) - readSize = 4096
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (260) - bufferSize = 4096
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (261) - seekoff end.
+2004-11-24 21:47:45,149 DEBUG main 2848 (42) - str = 90 , length = 3
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (206) - seekoff begin.
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (222) - offset + begin = 277
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (223) - offset = 9
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (244) - point = 277
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (259) - readSize = 4096
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (260) - bufferSize = 4096
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (261) - seekoff end.
+2004-11-24 21:47:45,149 DEBUG main 2848 (45) - str = 0 , length = 2
+2004-11-24 21:47:45,149 DEBUG basic_waf_filebuf 2848 (206) - seekoff begin.
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (222) - offset + begin = 278
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (223) - offset = 10
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (244) - point = 278
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (259) - readSize = 4096
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (260) - bufferSize = 4096
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (261) - seekoff end.
+2004-11-24 21:47:45,164 DEBUG main 2848 (48) - str =  , length = 1
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (206) - seekoff begin.
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (227) - offset + begin = 267
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (228) - offset = -1
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (244) - point = 267
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (259) - readSize = 4096
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (260) - bufferSize = 4096
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (261) - seekoff end.
+2004-11-24 21:47:45,164 DEBUG main 2848 (52) - str =  1234567890 , length = 12
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (39) - close begin.
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (42) - CloseHandle
+2004-11-24 21:47:45,164 DEBUG basic_waf_filebuf 2848 (48) - close end.
+2004-11-24 21:47:45,164 DEBUG main 2848 (59) - str = 12345678 , length = 8
+2004-11-24 21:47:45,164 DEBUG main 2848 (59) - str = 002233 , length = 6
+2004-11-24 21:47:45,164 DEBUG main 2848 (64) - str = 12345678 , length = 8
+2004-11-24 21:47:45,164 DEBUG main 2848 (67) - str =  , length = 0
+2004-11-24 21:47:45,164 DEBUG main 2848 (70) - str =  , length = 0
+2004-11-24 21:47:45,164 DEBUG main 2848 (73) - str = 002233 , length = 6
+2004-11-24 21:47:45,164 DEBUG main 2848 (77) - end.
+2004-11-24 21:57:06,314 DEBUG main 312 (14) - begin.
+2004-11-24 21:57:06,329 DEBUG basic_waf_filebuf 312 (66) - open begin.
+2004-11-24 21:57:06,329 DEBUG basic_waf_filebuf 312 (39) - close begin.
+2004-11-24 21:57:06,329 DEBUG basic_waf_filebuf 312 (48) - close end.
+2004-11-24 21:57:06,329 DEBUG basic_waf_filebuf 312 (113) - file is waf file.
+2004-11-24 21:57:06,329 DEBUG basic_waf_filebuf 312 (114) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (139) - header.size = 5120
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (140) - header.mode = 1
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (141) - header.filename = test2.txt
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (312) - underflow begin.
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (332) - file read.
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (338) - bufferPos_ = 0
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (339) - readSize = 4096
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (340) - end_ = 5388
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (358) - underflow end.
+2004-11-24 21:57:06,345 DEBUG main 312 (31) - str = 0234567890 , length = 11
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (312) - underflow begin.
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (332) - file read.
+2004-11-24 21:57:06,345 DEBUG basic_waf_filebuf 312 (338) - bufferPos_ = 4096
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (339) - readSize = 2004
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (340) - end_ = 5388
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (358) - underflow end.
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (312) - underflow begin.
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (332) - file read.
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (338) - bufferPos_ = 5120
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (339) - readSize = 0
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (340) - end_ = 5388
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (351) - file eof.
+2004-11-24 21:57:06,360 DEBUG basic_waf_filebuf 312 (352) - underflow end.
+2004-11-24 21:57:06,360 DEBUG main 312 (31) - str = 98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567891234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@I8765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678ÿ1234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901 , length = 5108
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (206) - seekoff begin.
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (222) - offset + begin = 268
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (223) - offset = 0
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (244) - point = 268
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (259) - readSize = 4096
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (260) - bufferSize = 4096
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (261) - seekoff end.
+2004-11-24 21:57:06,376 DEBUG main 312 (36) - str = 0234567890 , length = 11
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (206) - seekoff begin.
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (222) - offset + begin = 269
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (223) - offset = 1
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (244) - point = 269
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (259) - readSize = 4096
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (260) - bufferSize = 4096
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (261) - seekoff end.
+2004-11-24 21:57:06,376 DEBUG main 312 (39) - str = 234567890 , length = 10
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (206) - seekoff begin.
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (222) - offset + begin = 276
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (223) - offset = 8
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (244) - point = 276
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (259) - readSize = 4096
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (260) - bufferSize = 4096
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (261) - seekoff end.
+2004-11-24 21:57:06,376 DEBUG main 312 (42) - str = 90 , length = 3
+2004-11-24 21:57:06,376 DEBUG basic_waf_filebuf 312 (206) - seekoff begin.
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (222) - offset + begin = 277
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (223) - offset = 9
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (244) - point = 277
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (259) - readSize = 4096
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (260) - bufferSize = 4096
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (261) - seekoff end.
+2004-11-24 21:57:06,392 DEBUG main 312 (45) - str = 0 , length = 2
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (206) - seekoff begin.
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (222) - offset + begin = 278
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (223) - offset = 10
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (244) - point = 278
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (259) - readSize = 4096
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (260) - bufferSize = 4096
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (261) - seekoff end.
+2004-11-24 21:57:06,392 DEBUG main 312 (48) - str =  , length = 1
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (206) - seekoff begin.
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (227) - offset + begin = 267
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (228) - offset = -1
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (244) - point = 267
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (259) - readSize = 4096
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (260) - bufferSize = 4096
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (261) - seekoff end.
+2004-11-24 21:57:06,392 DEBUG main 312 (52) - str =  0234567890 , length = 12
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (39) - close begin.
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (42) - CloseHandle
+2004-11-24 21:57:06,392 DEBUG basic_waf_filebuf 312 (48) - close end.
+2004-11-24 21:57:06,392 DEBUG main 312 (59) - str = 12345678 , length = 8
+2004-11-24 21:57:06,392 DEBUG main 312 (59) - str = 002233 , length = 6
+2004-11-24 21:57:06,392 DEBUG main 312 (64) - str = 12345678 , length = 8
+2004-11-24 21:57:06,407 DEBUG main 312 (67) - str =  , length = 0
+2004-11-24 21:57:06,407 DEBUG main 312 (70) - str =  , length = 0
+2004-11-24 21:57:06,407 DEBUG main 312 (73) - str = 002233 , length = 6
+2004-11-24 21:57:06,407 DEBUG main 312 (77) - end.
+2004-11-24 22:33:43,301 DEBUG main 3644 (14) - begin.
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (74) - open begin.
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (47) - close begin.
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (56) - close end.
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (121) - file is waf file.
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (122) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (147) - header.size = 5120
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (148) - header.mode = 1
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (149) - header.filename = test2.txt
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (320) - underflow begin.
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (340) - file read.
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (346) - bufferPos_ = 0
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (347) - readSize = 4096
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (348) - end_ = 5388
+2004-11-24 22:33:43,332 DEBUG basic_waf_filebuf 3644 (366) - underflow end.
+2004-11-24 22:33:43,332 DEBUG main 3644 (32) - str = 0234567890 , length = 11
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (320) - underflow begin.
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (340) - file read.
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (346) - bufferPos_ = 4096
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (347) - readSize = 2004
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (348) - end_ = 5388
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (366) - underflow end.
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (320) - underflow begin.
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (340) - file read.
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (346) - bufferPos_ = 5120
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (347) - readSize = 0
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (348) - end_ = 5388
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (359) - file eof.
+2004-11-24 22:33:43,348 DEBUG basic_waf_filebuf 3644 (360) - underflow end.
+2004-11-24 22:33:43,364 DEBUG main 3644 (32) - str = 98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567891234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@I8765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678ÿ1234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901 , length = 5108
+2004-11-24 22:33:43,364 DEBUG basic_waf_filebuf 3644 (214) - seekoff begin.
+2004-11-24 22:33:43,364 DEBUG basic_waf_filebuf 3644 (230) - offset + begin = 268
+2004-11-24 22:33:43,364 DEBUG basic_waf_filebuf 3644 (231) - offset = 0
+2004-11-24 22:33:43,364 DEBUG basic_waf_filebuf 3644 (252) - point = 268
+2004-11-24 22:33:43,364 DEBUG basic_waf_filebuf 3644 (267) - readSize = 4096
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (268) - bufferSize = 4096
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (269) - seekoff end.
+2004-11-24 22:33:43,379 DEBUG main 3644 (37) - str = 0234567890 , length = 11
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (214) - seekoff begin.
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (230) - offset + begin = 269
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (231) - offset = 1
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (252) - point = 269
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (267) - readSize = 4096
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (268) - bufferSize = 4096
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (269) - seekoff end.
+2004-11-24 22:33:43,379 DEBUG main 3644 (40) - str = 234567890 , length = 10
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (214) - seekoff begin.
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (230) - offset + begin = 276
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (231) - offset = 8
+2004-11-24 22:33:43,379 DEBUG basic_waf_filebuf 3644 (252) - point = 276
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (267) - readSize = 4096
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (268) - bufferSize = 4096
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (269) - seekoff end.
+2004-11-24 22:33:43,395 DEBUG main 3644 (43) - str = 90 , length = 3
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (214) - seekoff begin.
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (230) - offset + begin = 277
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (231) - offset = 9
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (252) - point = 277
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (267) - readSize = 4096
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (268) - bufferSize = 4096
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (269) - seekoff end.
+2004-11-24 22:33:43,395 DEBUG main 3644 (46) - str = 0 , length = 2
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (214) - seekoff begin.
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (230) - offset + begin = 278
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (231) - offset = 10
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (252) - point = 278
+2004-11-24 22:33:43,395 DEBUG basic_waf_filebuf 3644 (267) - readSize = 4096
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (268) - bufferSize = 4096
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (269) - seekoff end.
+2004-11-24 22:33:43,410 DEBUG main 3644 (49) - str =  , length = 1
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (214) - seekoff begin.
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (235) - offset + begin = 267
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (236) - offset = -1
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (252) - point = 267
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (267) - readSize = 4096
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (268) - bufferSize = 4096
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (269) - seekoff end.
+2004-11-24 22:33:43,410 DEBUG main 3644 (53) - str =  0234567890 , length = 12
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (47) - close begin.
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (50) - CloseHandle
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (56) - close end.
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (74) - open begin.
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (47) - close begin.
+2004-11-24 22:33:43,410 DEBUG basic_waf_filebuf 3644 (56) - close end.
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (121) - file is waf file.
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (122) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (147) - header.size = 5120
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (148) - header.mode = 1
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (149) - header.filename = test2.txt
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (320) - underflow begin.
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (340) - file read.
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (346) - bufferPos_ = 0
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (347) - readSize = 4096
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (348) - end_ = 5388
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (366) - underflow end.
+2004-11-24 22:33:43,426 DEBUG main 3644 (58) - str = 0234567890 , length = 10
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (47) - close begin.
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (50) - CloseHandle
+2004-11-24 22:33:43,426 DEBUG basic_waf_filebuf 3644 (56) - close end.
+2004-11-24 22:33:43,426 DEBUG main 3644 (65) - str = 12345678 , length = 8
+2004-11-24 22:33:43,426 DEBUG main 3644 (65) - str = 002233 , length = 6
+2004-11-24 22:33:43,426 DEBUG main 3644 (70) - str = 12345678 , length = 8
+2004-11-24 22:33:43,442 DEBUG main 3644 (73) - str =  , length = 0
+2004-11-24 22:33:43,442 DEBUG main 3644 (76) - str =  , length = 0
+2004-11-24 22:33:43,442 DEBUG main 3644 (79) - str = 002233 , length = 6
+2004-11-24 22:33:43,442 DEBUG main 3644 (83) - end.
+2004-11-24 22:35:46,659 DEBUG main 1832 (14) - begin.
+2004-11-24 22:35:46,675 DEBUG basic_waf_ifstream 1832 (452) - basic_waf_ifstream begin.
+2004-11-24 22:35:46,675 DEBUG basic_waf_ifstream 1832 (453) - basic_waf_ifstream end.
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (74) - open begin.
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (47) - close begin.
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (56) - close end.
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (121) - file is waf file.
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (122) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (147) - header.size = 5120
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (148) - header.mode = 1
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (149) - header.filename = test2.txt
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (320) - underflow begin.
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (340) - file read.
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (346) - bufferPos_ = 0
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (347) - readSize = 4096
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (348) - end_ = 5388
+2004-11-24 22:35:46,675 DEBUG basic_waf_filebuf 1832 (366) - underflow end.
+2004-11-24 22:35:46,675 DEBUG main 1832 (32) - str = 0234567890 , length = 11
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (320) - underflow begin.
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (340) - file read.
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (346) - bufferPos_ = 4096
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (347) - readSize = 2004
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (348) - end_ = 5388
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (366) - underflow end.
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (320) - underflow begin.
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (340) - file read.
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (346) - bufferPos_ = 5120
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (347) - readSize = 0
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (348) - end_ = 5388
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (359) - file eof.
+2004-11-24 22:35:46,690 DEBUG basic_waf_filebuf 1832 (360) - underflow end.
+2004-11-24 22:35:46,706 DEBUG main 1832 (32) - str = 98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567891234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@I8765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678ÿ1234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901 , length = 5108
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (214) - seekoff begin.
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (230) - offset + begin = 268
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (231) - offset = 0
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (252) - point = 268
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (267) - readSize = 4096
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (268) - bufferSize = 4096
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (269) - seekoff end.
+2004-11-24 22:35:46,721 DEBUG main 1832 (37) - str = 0234567890 , length = 11
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (214) - seekoff begin.
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (230) - offset + begin = 269
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (231) - offset = 1
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (252) - point = 269
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (267) - readSize = 4096
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (268) - bufferSize = 4096
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (269) - seekoff end.
+2004-11-24 22:35:46,721 DEBUG main 1832 (40) - str = 234567890 , length = 10
+2004-11-24 22:35:46,721 DEBUG basic_waf_filebuf 1832 (214) - seekoff begin.
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (230) - offset + begin = 276
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (231) - offset = 8
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (252) - point = 276
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (267) - readSize = 4096
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (268) - bufferSize = 4096
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (269) - seekoff end.
+2004-11-24 22:35:46,737 DEBUG main 1832 (43) - str = 90 , length = 3
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (214) - seekoff begin.
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (230) - offset + begin = 277
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (231) - offset = 9
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (252) - point = 277
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (267) - readSize = 4096
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (268) - bufferSize = 4096
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (269) - seekoff end.
+2004-11-24 22:35:46,737 DEBUG main 1832 (46) - str = 0 , length = 2
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (214) - seekoff begin.
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (230) - offset + begin = 278
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (231) - offset = 10
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (252) - point = 278
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (267) - readSize = 4096
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (268) - bufferSize = 4096
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (269) - seekoff end.
+2004-11-24 22:35:46,737 DEBUG main 1832 (49) - str =  , length = 1
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (214) - seekoff begin.
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (235) - offset + begin = 267
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (236) - offset = -1
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (252) - point = 267
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (267) - readSize = 4096
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (268) - bufferSize = 4096
+2004-11-24 22:35:46,737 DEBUG basic_waf_filebuf 1832 (269) - seekoff end.
+2004-11-24 22:35:46,753 DEBUG main 1832 (53) - str =  0234567890 , length = 12
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (47) - close begin.
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (50) - CloseHandle
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (56) - close end.
+2004-11-24 22:35:46,753 DEBUG basic_waf_ifstream 1832 (494) - open begin.
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (74) - open begin.
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (47) - close begin.
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (56) - close end.
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (121) - file is waf file.
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (122) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (147) - header.size = 5120
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (148) - header.mode = 1
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (149) - header.filename = test2.txt
+2004-11-24 22:35:46,753 DEBUG basic_waf_ifstream 1832 (499) - close end.
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (320) - underflow begin.
+2004-11-24 22:35:46,753 DEBUG basic_waf_filebuf 1832 (340) - file read.
+2004-11-24 22:35:46,768 DEBUG basic_waf_filebuf 1832 (346) - bufferPos_ = 0
+2004-11-24 22:35:46,768 DEBUG basic_waf_filebuf 1832 (347) - readSize = 4096
+2004-11-24 22:35:46,768 DEBUG basic_waf_filebuf 1832 (348) - end_ = 5388
+2004-11-24 22:35:46,768 DEBUG basic_waf_filebuf 1832 (366) - underflow end.
+2004-11-24 22:35:46,768 DEBUG main 1832 (58) - str = 0234567890 , length = 10
+2004-11-24 22:35:46,768 DEBUG basic_waf_ifstream 1832 (477) - close begin.
+2004-11-24 22:35:46,768 DEBUG basic_waf_filebuf 1832 (47) - close begin.
+2004-11-24 22:35:46,768 DEBUG basic_waf_filebuf 1832 (50) - CloseHandle
+2004-11-24 22:35:46,768 DEBUG basic_waf_filebuf 1832 (56) - close end.
+2004-11-24 22:35:46,768 DEBUG basic_waf_ifstream 1832 (479) - close end.
+2004-11-24 22:35:46,768 DEBUG main 1832 (65) - str = 12345678 , length = 8
+2004-11-24 22:35:46,768 DEBUG main 1832 (65) - str = 002233 , length = 6
+2004-11-24 22:35:46,768 DEBUG main 1832 (70) - str = 12345678 , length = 8
+2004-11-24 22:35:46,768 DEBUG main 1832 (73) - str =  , length = 0
+2004-11-24 22:35:46,768 DEBUG main 1832 (76) - str =  , length = 0
+2004-11-24 22:35:46,768 DEBUG main 1832 (79) - str = 002233 , length = 6
+2004-11-24 22:35:46,768 DEBUG main 1832 (83) - end.
+2004-11-24 22:35:46,768 DEBUG basic_waf_ifstream 1832 (468) - ~basic_waf_ifstream begin.
+2004-11-24 22:35:46,768 DEBUG basic_waf_ifstream 1832 (470) - ~basic_waf_ifstream end.
+2004-11-24 22:43:56,856 DEBUG main 3948 (14) - begin.
+2004-11-24 22:43:56,856 DEBUG basic_waf_ifstream 3948 (452) - basic_waf_ifstream begin.
+2004-11-24 22:43:56,856 DEBUG basic_waf_ifstream 3948 (453) - basic_waf_ifstream end.
+2004-11-24 22:43:56,856 DEBUG basic_waf_filebuf 3948 (74) - open begin.
+2004-11-24 22:43:56,856 DEBUG basic_waf_filebuf 3948 (47) - close begin.
+2004-11-24 22:43:56,856 DEBUG basic_waf_filebuf 3948 (56) - close end.
+2004-11-24 22:43:56,856 DEBUG basic_waf_filebuf 3948 (121) - file is waf file.
+2004-11-24 22:43:56,856 DEBUG basic_waf_filebuf 3948 (122) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
+2004-11-24 22:43:56,856 DEBUG basic_waf_filebuf 3948 (147) - header.size = 5120
+2004-11-24 22:43:56,856 DEBUG basic_waf_filebuf 3948 (148) - header.mode = 1
+2004-11-24 22:43:56,856 DEBUG basic_waf_filebuf 3948 (149) - header.filename = test2.txt
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (320) - underflow begin.
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (340) - file read.
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (346) - bufferPos_ = 0
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (347) - readSize = 4096
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (348) - end_ = 5388
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (366) - underflow end.
+2004-11-24 22:43:56,871 DEBUG main 3948 (32) - str = 0234567890 , length = 11
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (320) - underflow begin.
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (340) - file read.
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (346) - bufferPos_ = 4096
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (347) - readSize = 2004
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (348) - end_ = 5388
+2004-11-24 22:43:56,871 DEBUG basic_waf_filebuf 3948 (366) - underflow end.
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (320) - underflow begin.
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (340) - file read.
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (346) - bufferPos_ = 5120
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (347) - readSize = 0
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (348) - end_ = 5388
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (359) - file eof.
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (360) - underflow end.
+2004-11-24 22:43:56,887 DEBUG main 3948 (32) - str = 98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567891234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456781234567890@@I8765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678ÿ1234567890@@98765432abcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrstabcdefghijklmnopqrst0123456789012345678901234567890123456789012345678901234567890123456789012345678901 , length = 5108
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (214) - seekoff begin.
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (230) - offset + begin = 268
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (231) - offset = 0
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (252) - point = 268
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (267) - readSize = 4096
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (268) - bufferSize = 4096
+2004-11-24 22:43:56,887 DEBUG basic_waf_filebuf 3948 (269) - seekoff end.
+2004-11-24 22:43:56,903 DEBUG main 3948 (37) - str = 0234567890 , length = 11
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (214) - seekoff begin.
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (230) - offset + begin = 269
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (231) - offset = 1
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (252) - point = 269
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (267) - readSize = 4096
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (268) - bufferSize = 4096
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (269) - seekoff end.
+2004-11-24 22:43:56,903 DEBUG main 3948 (40) - str = 234567890 , length = 10
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (214) - seekoff begin.
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (230) - offset + begin = 276
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (231) - offset = 8
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (252) - point = 276
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (267) - readSize = 4096
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (268) - bufferSize = 4096
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (269) - seekoff end.
+2004-11-24 22:43:56,903 DEBUG main 3948 (43) - str = 90 , length = 3
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (214) - seekoff begin.
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (230) - offset + begin = 277
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (231) - offset = 9
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (252) - point = 277
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (267) - readSize = 4096
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (268) - bufferSize = 4096
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (269) - seekoff end.
+2004-11-24 22:43:56,903 DEBUG main 3948 (46) - str = 0 , length = 2
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (214) - seekoff begin.
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (230) - offset + begin = 278
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (231) - offset = 10
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (252) - point = 278
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (267) - readSize = 4096
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (268) - bufferSize = 4096
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (269) - seekoff end.
+2004-11-24 22:43:56,903 DEBUG main 3948 (49) - str =  , length = 1
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (214) - seekoff begin.
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (235) - offset + begin = 267
+2004-11-24 22:43:56,903 DEBUG basic_waf_filebuf 3948 (236) - offset = -1
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (252) - point = 267
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (267) - readSize = 4096
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (268) - bufferSize = 4096
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (269) - seekoff end.
+2004-11-24 22:43:56,918 DEBUG main 3948 (53) - str =  0234567890 , length = 12
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (47) - close begin.
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (50) - CloseHandle
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (56) - close end.
+2004-11-24 22:43:56,918 DEBUG basic_waf_ifstream 3948 (494) - open begin.
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (74) - open begin.
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (47) - close begin.
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (56) - close end.
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (121) - file is waf file.
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (122) - c:/Documents and Settings/ama/My Documents/Visual Studio Projects/wajima/console/data.waf
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (147) - header.size = 5120
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (148) - header.mode = 1
+2004-11-24 22:43:56,918 DEBUG basic_waf_filebuf 3948 (149) - header.filename = test2.txt
+2004-11-24 22:43:56,918 DEBUG basic_waf_ifstream 3948 (499) - close end.
+2004-11-24 22:43:56,934 DEBUG basic_waf_filebuf 3948 (320) - underflow begin.
+2004-11-24 22:43:56,934 DEBUG basic_waf_filebuf 3948 (340) - file read.
+2004-11-24 22:43:56,934 DEBUG basic_waf_filebuf 3948 (346) - bufferPos_ = 0
+2004-11-24 22:43:56,934 DEBUG basic_waf_filebuf 3948 (347) - readSize = 4096
+2004-11-24 22:43:56,934 DEBUG basic_waf_filebuf 3948 (348) - end_ = 5388
+2004-11-24 22:43:56,934 DEBUG basic_waf_filebuf 3948 (366) - underflow end.
+2004-11-24 22:43:56,934 DEBUG main 3948 (58) - str = 0234567890 , length = 10
+2004-11-24 22:43:56,934 DEBUG basic_waf_ifstream 3948 (477) - close begin.
+2004-11-24 22:43:56,934 DEBUG basic_waf_filebuf 3948 (47) - close begin.
+2004-11-24 22:43:56,934 DEBUG basic_waf_filebuf 3948 (50) - CloseHandle
+2004-11-24 22:43:56,934 DEBUG basic_waf_filebuf 3948 (56) - close end.
+2004-11-24 22:43:56,934 DEBUG basic_waf_ifstream 3948 (479) - close end.
+2004-11-24 22:43:56,934 DEBUG main 3948 (65) - str = 12345678 , length = 8
+2004-11-24 22:43:56,934 DEBUG main 3948 (65) - str = 002233 , length = 6
+2004-11-24 22:43:56,934 DEBUG main 3948 (70) - str = 12345678 , length = 8
+2004-11-24 22:43:56,934 DEBUG main 3948 (73) - str =  , length = 0
+2004-11-24 22:43:56,934 DEBUG main 3948 (76) - str =  , length = 0
+2004-11-24 22:43:56,950 DEBUG main 3948 (79) - str = 002233 , length = 6
+2004-11-24 22:43:56,950 DEBUG main 3948 (83) - end.
+2004-11-24 22:43:56,950 DEBUG basic_waf_ifstream 3948 (468) - ~basic_waf_ifstream begin.
+2004-11-24 22:43:56,950 DEBUG basic_waf_ifstream 3948 (470) - ~basic_waf_ifstream end.
