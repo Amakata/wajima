@@ -196,6 +196,9 @@
 					RelativePath="test\lib\std\NotEqualExceptionTest.cpp">
 				</File>
 				<File
+					RelativePath="test\lib\std\OwnerPolicyTest.cpp">
+				</File>
+				<File
 					RelativePath="test\lib\std\SourceLineTest.cpp">
 				</File>
 				<File

@@ -190,6 +190,9 @@
 					RelativePath="src\lib\std\NotEqualException.h">
 				</File>
 				<File
+					RelativePath="src\lib\std\OwnershipPolicy.h">
+				</File>
+				<File
 					RelativePath="src\lib\std\SourceLine.cpp">
 				</File>
 				<File
@@ -206,9 +209,6 @@
 				</File>
 				<File
 					RelativePath="src\lib\std\UniqueNumberFactory.h">
-				</File>
-				<File
-					RelativePath="src\lib\std\countptr.h">
 				</File>
 				<Filter
 					Name="sys"
