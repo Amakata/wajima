@@ -13,12 +13,14 @@ namespace zefiro_stdtest {
 		CPPUNIT_TEST_SUITE( AssertTest );
 		CPPUNIT_TEST( testAssertImplementation );
 		CPPUNIT_TEST( testAssertNotEqualImplementation );
+		CPPUNIT_TEST( testAssertEqualsTemplate );
 		CPPUNIT_TEST_SUITE_END();		
 	public:
 		void setUp();
 		void tearDown();
 		void testAssertImplementation();
 		void testAssertNotEqualImplementation();
+		void testAssertEqualsTemplate();
 	};
 };
 
