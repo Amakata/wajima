@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.1 2002/05/10 20:01:50 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/Attic/WinMain.cpp,v 1.2 2002/05/13 16:51:46 ama Exp $
  */
 
 #include <fstream>
@@ -15,7 +15,6 @@
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/TextOutputter.h>
 
-using namespace zefiro_stdtest;
 
 LRESULT CALLBACK WndProc( HWND hWnd ,
                                                   UINT message ,
@@ -30,11 +29,11 @@ int APIENTRY WinMain( HINSTANCE hInstance ,
 {
 
         if( !hPrevInstance ){
-                WindowClass *windowClass = new WindowClass( hInstance , WndProc ,"TestApp");
+			zefiro_stdtest::WindowClass *windowClass = new zefiro_stdtest::WindowClass( hInstance , WndProc ,"TestApp");
                 windowClass->registerClass();
                 delete windowClass;
         }
-        Window *window = new Window( hInstance , "TestApp" , "TestApplicationWindow");
+        zefiro_stdtest::Window *window = new zefiro_stdtest::Window( hInstance , "TestApp" , "TestApplicationWindow");
         window->show(nShowCmd);
 
         MSG        msg;
