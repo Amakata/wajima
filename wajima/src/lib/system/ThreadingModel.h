@@ -1,7 +1,7 @@
 #ifndef __THREADINGMODEL_H__
 #define __THREADINGMODEL_H__
 
-namespace zefiro_std{
+namespace zefiro_system{
 #ifdef _WINDOWS_
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -14,7 +14,7 @@ namespace zefiro_std{
     class ObjectLevelCountedLockable
     {
         CRITICAL_SECTION mtx_;
-		unsigned int cnt_;
+		volatile unsigned int cnt_;
     public:
 		ObjectLevelCountedLockable():cnt_(0)
         {
@@ -41,11 +41,11 @@ namespace zefiro_std{
             explicit Lock(ObjectLevelCountedLockable& host) : host_(host)
             {
                 ::EnterCriticalSection(&host_.mtx_);
-				::InterlockedIncrement(const_cast<unsigned int>(host_.cnt_));
+				::InterlockedIncrement( reinterpret_cast<LONG*>(const_cast<unsigned int*>(&host_.cnt_)) );
             }
             ~Lock()
             {
-				::InterlockedDecrement(const_cast<unsigned int>(host_.cnt_));
+				::InterlockedDecrement( reinterpret_cast<LONG*>(const_cast<unsigned int*>(&host_.cnt_)));
 				::LeaveCriticalSection(&host_.mtx_);
             }
         };
@@ -64,16 +64,16 @@ namespace zefiro_std{
 			explicit Unlock(ObjectLevelCountedLockable& host) : host_(host)
 			{
 				cnt_ = host_.cnt_;
-				for(i=0;i<cnt_;++i){
-					::InterlockedDecrement(const_cast<unsigned int>(host_.cnt_));
+				for(unsigned int i=0;i<cnt_;++i){
+					::InterlockedDecrement(reinterpret_cast<LONG*>(const_cast<unsigned int*>(&host_.cnt_)));
 					::LeaveCriticalSection(&host_.mtx_);
 				}
 			}
             ~Unlock()
             {
-				for(i=0;i<cnt_;++i){
+				for(unsigned int i=0;i<cnt_;++i){
 					::EnterCriticalSection(&host_.mtx_);
-					::InterlockedIncrement(const_cast<unsigned int>(host_.cnt_));
+					::InterlockedIncrement(reinterpret_cast<LONG*>(const_cast<unsigned int*>(&host_.cnt_)));
 				}
             }
 		};
@@ -126,16 +126,16 @@ namespace zefiro_std{
             Lock()
             {
                 ::EnterCriticalSection(&initializer_.mtx_);
-				::InterlockedIncrement(const_cast<unsigned int>(initializer_.cnt_));
+				::InterlockedIncrement(reinterpret_cast<LONG*>(const_cast<unsigned int*>(&initializer_.cnt_)));
 			}
             explicit Lock(ClassLevelCountedLockable&)
             {
                 ::EnterCriticalSection(&initializer_.mtx_);
-				::InterlockedIncrement(const_cast<unsigned int>(initializer_.cnt_));
+				::InterlockedIncrement(reinterpret_cast<LONG*>(const_cast<unsigned int*>(&initializer_.cnt_)));
             }
             ~Lock()
             {
-				::InterlockedDecrement(const_cast<unsigned int>(initializer_.cnt_));
+				::InterlockedDecrement(reinterpret_cast<LONG*>(const_cast<unsigned int*>(&initializer_.cnt_)));
 				::LeaveCriticalSection(&initializer_.mtx_);
             }
         };
@@ -152,24 +152,24 @@ namespace zefiro_std{
             Unlock()
             {
 				cnt_ = initializer_.cnt_;
-				for(int i=0;i<cnt_;++i){
-					::InterlockedDecrement(const_cast<unsigned int>(initializer_.cnt_));
+				for(unsigned int i=0;i<cnt_;++i){
+					::InterlockedDecrement(reinterpret_cast<LONG*>(const_cast<unsigned int*>(&initializer_.cnt_)));
 					::LeaveCriticalSection(&initializer_.mtx_);
 				}
 			}
             explicit Unlock(ClassLevelCountedLockable&)
             {
 				cnt_ = initializer_.cnt_;
-				for(int i=0;i<cnt_;++i){
-					::InterlockedDecrement(const_cast<unsigned int>(initializer_.cnt_));
+				for(unsigned int i=0;i<cnt_;++i){
+					::InterlockedDecrement(reinterpret_cast<LONG*>(const_cast<unsigned int*>(&initializer_.cnt_)));
 					::LeaveCriticalSection(&initializer_.mtx_);
 				}
             }
             ~Unlock()
             {
-				for(int i=0;i<cnt_;++i){
+				for(unsigned int i=0;i<cnt_;++i){
 	                ::EnterCriticalSection(&initializer_.mtx_);
-					::InterlockedIncrement(const_cast<unsigned int>(initializer_.cnt_));
+					::InterlockedIncrement(reinterpret_cast<LONG*>(const_cast<unsigned int*>(&initializer_.cnt_)));
 				}
             }
         };
