@@ -34,10 +34,10 @@ namespace zefiro_std{
 		/**
 		 * 表明の実装
 		 * 呼び出されて、conditionがもしもfalseならzefiro_std::Exceptionがthrowされる。
-		 * \param condition 状態
-		 * \param conditionExpression 状態の式
-		 * \param lineNumber	状態の行数
-		 * \param fileName		状態のファイル名
+		 * \param condition 評価の結果
+		 * \param conditionExpression 評価式
+		 * \param lineNumber	評価したソースファイルの行番号
+		 * \param fileName		評価したソースファイル名	
 		 * \throw zefiro_std::Exception 状態がfalseだった。
 		 */
 		void assertImplementation( bool         condition, 
@@ -49,8 +49,8 @@ namespace zefiro_std{
 		 * 呼び出されると必ずzefiro_std::NotEqualExceptionがthrowされる。
 		 * \param expected 予想値
 		 * \param actual 現在値
-		 * \param lineNumber	状態の行数
-		 * \param fileName		状態のファイル名
+		 * \param lineNumber	評価したソースファイルの行番号
+		 * \param fileName		評価したソースファイル名	
 		 * \throw zefiro_std::NotEqualException 必ず発生する。
 		*/
 		void assertNotEqualImplementation( std::string expected,
@@ -62,7 +62,7 @@ namespace zefiro_std{
 		 * expectedとactualの値を比較し、等価でなければ、zefiro_std::NotEqualExceptionを発生させる。
 		 * \param expected 予想値
 		 * \param actual 現在値
-		 * \param lineNumber	評価したの行数
+		 * \param lineNumber	評価したソースファイルの行番号
 		 * \param fileName		評価したソースファイル名		 
 		 * \throw zefiro_std::NotEqualException 予想値と現在値が異なった。
 		 */
@@ -82,7 +82,7 @@ namespace zefiro_std{
 		 * \param expected 予想値
 		 * \param actual 現在値
 		 * \param delta 許容誤差
-		 * \param lineNumber	評価したの行数
+		 * \param lineNumber	評価したソースファイルの行番号
 		 * \param fileName		評価したソースファイル名		 
 		 * \throw zefiro_std::NotEqualException 予想値と現在値の差の絶対値がdeltaより多きかった。
 		 */
@@ -93,18 +93,22 @@ namespace zefiro_std{
 							std::string  fileName = Exception::UNKNOWNFILENAME );
 	}; // namespace Assert
 
+/// 表明のマクロ
 #	define ZEFIRO_STD_ASSERT( condition )\
 	(zefiro_std::Assert::assertImplementation((condition),(#condition),\
 		__LINE__,__FILE__))
 
+/// 表明のマクロ（メッセージ指定付）
 #	define ZEFIRO_STD_ASSERT_MESSAGE( message , condition )\
 	(zefiro_std::Assert::assertImplementation( condition, \
 												message, \
 												__LINE__,\
 												__FILE__ ) )
+/// 表明のマクロ(等価評価)
 #	define ZEFIRO_STD_ASSERT_EQUAL( expected , actual )\
 	(zefiro_std::Assert::assertEquals( (epected),(actual),__LINE__,__FILE__))
 
+	/// 表明のマクロ(等価評価、実数)
 #	define ZEFIRO_STD_ASSERT_DOUBLES	_EQUAL( expected , actual , delta )\
 	(zefiro_std::Assert::assertEquals( expected , actual , delta , __LINE__ , __FILE__ ))
 
