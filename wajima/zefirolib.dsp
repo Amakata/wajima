@@ -2,7 +2,7 @@
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** 編集しないでください **
 
-# TARGTYPE "Win32 (x86) Application" 0x0101
+# TARGTYPE "Win32 (x86) Static Library" 0x0104
 
 CFG=zefirolib - Win32 Debug
 !MESSAGE これは有効なﾒｲｸﾌｧｲﾙではありません。 このﾌﾟﾛｼﾞｪｸﾄをﾋﾞﾙﾄﾞするためには NMAKE を使用してください。
@@ -17,8 +17,8 @@ CFG=zefirolib - Win32 Debug
 !MESSAGE 
 !MESSAGE 選択可能なﾋﾞﾙﾄﾞ ﾓｰﾄﾞ:
 !MESSAGE 
-!MESSAGE "zefirolib - Win32 Release" ("Win32 (x86) Application" 用)
-!MESSAGE "zefirolib - Win32 Debug" ("Win32 (x86) Application" 用)
+!MESSAGE "zefirolib - Win32 Release" ("Win32 (x86) Static Library" 用)
+!MESSAGE "zefirolib - Win32 Debug" ("Win32 (x86) Static Library" 用)
 !MESSAGE 
 
 # Begin Project
@@ -26,7 +26,6 @@ CFG=zefirolib - Win32 Debug
 # PROP Scc_ProjName ""
 # PROP Scc_LocalPath ""
 CPP=cl.exe
-MTL=midl.exe
 RSC=rc.exe
 
 !IF  "$(CFG)" == "zefirolib - Win32 Release"
@@ -38,47 +37,42 @@ RSC=rc.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Release"
-# PROP Intermediate_Dir "Release"
-# PROP Ignore_Export_Lib 0
+# PROP Output_Dir "build/zefirolib/release"
+# PROP Intermediate_Dir "build/zefirolib/release"
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /W3 /GR /GX /O2 /I "src/lib/include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
-# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
-# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+# ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
+# ADD CPP /nologo /MD /W3 /GX /O2 /I "include/lib/" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
 # ADD BASE RSC /l 0x411 /d "NDEBUG"
 # ADD RSC /l 0x411 /d "NDEBUG"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
-LINK32=link.exe
-# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
+LIB32=link.exe -lib
+# ADD BASE LIB32 /nologo
+# ADD LIB32 /nologo /out:"lib/zefirolib.lib"
 
 !ELSEIF  "$(CFG)" == "zefirolib - Win32 Debug"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 1
-# PROP BASE Output_Dir "zefirolib___Win32_Debug"
-# PROP BASE Intermediate_Dir "zefirolib___Win32_Debug"
+# PROP BASE Output_Dir "Debug"
+# PROP BASE Intermediate_Dir "Debug"
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "zefirolib___Win32_Debug"
-# PROP Intermediate_Dir "zefirolib___Win32_Debug"
+# PROP Output_Dir "build/zefirolib/debug"
+# PROP Intermediate_Dir "build/zefirolib/debug"
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "src/lib/include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
-# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
-# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+# ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /ZI /Od /I "include/lib/" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
 # ADD BASE RSC /l 0x411 /d "_DEBUG"
 # ADD RSC /l 0x411 /d "_DEBUG"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
-LINK32=link.exe
-# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
+LIB32=link.exe -lib
+# ADD BASE LIB32 /nologo
+# ADD LIB32 /nologo /out:"lib/zefirolibd.lib"
 
 !ENDIF 
 
@@ -86,17 +80,281 @@ LINK32=link.exe
 
 # Name "zefirolib - Win32 Release"
 # Name "zefirolib - Win32 Debug"
-# Begin Group "Source Files"
+# Begin Group "std src"
 
-# PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
+# PROP Default_Filter "cpp"
+# Begin Source File
+
+SOURCE=.\src\lib\std\Assert.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\Asserter.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\Exception.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\InvalidArgument.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\NotEqualException.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\SourceLine.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\UniqueNumberBadAlloc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\UniqueNumberFactory.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\sys\Win32Assert.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\sys\Win32Exception.cpp
+# End Source File
 # End Group
-# Begin Group "Header Files"
+# Begin Group "graphics src"
 
-# PROP Default_Filter "h;hpp;hxx;hm;inl"
+# PROP Default_Filter "cpp"
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\Adapter.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\BaseSprite.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\BaseSpriteImp.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\D3D8.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\DXAssert.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\DXException.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\DXInvalidArgument.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\ImageSpriteImp.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\Mode.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\Sprite.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\SpriteFactory.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\Sprites.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\Win32ImageSpriteImp.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\Win32SpriteFactory.cpp
+# End Source File
 # End Group
-# Begin Group "Resource Files"
+# Begin Group "thread src"
 
-# PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
+# PROP Default_Filter "cpp"
+# Begin Source File
+
+SOURCE=.\src\lib\thread\IllegalThreadStateException.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\thread\Mutex.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\thread\Thread.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\thread\sys\Win32Event.cpp
+# End Source File
+# End Group
+# Begin Group "system src"
+
+# PROP Default_Filter "cpp"
+# End Group
+# Begin Group "input src"
+
+# PROP Default_Filter "cpp"
+# End Group
+# Begin Group "graphics header"
+
+# PROP Default_Filter "h"
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\sys\Adapter.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\BaseSprite.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\BaseSpriteImp.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\sys\D3D8.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\sys\DXAssert.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\sys\DXException.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\sys\DXInvalidArgument.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\ImageSpriteImp.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\sys\Mode.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\Sprite.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\SpriteFactory.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\Sprites.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\TextSpriteImp.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\sys\Win32ImageSpriteImp.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\graphics\sys\Win32SpriteFactory.h
+# End Source File
+# End Group
+# Begin Group "thread header"
+
+# PROP Default_Filter "h"
+# Begin Source File
+
+SOURCE=.\include\lib\thread\IllegalThreadStateException.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\thread\Mutex.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\thread\Runnable.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\thread\Thread.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\thread\sys\Win32Event.h
+# End Source File
+# End Group
+# Begin Group "system header"
+
+# PROP Default_Filter "h"
+# End Group
+# Begin Group "input header"
+
+# PROP Default_Filter "h"
+# End Group
+# Begin Group "std header"
+
+# PROP Default_Filter "h"
+# Begin Source File
+
+SOURCE=.\include\lib\std\Assert.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\Asserter.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\countptr.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\Exception.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\InvalidArgument.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\NotEqualException.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\SourceLine.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\UniqueNumberBadAlloc.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\UniqueNumberFactory.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\sys\Win32Assert.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\sys\Win32Exception.h
+# End Source File
 # End Group
 # End Target
 # End Project
