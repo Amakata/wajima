@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/Attic/D3D8.h,v 1.2 2002/08/25 10:48:07 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/Attic/D3D8.h,v 1.3 2002/09/13 05:35:28 ama Exp $
  */
 
 #ifndef __D3D8_H__
@@ -24,7 +24,7 @@ namespace zefiro_graphics {
 	protected:
 		std::string getAdapterIdentifier( const int adapterid ) const;
 		Mode getAdapterMode( const int adapterid , const int modeid ) const;
-		LPDIRECT3D8 pD3D_;
+		LPDIRECT3D8 D3D_;
 	private:
 		D3D8( const D3D8  & d3d8 );
 		D3D8 operator = ( const D3D8  & d3d8 );

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.10 2002/08/25 12:07:45 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3D8.cpp,v 1.11 2002/09/13 05:36:19 ama Exp $
  */
 
 #include "std/Assert.h"
@@ -10,23 +10,23 @@
 
 namespace zefiro_graphics {
 	D3D8::D3D8(){
-		pD3D_ = Direct3DCreate8( D3D_SDK_VERSION );
+		D3D_ = Direct3DCreate8( D3D_SDK_VERSION );
 	}
 	D3D8::~D3D8(){
 		if( isAvailable() ){
-			pD3D_->Release();
+			D3D_->Release();
 		}
 	}
 	int D3D8::getAdapterCount() const{
 		ZEFIRO_STD_ASSERT( isAvailable() );
-		return pD3D_->GetAdapterCount();
+		return D3D_->GetAdapterCount();
 	}
 	int D3D8::getAdapterModeCount( const int adapter ) const{
 		ZEFIRO_STD_ASSERT( isAvailable() );
-		return pD3D_->GetAdapterModeCount( adapter );
+		return D3D_->GetAdapterModeCount( adapter );
 	}
 	bool D3D8::isAvailable() const{
-		return pD3D_ != NULL;
+		return D3D_ != NULL;
 	}
 	std::vector<Adapter> D3D8::getAdapterVector() const{
 		ZEFIRO_STD_ASSERT( isAvailable() );
@@ -53,31 +53,33 @@ namespace zefiro_graphics {
 		param.Windowed = windowed;
 		param.EnableAutoDepthStencil = TRUE;
 		param.AutoDepthStencilFormat = D3DFMT_D16;	//	
-		LPDIRECT3DDEVICE8 pD3DDevice;
+		LPDIRECT3DDEVICE8 d3dDevice;
 		DWORD behaviorFlags = NULL;
 		if( threaded ){
 			behaviorFlags = D3DCREATE_MULTITHREADED;
 		}
 
-		HRESULT hr;
-		hr = pD3D_->CreateDevice( adapterid , D3DDEVTYPE_HAL  , hwnd  ,D3DCREATE_HARDWARE_VERTEXPROCESSING | behaviorFlags ,&param , &pD3DDevice );
+		HRESULT hr = D3D_->CreateDevice( adapterid , D3DDEVTYPE_HAL  , hwnd  ,D3DCREATE_HARDWARE_VERTEXPROCESSING | behaviorFlags ,&param , &d3dDevice );
 		if( D3D_OK != hr  ){
-			hr = pD3D_->CreateDevice( adapterid , D3DDEVTYPE_HAL , hwnd , D3DCREATE_SOFTWARE_VERTEXPROCESSING | behaviorFlags, &param , &pD3DDevice );
+			hr = D3D_->CreateDevice( adapterid , D3DDEVTYPE_HAL , hwnd , D3DCREATE_SOFTWARE_VERTEXPROCESSING | behaviorFlags, &param , &d3dDevice );
 		}
 		if( D3D_OK != hr ){
-			hr = pD3D_->CreateDevice( adapterid , D3DDEVTYPE_REF , hwnd , D3DCREATE_HARDWARE_VERTEXPROCESSING | behaviorFlags , &param , &pD3DDevice );
+			hr = D3D_->CreateDevice( adapterid , D3DDEVTYPE_REF , hwnd , D3DCREATE_HARDWARE_VERTEXPROCESSING | behaviorFlags , &param , &d3dDevice );
 		}
 		if( D3D_OK != hr ){
-			hr = pD3D_->CreateDevice( adapterid , D3DDEVTYPE_REF , hwnd , D3DCREATE_SOFTWARE_VERTEXPROCESSING | behaviorFlags , &param , &pD3DDevice );
+			hr = D3D_->CreateDevice( adapterid , D3DDEVTYPE_REF , hwnd , D3DCREATE_SOFTWARE_VERTEXPROCESSING | behaviorFlags , &param , &d3dDevice );
 		}
 		DXASSERT( hr );
-		return new D3DDevice(pD3DDevice);
+		LPD3DXSPRITE d3dSprite;
+		hr = D3DXCreateSprite( d3dDevice , &d3dSprite );
+		DXASSERT( hr );
+		return new D3DDevice(d3dDevice,d3dSprite);
 	}
 	Mode D3D8::getAdapterMode( const int adapterid , const int modeid ) const{
 		ZEFIRO_STD_ASSERT( isAvailable() );
 		
 		D3DDISPLAYMODE d3dDisplayMode ;
-		HRESULT hr = pD3D_->EnumAdapterModes( adapterid , modeid , &d3dDisplayMode );
+		HRESULT hr = D3D_->EnumAdapterModes( adapterid , modeid , &d3dDisplayMode );
 		DXASSERT( hr );
 		return Mode(  d3dDisplayMode.Width , d3dDisplayMode.Height , d3dDisplayMode.RefreshRate , d3dDisplayMode.Format );
 	}
@@ -85,7 +87,7 @@ namespace zefiro_graphics {
 		ZEFIRO_STD_ASSERT( isAvailable() );
 
 		D3DADAPTER_IDENTIFIER8	d3dAdapterIdentifier;
-		HRESULT hr = pD3D_->GetAdapterIdentifier( adapterid , D3DENUM_NO_WHQL_LEVEL , & d3dAdapterIdentifier );
+		HRESULT hr = D3D_->GetAdapterIdentifier( adapterid , D3DENUM_NO_WHQL_LEVEL , & d3dAdapterIdentifier );
 		DXASSERT( hr );
 		return std::string( d3dAdapterIdentifier.Description );
 	}
