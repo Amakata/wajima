@@ -67,6 +67,10 @@ int doArchive(const ::std::string &propertyFilePathStr) {
 		wafFileSize += header.size_;
 		LOG4CXX_DEBUG(log, "write byte = " + ::boost::lexical_cast<::std::string>(count));		
 	}
+	// ファイル終端を書き込む( size = -1)
+	::pss::std::basic_waf_filebuf<char>::Header header = {0};
+	header.size_ = -1;
+	ofs.write((char*) &header, sizeof(header));
 	LOG4CXX_DEBUG(log, "waf file size = " + ::boost::lexical_cast<::std::string>(wafFileSize));		
 	ifs.close();
 	ofs.flush();
