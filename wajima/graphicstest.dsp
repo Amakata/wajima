@@ -101,6 +101,10 @@ SOURCE=.\src\lib\graphics\sys\test\D3D8Test.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\graphics\sys\test\DXExceptionTest.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\graphics\sys\test\ModeTest.cpp
 # End Source File
 # Begin Source File
@@ -122,6 +126,10 @@ SOURCE=.\src\lib\include\graphics\sys\test\AdapterTest.h
 # Begin Source File
 
 SOURCE=.\src\lib\include\graphics\sys\test\D3D8Test.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\graphics\sys\test\DXExceptionTest.h
 # End Source File
 # Begin Source File
 
