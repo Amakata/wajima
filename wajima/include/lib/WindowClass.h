@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/Attic/WindowClass.h,v 1.1 2002/05/10 19:17:09 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/Attic/WindowClass.h,v 1.2 2002/09/18 14:41:15 ama Exp $
  */
 
 #ifndef __WINDOWCLASS_H__
@@ -25,7 +25,7 @@ public:
 		_wcex.hInstance		= _hInstance;
 		_wcex.hIcon			= LoadIcon( _hInstance , IDI_APPLICATION );
 		_wcex.hIconSm		= LoadIcon( _hInstance , IDI_APPLICATION );
-		_wcex.hCursor		= LoadCursor( _hInstance , IDC_ARROW );
+		_wcex.hCursor		= LoadCursor( NULL , IDC_ARROW );
 		_wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
 		_wcex.lpszMenuName	= _lpszAppName;
 		_wcex.lpszClassName	= _lpszAppName;
