@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/Attic/Window.h,v 1.1 2002/05/10 19:17:09 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/Attic/Window.h,v 1.2 2002/09/18 14:41:32 ama Exp $
  */
 
 #ifndef __WINDOW_H__
@@ -13,12 +13,12 @@ namespace zefiro_stdtest{
 	public:
 		Window( HINSTANCE hInstance , LPTSTR className , LPTSTR windowName )
 			:_hInstance(hInstance),_className(className),_windowName(windowName){
-			init();
+			init( 800 , 600 );
 		}
-		virtual void init(){
+		virtual void init( int width , int height ){
 			_hWnd = CreateWindow( _className , _windowName , WS_OVERLAPPEDWINDOW , 
 								CW_USEDEFAULT , 0 ,
-								CW_USEDEFAULT , 0 ,
+								width , height ,
 								NULL ,
 								NULL ,
 								_hInstance ,
