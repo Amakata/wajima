@@ -105,6 +105,14 @@ SOURCE=.\src\lib\graphics\sys\DXAssert.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\graphics\sys\DXException.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\graphics\sys\DXInvalidArgument.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\graphics\ImageSpriteImp.cpp
 # End Source File
 # Begin Source File
@@ -154,6 +162,14 @@ SOURCE=.\src\lib\include\graphics\sys\D3D8.h
 # Begin Source File
 
 SOURCE=.\src\lib\include\graphics\sys\DXAssert.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\graphics\sys\DXException.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\graphics\sys\DXInvalidArgument.h
 # End Source File
 # Begin Source File
 
