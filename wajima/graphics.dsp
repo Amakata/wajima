@@ -101,6 +101,10 @@ SOURCE=.\src\lib\graphics\sys\D3D8.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\graphics\sys\DXAssert.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\graphics\ImageSpriteImp.cpp
 # End Source File
 # Begin Source File
@@ -146,6 +150,10 @@ SOURCE=.\src\lib\include\graphics\BaseSpriteImp.h
 # Begin Source File
 
 SOURCE=.\src\lib\include\graphics\sys\D3D8.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\include\graphics\sys\DXAssert.h
 # End Source File
 # Begin Source File
 
