@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.4 2002/09/18 17:06:13 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/sys/Attic/D3DDevice.cpp,v 1.5 2002/09/18 18:02:34 ama Exp $
  */
 
 #include "graphics/sys/D3DDevice.h"
@@ -48,6 +48,12 @@ namespace zefiro_graphics {
 		DXASSERT( d3dDevice8_->BeginScene() );
 		d3dDevice8_->SetRenderState( D3DRS_ZENABLE  , D3DZB_TRUE );
 		d3dDevice8_->SetRenderState( D3DRS_ZWRITEENABLE , TRUE );
+		d3dDevice8_->SetRenderState( D3DRS_ALPHAREF , 0 );
+		d3dDevice8_->SetRenderState( D3DRS_ALPHATESTENABLE , TRUE );
+		d3dDevice8_->SetRenderState( D3DRS_ALPHAFUNC , D3DCMP_GREATEREQUAL );
+		d3dDevice8_->SetRenderState( D3DRS_ALPHABLENDENABLE , TRUE );
+		d3dDevice8_->SetRenderState( D3DRS_SRCBLEND , D3DBLEND_SRCALPHA );
+		d3dDevice8_->SetRenderState( D3DRS_DESTBLEND , D3DBLEND_INVSRCALPHA );
 		d3dDevice8_->SetVertexShader( D3DFVF_CUSTOMVERTEX );
 	}
 	void D3DDevice::renderEnd(){
