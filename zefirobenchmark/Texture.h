@@ -3,7 +3,7 @@
 #include <string>
 #include "vertex.h"
 
-#define DXERROR_LOG( hr )	{	HRESULT hr2 = hr; if( hr2 != D3D_OK ){std::ofstream ofs;	ofs.open("error_log.txt",std::ios_base::out | std::ios_base::app ); ofs <<__FILE__<<":"<<__LINE__<<":"<<hr2<< std::endl; ofs.close();} }
+#include "logger.h"
 
 class Texture {
 public:
@@ -34,9 +34,9 @@ public:
 		float heightRatio = (info.Height + 0.5f )/ desc.Height;
 		float widthRatio = (info.Width + 0.5f ) / desc.Width;;
 														cv_[0].rhw = 1.0f;
-		cv_[1].x = info.Width;	cv_[1].y = info.Height;	cv_[1].rhw = 1.0f;	cv_[1].tu = widthRatio;	cv_[1].tv = heightRatio;
-								cv_[2].y = info.Height;	cv_[2].rhw = 1.0f;							cv_[2].tv = heightRatio;
-		cv_[3].x = info.Width;							cv_[3].rhw = 1.0f;	cv_[3].tu = widthRatio;
+		cv_[1].x = (float)info.Width;	cv_[1].y = (float)info.Height;	cv_[1].rhw = 1.0f;	cv_[1].tu = widthRatio;	cv_[1].tv = heightRatio;
+								cv_[2].y = (float)info.Height;	cv_[2].rhw = 1.0f;							cv_[2].tv = heightRatio;
+		cv_[3].x = (float)info.Width;							cv_[3].rhw = 1.0f;	cv_[3].tu = widthRatio;
 		cv_[4] = cv_[1];
 														cv_[5].rhw = 1.0f;
 
