@@ -166,6 +166,9 @@
 					RelativePath="src\lib\std\Asserter.h">
 				</File>
 				<File
+					RelativePath="src\lib\std\CheckingPolicy.h">
+				</File>
+				<File
 					RelativePath="src\lib\std\Exception.cpp">
 				</File>
 				<File
