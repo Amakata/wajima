@@ -50,29 +50,44 @@ void ApplicationTest::testGetAdapterDeviceInfo(){
 	exec( Config::config__->getString("editor") + " " + Config::config__->getString("devicefile") );
 }
 void ApplicationTest::demoDirectX(){
-	zefiro_graphics::D3DTexture *texBlue,*texRed,*texGreen,*texBox;
+	zefiro_graphics::D3DTexture *tex[4];
 	zefiro_graphics::D3D8 *d3d8 = new zefiro_graphics::D3D8();
-	zefiro_graphics::D3DDevice *device = d3d8->createDevice( 0 , zefiro_graphics::Mode(800,600,0,D3DFMT_X8R8G8B8) ,false,  false , hWnd_ );
-	texRed = device->loadTexture( Config::config__->getString("graphics_texture_filename_red") );
-	texGreen = device->loadTexture( Config::config__->getString("graphics_texture_filename_green") );
-	texBlue= device->loadTexture( Config::config__->getString("graphics_texture_filename_blue") );
-	texBox = device->loadTexture( Config::config__->getString("graphics_texture_filename_box") );
+	zefiro_graphics::D3DDevice *device = d3d8->createDevice(
+													0 ,
+													zefiro_graphics::Mode(
+														Config::config__->getInteger("graphics_device_width") ,
+														Config::config__->getInteger("graphics_device_height") ,
+														0 ,
+														D3DFMT_X8R8G8B8
+													) , 
+													Config::config__->getBool("graphics_device_windowmode") ,
+													Config::config__->getBool("graphics_device_threaded"),
+													hWnd_ 
+												);
+	
+	tex[0] = device->loadTexture( Config::config__->getString("graphics_texture_filename_red") );
+	tex[1] = device->loadTexture( Config::config__->getString("graphics_texture_filename_green") );
+	tex[2]= device->loadTexture( Config::config__->getString("graphics_texture_filename_blue") );
+	tex[3] = device->loadTexture( Config::config__->getString("graphics_texture_filename_box") );
 
-	for( int i=0 ; i<100 ; ++i ){
+	int width = Config::config__->getInteger("graphics_device_width");
+	int height = Config::config__->getInteger("graphics_device_height");
+	int maxI = Config::config__->getInteger("graphics_texture_render_number_i");
+	int maxJ = Config::config__->getInteger("graphics_texture_render_number_j");
+
+	for( int i=0 ; i<maxI ; ++i ){
 		device->clear();
 		device->renderBegin();
-		for( int i=0 ; i<1000 ; ++i ){
-			device->render( texRed , (float)rand()/(float)RAND_MAX *700  , (float)rand()/(float)RAND_MAX *700 , i/1000.0f );
-			device->render( texGreen , (float)rand()/(float)RAND_MAX *700 , (float)rand()/(float)RAND_MAX *700 , i/1000.0f);
-			device->render( texBlue , (float)rand()/(float)RAND_MAX *700, (float)rand()/(float)RAND_MAX *700 , i/1000.0f);
-			device->render( texBox , (float)rand()/(float)RAND_MAX *700 , (float)rand()/(float)RAND_MAX *700 , i/1000.0f);
+		for( int j=0 ; j<maxJ ; ++j ){
+			for( int k=0 ; k<4 ; ++k ){
+				device->render( tex[k] , (float)rand()/(float)RAND_MAX *(width-tex[k]->getWidth())  , (float)rand()/(float)RAND_MAX *(height-tex[k]->getHeight()) , (1000.0f-j)/maxI );
+			}
 		}
 		device->renderEnd();
 	}
-	delete texRed;
-	delete texBlue;
-	delete texGreen;
-	delete texBox;
+	for( int k=0 ; k<4 ; ++k ){
+		delete tex[k];
+	}
 	delete device;
 	delete d3d8;
 }
