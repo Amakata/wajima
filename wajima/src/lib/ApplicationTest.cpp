@@ -80,22 +80,22 @@ void ApplicationTest::demoDirectX(){
 	INT FrameCount = 0;        // フレーム・カウンタ
 
 	for( int i=0 ; i<maxI ; ++i ){
-		std::ostringstream oss;
 		device->clear();
 		device->renderBegin();
 		for( int j=0 ; j<maxJ ; ++j ){
 			for( int k=0 ; k<4 ; ++k ){
-//				device->render( tex[k] , (float)rand()/(float)RAND_MAX *(width-tex[k]->getWidth())  , (float)rand()/(float)RAND_MAX *(height-tex[k]->getHeight()) , j/1000.0f );
-				device->render( tex[0] , 0.0f , 0.0f , (float)(maxJ-j)/maxJ );
+				device->render( tex[k] , k * 100.0f , 0.0f , 0.0f );
 			}
 		}
+	
+		std::ostringstream oss;
 		if(FrameCount <= 0){
 			old = now;
 			now = timeGetTime();
-			FrameCount = 10;
+			FrameCount = 100;
 		}
+		oss << 100.0f / (now - old) * 1000;
 		FrameCount--;
-		oss << 10.0f / (now - old) * 1000;
 		font->draw(oss.str(),0,0,100,32,0xFF0000FF);
 		device->renderEnd();
 	}
