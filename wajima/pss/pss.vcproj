@@ -124,6 +124,9 @@
 						RelativePath=".\src\pss\std\Timer.hpp">
 					</File>
 					<File
+						RelativePath=".\WAFInputFileStream.hpp">
+					</File>
+					<File
 						RelativePath=".\src\pss\std\Win32ConsoleStream.hpp">
 					</File>
 					<File
