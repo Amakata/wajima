@@ -18,12 +18,12 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="0"
+				Optimization="2"
 				AdditionalIncludeDirectories="./include/lib"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="TRUE"
 				ExceptionHandling="TRUE"
-				BasicRuntimeChecks="3"
+				BasicRuntimeChecks="0"
 				RuntimeLibrary="3"
 				ForceConformanceInForLoopScope="TRUE"
 				RuntimeTypeInfo="TRUE"
@@ -35,7 +35,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="d3d8.lib d3dx8.lib dxerr8.lib cppunitd.lib zefirolibd.lib"
+				AdditionalDependencies="d3d8.lib d3dx8.lib dxerr8.lib cppunitd.lib winmm.lib zefirolibd.lib"
 				OutputFile="$(OutDir)/zefirolibtest.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="./lib"
@@ -81,16 +81,16 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="3"/>
+				DebugInformationFormat="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="d3d8.lib d3dx8.lib dxerr8.lib  cppunitd.lib zefirolib.lib"
+				AdditionalDependencies="d3d8.lib d3dx8.lib dxerr8.lib cppunitd.lib winmm.lib zefirolib.lib"
 				OutputFile="$(OutDir)/game.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="./lib"
-				GenerateDebugInformation="TRUE"
+				GenerateDebugInformation="FALSE"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"

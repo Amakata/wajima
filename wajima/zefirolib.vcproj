@@ -18,11 +18,11 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="0"
+				Optimization="2"
 				AdditionalIncludeDirectories="./include/lib"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="TRUE"
-				BasicRuntimeChecks="3"
+				BasicRuntimeChecks="0"
 				RuntimeLibrary="3"
 				ForceConformanceInForLoopScope="TRUE"
 				RuntimeTypeInfo="TRUE"
@@ -69,7 +69,7 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="3"/>
+				DebugInformationFormat="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
@@ -115,6 +115,9 @@
 			</File>
 			<File
 				RelativePath="include\lib\graphics\sys\D3DDevice.h">
+			</File>
+			<File
+				RelativePath="include\lib\graphics\sys\D3DFont.h">
 			</File>
 			<File
 				RelativePath="src\lib\graphics\sys\D3DTexture.cpp">
