@@ -1,5 +1,5 @@
 #include <windows.h>
-#include <graphics/test/resource.h>
+#include <test/resource.h>
 #include <winver.h>
 
 TESTAPP MENU DISCARDABLE

@@ -2,9 +2,9 @@
 #include <windows.h>
 
 
-#include <game/test/WindowClass.h>
-#include <game/test/Window.h>
-#include <game/test/resource.h>
+#include <test/WindowClass.h>
+#include <test/Window.h>
+#include <test/resource.h>
 
 #include <cppunit/TextTestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
