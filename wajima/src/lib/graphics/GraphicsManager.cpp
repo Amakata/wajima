@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.cpp,v 1.3 2002/11/24 17:41:55 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.cpp,v 1.4 2002/11/25 13:07:00 ama Exp $
  */
 
 #include "GraphicsManager.h"
@@ -25,16 +25,26 @@ namespace zefiro_graphics {
 			d3d_->Release();
 		}
 	}
-	GraphicsDevice::GD GraphicsManager::createGD( int width , int height , ColorFormat colorFormat , int refreshRate , bool windowed ){
+	GraphicsDevice::GD GraphicsManager::createGD( int width , int height , ColorFormat colorFormat , int refreshRate , bool windowed , int adapterNumber ){
+		// TODO: GDの作成を正しくやるためのルーチンをかかねば・・・。しくしく。
+		D3DPRESENT_PARAMETERS d3dParams = {0};
+		d3dParams.Windowed = windowed;
+		d3dParams.SwapEffect = D3DSWAPEFFECT_DISCARD;
+		d3dParams.BackBufferHeight = height;
+		d3dParams.BackBufferWidth = width;
+		d3dParams.BackBufferCount = 1;
+		d3dParams.EnableAutoDepthStencil = TRUE;
+		d3dParams.FullScreen_RefreshRateInHz = refreshRate;
+
 		return GraphicsDevice::GD( NULL );
 	}
 	GraphicsDevice::GD GraphicsManager::createGD( GraphicsDeviceMode gdm ){
-		return GraphicsDevice::GD( NULL );
+		return createGD( gdm.getWidth() , gdm.getHeight() , gdm.getColorFormat() , gdm.getRefreshRate() , gdm.isWindowed() , gdm.getAdapterNumber() );
 	}
-	GraphicsDevice::GD GraphicsManager::createGD( GraphicsDeviceModeSelector selector ){
-		return GraphicsDevice::GD( NULL );
+	GraphicsDevice::GD GraphicsManager::createGD( GraphicsDeviceModeSelector &selector ){
+		return createGD( selector( queryGD() ) );
 	}
-	std::vector<GraphicsDeviceMode> GraphicsManager::queryGD( GraphicsDeviceModeSelector selector ){
+	std::vector<GraphicsDeviceMode> GraphicsManager::queryGD( GraphicsDeviceModeFilter &filter ){
 		std::vector<GraphicsDeviceMode> result;
 		int adapterCountSize = d3d_->GetAdapterCount();
 		for( int adapterCount = 0 ; adapterCount < adapterCountSize ; ++adapterCount ){
@@ -75,6 +85,6 @@ namespace zefiro_graphics {
 				}
 			}
 		}
-		return selector( result );
+		return filter( result );
 	}
 };

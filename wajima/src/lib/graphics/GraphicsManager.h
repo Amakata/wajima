@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.h,v 1.3 2002/11/24 17:41:55 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsManager.h,v 1.4 2002/11/25 13:06:56 ama Exp $
  */
 #ifndef __GRAPHICSMANAGER_H__
 #define __GRAPHICSMANAGER_H__
@@ -16,23 +16,28 @@
 #include "ColorFormat.h"
 
 namespace zefiro_graphics {
-	class GraphicsDeviceModeSelector : public std::unary_function<std::vector<GraphicsDeviceMode>,std::vector<GraphicsDeviceMode> > {
+	// queryGD用ファンクタ
+	class GraphicsDeviceModeFilter {
 	public:
-		virtual result_type operator()(argument_type gdms){
-			return (result_type)gdms;
+		virtual std::vector<GraphicsDeviceMode> operator()(std::vector<GraphicsDeviceMode> gdms){
+			return gdms;
 		}
+	};
+	// createGD用ファンクタ
+	class GraphicsDeviceModeSelector {
+	public:
+		virtual GraphicsDeviceMode operator()( std::vector<GraphicsDeviceMode> ) = 0;		
 	};
 
 	class GraphicsManager {
 	public:
 		typedef Loki::SmartPtr<GraphicsManager> GM;
-		typedef std::vector<GraphicsDeviceMode> GDM_CONTAINERd;
 		static GM createGM( HWND hwnd );
 		virtual ~GraphicsManager();
-		GraphicsDevice::GD createGD( int width , int height , ColorFormat , int refreshRate , bool windowed );
+		GraphicsDevice::GD createGD( int width , int height , ColorFormat colorFormat , int refreshRate , bool windowed , int adapterNumber );
 		GraphicsDevice::GD createGD( GraphicsDeviceMode gdm );
-		GraphicsDevice::GD createGD( GraphicsDeviceModeSelector selector );
-		std::vector<GraphicsDeviceMode> queryGD( GraphicsDeviceModeSelector selector = GraphicsDeviceModeSelector() );
+		GraphicsDevice::GD createGD( GraphicsDeviceModeSelector &selector );
+		std::vector<GraphicsDeviceMode> queryGD( GraphicsDeviceModeFilter &filter = GraphicsDeviceModeFilter() );
 	protected:
 		GraphicsManager( HWND );
 		LPDIRECT3D8	d3d_;
