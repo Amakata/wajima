@@ -1,9 +1,9 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/resource/lib/zefirolibtest.rc,v 1.1 2002/05/10 19:33:59 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/resource/lib/zefirolibtest.rc,v 1.2 2002/05/10 20:02:28 ama Exp $
  */
 
 #include <windows.h>
-#include "graphics/test/resource.h"
+#include "resource.h"
 #include <winver.h>
 
 TESTAPP MENU DISCARDABLE

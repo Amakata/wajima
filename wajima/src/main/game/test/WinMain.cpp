@@ -1,14 +1,14 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/WinMain.cpp,v 1.5 2002/05/08 15:17:04 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/main/game/test/Attic/WinMain.cpp,v 1.6 2002/05/10 20:02:18 ama Exp $
  */
 
 #include <fstream>
 #include <windows.h>
 
 
-#include "test/WindowClass.h"
-#include "test/Window.h"
-#include "test/resource.h"
+#include "WindowClass.h"
+#include "Window.h"
+#include "resource.h"
 
 #include <cppunit/TextTestRunner.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
