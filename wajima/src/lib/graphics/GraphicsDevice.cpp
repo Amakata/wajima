@@ -1,13 +1,19 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDevice.cpp,v 1.2 2002/12/13 21:17:28 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDevice.cpp,v 1.3 2002/12/15 10:38:25 ama Exp $
  */
 
 #include "GraphicsDevice.h"
+#include "sys/DXAssert.h"
 
 namespace zefiro_graphics {
 	GraphicsDevice::GraphicsDevice( LPDIRECT3DDEVICE8 device ):device_(device){
 	}
 	GraphicsDevice::~GraphicsDevice(){
 		device_->Release();
+	}
+	void GraphicsDevice::clear( Color& color , float depth ){
+		if( HRESULT hr = device_->Clear( 0 , NULL , D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER  , color.getColor() , depth , 0 )!=D3D_OK ){
+			DXASSERT( hr );
+		}
 	}
 };

@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDevice.h,v 1.5 2002/12/13 21:17:28 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/graphics/GraphicsDevice.h,v 1.6 2002/12/15 10:38:25 ama Exp $
  */
 
 #ifndef __GRAPHICSDEVICE_H__
@@ -10,12 +10,14 @@
 #include "SmartPtr.h"
 #include "ColorFormat.h"
 #include "DepthFormat.h"
+#include "Color.h"
 
 namespace zefiro_graphics {
 	class GraphicsDevice {
 	public:
 		typedef Loki::SmartPtr<GraphicsDevice> GD;
 		virtual ~GraphicsDevice();
+		void clear( Color & , float depth );
 	protected:
 		friend class GraphicsManager;
 		GraphicsDevice( LPDIRECT3DDEVICE8 device );
