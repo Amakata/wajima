@@ -69,7 +69,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /ZI /Od /I "include/lib/" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /ZI /Od /I "include/lib/" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR /YX /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x411 /d "_DEBUG"
@@ -160,11 +160,27 @@ SOURCE=.\include\lib\std\test\ExceptionTest.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\lib\std\test\InvalidArgumentTest.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\test\InvalidArgumentTest.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\lib\std\test\NotEqualExceptionTest.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\include\lib\std\test\NotEqualExceptionTest.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\lib\std\test\SourceLineTest.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\include\lib\std\test\SourceLineTest.h
 # End Source File
 # Begin Source File
 
