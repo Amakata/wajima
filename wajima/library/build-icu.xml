@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="wajima project" default="icu" basedir=".">
+	<property name="archive.dir" value="." />
+	<property name="build.dir" value="build" />
+	<property name="lib.dir" value="..\lib" />
+	<property name="include.dir" value="..\include" />
+	<property name="cl.option" value='/Ox /Ob2 /Ot /GA /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /FD /EHsc /MT /GS /Zc:forScope /GR /W3 /nologo /c /Zi /TP' />
+	<property name="cl.debug.option" value='/Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Gm /EHsc /RTC1 /MTd /Zc:forScope /GR  /W3 /nologo /c /ZI /TP' />
+	<property name="c.option" value='/Ox /Ob2 /Ot /GA /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /FD /EHsc /MT /GS /Zc:forScope /GR /W3 /nologo /c /Zi /TC' />
+	<property name="c.debug.option" value='/Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Gm /EHsc /RTC1 /MTd /Zc:forScope /GR  /W3 /nologo /c /ZI /TC' />
+	
+	<target name="icu">
+		<if uptodatefile="${build.dir}">
+			<comparefiles>
+				<include name="${archive.dir}/icu-3.0.zip"></include>
+			</comparefiles>
+			<unzip />
+			<solution configuration="release" solutionfile="${build.dir}/icu/source/allinone/allinone.sln"></solution>
+			<solution configuration="debug" solutionfile="${build.dir}/icu/source/allinone/allinone.sln"></solution>
+		</if>
+	</target>
+</project>

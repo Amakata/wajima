@@ -119,6 +119,9 @@
 			RelativePath=".\boost_1_31_0.zip">
 		</File>
 		<File
+			RelativePath=".\build-icu.xml">
+		</File>
+		<File
 			RelativePath=".\build.xml">
 		</File>
 		<File
