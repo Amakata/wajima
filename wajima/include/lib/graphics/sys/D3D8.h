@@ -1,5 +1,5 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/Attic/D3D8.h,v 1.1 2002/05/10 19:29:05 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/include/lib/graphics/sys/Attic/D3D8.h,v 1.2 2002/08/25 10:48:07 ama Exp $
  */
 
 #ifndef __D3D8_H__
@@ -8,6 +8,7 @@
 #include <d3d8.h>
 
 #include "graphics/sys/Adapter.h"
+#include "graphics/sys/D3DDevice.h"
 
 namespace zefiro_graphics {
 	class D3D8
@@ -19,10 +20,11 @@ namespace zefiro_graphics {
 		int getAdapterModeCount( const int adapter ) const;
 		bool isAvailable() const;
 		std::vector<Adapter> getAdapterVector() const;
+		D3DDevice* createDevice( const int adapterid , Mode &mode , bool windowed , bool threaded , HWND hwnd ) const; 
 	protected:
 		std::string getAdapterIdentifier( const int adapterid ) const;
 		Mode getAdapterMode( const int adapterid , const int modeid ) const;
-		LPDIRECT3D8 _pD3D;
+		LPDIRECT3D8 pD3D_;
 	private:
 		D3D8( const D3D8  & d3d8 );
 		D3D8 operator = ( const D3D8  & d3d8 );
