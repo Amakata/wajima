@@ -3,6 +3,7 @@
 #include <string>
 #include "vertex.h"
 
+#define DXERROR_LOG( hr )	{	HRESULT hr2 = hr; if( hr2 != D3D_OK ){std::ofstream ofs;	ofs.open("error_log",std::ios_base::out | std::ios_base::app ); ofs <<__FILE__<<":"<<__LINE__<<":"<<hr2<< std::endl; ofs.close();} }
 
 class Texture {
 public:
@@ -25,9 +26,10 @@ public:
 											NULL , // パレット情報
 											&texture_ // テクスチャ
 											);
+		DXERROR_LOG(hr);
 		width_ = info.Width;
 		height_ = info.Height;
-		texture_->GetLevelDesc( 0 , &desc );
+		DXERROR_LOG(texture_->GetLevelDesc( 0 , &desc ));
 		memset( cv_ , 0 , sizeof CUSTOMVERTEX * 6 );
 		float heightRatio = (info.Height + 0.5f )/ desc.Height;
 		float widthRatio = (info.Width + 0.5f ) / desc.Width;;
