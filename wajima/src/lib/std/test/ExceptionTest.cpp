@@ -1,6 +1,8 @@
 /**
- * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/ExceptionTest.cpp,v 1.5 2002/05/23 16:00:06 ama Exp $
+ * $Header: /home/zefiro/cvsrep/cpp/wajima/src/lib/std/test/Attic/ExceptionTest.cpp,v 1.6 2002/07/02 17:00:18 ama Exp $
  */
+
+#include <fstream>
 
 #include "std/Exception.h"
 
@@ -33,7 +35,7 @@ namespace zefiro_stdtest {
 		zefiro_std::Exception *exception = _exception->clone();
 		CPPUNIT_ASSERT_EQUAL( _exception->lineNumber() , exception->lineNumber() );
 		CPPUNIT_ASSERT_EQUAL( _exception->fileName() , exception->fileName() );
-		CPPUNIT_ASSERT_EQUAL( _exception->what() , exception->what() );
+		CPPUNIT_ASSERT_EQUAL( std::string(_exception->what()) , std::string(exception->what()) );
 		delete exception;
 	}
 	void ExceptionTest::testCopy(){
@@ -41,14 +43,14 @@ namespace zefiro_stdtest {
 		*exception = *_exception;
 		CPPUNIT_ASSERT_EQUAL( _exception->lineNumber() , exception->lineNumber() ,  );
 		CPPUNIT_ASSERT_EQUAL( _exception->fileName() ,  exception->fileName() );
-		CPPUNIT_ASSERT_EQUAL( _exception->what() , exception->what() );
+		CPPUNIT_ASSERT_EQUAL( std::string(_exception->what()) , std::string(exception->what()) );
 		delete exception;
 	}
 	void ExceptionTest::testCopyConstruct(){
 		zefiro_std::Exception *exception = new zefiro_std::Exception( *_exception );
 		CPPUNIT_ASSERT_EQUAL( _exception->lineNumber() , exception->lineNumber() ,  );
 		CPPUNIT_ASSERT_EQUAL( _exception->fileName() ,  exception->fileName() );
-		CPPUNIT_ASSERT_EQUAL( _exception->what() , exception->what() );
+		CPPUNIT_ASSERT_EQUAL( std::string(_exception->what()) , std::string(exception->what()) );
 		delete exception;
 	}
 	void ExceptionTest::testType(){
