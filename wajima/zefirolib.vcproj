@@ -228,6 +228,9 @@
 				RelativePath=".\include\lib\graphics\sys\D3D8.h">
 			</File>
 			<File
+				RelativePath="include\lib\graphics\sys\D3DDevice8.h">
+			</File>
+			<File
 				RelativePath=".\include\lib\graphics\sys\DXAssert.h">
 			</File>
 			<File
