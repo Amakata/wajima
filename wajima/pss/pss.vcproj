@@ -15,32 +15,79 @@
 			Name="Debug|Win32"
 			OutputDirectory="Debug"
 			IntermediateDirectory="Debug"
-			ConfigurationType="10"
+			ConfigurationType="4"
 			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				OptimizeForWindowsApplication="FALSE"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)src&quot;;&quot;$(SolutionDir)include&quot;"
+				RuntimeLibrary="1"
+				ForceConformanceInForLoopScope="TRUE"
+				RuntimeTypeInfo="TRUE"
+				BrowseInformation="1"
+				WarningLevel="4"
+				DebugInformationFormat="4"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)/$(ProjectName)-mt-d.lib"/>
+			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCPostBuildEventTool"
+				Description="ソリューション直下にincludeとlibをコピーします。"
+				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:build.xml pss"/>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:..\build.xml init"/>
+				ExcludedFromBuild="FALSE"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="Release"
 			IntermediateDirectory="Release"
-			ConfigurationType="10"
+			ConfigurationType="4"
 			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)/$(ProjectName)-mt.lib"/>
+			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCPostBuildEventTool"
+				Description="ソリューション直下にincludeとlibをコピーします。"
+				CommandLine="c:\nant-0.84\bin\nant.exe -buildfile:..\build.xml pss"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -56,11 +103,97 @@
 					Name="std"
 					Filter="">
 					<File
+						RelativePath=".\src\pss\std\DXException.cpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\std\DXException.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\std\Exception.cpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\std\Exception.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\std\Logger.hpp">
+					</File>
+					<File
 						RelativePath=".\src\pss\std\SmartPtr.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\std\Timer.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\std\Win32ConsoleStream.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\std\Win32DebugConsoleStream.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\std\Win32Exception.hpp">
+					</File>
+					<Filter
+						Name="util"
+						Filter="">
+						<File
+							RelativePath=".\src\pss\std\util\PathComparator.hpp">
+						</File>
+					</Filter>
+				</Filter>
+				<Filter
+					Name="system"
+					Filter="">
+					<File
+						RelativePath=".\src\pss\system\IllegalThreadStateException.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\Mutex.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\Process.cpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\Process.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\Runnable.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\SyncObject.cpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\SyncObject.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\Thread.cpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\Thread.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\ThreadingModel.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\TimeOutException.hpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\Win32Event.cpp">
+					</File>
+					<File
+						RelativePath=".\src\pss\system\Win32Event.hpp">
 					</File>
 				</Filter>
 			</Filter>
 		</Filter>
+		<File
+			RelativePath=".\build.xml">
+			<FileConfiguration
+				Name="Debug|Win32">
+				<Tool
+					Name="VCCustomBuildTool"
+					CommandLine=""/>
+			</FileConfiguration>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
